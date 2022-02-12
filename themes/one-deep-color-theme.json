@@ -1,0 +1,54 @@
+{
+	"name": "One Deep",
+	"type": "dark",
+	"variables": {
+		"bgDarker": "#141b24",
+		"bgDark": "#1a212e",
+		"bgLight": "#21283b",
+		"black": "#0c0e15"
+	},
+	"colors": {
+		"editor.background": "#1a212e",
+		"sideBar.background": "#141b24",
+		"tab.activeBackground": "#1a212e",
+		"tab.activeBorder": "#0000",
+		"tab.inactiveBackground": "#21283b",
+		"titleBar.activeBackground": "#141b24",
+		"widget.shadow": "#0c0e1544",
+		"scrollbar.shadow": "#0000",
+		// "badge.background": "#f2cc81",
+		"badge.background": "#efbd5d",
+		"badge.foreground": "#5b5b5b",
+		"banner.background": "#ff0000",
+		"banner.foreground": "#ff0000",
+		"breadcrumb.activeSelectionForeground": "#ff0000",
+		"breadcrumb.focusForeground": "#ff0000",
+		"breadcrumbPicker.background": "#21283b",
+		"statusBar.background": "#141b24",
+		"panel.border": "#0c0e15",
+		"button.background": "#ec59e7",
+		"focusBorder": "#dd9046",
+		"foreground": "#dcbb",
+		"statusBar.foreground": "#dcbb",
+		"notifications.background": "#ff0000",
+		// "notificationCenter.border": "#ff0000"
+	},
+	"tokenColors": [
+		{
+			"name": "keyword",
+			"scope": "keyword",
+			"settings": {
+				"foreground": "#c75ae8",
+			}
+		},
+		{
+			"name": "string",
+			"scope": "string",
+			"settings": {
+				"foreground": "#8acd5b",
+			}
+		}
+	],
+	"semanticHighlighting": true,
+	"semanticTokenColors": {}
+}

@@ -1,0 +1,35 @@
+{
+	"name": "vscode-theme-one-deep",
+	"displayName": "One Deep",
+	"version": "0.1.0",
+	"author": "Daniel Zhang",
+	"description": "",
+	"engines": {
+		"vscode": "^1.64.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "One Deep",
+				"path": "./themes/one-deep-color-theme.json",
+				"uiTheme": "vs-dark"
+			}
+		]
+	},
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"build": "node scripts/index.js"
+	},
+	"devDependencies": {
+		"@types/js-yaml": "^4.0.5",
+		"@types/node": "^17.0.16",
+		"@types/vscode": "^1.64.0",
+		"js-yaml": "^4.1.0",
+		"ts-node": "^10.5.0",
+		"typescript": "^4.5.5"
+	}
+}

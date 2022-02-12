@@ -1,0 +1,10 @@
+name: One Deep
+type: dark
+deep:
+  bg: "#21283b"
+  bg1: ""
+colors:
+  editor.background: deep.bg
+  sideBar.background: "#1a212e"
+  tab.inactiveBackground: "#ff0000"
+  titleBar.activeBackground: "#1a212e"
