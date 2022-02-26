@@ -7,8 +7,9 @@
 				"--extensionDevelopmentPath=${workspaceFolder}"
 			],
 			"outFiles": [
-				"${workspaceFolder}/out/**/*.js",
+				"${workspaceFolder}/build/**/*.js",
 			],
+			// "preLaunchTask": "yarn build",
 			"request": "launch",
 			"type": "pwa-extensionHost"
 		}

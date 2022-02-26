@@ -8,7 +8,6 @@
 		"experimentalDecorators": true,
 		"forceConsistentCasingInFileNames": true,
 		"incremental": true,
-		"isolatedModules": true,
 		"lib": [
 			"ES2015",
 			"ES2016",
@@ -19,13 +18,14 @@
 			"ES2021",
 			"esnext"
 		],
-		"module": "CommonJS",
+		"module": "ESNext",
 		"moduleResolution": "node",
 		"noEmit": false,
 		"noImplicitAny": true,
 		"noImplicitReturns": true,
 		"noImplicitThis": false,
 		"noUnusedLocals": true,
+		"outDir": "build",
 		"resolveJsonModule": true,
 		"sourceMap": true,
 		"strict": true,
@@ -39,6 +39,6 @@
 		"node_modules/**/*"
 	],
 	"include": [
-		"scripts/**/*",
+		"src/**/*"
 	]
 }
