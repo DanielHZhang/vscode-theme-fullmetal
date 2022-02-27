@@ -2,31 +2,27 @@ import fs from 'fs';
 import {compileFromFile} from 'json-schema-to-typescript';
 import path from 'path';
 
-const generateThemeTypes = async () => {
+const main = async () => {
   try {
-    const schemaFilePaths = fs.readdirSync(path.join(process.cwd(), 'schemas'));
-    console.log(schemaFilePaths);
+    const buildDirPath = path.join(process.cwd(), 'build');
+    const schemaDirPath = path.join(process.cwd(), 'schemas');
+    const replaceRegex = /"vscode:\/\/schemas\/(.+)"/g;
+    const schemaFileNames = fs.readdirSync(path.join(schemaDirPath));
 
-    const replaceRegex = /vscode:\/\//g;
-
-    schemaFilePaths.map((filePath) => {
-      const file = fs.readFileSync(filePath, {encoding: 'utf8'});
-      file.replaceAll(replaceRegex, './name.json');
+    schemaFileNames.forEach((fileName) => {
+      const schemaContent = fs.readFileSync(path.join(schemaDirPath, fileName), {encoding: 'utf8'});
+      const formattedSchema = schemaContent.replace(
+        replaceRegex,
+        (_, capture) => `"${path.join(buildDirPath, `${capture}.json`)}"`
+      );
+      fs.writeFileSync(path.join(buildDirPath, fileName), formattedSchema);
     });
 
-    const schemaPath = path.join(process.cwd(), 'schemas', 'color-theme.json');
-    const generatedType = await compileFromFile(schemaPath);
-    fs.writeFileSync(path.join(process.cwd(), 'index.d.ts'), generatedType);
+    const generatedTypes = await compileFromFile(path.join(buildDirPath, 'color-theme.json'));
+    fs.writeFileSync(path.join(process.cwd(), 'index.d.ts'), generatedTypes);
   } catch (error) {
-    console.error('Error generating typescript type from schema:', error);
+    console.error('Error generating Typescript types from schema:', error);
   }
 };
 
-generateThemeTypes();
-
-// const rawYamlTheme = fs.readFileSync(path.join(process.cwd(), 'src', 'theme.yml'), 'utf-8');
-// const jsonResult = yaml.load(rawYamlTheme);
-// fs.writeFileSync(
-//   path.join(process.cwd(), 'themes', 'one-deep-color-theme.json'),
-//   JSON.stringify(jsonResult, null, 2)
-// );
+main();
