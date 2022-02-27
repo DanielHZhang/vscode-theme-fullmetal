@@ -9,7 +9,8 @@
 			"outFiles": [
 				"${workspaceFolder}/build/**/*.js",
 			],
-			// "preLaunchTask": "yarn build",
+			"runtimeExecutable": "${execPath}",
+			"preLaunchTask": "${defaultBuildTask}",
 			"request": "launch",
 			"type": "pwa-extensionHost"
 		}

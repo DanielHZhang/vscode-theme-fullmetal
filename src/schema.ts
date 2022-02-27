@@ -4,7 +4,17 @@ import path from 'path';
 
 const generateThemeTypes = async () => {
   try {
-    const schemaPath = path.join(process.cwd(), 'schemas', 'vscode-color-theme.json');
+    const schemaFilePaths = fs.readdirSync(path.join(process.cwd(), 'schemas'));
+    console.log(schemaFilePaths);
+
+    const replaceRegex = /vscode:\/\//g;
+
+    schemaFilePaths.map((filePath) => {
+      const file = fs.readFileSync(filePath, {encoding: 'utf8'});
+      file.replaceAll(replaceRegex, './name.json');
+    });
+
+    const schemaPath = path.join(process.cwd(), 'schemas', 'color-theme.json');
     const generatedType = await compileFromFile(schemaPath);
     fs.writeFileSync(path.join(process.cwd(), 'index.d.ts'), generatedType);
   } catch (error) {
