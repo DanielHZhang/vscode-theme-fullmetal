@@ -5,6 +5,110 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+type TokenScope =
+  | 'comment'
+  | 'comment.block'
+  | 'comment.block.documentation'
+  | 'comment.line'
+  | 'constant'
+  | 'constant.character'
+  | 'constant.character.escape'
+  | 'constant.numeric'
+  | 'constant.numeric.integer'
+  | 'constant.numeric.float'
+  | 'constant.numeric.hex'
+  | 'constant.numeric.octal'
+  | 'constant.other'
+  | 'constant.regexp'
+  | 'constant.rgb-value'
+  | 'emphasis'
+  | 'entity'
+  | 'entity.name'
+  | 'entity.name.class'
+  | 'entity.name.function'
+  | 'entity.name.method'
+  | 'entity.name.section'
+  | 'entity.name.selector'
+  | 'entity.name.tag'
+  | 'entity.name.type'
+  | 'entity.other'
+  | 'entity.other.attribute-name'
+  | 'entity.other.inherited-class'
+  | 'invalid'
+  | 'invalid.deprecated'
+  | 'invalid.illegal'
+  | 'keyword'
+  | 'keyword.control'
+  | 'keyword.operator'
+  | 'keyword.operator.new'
+  | 'keyword.operator.assignment'
+  | 'keyword.operator.arithmetic'
+  | 'keyword.operator.logical'
+  | 'keyword.other'
+  | 'markup'
+  | 'markup.bold'
+  | 'markup.changed'
+  | 'markup.deleted'
+  | 'markup.heading'
+  | 'markup.inline.raw'
+  | 'markup.inserted'
+  | 'markup.italic'
+  | 'markup.list'
+  | 'markup.list.numbered'
+  | 'markup.list.unnumbered'
+  | 'markup.other'
+  | 'markup.quote'
+  | 'markup.raw'
+  | 'markup.underline'
+  | 'markup.underline.link'
+  | 'meta'
+  | 'meta.block'
+  | 'meta.cast'
+  | 'meta.class'
+  | 'meta.function'
+  | 'meta.function-call'
+  | 'meta.preprocessor'
+  | 'meta.return-type'
+  | 'meta.selector'
+  | 'meta.tag'
+  | 'meta.type.annotation'
+  | 'meta.type'
+  | 'punctuation.definition.string.begin'
+  | 'punctuation.definition.string.end'
+  | 'punctuation.separator'
+  | 'punctuation.separator.continuation'
+  | 'punctuation.terminator'
+  | 'storage'
+  | 'storage.modifier'
+  | 'storage.type'
+  | 'string'
+  | 'string.interpolated'
+  | 'string.other'
+  | 'string.quoted'
+  | 'string.quoted.double'
+  | 'string.quoted.other'
+  | 'string.quoted.single'
+  | 'string.quoted.triple'
+  | 'string.regexp'
+  | 'string.unquoted'
+  | 'strong'
+  | 'support'
+  | 'support.class'
+  | 'support.constant'
+  | 'support.function'
+  | 'support.other'
+  | 'support.type'
+  | 'support.type.property-name'
+  | 'support.variable'
+  | 'variable'
+  | 'variable.language'
+  | 'variable.name'
+  | 'variable.other'
+  | 'variable.other.readwrite'
+  | 'variable.parameter';
+
+type TokenScopeExtended = `${TokenScope}.${string}`;
+
 export interface ColorTheme {
   /**
    * Colors in the workbench
@@ -25,7 +129,7 @@ export interface ColorTheme {
     /**
      * The default color for icons in the workbench.
      */
-    "icon.foreground"?: string;
+    'icon.foreground'?: string;
     /**
      * Overall border color for focused elements. This color is only used if not overridden by a component.
      */
@@ -41,2628 +145,2628 @@ export interface ColorTheme {
     /**
      * The background color of text selections in the workbench (e.g. for input fields or text areas). Note that this does not apply to selections within the editor.
      */
-    "selection.background"?: string;
+    'selection.background'?: string;
     /**
      * Color for text separators.
      */
-    "textSeparator.foreground"?: string;
+    'textSeparator.foreground'?: string;
     /**
      * Foreground color for links in text.
      */
-    "textLink.foreground"?: string;
+    'textLink.foreground'?: string;
     /**
      * Foreground color for links in text when clicked on and on mouse hover.
      */
-    "textLink.activeForeground"?: string;
+    'textLink.activeForeground'?: string;
     /**
      * Foreground color for preformatted text segments.
      */
-    "textPreformat.foreground"?: string;
+    'textPreformat.foreground'?: string;
     /**
      * Background color for block quotes in text.
      */
-    "textBlockQuote.background"?: string;
+    'textBlockQuote.background'?: string;
     /**
      * Border color for block quotes in text.
      */
-    "textBlockQuote.border"?: string;
+    'textBlockQuote.border'?: string;
     /**
      * Background color for code blocks in text.
      */
-    "textCodeBlock.background"?: string;
+    'textCodeBlock.background'?: string;
     /**
      * Shadow color of widgets such as find/replace inside the editor.
      */
-    "widget.shadow"?: string;
+    'widget.shadow'?: string;
     /**
      * Input box background.
      */
-    "input.background"?: string;
+    'input.background'?: string;
     /**
      * Input box foreground.
      */
-    "input.foreground"?: string;
+    'input.foreground'?: string;
     /**
      * Input box border.
      */
-    "input.border"?: string;
+    'input.border'?: string;
     /**
      * Border color of activated options in input fields.
      */
-    "inputOption.activeBorder"?: string;
+    'inputOption.activeBorder'?: string;
     /**
      * Background color of activated options in input fields.
      */
-    "inputOption.hoverBackground"?: string;
+    'inputOption.hoverBackground'?: string;
     /**
      * Background hover color of options in input fields.
      */
-    "inputOption.activeBackground"?: string;
+    'inputOption.activeBackground'?: string;
     /**
      * Foreground color of activated options in input fields.
      */
-    "inputOption.activeForeground"?: string;
+    'inputOption.activeForeground'?: string;
     /**
      * Input box foreground color for placeholder text.
      */
-    "input.placeholderForeground"?: string;
+    'input.placeholderForeground'?: string;
     /**
      * Input validation background color for information severity.
      */
-    "inputValidation.infoBackground"?: string;
+    'inputValidation.infoBackground'?: string;
     /**
      * Input validation foreground color for information severity.
      */
-    "inputValidation.infoForeground"?: string;
+    'inputValidation.infoForeground'?: string;
     /**
      * Input validation border color for information severity.
      */
-    "inputValidation.infoBorder"?: string;
+    'inputValidation.infoBorder'?: string;
     /**
      * Input validation background color for warning severity.
      */
-    "inputValidation.warningBackground"?: string;
+    'inputValidation.warningBackground'?: string;
     /**
      * Input validation foreground color for warning severity.
      */
-    "inputValidation.warningForeground"?: string;
+    'inputValidation.warningForeground'?: string;
     /**
      * Input validation border color for warning severity.
      */
-    "inputValidation.warningBorder"?: string;
+    'inputValidation.warningBorder'?: string;
     /**
      * Input validation background color for error severity.
      */
-    "inputValidation.errorBackground"?: string;
+    'inputValidation.errorBackground'?: string;
     /**
      * Input validation foreground color for error severity.
      */
-    "inputValidation.errorForeground"?: string;
+    'inputValidation.errorForeground'?: string;
     /**
      * Input validation border color for error severity.
      */
-    "inputValidation.errorBorder"?: string;
+    'inputValidation.errorBorder'?: string;
     /**
      * Dropdown background.
      */
-    "dropdown.background"?: string;
+    'dropdown.background'?: string;
     /**
      * Dropdown list background.
      */
-    "dropdown.listBackground"?: string;
+    'dropdown.listBackground'?: string;
     /**
      * Dropdown foreground.
      */
-    "dropdown.foreground"?: string;
+    'dropdown.foreground'?: string;
     /**
      * Dropdown border.
      */
-    "dropdown.border"?: string;
+    'dropdown.border'?: string;
     /**
      * Background color of checkbox widget.
      */
-    "checkbox.background"?: string;
+    'checkbox.background'?: string;
     /**
      * Foreground color of checkbox widget.
      */
-    "checkbox.foreground"?: string;
+    'checkbox.foreground'?: string;
     /**
      * Border color of checkbox widget.
      */
-    "checkbox.border"?: string;
+    'checkbox.border'?: string;
     /**
      * Button foreground color.
      */
-    "button.foreground"?: string;
+    'button.foreground'?: string;
     /**
      * Button background color.
      */
-    "button.background"?: string;
+    'button.background'?: string;
     /**
      * Button background color when hovering.
      */
-    "button.hoverBackground"?: string;
+    'button.hoverBackground'?: string;
     /**
      * Button border color.
      */
-    "button.border"?: string;
+    'button.border'?: string;
     /**
      * Secondary button foreground color.
      */
-    "button.secondaryForeground"?: string;
+    'button.secondaryForeground'?: string;
     /**
      * Secondary button background color.
      */
-    "button.secondaryBackground"?: string;
+    'button.secondaryBackground'?: string;
     /**
      * Secondary button background color when hovering.
      */
-    "button.secondaryHoverBackground"?: string;
+    'button.secondaryHoverBackground'?: string;
     /**
      * Badge background color. Badges are small information labels, e.g. for search results count.
      */
-    "badge.background"?: string;
+    'badge.background'?: string;
     /**
      * Badge foreground color. Badges are small information labels, e.g. for search results count.
      */
-    "badge.foreground"?: string;
+    'badge.foreground'?: string;
     /**
      * Scrollbar shadow to indicate that the view is scrolled.
      */
-    "scrollbar.shadow"?: string;
+    'scrollbar.shadow'?: string;
     /**
      * Scrollbar slider background color.
      */
-    "scrollbarSlider.background"?: string;
+    'scrollbarSlider.background'?: string;
     /**
      * Scrollbar slider background color when hovering.
      */
-    "scrollbarSlider.hoverBackground"?: string;
+    'scrollbarSlider.hoverBackground'?: string;
     /**
      * Scrollbar slider background color when clicked on.
      */
-    "scrollbarSlider.activeBackground"?: string;
+    'scrollbarSlider.activeBackground'?: string;
     /**
      * Background color of the progress bar that can show for long running operations.
      */
-    "progressBar.background"?: string;
+    'progressBar.background'?: string;
     /**
      * Background color of error text in the editor. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editorError.background"?: string;
+    'editorError.background'?: string;
     /**
      * Foreground color of error squigglies in the editor.
      */
-    "editorError.foreground"?: string;
+    'editorError.foreground'?: string;
     /**
      * Border color of error boxes in the editor.
      */
-    "editorError.border"?: string;
+    'editorError.border'?: string;
     /**
      * Background color of warning text in the editor. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editorWarning.background"?: string;
+    'editorWarning.background'?: string;
     /**
      * Foreground color of warning squigglies in the editor.
      */
-    "editorWarning.foreground"?: string;
+    'editorWarning.foreground'?: string;
     /**
      * Border color of warning boxes in the editor.
      */
-    "editorWarning.border"?: string;
+    'editorWarning.border'?: string;
     /**
      * Background color of info text in the editor. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editorInfo.background"?: string;
+    'editorInfo.background'?: string;
     /**
      * Foreground color of info squigglies in the editor.
      */
-    "editorInfo.foreground"?: string;
+    'editorInfo.foreground'?: string;
     /**
      * Border color of info boxes in the editor.
      */
-    "editorInfo.border"?: string;
+    'editorInfo.border'?: string;
     /**
      * Foreground color of hint squigglies in the editor.
      */
-    "editorHint.foreground"?: string;
+    'editorHint.foreground'?: string;
     /**
      * Border color of hint boxes in the editor.
      */
-    "editorHint.border"?: string;
+    'editorHint.border'?: string;
     /**
      * Border color of active sashes.
      */
-    "sash.hoverBorder"?: string;
+    'sash.hoverBorder'?: string;
     /**
      * Editor background color.
      */
-    "editor.background"?: string;
+    'editor.background'?: string;
     /**
      * Editor default foreground color.
      */
-    "editor.foreground"?: string;
+    'editor.foreground'?: string;
     /**
      * Background color of editor widgets, such as find/replace.
      */
-    "editorWidget.background"?: string;
+    'editorWidget.background'?: string;
     /**
      * Foreground color of editor widgets, such as find/replace.
      */
-    "editorWidget.foreground"?: string;
+    'editorWidget.foreground'?: string;
     /**
      * Border color of editor widgets. The color is only used if the widget chooses to have a border and if the color is not overridden by a widget.
      */
-    "editorWidget.border"?: string;
+    'editorWidget.border'?: string;
     /**
      * Border color of the resize bar of editor widgets. The color is only used if the widget chooses to have a resize border and if the color is not overridden by a widget.
      */
-    "editorWidget.resizeBorder"?: string;
+    'editorWidget.resizeBorder'?: string;
     /**
      * Quick picker background color. The quick picker widget is the container for pickers like the command palette.
      */
-    "quickInput.background"?: string;
+    'quickInput.background'?: string;
     /**
      * Quick picker foreground color. The quick picker widget is the container for pickers like the command palette.
      */
-    "quickInput.foreground"?: string;
+    'quickInput.foreground'?: string;
     /**
      * Quick picker title background color. The quick picker widget is the container for pickers like the command palette.
      */
-    "quickInputTitle.background"?: string;
+    'quickInputTitle.background'?: string;
     /**
      * Quick picker color for grouping labels.
      */
-    "pickerGroup.foreground"?: string;
+    'pickerGroup.foreground'?: string;
     /**
      * Quick picker color for grouping borders.
      */
-    "pickerGroup.border"?: string;
+    'pickerGroup.border'?: string;
     /**
      * Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.
      */
-    "keybindingLabel.background"?: string;
+    'keybindingLabel.background'?: string;
     /**
      * Keybinding label foreground color. The keybinding label is used to represent a keyboard shortcut.
      */
-    "keybindingLabel.foreground"?: string;
+    'keybindingLabel.foreground'?: string;
     /**
      * Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.
      */
-    "keybindingLabel.border"?: string;
+    'keybindingLabel.border'?: string;
     /**
      * Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.
      */
-    "keybindingLabel.bottomBorder"?: string;
+    'keybindingLabel.bottomBorder'?: string;
     /**
      * Color of the editor selection.
      */
-    "editor.selectionBackground"?: string;
+    'editor.selectionBackground'?: string;
     /**
      * Color of the selected text for high contrast.
      */
-    "editor.selectionForeground"?: string;
+    'editor.selectionForeground'?: string;
     /**
      * Color of the selection in an inactive editor. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editor.inactiveSelectionBackground"?: string;
+    'editor.inactiveSelectionBackground'?: string;
     /**
      * Color for regions with the same content as the selection. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editor.selectionHighlightBackground"?: string;
+    'editor.selectionHighlightBackground'?: string;
     /**
      * Border color for regions with the same content as the selection.
      */
-    "editor.selectionHighlightBorder"?: string;
+    'editor.selectionHighlightBorder'?: string;
     /**
      * Color of the current search match.
      */
-    "editor.findMatchBackground"?: string;
+    'editor.findMatchBackground'?: string;
     /**
      * Color of the other search matches. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editor.findMatchHighlightBackground"?: string;
+    'editor.findMatchHighlightBackground'?: string;
     /**
      * Color of the range limiting the search. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editor.findRangeHighlightBackground"?: string;
+    'editor.findRangeHighlightBackground'?: string;
     /**
      * Border color of the current search match.
      */
-    "editor.findMatchBorder"?: string;
+    'editor.findMatchBorder'?: string;
     /**
      * Border color of the other search matches.
      */
-    "editor.findMatchHighlightBorder"?: string;
+    'editor.findMatchHighlightBorder'?: string;
     /**
      * Border color of the range limiting the search. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editor.findRangeHighlightBorder"?: string;
+    'editor.findRangeHighlightBorder'?: string;
     /**
      * Color of the Search Editor query matches.
      */
-    "searchEditor.findMatchBackground"?: string;
+    'searchEditor.findMatchBackground'?: string;
     /**
      * Border color of the Search Editor query matches.
      */
-    "searchEditor.findMatchBorder"?: string;
+    'searchEditor.findMatchBorder'?: string;
     /**
      * Highlight below the word for which a hover is shown. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editor.hoverHighlightBackground"?: string;
+    'editor.hoverHighlightBackground'?: string;
     /**
      * Background color of the editor hover.
      */
-    "editorHoverWidget.background"?: string;
+    'editorHoverWidget.background'?: string;
     /**
      * Foreground color of the editor hover.
      */
-    "editorHoverWidget.foreground"?: string;
+    'editorHoverWidget.foreground'?: string;
     /**
      * Border color of the editor hover.
      */
-    "editorHoverWidget.border"?: string;
+    'editorHoverWidget.border'?: string;
     /**
      * Background color of the editor hover status bar.
      */
-    "editorHoverWidget.statusBarBackground"?: string;
+    'editorHoverWidget.statusBarBackground'?: string;
     /**
      * Color of active links.
      */
-    "editorLink.activeForeground"?: string;
+    'editorLink.activeForeground'?: string;
     /**
      * Foreground color of inline hints
      */
-    "editorInlayHint.foreground"?: string;
+    'editorInlayHint.foreground'?: string;
     /**
      * Background color of inline hints
      */
-    "editorInlayHint.background"?: string;
+    'editorInlayHint.background'?: string;
     /**
      * Foreground color of inline hints for types
      */
-    "editorInlayHint.typeForeground"?: string;
+    'editorInlayHint.typeForeground'?: string;
     /**
      * Background color of inline hints for types
      */
-    "editorInlayHint.typeBackground"?: string;
+    'editorInlayHint.typeBackground'?: string;
     /**
      * Foreground color of inline hints for parameters
      */
-    "editorInlayHint.parameterForeground"?: string;
+    'editorInlayHint.parameterForeground'?: string;
     /**
      * Background color of inline hints for parameters
      */
-    "editorInlayHint.parameterBackground"?: string;
+    'editorInlayHint.parameterBackground'?: string;
     /**
      * The color used for the lightbulb actions icon.
      */
-    "editorLightBulb.foreground"?: string;
+    'editorLightBulb.foreground'?: string;
     /**
      * The color used for the lightbulb auto fix actions icon.
      */
-    "editorLightBulbAutoFix.foreground"?: string;
+    'editorLightBulbAutoFix.foreground'?: string;
     /**
      * Background color for text that got inserted. The color must not be opaque so as not to hide underlying decorations.
      */
-    "diffEditor.insertedTextBackground"?: string;
+    'diffEditor.insertedTextBackground'?: string;
     /**
      * Background color for text that got removed. The color must not be opaque so as not to hide underlying decorations.
      */
-    "diffEditor.removedTextBackground"?: string;
+    'diffEditor.removedTextBackground'?: string;
     /**
      * Outline color for the text that got inserted.
      */
-    "diffEditor.insertedTextBorder"?: string;
+    'diffEditor.insertedTextBorder'?: string;
     /**
      * Outline color for text that got removed.
      */
-    "diffEditor.removedTextBorder"?: string;
+    'diffEditor.removedTextBorder'?: string;
     /**
      * Border color between the two text editors.
      */
-    "diffEditor.border"?: string;
+    'diffEditor.border'?: string;
     /**
      * Color of the diff editor's diagonal fill. The diagonal fill is used in side-by-side diff views.
      */
-    "diffEditor.diagonalFill"?: string;
+    'diffEditor.diagonalFill'?: string;
     /**
      * List/Tree background color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
      */
-    "list.focusBackground"?: string;
+    'list.focusBackground'?: string;
     /**
      * List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
      */
-    "list.focusForeground"?: string;
+    'list.focusForeground'?: string;
     /**
      * List/Tree outline color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
      */
-    "list.focusOutline"?: string;
+    'list.focusOutline'?: string;
     /**
      * List/Tree background color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
      */
-    "list.activeSelectionBackground"?: string;
+    'list.activeSelectionBackground'?: string;
     /**
      * List/Tree foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
      */
-    "list.activeSelectionForeground"?: string;
+    'list.activeSelectionForeground'?: string;
     /**
      * List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
      */
-    "list.activeSelectionIconForeground"?: string;
+    'list.activeSelectionIconForeground'?: string;
     /**
      * List/Tree background color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
      */
-    "list.inactiveSelectionBackground"?: string;
+    'list.inactiveSelectionBackground'?: string;
     /**
      * List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
      */
-    "list.inactiveSelectionForeground"?: string;
+    'list.inactiveSelectionForeground'?: string;
     /**
      * List/Tree icon foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
      */
-    "list.inactiveSelectionIconForeground"?: string;
+    'list.inactiveSelectionIconForeground'?: string;
     /**
      * List/Tree background color for the focused item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
      */
-    "list.inactiveFocusBackground"?: string;
+    'list.inactiveFocusBackground'?: string;
     /**
      * List/Tree outline color for the focused item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
      */
-    "list.inactiveFocusOutline"?: string;
+    'list.inactiveFocusOutline'?: string;
     /**
      * List/Tree background when hovering over items using the mouse.
      */
-    "list.hoverBackground"?: string;
+    'list.hoverBackground'?: string;
     /**
      * List/Tree foreground when hovering over items using the mouse.
      */
-    "list.hoverForeground"?: string;
+    'list.hoverForeground'?: string;
     /**
      * List/Tree drag and drop background when moving items around using the mouse.
      */
-    "list.dropBackground"?: string;
+    'list.dropBackground'?: string;
     /**
      * List/Tree foreground color of the match highlights when searching inside the list/tree.
      */
-    "list.highlightForeground"?: string;
+    'list.highlightForeground'?: string;
     /**
      * List/Tree foreground color of the match highlights on actively focused items when searching inside the list/tree.
      */
-    "list.focusHighlightForeground"?: string;
+    'list.focusHighlightForeground'?: string;
     /**
      * List/Tree foreground color for invalid items, for example an unresolved root in explorer.
      */
-    "list.invalidItemForeground"?: string;
+    'list.invalidItemForeground'?: string;
     /**
      * Foreground color of list items containing errors.
      */
-    "list.errorForeground"?: string;
+    'list.errorForeground'?: string;
     /**
      * Foreground color of list items containing warnings.
      */
-    "list.warningForeground"?: string;
+    'list.warningForeground'?: string;
     /**
      * Background color of the type filter widget in lists and trees.
      */
-    "listFilterWidget.background"?: string;
+    'listFilterWidget.background'?: string;
     /**
      * Outline color of the type filter widget in lists and trees.
      */
-    "listFilterWidget.outline"?: string;
+    'listFilterWidget.outline'?: string;
     /**
      * Outline color of the type filter widget in lists and trees, when there are no matches.
      */
-    "listFilterWidget.noMatchesOutline"?: string;
+    'listFilterWidget.noMatchesOutline'?: string;
     /**
      * Background color of the filtered match.
      */
-    "list.filterMatchBackground"?: string;
+    'list.filterMatchBackground'?: string;
     /**
      * Border color of the filtered match.
      */
-    "list.filterMatchBorder"?: string;
+    'list.filterMatchBorder'?: string;
     /**
      * Tree stroke color for the indentation guides.
      */
-    "tree.indentGuidesStroke"?: string;
+    'tree.indentGuidesStroke'?: string;
     /**
      * Table border color between columns.
      */
-    "tree.tableColumnsBorder"?: string;
+    'tree.tableColumnsBorder'?: string;
     /**
      * Background color for odd table rows.
      */
-    "tree.tableOddRowsBackground"?: string;
+    'tree.tableOddRowsBackground'?: string;
     /**
      * List/Tree foreground color for items that are deemphasized.
      */
-    "list.deemphasizedForeground"?: string;
-    "quickInput.list.focusBackground"?: string;
+    'list.deemphasizedForeground'?: string;
+    'quickInput.list.focusBackground'?: string;
     /**
      * Quick picker foreground color for the focused item.
      */
-    "quickInputList.focusForeground"?: string;
+    'quickInputList.focusForeground'?: string;
     /**
      * Quick picker icon foreground color for the focused item.
      */
-    "quickInputList.focusIconForeground"?: string;
+    'quickInputList.focusIconForeground'?: string;
     /**
      * Quick picker background color for the focused item.
      */
-    "quickInputList.focusBackground"?: string;
+    'quickInputList.focusBackground'?: string;
     /**
      * Border color of menus.
      */
-    "menu.border"?: string;
+    'menu.border'?: string;
     /**
      * Foreground color of menu items.
      */
-    "menu.foreground"?: string;
+    'menu.foreground'?: string;
     /**
      * Background color of menu items.
      */
-    "menu.background"?: string;
+    'menu.background'?: string;
     /**
      * Foreground color of the selected menu item in menus.
      */
-    "menu.selectionForeground"?: string;
+    'menu.selectionForeground'?: string;
     /**
      * Background color of the selected menu item in menus.
      */
-    "menu.selectionBackground"?: string;
+    'menu.selectionBackground'?: string;
     /**
      * Border color of the selected menu item in menus.
      */
-    "menu.selectionBorder"?: string;
+    'menu.selectionBorder'?: string;
     /**
      * Color of a separator menu item in menus.
      */
-    "menu.separatorBackground"?: string;
+    'menu.separatorBackground'?: string;
     /**
      * Toolbar background when hovering over actions using the mouse
      */
-    "toolbar.hoverBackground"?: string;
+    'toolbar.hoverBackground'?: string;
     /**
      * Toolbar outline when hovering over actions using the mouse
      */
-    "toolbar.hoverOutline"?: string;
+    'toolbar.hoverOutline'?: string;
     /**
      * Toolbar background when holding the mouse over actions
      */
-    "toolbar.activeBackground"?: string;
+    'toolbar.activeBackground'?: string;
     /**
      * Highlight background color of a snippet tabstop.
      */
-    "editor.snippetTabstopHighlightBackground"?: string;
+    'editor.snippetTabstopHighlightBackground'?: string;
     /**
      * Highlight border color of a snippet tabstop.
      */
-    "editor.snippetTabstopHighlightBorder"?: string;
+    'editor.snippetTabstopHighlightBorder'?: string;
     /**
      * Highlight background color of the final tabstop of a snippet.
      */
-    "editor.snippetFinalTabstopHighlightBackground"?: string;
+    'editor.snippetFinalTabstopHighlightBackground'?: string;
     /**
      * Highlight border color of the final tabstop of a snippet.
      */
-    "editor.snippetFinalTabstopHighlightBorder"?: string;
+    'editor.snippetFinalTabstopHighlightBorder'?: string;
     /**
      * Color of focused breadcrumb items.
      */
-    "breadcrumb.foreground"?: string;
+    'breadcrumb.foreground'?: string;
     /**
      * Background color of breadcrumb items.
      */
-    "breadcrumb.background"?: string;
+    'breadcrumb.background'?: string;
     /**
      * Color of focused breadcrumb items.
      */
-    "breadcrumb.focusForeground"?: string;
+    'breadcrumb.focusForeground'?: string;
     /**
      * Color of selected breadcrumb items.
      */
-    "breadcrumb.activeSelectionForeground"?: string;
+    'breadcrumb.activeSelectionForeground'?: string;
     /**
      * Background color of breadcrumb item picker.
      */
-    "breadcrumbPicker.background"?: string;
+    'breadcrumbPicker.background'?: string;
     /**
      * Current header background in inline merge-conflicts. The color must not be opaque so as not to hide underlying decorations.
      */
-    "merge.currentHeaderBackground"?: string;
+    'merge.currentHeaderBackground'?: string;
     /**
      * Current content background in inline merge-conflicts. The color must not be opaque so as not to hide underlying decorations.
      */
-    "merge.currentContentBackground"?: string;
+    'merge.currentContentBackground'?: string;
     /**
      * Incoming header background in inline merge-conflicts. The color must not be opaque so as not to hide underlying decorations.
      */
-    "merge.incomingHeaderBackground"?: string;
+    'merge.incomingHeaderBackground'?: string;
     /**
      * Incoming content background in inline merge-conflicts. The color must not be opaque so as not to hide underlying decorations.
      */
-    "merge.incomingContentBackground"?: string;
+    'merge.incomingContentBackground'?: string;
     /**
      * Common ancestor header background in inline merge-conflicts. The color must not be opaque so as not to hide underlying decorations.
      */
-    "merge.commonHeaderBackground"?: string;
+    'merge.commonHeaderBackground'?: string;
     /**
      * Common ancestor content background in inline merge-conflicts. The color must not be opaque so as not to hide underlying decorations.
      */
-    "merge.commonContentBackground"?: string;
+    'merge.commonContentBackground'?: string;
     /**
      * Border color on headers and the splitter in inline merge-conflicts.
      */
-    "merge.border"?: string;
+    'merge.border'?: string;
     /**
      * Current overview ruler foreground for inline merge-conflicts.
      */
-    "editorOverviewRuler.currentContentForeground"?: string;
+    'editorOverviewRuler.currentContentForeground'?: string;
     /**
      * Incoming overview ruler foreground for inline merge-conflicts.
      */
-    "editorOverviewRuler.incomingContentForeground"?: string;
+    'editorOverviewRuler.incomingContentForeground'?: string;
     /**
      * Common ancestor overview ruler foreground for inline merge-conflicts.
      */
-    "editorOverviewRuler.commonContentForeground"?: string;
+    'editorOverviewRuler.commonContentForeground'?: string;
     /**
      * Overview ruler marker color for find matches. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editorOverviewRuler.findMatchForeground"?: string;
+    'editorOverviewRuler.findMatchForeground'?: string;
     /**
      * Overview ruler marker color for selection highlights. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editorOverviewRuler.selectionHighlightForeground"?: string;
+    'editorOverviewRuler.selectionHighlightForeground'?: string;
     /**
      * Minimap marker color for find matches.
      */
-    "minimap.findMatchHighlight"?: string;
+    'minimap.findMatchHighlight'?: string;
     /**
      * Minimap marker color for repeating editor selections.
      */
-    "minimap.selectionOccurrenceHighlight"?: string;
+    'minimap.selectionOccurrenceHighlight'?: string;
     /**
      * Minimap marker color for the editor selection.
      */
-    "minimap.selectionHighlight"?: string;
+    'minimap.selectionHighlight'?: string;
     /**
      * Minimap marker color for errors.
      */
-    "minimap.errorHighlight"?: string;
+    'minimap.errorHighlight'?: string;
     /**
      * Minimap marker color for warnings.
      */
-    "minimap.warningHighlight"?: string;
+    'minimap.warningHighlight'?: string;
     /**
      * Minimap background color.
      */
-    "minimap.background"?: string;
+    'minimap.background'?: string;
     /**
      * Opacity of foreground elements rendered in the minimap. For example, "#000000c0" will render the elements with 75% opacity.
      */
-    "minimap.foregroundOpacity"?: string;
+    'minimap.foregroundOpacity'?: string;
     /**
      * Minimap slider background color.
      */
-    "minimapSlider.background"?: string;
+    'minimapSlider.background'?: string;
     /**
      * Minimap slider background color when hovering.
      */
-    "minimapSlider.hoverBackground"?: string;
+    'minimapSlider.hoverBackground'?: string;
     /**
      * Minimap slider background color when clicked on.
      */
-    "minimapSlider.activeBackground"?: string;
+    'minimapSlider.activeBackground'?: string;
     /**
      * The color used for the problems error icon.
      */
-    "problemsErrorIcon.foreground"?: string;
+    'problemsErrorIcon.foreground'?: string;
     /**
      * The color used for the problems warning icon.
      */
-    "problemsWarningIcon.foreground"?: string;
+    'problemsWarningIcon.foreground'?: string;
     /**
      * The color used for the problems info icon.
      */
-    "problemsInfoIcon.foreground"?: string;
+    'problemsInfoIcon.foreground'?: string;
     /**
      * The foreground color used in charts.
      */
-    "charts.foreground"?: string;
+    'charts.foreground'?: string;
     /**
      * The color used for horizontal lines in charts.
      */
-    "charts.lines"?: string;
+    'charts.lines'?: string;
     /**
      * The red color used in chart visualizations.
      */
-    "charts.red"?: string;
+    'charts.red'?: string;
     /**
      * The blue color used in chart visualizations.
      */
-    "charts.blue"?: string;
+    'charts.blue'?: string;
     /**
      * The yellow color used in chart visualizations.
      */
-    "charts.yellow"?: string;
+    'charts.yellow'?: string;
     /**
      * The orange color used in chart visualizations.
      */
-    "charts.orange"?: string;
+    'charts.orange'?: string;
     /**
      * The green color used in chart visualizations.
      */
-    "charts.green"?: string;
+    'charts.green'?: string;
     /**
      * The purple color used in chart visualizations.
      */
-    "charts.purple"?: string;
+    'charts.purple'?: string;
     /**
      * Background color for the highlight of line at the cursor position.
      */
-    "editor.lineHighlightBackground"?: string;
+    'editor.lineHighlightBackground'?: string;
     /**
      * Background color for the border around the line at the cursor position.
      */
-    "editor.lineHighlightBorder"?: string;
+    'editor.lineHighlightBorder'?: string;
     /**
      * Background color of highlighted ranges, like by quick open and find features. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editor.rangeHighlightBackground"?: string;
+    'editor.rangeHighlightBackground'?: string;
     /**
      * Background color of the border around highlighted ranges.
      */
-    "editor.rangeHighlightBorder"?: string;
+    'editor.rangeHighlightBorder'?: string;
     /**
      * Background color of highlighted symbol, like for go to definition or go next/previous symbol. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editor.symbolHighlightBackground"?: string;
+    'editor.symbolHighlightBackground'?: string;
     /**
      * Background color of the border around highlighted symbols.
      */
-    "editor.symbolHighlightBorder"?: string;
+    'editor.symbolHighlightBorder'?: string;
     /**
      * Color of the editor cursor.
      */
-    "editorCursor.foreground"?: string;
+    'editorCursor.foreground'?: string;
     /**
      * The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor.
      */
-    "editorCursor.background"?: string;
+    'editorCursor.background'?: string;
     /**
      * Color of whitespace characters in the editor.
      */
-    "editorWhitespace.foreground"?: string;
+    'editorWhitespace.foreground'?: string;
     /**
      * Color of the editor indentation guides.
      */
-    "editorIndentGuide.background"?: string;
+    'editorIndentGuide.background'?: string;
     /**
      * Color of the active editor indentation guides.
      */
-    "editorIndentGuide.activeBackground"?: string;
+    'editorIndentGuide.activeBackground'?: string;
     /**
      * Color of editor line numbers.
      */
-    "editorLineNumber.foreground"?: string;
+    'editorLineNumber.foreground'?: string;
     /**
      * Color of editor active line number
      */
-    "editorActiveLineNumber.foreground"?: string;
+    'editorActiveLineNumber.foreground'?: string;
     /**
      * Color of editor active line number
      */
-    "editorLineNumber.activeForeground"?: string;
+    'editorLineNumber.activeForeground'?: string;
     /**
      * Color of the editor rulers.
      */
-    "editorRuler.foreground"?: string;
+    'editorRuler.foreground'?: string;
     /**
      * Foreground color of editor CodeLens
      */
-    "editorCodeLens.foreground"?: string;
+    'editorCodeLens.foreground'?: string;
     /**
      * Background color behind matching brackets
      */
-    "editorBracketMatch.background"?: string;
+    'editorBracketMatch.background'?: string;
     /**
      * Color for matching brackets boxes
      */
-    "editorBracketMatch.border"?: string;
+    'editorBracketMatch.border'?: string;
     /**
      * Color of the overview ruler border.
      */
-    "editorOverviewRuler.border"?: string;
+    'editorOverviewRuler.border'?: string;
     /**
      * Background color of the editor overview ruler. Only used when the minimap is enabled and placed on the right side of the editor.
      */
-    "editorOverviewRuler.background"?: string;
+    'editorOverviewRuler.background'?: string;
     /**
      * Background color of the editor gutter. The gutter contains the glyph margins and the line numbers.
      */
-    "editorGutter.background"?: string;
+    'editorGutter.background'?: string;
     /**
      * Border color of unnecessary (unused) source code in the editor.
      */
-    "editorUnnecessaryCode.border"?: string;
+    'editorUnnecessaryCode.border'?: string;
     /**
      * Opacity of unnecessary (unused) source code in the editor. For example, "#000000c0" will render the code with 75% opacity. For high contrast themes, use the  'editorUnnecessaryCode.border' theme color to underline unnecessary code instead of fading it out.
      */
-    "editorUnnecessaryCode.opacity"?: string;
+    'editorUnnecessaryCode.opacity'?: string;
     /**
      * Border color of ghost text in the editor.
      */
-    "editorGhostText.border"?: string;
+    'editorGhostText.border'?: string;
     /**
      * Foreground color of the ghost text in the editor.
      */
-    "editorGhostText.foreground"?: string;
+    'editorGhostText.foreground'?: string;
     /**
      * Background color of the ghost text in the editor.
      */
-    "editorGhostText.background"?: string;
+    'editorGhostText.background'?: string;
     /**
      * Overview ruler marker color for range highlights. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editorOverviewRuler.rangeHighlightForeground"?: string;
+    'editorOverviewRuler.rangeHighlightForeground'?: string;
     /**
      * Overview ruler marker color for errors.
      */
-    "editorOverviewRuler.errorForeground"?: string;
+    'editorOverviewRuler.errorForeground'?: string;
     /**
      * Overview ruler marker color for warnings.
      */
-    "editorOverviewRuler.warningForeground"?: string;
+    'editorOverviewRuler.warningForeground'?: string;
     /**
      * Overview ruler marker color for infos.
      */
-    "editorOverviewRuler.infoForeground"?: string;
+    'editorOverviewRuler.infoForeground'?: string;
     /**
      * Foreground color of brackets (1). Requires enabling bracket pair colorization.
      */
-    "editorBracketHighlight.foreground1"?: string;
+    'editorBracketHighlight.foreground1'?: string;
     /**
      * Foreground color of brackets (2). Requires enabling bracket pair colorization.
      */
-    "editorBracketHighlight.foreground2"?: string;
+    'editorBracketHighlight.foreground2'?: string;
     /**
      * Foreground color of brackets (3). Requires enabling bracket pair colorization.
      */
-    "editorBracketHighlight.foreground3"?: string;
+    'editorBracketHighlight.foreground3'?: string;
     /**
      * Foreground color of brackets (4). Requires enabling bracket pair colorization.
      */
-    "editorBracketHighlight.foreground4"?: string;
+    'editorBracketHighlight.foreground4'?: string;
     /**
      * Foreground color of brackets (5). Requires enabling bracket pair colorization.
      */
-    "editorBracketHighlight.foreground5"?: string;
+    'editorBracketHighlight.foreground5'?: string;
     /**
      * Foreground color of brackets (6). Requires enabling bracket pair colorization.
      */
-    "editorBracketHighlight.foreground6"?: string;
+    'editorBracketHighlight.foreground6'?: string;
     /**
      * Foreground color of unexpected brackets.
      */
-    "editorBracketHighlight.unexpectedBracket.foreground"?: string;
+    'editorBracketHighlight.unexpectedBracket.foreground'?: string;
     /**
      * Background color of inactive bracket pair guides (1). Requires enabling bracket pair guides.
      */
-    "editorBracketPairGuide.background1"?: string;
+    'editorBracketPairGuide.background1'?: string;
     /**
      * Background color of inactive bracket pair guides (2). Requires enabling bracket pair guides.
      */
-    "editorBracketPairGuide.background2"?: string;
+    'editorBracketPairGuide.background2'?: string;
     /**
      * Background color of inactive bracket pair guides (3). Requires enabling bracket pair guides.
      */
-    "editorBracketPairGuide.background3"?: string;
+    'editorBracketPairGuide.background3'?: string;
     /**
      * Background color of inactive bracket pair guides (4). Requires enabling bracket pair guides.
      */
-    "editorBracketPairGuide.background4"?: string;
+    'editorBracketPairGuide.background4'?: string;
     /**
      * Background color of inactive bracket pair guides (5). Requires enabling bracket pair guides.
      */
-    "editorBracketPairGuide.background5"?: string;
+    'editorBracketPairGuide.background5'?: string;
     /**
      * Background color of inactive bracket pair guides (6). Requires enabling bracket pair guides.
      */
-    "editorBracketPairGuide.background6"?: string;
+    'editorBracketPairGuide.background6'?: string;
     /**
      * Background color of active bracket pair guides (1). Requires enabling bracket pair guides.
      */
-    "editorBracketPairGuide.activeBackground1"?: string;
+    'editorBracketPairGuide.activeBackground1'?: string;
     /**
      * Background color of active bracket pair guides (2). Requires enabling bracket pair guides.
      */
-    "editorBracketPairGuide.activeBackground2"?: string;
+    'editorBracketPairGuide.activeBackground2'?: string;
     /**
      * Background color of active bracket pair guides (3). Requires enabling bracket pair guides.
      */
-    "editorBracketPairGuide.activeBackground3"?: string;
+    'editorBracketPairGuide.activeBackground3'?: string;
     /**
      * Background color of active bracket pair guides (4). Requires enabling bracket pair guides.
      */
-    "editorBracketPairGuide.activeBackground4"?: string;
+    'editorBracketPairGuide.activeBackground4'?: string;
     /**
      * Background color of active bracket pair guides (5). Requires enabling bracket pair guides.
      */
-    "editorBracketPairGuide.activeBackground5"?: string;
+    'editorBracketPairGuide.activeBackground5'?: string;
     /**
      * Background color of active bracket pair guides (6). Requires enabling bracket pair guides.
      */
-    "editorBracketPairGuide.activeBackground6"?: string;
+    'editorBracketPairGuide.activeBackground6'?: string;
     /**
      * Border color used to highlight unicode characters.
      */
-    "editorUnicodeHighlight.border"?: string;
+    'editorUnicodeHighlight.border'?: string;
     /**
      * The foreground color for array symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.arrayForeground"?: string;
+    'symbolIcon.arrayForeground'?: string;
     /**
      * The foreground color for boolean symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.booleanForeground"?: string;
+    'symbolIcon.booleanForeground'?: string;
     /**
      * The foreground color for class symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.classForeground"?: string;
+    'symbolIcon.classForeground'?: string;
     /**
      * The foreground color for color symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.colorForeground"?: string;
+    'symbolIcon.colorForeground'?: string;
     /**
      * The foreground color for constant symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.constantForeground"?: string;
+    'symbolIcon.constantForeground'?: string;
     /**
      * The foreground color for constructor symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.constructorForeground"?: string;
+    'symbolIcon.constructorForeground'?: string;
     /**
      * The foreground color for enumerator symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.enumeratorForeground"?: string;
+    'symbolIcon.enumeratorForeground'?: string;
     /**
      * The foreground color for enumerator member symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.enumeratorMemberForeground"?: string;
+    'symbolIcon.enumeratorMemberForeground'?: string;
     /**
      * The foreground color for event symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.eventForeground"?: string;
+    'symbolIcon.eventForeground'?: string;
     /**
      * The foreground color for field symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.fieldForeground"?: string;
+    'symbolIcon.fieldForeground'?: string;
     /**
      * The foreground color for file symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.fileForeground"?: string;
+    'symbolIcon.fileForeground'?: string;
     /**
      * The foreground color for folder symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.folderForeground"?: string;
+    'symbolIcon.folderForeground'?: string;
     /**
      * The foreground color for function symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.functionForeground"?: string;
+    'symbolIcon.functionForeground'?: string;
     /**
      * The foreground color for interface symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.interfaceForeground"?: string;
+    'symbolIcon.interfaceForeground'?: string;
     /**
      * The foreground color for key symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.keyForeground"?: string;
+    'symbolIcon.keyForeground'?: string;
     /**
      * The foreground color for keyword symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.keywordForeground"?: string;
+    'symbolIcon.keywordForeground'?: string;
     /**
      * The foreground color for method symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.methodForeground"?: string;
+    'symbolIcon.methodForeground'?: string;
     /**
      * The foreground color for module symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.moduleForeground"?: string;
+    'symbolIcon.moduleForeground'?: string;
     /**
      * The foreground color for namespace symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.namespaceForeground"?: string;
+    'symbolIcon.namespaceForeground'?: string;
     /**
      * The foreground color for null symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.nullForeground"?: string;
+    'symbolIcon.nullForeground'?: string;
     /**
      * The foreground color for number symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.numberForeground"?: string;
+    'symbolIcon.numberForeground'?: string;
     /**
      * The foreground color for object symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.objectForeground"?: string;
+    'symbolIcon.objectForeground'?: string;
     /**
      * The foreground color for operator symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.operatorForeground"?: string;
+    'symbolIcon.operatorForeground'?: string;
     /**
      * The foreground color for package symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.packageForeground"?: string;
+    'symbolIcon.packageForeground'?: string;
     /**
      * The foreground color for property symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.propertyForeground"?: string;
+    'symbolIcon.propertyForeground'?: string;
     /**
      * The foreground color for reference symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.referenceForeground"?: string;
+    'symbolIcon.referenceForeground'?: string;
     /**
      * The foreground color for snippet symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.snippetForeground"?: string;
+    'symbolIcon.snippetForeground'?: string;
     /**
      * The foreground color for string symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.stringForeground"?: string;
+    'symbolIcon.stringForeground'?: string;
     /**
      * The foreground color for struct symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.structForeground"?: string;
+    'symbolIcon.structForeground'?: string;
     /**
      * The foreground color for text symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.textForeground"?: string;
+    'symbolIcon.textForeground'?: string;
     /**
      * The foreground color for type parameter symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.typeParameterForeground"?: string;
+    'symbolIcon.typeParameterForeground'?: string;
     /**
      * The foreground color for unit symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.unitForeground"?: string;
+    'symbolIcon.unitForeground'?: string;
     /**
      * The foreground color for variable symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
      */
-    "symbolIcon.variableForeground"?: string;
+    'symbolIcon.variableForeground'?: string;
     /**
      * Foreground color of the active item in the parameter hint.
      */
-    "editorHoverWidget.highlightForeground"?: string;
+    'editorHoverWidget.highlightForeground'?: string;
     /**
      * Overview ruler marker color for matching brackets.
      */
-    "editorOverviewRuler.bracketMatchForeground"?: string;
+    'editorOverviewRuler.bracketMatchForeground'?: string;
     /**
      * Background color behind folded ranges. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editor.foldBackground"?: string;
+    'editor.foldBackground'?: string;
     /**
      * Color of the folding control in the editor gutter.
      */
-    "editorGutter.foldingControlForeground"?: string;
+    'editorGutter.foldingControlForeground'?: string;
     /**
      * Background color when the editor auto renames on type.
      */
-    "editor.linkedEditingBackground"?: string;
+    'editor.linkedEditingBackground'?: string;
     /**
      * Background color of the suggest widget.
      */
-    "editorSuggestWidget.background"?: string;
+    'editorSuggestWidget.background'?: string;
     /**
      * Border color of the suggest widget.
      */
-    "editorSuggestWidget.border"?: string;
+    'editorSuggestWidget.border'?: string;
     /**
      * Foreground color of the suggest widget.
      */
-    "editorSuggestWidget.foreground"?: string;
+    'editorSuggestWidget.foreground'?: string;
     /**
      * Foreground color of the selected entry in the suggest widget.
      */
-    "editorSuggestWidget.selectedForeground"?: string;
+    'editorSuggestWidget.selectedForeground'?: string;
     /**
      * Icon foreground color of the selected entry in the suggest widget.
      */
-    "editorSuggestWidget.selectedIconForeground"?: string;
+    'editorSuggestWidget.selectedIconForeground'?: string;
     /**
      * Background color of the selected entry in the suggest widget.
      */
-    "editorSuggestWidget.selectedBackground"?: string;
+    'editorSuggestWidget.selectedBackground'?: string;
     /**
      * Color of the match highlights in the suggest widget.
      */
-    "editorSuggestWidget.highlightForeground"?: string;
+    'editorSuggestWidget.highlightForeground'?: string;
     /**
      * Color of the match highlights in the suggest widget when an item is focused.
      */
-    "editorSuggestWidget.focusHighlightForeground"?: string;
+    'editorSuggestWidget.focusHighlightForeground'?: string;
     /**
      * Foreground color of the suggest widget status.
      */
-    "editorSuggestWidgetStatus.foreground"?: string;
+    'editorSuggestWidgetStatus.foreground'?: string;
     /**
      * Background color of a symbol during read-access, like reading a variable. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editor.wordHighlightBackground"?: string;
+    'editor.wordHighlightBackground'?: string;
     /**
      * Background color of a symbol during write-access, like writing to a variable. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editor.wordHighlightStrongBackground"?: string;
+    'editor.wordHighlightStrongBackground'?: string;
     /**
      * Border color of a symbol during read-access, like reading a variable.
      */
-    "editor.wordHighlightBorder"?: string;
+    'editor.wordHighlightBorder'?: string;
     /**
      * Border color of a symbol during write-access, like writing to a variable.
      */
-    "editor.wordHighlightStrongBorder"?: string;
+    'editor.wordHighlightStrongBorder'?: string;
     /**
      * Overview ruler marker color for symbol highlights. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editorOverviewRuler.wordHighlightForeground"?: string;
+    'editorOverviewRuler.wordHighlightForeground'?: string;
     /**
      * Overview ruler marker color for write-access symbol highlights. The color must not be opaque so as not to hide underlying decorations.
      */
-    "editorOverviewRuler.wordHighlightStrongForeground"?: string;
+    'editorOverviewRuler.wordHighlightStrongForeground'?: string;
     /**
      * Background color of the peek view title area.
      */
-    "peekViewTitle.background"?: string;
+    'peekViewTitle.background'?: string;
     /**
      * Color of the peek view title.
      */
-    "peekViewTitleLabel.foreground"?: string;
+    'peekViewTitleLabel.foreground'?: string;
     /**
      * Color of the peek view title info.
      */
-    "peekViewTitleDescription.foreground"?: string;
+    'peekViewTitleDescription.foreground'?: string;
     /**
      * Color of the peek view borders and arrow.
      */
-    "peekView.border"?: string;
+    'peekView.border'?: string;
     /**
      * Background color of the peek view result list.
      */
-    "peekViewResult.background"?: string;
+    'peekViewResult.background'?: string;
     /**
      * Foreground color for line nodes in the peek view result list.
      */
-    "peekViewResult.lineForeground"?: string;
+    'peekViewResult.lineForeground'?: string;
     /**
      * Foreground color for file nodes in the peek view result list.
      */
-    "peekViewResult.fileForeground"?: string;
+    'peekViewResult.fileForeground'?: string;
     /**
      * Background color of the selected entry in the peek view result list.
      */
-    "peekViewResult.selectionBackground"?: string;
+    'peekViewResult.selectionBackground'?: string;
     /**
      * Foreground color of the selected entry in the peek view result list.
      */
-    "peekViewResult.selectionForeground"?: string;
+    'peekViewResult.selectionForeground'?: string;
     /**
      * Background color of the peek view editor.
      */
-    "peekViewEditor.background"?: string;
+    'peekViewEditor.background'?: string;
     /**
      * Background color of the gutter in the peek view editor.
      */
-    "peekViewEditorGutter.background"?: string;
+    'peekViewEditorGutter.background'?: string;
     /**
      * Match highlight color in the peek view result list.
      */
-    "peekViewResult.matchHighlightBackground"?: string;
+    'peekViewResult.matchHighlightBackground'?: string;
     /**
      * Match highlight color in the peek view editor.
      */
-    "peekViewEditor.matchHighlightBackground"?: string;
+    'peekViewEditor.matchHighlightBackground'?: string;
     /**
      * Match highlight border in the peek view editor.
      */
-    "peekViewEditor.matchHighlightBorder"?: string;
+    'peekViewEditor.matchHighlightBorder'?: string;
     /**
      * Editor marker navigation widget error color.
      */
-    "editorMarkerNavigationError.background"?: string;
+    'editorMarkerNavigationError.background'?: string;
     /**
      * Editor marker navigation widget error heading background.
      */
-    "editorMarkerNavigationError.headerBackground"?: string;
+    'editorMarkerNavigationError.headerBackground'?: string;
     /**
      * Editor marker navigation widget warning color.
      */
-    "editorMarkerNavigationWarning.background"?: string;
+    'editorMarkerNavigationWarning.background'?: string;
     /**
      * Editor marker navigation widget warning heading background.
      */
-    "editorMarkerNavigationWarning.headerBackground"?: string;
+    'editorMarkerNavigationWarning.headerBackground'?: string;
     /**
      * Editor marker navigation widget info color.
      */
-    "editorMarkerNavigationInfo.background"?: string;
+    'editorMarkerNavigationInfo.background'?: string;
     /**
      * Editor marker navigation widget info heading background.
      */
-    "editorMarkerNavigationInfo.headerBackground"?: string;
+    'editorMarkerNavigationInfo.headerBackground'?: string;
     /**
      * Editor marker navigation widget background.
      */
-    "editorMarkerNavigation.background"?: string;
+    'editorMarkerNavigation.background'?: string;
     /**
      * Active tab background color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.activeBackground"?: string;
+    'tab.activeBackground'?: string;
     /**
      * Active tab background color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.unfocusedActiveBackground"?: string;
+    'tab.unfocusedActiveBackground'?: string;
     /**
      * Inactive tab background color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.inactiveBackground"?: string;
+    'tab.inactiveBackground'?: string;
     /**
      * Inactive tab background color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.unfocusedInactiveBackground"?: string;
+    'tab.unfocusedInactiveBackground'?: string;
     /**
      * Active tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.activeForeground"?: string;
+    'tab.activeForeground'?: string;
     /**
      * Inactive tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.inactiveForeground"?: string;
+    'tab.inactiveForeground'?: string;
     /**
      * Active tab foreground color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.unfocusedActiveForeground"?: string;
+    'tab.unfocusedActiveForeground'?: string;
     /**
      * Inactive tab foreground color in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.unfocusedInactiveForeground"?: string;
+    'tab.unfocusedInactiveForeground'?: string;
     /**
      * Tab background color when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.hoverBackground"?: string;
+    'tab.hoverBackground'?: string;
     /**
      * Tab background color in an unfocused group when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.unfocusedHoverBackground"?: string;
+    'tab.unfocusedHoverBackground'?: string;
     /**
      * Tab foreground color when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.hoverForeground"?: string;
+    'tab.hoverForeground'?: string;
     /**
      * Tab foreground color in an unfocused group when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.unfocusedHoverForeground"?: string;
+    'tab.unfocusedHoverForeground'?: string;
     /**
      * Border to separate tabs from each other. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.border"?: string;
+    'tab.border'?: string;
     /**
      * Border to separate pinned tabs from other tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.lastPinnedBorder"?: string;
+    'tab.lastPinnedBorder'?: string;
     /**
      * Border on the bottom of an active tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.activeBorder"?: string;
+    'tab.activeBorder'?: string;
     /**
      * Border on the bottom of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.unfocusedActiveBorder"?: string;
+    'tab.unfocusedActiveBorder'?: string;
     /**
      * Border to the top of an active tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.activeBorderTop"?: string;
+    'tab.activeBorderTop'?: string;
     /**
      * Border to the top of an active tab in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.unfocusedActiveBorderTop"?: string;
+    'tab.unfocusedActiveBorderTop'?: string;
     /**
      * Border to highlight tabs when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.hoverBorder"?: string;
+    'tab.hoverBorder'?: string;
     /**
      * Border to highlight tabs in an unfocused group when hovering. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.unfocusedHoverBorder"?: string;
+    'tab.unfocusedHoverBorder'?: string;
     /**
      * Border on the top of modified active tabs in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.activeModifiedBorder"?: string;
+    'tab.activeModifiedBorder'?: string;
     /**
      * Border on the top of modified inactive tabs in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.inactiveModifiedBorder"?: string;
+    'tab.inactiveModifiedBorder'?: string;
     /**
      * Border on the top of modified active tabs in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.unfocusedActiveModifiedBorder"?: string;
+    'tab.unfocusedActiveModifiedBorder'?: string;
     /**
      * Border on the top of modified inactive tabs in an unfocused group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
      */
-    "tab.unfocusedInactiveModifiedBorder"?: string;
+    'tab.unfocusedInactiveModifiedBorder'?: string;
     /**
      * Background color of the editor pane visible on the left and right side of the centered editor layout.
      */
-    "editorPane.background"?: string;
+    'editorPane.background'?: string;
     /**
      * Background color of an empty editor group. Editor groups are the containers of editors.
      */
-    "editorGroup.emptyBackground"?: string;
+    'editorGroup.emptyBackground'?: string;
     /**
      * Border color of an empty editor group that is focused. Editor groups are the containers of editors.
      */
-    "editorGroup.focusedEmptyBorder"?: string;
+    'editorGroup.focusedEmptyBorder'?: string;
     /**
      * Background color of the editor group title header when tabs are enabled. Editor groups are the containers of editors.
      */
-    "editorGroupHeader.tabsBackground"?: string;
+    'editorGroupHeader.tabsBackground'?: string;
     /**
      * Border color of the editor group title header when tabs are enabled. Editor groups are the containers of editors.
      */
-    "editorGroupHeader.tabsBorder"?: string;
+    'editorGroupHeader.tabsBorder'?: string;
     /**
      * Background color of the editor group title header when tabs are disabled (`"workbench.editor.showTabs": false`). Editor groups are the containers of editors.
      */
-    "editorGroupHeader.noTabsBackground"?: string;
+    'editorGroupHeader.noTabsBackground'?: string;
     /**
      * Border color of the editor group title header. Editor groups are the containers of editors.
      */
-    "editorGroupHeader.border"?: string;
+    'editorGroupHeader.border'?: string;
     /**
      * Color to separate multiple editor groups from each other. Editor groups are the containers of editors.
      */
-    "editorGroup.border"?: string;
+    'editorGroup.border'?: string;
     /**
      * Background color when dragging editors around. The color should have transparency so that the editor contents can still shine through.
      */
-    "editorGroup.dropBackground"?: string;
+    'editorGroup.dropBackground'?: string;
     /**
      * Color to separate two editors from each other when shown side by side in an editor group from top to bottom.
      */
-    "sideBySideEditor.horizontalBorder"?: string;
+    'sideBySideEditor.horizontalBorder'?: string;
     /**
      * Color to separate two editors from each other when shown side by side in an editor group from left to right.
      */
-    "sideBySideEditor.verticalBorder"?: string;
+    'sideBySideEditor.verticalBorder'?: string;
     /**
      * Panel background color. Panels are shown below the editor area and contain views like output and integrated terminal.
      */
-    "panel.background"?: string;
+    'panel.background'?: string;
     /**
      * Panel border color to separate the panel from the editor. Panels are shown below the editor area and contain views like output and integrated terminal.
      */
-    "panel.border"?: string;
+    'panel.border'?: string;
     /**
      * Title color for the active panel. Panels are shown below the editor area and contain views like output and integrated terminal.
      */
-    "panelTitle.activeForeground"?: string;
+    'panelTitle.activeForeground'?: string;
     /**
      * Title color for the inactive panel. Panels are shown below the editor area and contain views like output and integrated terminal.
      */
-    "panelTitle.inactiveForeground"?: string;
+    'panelTitle.inactiveForeground'?: string;
     /**
      * Border color for the active panel title. Panels are shown below the editor area and contain views like output and integrated terminal.
      */
-    "panelTitle.activeBorder"?: string;
+    'panelTitle.activeBorder'?: string;
     /**
      * Input box border for inputs in the panel.
      */
-    "panelInput.border"?: string;
+    'panelInput.border'?: string;
     /**
      * Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.
      */
-    "panel.dropBorder"?: string;
+    'panel.dropBorder'?: string;
     /**
      * Drag and drop feedback color for the panel sections. The color should have transparency so that the panel sections can still shine through. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.
      */
-    "panelSection.dropBackground"?: string;
+    'panelSection.dropBackground'?: string;
     /**
      * Panel section header background color. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.
      */
-    "panelSectionHeader.background"?: string;
+    'panelSectionHeader.background'?: string;
     /**
      * Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.
      */
-    "panelSectionHeader.foreground"?: string;
+    'panelSectionHeader.foreground'?: string;
     /**
      * Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.
      */
-    "panelSectionHeader.border"?: string;
+    'panelSectionHeader.border'?: string;
     /**
      * Panel section border color used when multiple views are stacked horizontally in the panel. Panels are shown below the editor area and contain views like output and integrated terminal. Panel sections are views nested within the panels.
      */
-    "panelSection.border"?: string;
+    'panelSection.border'?: string;
     /**
      * Banner background color. The banner is shown under the title bar of the window.
      */
-    "banner.background"?: string;
+    'banner.background'?: string;
     /**
      * Banner foreground color. The banner is shown under the title bar of the window.
      */
-    "banner.foreground"?: string;
+    'banner.foreground'?: string;
     /**
      * Banner icon color. The banner is shown under the title bar of the window.
      */
-    "banner.iconForeground"?: string;
+    'banner.iconForeground'?: string;
     /**
      * Status bar foreground color when a workspace or folder is opened. The status bar is shown in the bottom of the window.
      */
-    "statusBar.foreground"?: string;
+    'statusBar.foreground'?: string;
     /**
      * Status bar foreground color when no folder is opened. The status bar is shown in the bottom of the window.
      */
-    "statusBar.noFolderForeground"?: string;
+    'statusBar.noFolderForeground'?: string;
     /**
      * Status bar background color when a workspace or folder is opened. The status bar is shown in the bottom of the window.
      */
-    "statusBar.background"?: string;
+    'statusBar.background'?: string;
     /**
      * Status bar background color when no folder is opened. The status bar is shown in the bottom of the window.
      */
-    "statusBar.noFolderBackground"?: string;
+    'statusBar.noFolderBackground'?: string;
     /**
      * Status bar border color separating to the sidebar and editor. The status bar is shown in the bottom of the window.
      */
-    "statusBar.border"?: string;
+    'statusBar.border'?: string;
     /**
      * Status bar border color separating to the sidebar and editor when no folder is opened. The status bar is shown in the bottom of the window.
      */
-    "statusBar.noFolderBorder"?: string;
+    'statusBar.noFolderBorder'?: string;
     /**
      * Status bar item background color when clicking. The status bar is shown in the bottom of the window.
      */
-    "statusBarItem.activeBackground"?: string;
+    'statusBarItem.activeBackground'?: string;
     /**
      * Status bar item background color when hovering. The status bar is shown in the bottom of the window.
      */
-    "statusBarItem.hoverBackground"?: string;
+    'statusBarItem.hoverBackground'?: string;
     /**
      * Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.
      */
-    "statusBarItem.compactHoverBackground"?: string;
+    'statusBarItem.compactHoverBackground'?: string;
     /**
      * Status bar prominent items foreground color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.
      */
-    "statusBarItem.prominentForeground"?: string;
+    'statusBarItem.prominentForeground'?: string;
     /**
      * Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.
      */
-    "statusBarItem.prominentBackground"?: string;
+    'statusBarItem.prominentBackground'?: string;
     /**
      * Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example. The status bar is shown in the bottom of the window.
      */
-    "statusBarItem.prominentHoverBackground"?: string;
+    'statusBarItem.prominentHoverBackground'?: string;
     /**
      * Status bar error items background color. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.
      */
-    "statusBarItem.errorBackground"?: string;
+    'statusBarItem.errorBackground'?: string;
     /**
      * Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.
      */
-    "statusBarItem.errorForeground"?: string;
+    'statusBarItem.errorForeground'?: string;
     /**
      * Status bar warning items background color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
      */
-    "statusBarItem.warningBackground"?: string;
+    'statusBarItem.warningBackground'?: string;
     /**
      * Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
      */
-    "statusBarItem.warningForeground"?: string;
+    'statusBarItem.warningForeground'?: string;
     /**
      * Activity bar background color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
      */
-    "activityBar.background"?: string;
+    'activityBar.background'?: string;
     /**
      * Activity bar item foreground color when it is active. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
      */
-    "activityBar.foreground"?: string;
+    'activityBar.foreground'?: string;
     /**
      * Activity bar item foreground color when it is inactive. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
      */
-    "activityBar.inactiveForeground"?: string;
+    'activityBar.inactiveForeground'?: string;
     /**
      * Activity bar border color separating to the side bar. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
      */
-    "activityBar.border"?: string;
+    'activityBar.border'?: string;
     /**
      * Activity bar border color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
      */
-    "activityBar.activeBorder"?: string;
+    'activityBar.activeBorder'?: string;
     /**
      * Activity bar focus border color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
      */
-    "activityBar.activeFocusBorder"?: string;
+    'activityBar.activeFocusBorder'?: string;
     /**
      * Activity bar background color for the active item. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
      */
-    "activityBar.activeBackground"?: string;
+    'activityBar.activeBackground'?: string;
     /**
      * Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
      */
-    "activityBar.dropBorder"?: string;
+    'activityBar.dropBorder'?: string;
     /**
      * Activity notification badge background color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
      */
-    "activityBarBadge.background"?: string;
+    'activityBarBadge.background'?: string;
     /**
      * Activity notification badge foreground color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
      */
-    "activityBarBadge.foreground"?: string;
+    'activityBarBadge.foreground'?: string;
     /**
      * Background color for the remote indicator on the status bar.
      */
-    "statusBarItem.remoteBackground"?: string;
+    'statusBarItem.remoteBackground'?: string;
     /**
      * Foreground color for the remote indicator on the status bar.
      */
-    "statusBarItem.remoteForeground"?: string;
+    'statusBarItem.remoteForeground'?: string;
     /**
      * Background color for the remote badge in the extensions view.
      */
-    "extensionBadge.remoteBackground"?: string;
+    'extensionBadge.remoteBackground'?: string;
     /**
      * Foreground color for the remote badge in the extensions view.
      */
-    "extensionBadge.remoteForeground"?: string;
+    'extensionBadge.remoteForeground'?: string;
     /**
      * Side bar background color. The side bar is the container for views like explorer and search.
      */
-    "sideBar.background"?: string;
+    'sideBar.background'?: string;
     /**
      * Side bar foreground color. The side bar is the container for views like explorer and search.
      */
-    "sideBar.foreground"?: string;
+    'sideBar.foreground'?: string;
     /**
      * Side bar border color on the side separating to the editor. The side bar is the container for views like explorer and search.
      */
-    "sideBar.border"?: string;
+    'sideBar.border'?: string;
     /**
      * Side bar title foreground color. The side bar is the container for views like explorer and search.
      */
-    "sideBarTitle.foreground"?: string;
+    'sideBarTitle.foreground'?: string;
     /**
      * Drag and drop feedback color for the side bar sections. The color should have transparency so that the side bar sections can still shine through. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.
      */
-    "sideBar.dropBackground"?: string;
+    'sideBar.dropBackground'?: string;
     /**
      * Side bar section header background color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.
      */
-    "sideBarSectionHeader.background"?: string;
+    'sideBarSectionHeader.background'?: string;
     /**
      * Side bar section header foreground color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.
      */
-    "sideBarSectionHeader.foreground"?: string;
+    'sideBarSectionHeader.foreground'?: string;
     /**
      * Side bar section header border color. The side bar is the container for views like explorer and search. Side bar sections are views nested within the side bar.
      */
-    "sideBarSectionHeader.border"?: string;
+    'sideBarSectionHeader.border'?: string;
     /**
      * Title bar foreground when the window is active.
      */
-    "titleBar.activeForeground"?: string;
+    'titleBar.activeForeground'?: string;
     /**
      * Title bar foreground when the window is inactive.
      */
-    "titleBar.inactiveForeground"?: string;
+    'titleBar.inactiveForeground'?: string;
     /**
      * Title bar background when the window is active.
      */
-    "titleBar.activeBackground"?: string;
+    'titleBar.activeBackground'?: string;
     /**
      * Title bar background when the window is inactive.
      */
-    "titleBar.inactiveBackground"?: string;
+    'titleBar.inactiveBackground'?: string;
     /**
      * Title bar border color.
      */
-    "titleBar.border"?: string;
+    'titleBar.border'?: string;
     /**
      * Foreground color of the selected menu item in the menubar.
      */
-    "menubar.selectionForeground"?: string;
+    'menubar.selectionForeground'?: string;
     /**
      * Background color of the selected menu item in the menubar.
      */
-    "menubar.selectionBackground"?: string;
+    'menubar.selectionBackground'?: string;
     /**
      * Border color of the selected menu item in the menubar.
      */
-    "menubar.selectionBorder"?: string;
+    'menubar.selectionBorder'?: string;
     /**
      * Notifications center border color. Notifications slide in from the bottom right of the window.
      */
-    "notificationCenter.border"?: string;
+    'notificationCenter.border'?: string;
     /**
      * Notification toast border color. Notifications slide in from the bottom right of the window.
      */
-    "notificationToast.border"?: string;
+    'notificationToast.border'?: string;
     /**
      * Notifications foreground color. Notifications slide in from the bottom right of the window.
      */
-    "notifications.foreground"?: string;
+    'notifications.foreground'?: string;
     /**
      * Notifications background color. Notifications slide in from the bottom right of the window.
      */
-    "notifications.background"?: string;
+    'notifications.background'?: string;
     /**
      * Notification links foreground color. Notifications slide in from the bottom right of the window.
      */
-    "notificationLink.foreground"?: string;
+    'notificationLink.foreground'?: string;
     /**
      * Notifications center header foreground color. Notifications slide in from the bottom right of the window.
      */
-    "notificationCenterHeader.foreground"?: string;
+    'notificationCenterHeader.foreground'?: string;
     /**
      * Notifications center header background color. Notifications slide in from the bottom right of the window.
      */
-    "notificationCenterHeader.background"?: string;
+    'notificationCenterHeader.background'?: string;
     /**
      * Notifications border color separating from other notifications in the notifications center. Notifications slide in from the bottom right of the window.
      */
-    "notifications.border"?: string;
+    'notifications.border'?: string;
     /**
      * The color used for the icon of error notifications. Notifications slide in from the bottom right of the window.
      */
-    "notificationsErrorIcon.foreground"?: string;
+    'notificationsErrorIcon.foreground'?: string;
     /**
      * The color used for the icon of warning notifications. Notifications slide in from the bottom right of the window.
      */
-    "notificationsWarningIcon.foreground"?: string;
+    'notificationsWarningIcon.foreground'?: string;
     /**
      * The color used for the icon of info notifications. Notifications slide in from the bottom right of the window.
      */
-    "notificationsInfoIcon.foreground"?: string;
+    'notificationsInfoIcon.foreground'?: string;
     /**
      * The color used for the border of the window when it is active. Only supported in the desktop client when using the custom title bar.
      */
-    "window.activeBorder"?: string;
+    'window.activeBorder'?: string;
     /**
      * The color used for the border of the window when it is inactive. Only supported in the desktop client when using the custom title bar.
      */
-    "window.inactiveBorder"?: string;
+    'window.inactiveBorder'?: string;
     /**
      * Editor gutter decoration color for commenting ranges.
      */
-    "editorGutter.commentRangeForeground"?: string;
+    'editorGutter.commentRangeForeground'?: string;
     /**
      * Debug toolbar background color.
      */
-    "debugToolBar.background"?: string;
+    'debugToolBar.background'?: string;
     /**
      * Debug toolbar border color.
      */
-    "debugToolBar.border"?: string;
+    'debugToolBar.border'?: string;
     /**
      * Debug toolbar icon for start debugging.
      */
-    "debugIcon.startForeground"?: string;
+    'debugIcon.startForeground'?: string;
     /**
      * Background color for the highlight of line at the top stack frame position.
      */
-    "editor.stackFrameHighlightBackground"?: string;
+    'editor.stackFrameHighlightBackground'?: string;
     /**
      * Background color for the highlight of line at focused stack frame position.
      */
-    "editor.focusedStackFrameHighlightBackground"?: string;
+    'editor.focusedStackFrameHighlightBackground'?: string;
     /**
      * The foreground color for a section header or active title.
      */
-    "settings.headerForeground"?: string;
+    'settings.headerForeground'?: string;
     /**
      * The color of the modified setting indicator.
      */
-    "settings.modifiedItemIndicator"?: string;
+    'settings.modifiedItemIndicator'?: string;
     /**
      * Settings editor dropdown background.
      */
-    "settings.dropdownBackground"?: string;
+    'settings.dropdownBackground'?: string;
     /**
      * Settings editor dropdown foreground.
      */
-    "settings.dropdownForeground"?: string;
+    'settings.dropdownForeground'?: string;
     /**
      * Settings editor dropdown border.
      */
-    "settings.dropdownBorder"?: string;
+    'settings.dropdownBorder'?: string;
     /**
      * Settings editor dropdown list border. This surrounds the options and separates the options from the description.
      */
-    "settings.dropdownListBorder"?: string;
+    'settings.dropdownListBorder'?: string;
     /**
      * Settings editor checkbox background.
      */
-    "settings.checkboxBackground"?: string;
+    'settings.checkboxBackground'?: string;
     /**
      * Settings editor checkbox foreground.
      */
-    "settings.checkboxForeground"?: string;
+    'settings.checkboxForeground'?: string;
     /**
      * Settings editor checkbox border.
      */
-    "settings.checkboxBorder"?: string;
+    'settings.checkboxBorder'?: string;
     /**
      * Settings editor text input box background.
      */
-    "settings.textInputBackground"?: string;
+    'settings.textInputBackground'?: string;
     /**
      * Settings editor text input box foreground.
      */
-    "settings.textInputForeground"?: string;
+    'settings.textInputForeground'?: string;
     /**
      * Settings editor text input box border.
      */
-    "settings.textInputBorder"?: string;
+    'settings.textInputBorder'?: string;
     /**
      * Settings editor number input box background.
      */
-    "settings.numberInputBackground"?: string;
+    'settings.numberInputBackground'?: string;
     /**
      * Settings editor number input box foreground.
      */
-    "settings.numberInputForeground"?: string;
+    'settings.numberInputForeground'?: string;
     /**
      * Settings editor number input box border.
      */
-    "settings.numberInputBorder"?: string;
+    'settings.numberInputBorder'?: string;
     /**
      * The background color of a settings row when focused.
      */
-    "settings.focusedRowBackground"?: string;
+    'settings.focusedRowBackground'?: string;
     /**
      * The background color of a settings row when hovered.
      */
-    "settings.rowHoverBackground"?: string;
+    'settings.rowHoverBackground'?: string;
     /**
      * The color of the row's top and bottom border when the row is focused.
      */
-    "settings.focusedRowBorder"?: string;
+    'settings.focusedRowBorder'?: string;
     /**
      * The background color of the terminal, this allows coloring the terminal differently to the panel.
      */
-    "terminal.background"?: string;
+    'terminal.background'?: string;
     /**
      * The foreground color of the terminal.
      */
-    "terminal.foreground"?: string;
+    'terminal.foreground'?: string;
     /**
      * The foreground color of the terminal cursor.
      */
-    "terminalCursor.foreground"?: string;
+    'terminalCursor.foreground'?: string;
     /**
      * The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
      */
-    "terminalCursor.background"?: string;
+    'terminalCursor.background'?: string;
     /**
      * The selection background color of the terminal.
      */
-    "terminal.selectionBackground"?: string;
+    'terminal.selectionBackground'?: string;
     /**
      * The color of the border that separates split panes within the terminal. This defaults to panel.border.
      */
-    "terminal.border"?: string;
+    'terminal.border'?: string;
     /**
      * Background color when dragging on top of terminals. The color should have transparency so that the terminal contents can still shine through.
      */
-    "terminal.dropBackground"?: string;
+    'terminal.dropBackground'?: string;
     /**
      * Border on the side of the terminal tab in the panel. This defaults to tab.activeBorder.
      */
-    "terminal.tab.activeBorder"?: string;
+    'terminal.tab.activeBorder'?: string;
     /**
      * Color for the 'failed' icon in the test explorer.
      */
-    "testing.iconFailed"?: string;
+    'testing.iconFailed'?: string;
     /**
      * Color for the 'Errored' icon in the test explorer.
      */
-    "testing.iconErrored"?: string;
+    'testing.iconErrored'?: string;
     /**
      * Color for the 'passed' icon in the test explorer.
      */
-    "testing.iconPassed"?: string;
+    'testing.iconPassed'?: string;
     /**
      * Color for 'run' icons in the editor.
      */
-    "testing.runAction"?: string;
+    'testing.runAction'?: string;
     /**
      * Color for the 'Queued' icon in the test explorer.
      */
-    "testing.iconQueued"?: string;
+    'testing.iconQueued'?: string;
     /**
      * Color for the 'Unset' icon in the test explorer.
      */
-    "testing.iconUnset"?: string;
+    'testing.iconUnset'?: string;
     /**
      * Color for the 'Skipped' icon in the test explorer.
      */
-    "testing.iconSkipped"?: string;
+    'testing.iconSkipped'?: string;
     /**
      * Color of the peek view borders and arrow.
      */
-    "testing.peekBorder"?: string;
+    'testing.peekBorder'?: string;
     /**
      * Color of the peek view borders and arrow.
      */
-    "testing.peekHeaderBackground"?: string;
+    'testing.peekHeaderBackground'?: string;
     /**
      * Text color of test error messages shown inline in the editor.
      */
-    "testing.message.error.decorationForeground"?: string;
+    'testing.message.error.decorationForeground'?: string;
     /**
      * Margin color beside error messages shown inline in the editor.
      */
-    "testing.message.error.lineBackground"?: string;
+    'testing.message.error.lineBackground'?: string;
     /**
      * Text color of test info messages shown inline in the editor.
      */
-    "testing.message.info.decorationForeground"?: string;
+    'testing.message.info.decorationForeground'?: string;
     /**
      * Margin color beside info messages shown inline in the editor.
      */
-    "testing.message.info.lineBackground"?: string;
+    'testing.message.info.lineBackground'?: string;
     /**
      * Background color for the Welcome page.
      */
-    "welcomePage.background"?: string;
+    'welcomePage.background'?: string;
     /**
      * Background color for the tiles on the Get Started page.
      */
-    "welcomePage.tileBackground"?: string;
+    'welcomePage.tileBackground'?: string;
     /**
      * Hover background color for the tiles on the Get Started.
      */
-    "welcomePage.tileHoverBackground"?: string;
+    'welcomePage.tileHoverBackground'?: string;
     /**
      * Shadow color for the Welcome page walkthrough category buttons.
      */
-    "welcomePage.tileShadow"?: string;
+    'welcomePage.tileShadow'?: string;
     /**
      * Foreground color for the Welcome page progress bars.
      */
-    "welcomePage.progress.background"?: string;
+    'welcomePage.progress.background'?: string;
     /**
      * Background color for the Welcome page progress bars.
      */
-    "welcomePage.progress.foreground"?: string;
+    'welcomePage.progress.foreground'?: string;
     /**
      * Background color for the embedded editors on the Interactive Playground.
      */
-    "walkThrough.embeddedEditorBackground"?: string;
+    'walkThrough.embeddedEditorBackground'?: string;
     /**
      * Exception widget border color.
      */
-    "debugExceptionWidget.border"?: string;
+    'debugExceptionWidget.border'?: string;
     /**
      * Exception widget background color.
      */
-    "debugExceptionWidget.background"?: string;
+    'debugExceptionWidget.background'?: string;
     /**
      * The color of the icon for a port that has an associated running process.
      */
-    "ports.iconRunningProcessForeground"?: string;
+    'ports.iconRunningProcessForeground'?: string;
     /**
      * Status bar background color when a program is being debugged. The status bar is shown in the bottom of the window
      */
-    "statusBar.debuggingBackground"?: string;
+    'statusBar.debuggingBackground'?: string;
     /**
      * Status bar foreground color when a program is being debugged. The status bar is shown in the bottom of the window
      */
-    "statusBar.debuggingForeground"?: string;
+    'statusBar.debuggingForeground'?: string;
     /**
      * Status bar border color separating to the sidebar and editor when a program is being debugged. The status bar is shown in the bottom of the window
      */
-    "statusBar.debuggingBorder"?: string;
+    'statusBar.debuggingBorder'?: string;
     /**
      * Color for the debug inline value text.
      */
-    "editor.inlineValuesForeground"?: string;
+    'editor.inlineValuesForeground'?: string;
     /**
      * Color for the debug inline value background.
      */
-    "editor.inlineValuesBackground"?: string;
+    'editor.inlineValuesBackground'?: string;
     /**
      * Editor gutter background color for lines that are modified.
      */
-    "editorGutter.modifiedBackground"?: string;
+    'editorGutter.modifiedBackground'?: string;
     /**
      * Editor gutter background color for lines that are added.
      */
-    "editorGutter.addedBackground"?: string;
+    'editorGutter.addedBackground'?: string;
     /**
      * Editor gutter background color for lines that are deleted.
      */
-    "editorGutter.deletedBackground"?: string;
+    'editorGutter.deletedBackground'?: string;
     /**
      * Minimap gutter background color for lines that are modified.
      */
-    "minimapGutter.modifiedBackground"?: string;
+    'minimapGutter.modifiedBackground'?: string;
     /**
      * Minimap gutter background color for lines that are added.
      */
-    "minimapGutter.addedBackground"?: string;
+    'minimapGutter.addedBackground'?: string;
     /**
      * Minimap gutter background color for lines that are deleted.
      */
-    "minimapGutter.deletedBackground"?: string;
+    'minimapGutter.deletedBackground'?: string;
     /**
      * Overview ruler marker color for modified content.
      */
-    "editorOverviewRuler.modifiedForeground"?: string;
+    'editorOverviewRuler.modifiedForeground'?: string;
     /**
      * Overview ruler marker color for added content.
      */
-    "editorOverviewRuler.addedForeground"?: string;
+    'editorOverviewRuler.addedForeground'?: string;
     /**
      * Overview ruler marker color for deleted content.
      */
-    "editorOverviewRuler.deletedForeground"?: string;
+    'editorOverviewRuler.deletedForeground'?: string;
     /**
      * Icon color for breakpoints.
      */
-    "debugIcon.breakpointForeground"?: string;
+    'debugIcon.breakpointForeground'?: string;
     /**
      * Icon color for disabled breakpoints.
      */
-    "debugIcon.breakpointDisabledForeground"?: string;
+    'debugIcon.breakpointDisabledForeground'?: string;
     /**
      * Icon color for unverified breakpoints.
      */
-    "debugIcon.breakpointUnverifiedForeground"?: string;
+    'debugIcon.breakpointUnverifiedForeground'?: string;
     /**
      * Icon color for the current breakpoint stack frame.
      */
-    "debugIcon.breakpointCurrentStackframeForeground"?: string;
+    'debugIcon.breakpointCurrentStackframeForeground'?: string;
     /**
      * Icon color for all breakpoint stack frames.
      */
-    "debugIcon.breakpointStackframeForeground"?: string;
+    'debugIcon.breakpointStackframeForeground'?: string;
     /**
      * Background color for the keyboard shortcuts table header.
      */
-    "keybindingTable.headerBackground"?: string;
+    'keybindingTable.headerBackground'?: string;
     /**
      * Background color for the keyboard shortcuts table alternating rows.
      */
-    "keybindingTable.rowsBackground"?: string;
+    'keybindingTable.rowsBackground'?: string;
     /**
      * The border color for notebook cells.
      */
-    "notebook.cellBorderColor"?: string;
+    'notebook.cellBorderColor'?: string;
     /**
      * The color of the notebook cell editor border.
      */
-    "notebook.focusedEditorBorder"?: string;
+    'notebook.focusedEditorBorder'?: string;
     /**
      * The error icon color of notebook cells in the cell status bar.
      */
-    "notebookStatusSuccessIcon.foreground"?: string;
+    'notebookStatusSuccessIcon.foreground'?: string;
     /**
      * The error icon color of notebook cells in the cell status bar.
      */
-    "notebookStatusErrorIcon.foreground"?: string;
+    'notebookStatusErrorIcon.foreground'?: string;
     /**
      * The running icon color of notebook cells in the cell status bar.
      */
-    "notebookStatusRunningIcon.foreground"?: string;
+    'notebookStatusRunningIcon.foreground'?: string;
     /**
      * The border color of the notebook output container.
      */
-    "notebook.outputContainerBorderColor"?: string;
+    'notebook.outputContainerBorderColor'?: string;
     /**
      * The color of the notebook output container background.
      */
-    "notebook.outputContainerBackgroundColor"?: string;
+    'notebook.outputContainerBackgroundColor'?: string;
     /**
      * The color of the separator in the cell bottom toolbar
      */
-    "notebook.cellToolbarSeparator"?: string;
+    'notebook.cellToolbarSeparator'?: string;
     /**
      * The background color of a cell when the cell is focused.
      */
-    "notebook.focusedCellBackground"?: string;
+    'notebook.focusedCellBackground'?: string;
     /**
      * The background color of a cell when the cell is selected.
      */
-    "notebook.selectedCellBackground"?: string;
+    'notebook.selectedCellBackground'?: string;
     /**
      * The background color of a cell when the cell is hovered.
      */
-    "notebook.cellHoverBackground"?: string;
+    'notebook.cellHoverBackground'?: string;
     /**
      * The color of the cell's top and bottom border when the cell is selected but not focused.
      */
-    "notebook.selectedCellBorder"?: string;
+    'notebook.selectedCellBorder'?: string;
     /**
      * The color of the cell's borders when multiple cells are selected.
      */
-    "notebook.inactiveSelectedCellBorder"?: string;
+    'notebook.inactiveSelectedCellBorder'?: string;
     /**
      * The color of the cell's focus indicator borders when the cell is focused.
      */
-    "notebook.focusedCellBorder"?: string;
+    'notebook.focusedCellBorder'?: string;
     /**
      * The color of the cell's top and bottom border when a cell is focused while the primary focus is outside of the editor.
      */
-    "notebook.inactiveFocusedCellBorder"?: string;
+    'notebook.inactiveFocusedCellBorder'?: string;
     /**
      * The background color of notebook cell status bar items.
      */
-    "notebook.cellStatusBarItemHoverBackground"?: string;
+    'notebook.cellStatusBarItemHoverBackground'?: string;
     /**
      * The color of the notebook cell insertion indicator.
      */
-    "notebook.cellInsertionIndicator"?: string;
+    'notebook.cellInsertionIndicator'?: string;
     /**
      * Notebook scrollbar slider background color.
      */
-    "notebookScrollbarSlider.background"?: string;
+    'notebookScrollbarSlider.background'?: string;
     /**
      * Notebook scrollbar slider background color when hovering.
      */
-    "notebookScrollbarSlider.hoverBackground"?: string;
+    'notebookScrollbarSlider.hoverBackground'?: string;
     /**
      * Notebook scrollbar slider background color when clicked on.
      */
-    "notebookScrollbarSlider.activeBackground"?: string;
+    'notebookScrollbarSlider.activeBackground'?: string;
     /**
      * Background color of highlighted cell
      */
-    "notebook.symbolHighlightBackground"?: string;
+    'notebook.symbolHighlightBackground'?: string;
     /**
      * Cell editor background color.
      */
-    "notebook.cellEditorBackground"?: string;
+    'notebook.cellEditorBackground'?: string;
     /**
      * SCM Provider separator border.
      */
-    "scm.providerBorder"?: string;
+    'scm.providerBorder'?: string;
     /**
      * Search editor text input box border.
      */
-    "searchEditor.textInputBorder"?: string;
+    'searchEditor.textInputBorder'?: string;
     /**
      * Foreground color for the token names shown in the debug views (ie. the Variables or Watch view).
      */
-    "debugTokenExpression.name"?: string;
+    'debugTokenExpression.name'?: string;
     /**
      * Foreground color for the token values shown in the debug views (ie. the Variables or Watch view).
      */
-    "debugTokenExpression.value"?: string;
+    'debugTokenExpression.value'?: string;
     /**
      * Foreground color for strings in the debug views (ie. the Variables or Watch view).
      */
-    "debugTokenExpression.string"?: string;
+    'debugTokenExpression.string'?: string;
     /**
      * Foreground color for booleans in the debug views (ie. the Variables or Watch view).
      */
-    "debugTokenExpression.boolean"?: string;
+    'debugTokenExpression.boolean'?: string;
     /**
      * Foreground color for numbers in the debug views (ie. the Variables or Watch view).
      */
-    "debugTokenExpression.number"?: string;
+    'debugTokenExpression.number'?: string;
     /**
      * Foreground color for expression errors in the debug views (ie. the Variables or Watch view) and for error logs shown in the debug console.
      */
-    "debugTokenExpression.error"?: string;
+    'debugTokenExpression.error'?: string;
     /**
      * Foreground color for a label shown in the CALL STACK view when the debugger breaks on an exception.
      */
-    "debugView.exceptionLabelForeground"?: string;
+    'debugView.exceptionLabelForeground'?: string;
     /**
      * Background color for a label shown in the CALL STACK view when the debugger breaks on an exception.
      */
-    "debugView.exceptionLabelBackground"?: string;
+    'debugView.exceptionLabelBackground'?: string;
     /**
      * Foreground color for a label in the CALL STACK view showing the current session's or thread's state.
      */
-    "debugView.stateLabelForeground"?: string;
+    'debugView.stateLabelForeground'?: string;
     /**
      * Background color for a label in the CALL STACK view showing the current session's or thread's state.
      */
-    "debugView.stateLabelBackground"?: string;
+    'debugView.stateLabelBackground'?: string;
     /**
      * Color used to highlight value changes in the debug views (ie. in the Variables view).
      */
-    "debugView.valueChangedHighlight"?: string;
+    'debugView.valueChangedHighlight'?: string;
     /**
      * Foreground color for info messages in debug REPL console.
      */
-    "debugConsole.infoForeground"?: string;
+    'debugConsole.infoForeground'?: string;
     /**
      * Foreground color for warning messages in debug REPL console.
      */
-    "debugConsole.warningForeground"?: string;
+    'debugConsole.warningForeground'?: string;
     /**
      * Foreground color for error messages in debug REPL console.
      */
-    "debugConsole.errorForeground"?: string;
+    'debugConsole.errorForeground'?: string;
     /**
      * Foreground color for source filenames in debug REPL console.
      */
-    "debugConsole.sourceForeground"?: string;
+    'debugConsole.sourceForeground'?: string;
     /**
      * Foreground color for debug console input marker icon.
      */
-    "debugConsoleInputIcon.foreground"?: string;
+    'debugConsoleInputIcon.foreground'?: string;
     /**
      * Debug toolbar icon for pause.
      */
-    "debugIcon.pauseForeground"?: string;
+    'debugIcon.pauseForeground'?: string;
     /**
      * Debug toolbar icon for stop.
      */
-    "debugIcon.stopForeground"?: string;
+    'debugIcon.stopForeground'?: string;
     /**
      * Debug toolbar icon for disconnect.
      */
-    "debugIcon.disconnectForeground"?: string;
+    'debugIcon.disconnectForeground'?: string;
     /**
      * Debug toolbar icon for restart.
      */
-    "debugIcon.restartForeground"?: string;
+    'debugIcon.restartForeground'?: string;
     /**
      * Debug toolbar icon for step over.
      */
-    "debugIcon.stepOverForeground"?: string;
+    'debugIcon.stepOverForeground'?: string;
     /**
      * Debug toolbar icon for step into.
      */
-    "debugIcon.stepIntoForeground"?: string;
+    'debugIcon.stepIntoForeground'?: string;
     /**
      * Debug toolbar icon for step over.
      */
-    "debugIcon.stepOutForeground"?: string;
+    'debugIcon.stepOutForeground'?: string;
     /**
      * Debug toolbar icon for continue.
      */
-    "debugIcon.continueForeground"?: string;
+    'debugIcon.continueForeground'?: string;
     /**
      * Debug toolbar icon for step back.
      */
-    "debugIcon.stepBackForeground"?: string;
+    'debugIcon.stepBackForeground'?: string;
     /**
      * Button background color for actions extension that stand out (e.g. install button).
      */
-    "extensionButton.prominentBackground"?: string;
+    'extensionButton.prominentBackground'?: string;
     /**
      * Button foreground color for actions extension that stand out (e.g. install button).
      */
-    "extensionButton.prominentForeground"?: string;
+    'extensionButton.prominentForeground'?: string;
     /**
      * Button background hover color for actions extension that stand out (e.g. install button).
      */
-    "extensionButton.prominentHoverBackground"?: string;
+    'extensionButton.prominentHoverBackground'?: string;
     /**
      * The icon color for extension ratings.
      */
-    "extensionIcon.starForeground"?: string;
+    'extensionIcon.starForeground'?: string;
     /**
      * The icon color for extension verified publisher.
      */
-    "extensionIcon.verifiedForeground"?: string;
+    'extensionIcon.verifiedForeground'?: string;
     /**
      * The icon color for pre-release extension.
      */
-    "extensionIcon.preReleaseForeground"?: string;
+    'extensionIcon.preReleaseForeground'?: string;
     /**
      * 'Black' ANSI color in the terminal.
      */
-    "terminal.ansiBlack"?: string;
+    'terminal.ansiBlack'?: string;
     /**
      * 'Red' ANSI color in the terminal.
      */
-    "terminal.ansiRed"?: string;
+    'terminal.ansiRed'?: string;
     /**
      * 'Green' ANSI color in the terminal.
      */
-    "terminal.ansiGreen"?: string;
+    'terminal.ansiGreen'?: string;
     /**
      * 'Yellow' ANSI color in the terminal.
      */
-    "terminal.ansiYellow"?: string;
+    'terminal.ansiYellow'?: string;
     /**
      * 'Blue' ANSI color in the terminal.
      */
-    "terminal.ansiBlue"?: string;
+    'terminal.ansiBlue'?: string;
     /**
      * 'Magenta' ANSI color in the terminal.
      */
-    "terminal.ansiMagenta"?: string;
+    'terminal.ansiMagenta'?: string;
     /**
      * 'Cyan' ANSI color in the terminal.
      */
-    "terminal.ansiCyan"?: string;
+    'terminal.ansiCyan'?: string;
     /**
      * 'White' ANSI color in the terminal.
      */
-    "terminal.ansiWhite"?: string;
+    'terminal.ansiWhite'?: string;
     /**
      * 'BrightBlack' ANSI color in the terminal.
      */
-    "terminal.ansiBrightBlack"?: string;
+    'terminal.ansiBrightBlack'?: string;
     /**
      * 'BrightRed' ANSI color in the terminal.
      */
-    "terminal.ansiBrightRed"?: string;
+    'terminal.ansiBrightRed'?: string;
     /**
      * 'BrightGreen' ANSI color in the terminal.
      */
-    "terminal.ansiBrightGreen"?: string;
+    'terminal.ansiBrightGreen'?: string;
     /**
      * 'BrightYellow' ANSI color in the terminal.
      */
-    "terminal.ansiBrightYellow"?: string;
+    'terminal.ansiBrightYellow'?: string;
     /**
      * 'BrightBlue' ANSI color in the terminal.
      */
-    "terminal.ansiBrightBlue"?: string;
+    'terminal.ansiBrightBlue'?: string;
     /**
      * 'BrightMagenta' ANSI color in the terminal.
      */
-    "terminal.ansiBrightMagenta"?: string;
+    'terminal.ansiBrightMagenta'?: string;
     /**
      * 'BrightCyan' ANSI color in the terminal.
      */
-    "terminal.ansiBrightCyan"?: string;
+    'terminal.ansiBrightCyan'?: string;
     /**
      * 'BrightWhite' ANSI color in the terminal.
      */
-    "terminal.ansiBrightWhite"?: string;
+    'terminal.ansiBrightWhite'?: string;
     /**
      * The border color for the current interactive code cell when the editor has focus.
      */
-    "interactive.activeCodeBorder"?: string;
+    'interactive.activeCodeBorder'?: string;
     /**
      * The border color for the current interactive code cell when the editor does not have focus.
      */
-    "interactive.inactiveCodeBorder"?: string;
+    'interactive.inactiveCodeBorder'?: string;
     /**
      * Color for added resources.
      */
-    "gitDecoration.addedResourceForeground"?: string;
+    'gitDecoration.addedResourceForeground'?: string;
     /**
      * Color for modified resources.
      */
-    "gitDecoration.modifiedResourceForeground"?: string;
+    'gitDecoration.modifiedResourceForeground'?: string;
     /**
      * Color for deleted resources.
      */
-    "gitDecoration.deletedResourceForeground"?: string;
+    'gitDecoration.deletedResourceForeground'?: string;
     /**
      * Color for renamed or copied resources.
      */
-    "gitDecoration.renamedResourceForeground"?: string;
+    'gitDecoration.renamedResourceForeground'?: string;
     /**
      * Color for untracked resources.
      */
-    "gitDecoration.untrackedResourceForeground"?: string;
+    'gitDecoration.untrackedResourceForeground'?: string;
     /**
      * Color for ignored resources.
      */
-    "gitDecoration.ignoredResourceForeground"?: string;
+    'gitDecoration.ignoredResourceForeground'?: string;
     /**
      * Color for modified resources which have been staged.
      */
-    "gitDecoration.stageModifiedResourceForeground"?: string;
+    'gitDecoration.stageModifiedResourceForeground'?: string;
     /**
      * Color for deleted resources which have been staged.
      */
-    "gitDecoration.stageDeletedResourceForeground"?: string;
+    'gitDecoration.stageDeletedResourceForeground'?: string;
     /**
      * Color for resources with conflicts.
      */
-    "gitDecoration.conflictingResourceForeground"?: string;
+    'gitDecoration.conflictingResourceForeground'?: string;
     /**
      * Color for submodule resources.
      */
-    "gitDecoration.submoduleResourceForeground"?: string;
+    'gitDecoration.submoduleResourceForeground'?: string;
     /**
      * Background color for the bookmarked line
      */
-    "bookmarks.lineBackground"?: string;
+    'bookmarks.lineBackground'?: string;
     /**
      * Background color for the border around the bookmarked line
      */
-    "bookmarks.lineBorder"?: string;
+    'bookmarks.lineBorder'?: string;
     /**
      * Overview ruler marker color for bookmarks
      */
-    "bookmarks.overviewRuler"?: string;
+    'bookmarks.overviewRuler'?: string;
     /**
      * Specifies the background color of the gutter blame annotations
      */
-    "gitlens.gutterBackgroundColor"?: string;
+    'gitlens.gutterBackgroundColor'?: string;
     /**
      * Specifies the foreground color of the gutter blame annotations
      */
-    "gitlens.gutterForegroundColor"?: string;
+    'gitlens.gutterForegroundColor'?: string;
     /**
      * Specifies the foreground color of an uncommitted line in the gutter blame annotations
      */
-    "gitlens.gutterUncommittedForegroundColor"?: string;
+    'gitlens.gutterUncommittedForegroundColor'?: string;
     /**
      * Specifies the background color of the blame annotation for the current line
      */
-    "gitlens.trailingLineBackgroundColor"?: string;
+    'gitlens.trailingLineBackgroundColor'?: string;
     /**
      * Specifies the foreground color of the blame annotation for the current line
      */
-    "gitlens.trailingLineForegroundColor"?: string;
+    'gitlens.trailingLineForegroundColor'?: string;
     /**
      * Specifies the background color of the associated line highlights in blame annotations
      */
-    "gitlens.lineHighlightBackgroundColor"?: string;
+    'gitlens.lineHighlightBackgroundColor'?: string;
     /**
      * Specifies the overview ruler color of the associated line highlights in blame annotations
      */
-    "gitlens.lineHighlightOverviewRulerColor"?: string;
+    'gitlens.lineHighlightOverviewRulerColor'?: string;
     /**
      * Specifies the icon color of closed pull requests in the GitLens views
      */
-    "gitlens.closedPullRequestIconColor"?: string;
+    'gitlens.closedPullRequestIconColor'?: string;
     /**
      * Specifies the icon color of open pull requests in the GitLens views
      */
-    "gitlens.openPullRequestIconColor"?: string;
+    'gitlens.openPullRequestIconColor'?: string;
     /**
      * Specifies the icon color of merged pull requests in the GitLens views
      */
-    "gitlens.mergedPullRequestIconColor"?: string;
+    'gitlens.mergedPullRequestIconColor'?: string;
     /**
      * Specifies the icon color of unpublished changes in the GitLens views
      */
-    "gitlens.unpushlishedChangesIconColor"?: string;
+    'gitlens.unpushlishedChangesIconColor'?: string;
     /**
      * Specifies the icon color of unpublished commits in the GitLens views
      */
-    "gitlens.unpublishedCommitIconColor"?: string;
+    'gitlens.unpublishedCommitIconColor'?: string;
     /**
      * Specifies the icon color of unpulled changes in the GitLens views
      */
-    "gitlens.unpulledChangesIconColor"?: string;
+    'gitlens.unpulledChangesIconColor'?: string;
     /**
      * Specifies the decoration foreground color of added files
      */
-    "gitlens.decorations.addedForegroundColor"?: string;
+    'gitlens.decorations.addedForegroundColor'?: string;
     /**
      * Specifies the decoration foreground color of copied files
      */
-    "gitlens.decorations.copiedForegroundColor"?: string;
+    'gitlens.decorations.copiedForegroundColor'?: string;
     /**
      * Specifies the decoration foreground color of deleted files
      */
-    "gitlens.decorations.deletedForegroundColor"?: string;
+    'gitlens.decorations.deletedForegroundColor'?: string;
     /**
      * Specifies the decoration foreground color of ignored files
      */
-    "gitlens.decorations.ignoredForegroundColor"?: string;
+    'gitlens.decorations.ignoredForegroundColor'?: string;
     /**
      * Specifies the decoration foreground color of modified files
      */
-    "gitlens.decorations.modifiedForegroundColor"?: string;
+    'gitlens.decorations.modifiedForegroundColor'?: string;
     /**
      * Specifies the decoration foreground color of untracked files
      */
-    "gitlens.decorations.untrackedForegroundColor"?: string;
+    'gitlens.decorations.untrackedForegroundColor'?: string;
     /**
      * Specifies the decoration foreground color of renamed files
      */
-    "gitlens.decorations.renamedForegroundColor"?: string;
+    'gitlens.decorations.renamedForegroundColor'?: string;
     /**
      * Specifies the decoration foreground color of branches that are ahead of their upstream
      */
-    "gitlens.decorations.branchAheadForegroundColor"?: string;
+    'gitlens.decorations.branchAheadForegroundColor'?: string;
     /**
      * Specifies the decoration foreground color of branches that are behind their upstream
      */
-    "gitlens.decorations.branchBehindForegroundColor"?: string;
+    'gitlens.decorations.branchBehindForegroundColor'?: string;
     /**
      * Specifies the decoration foreground color of branches that are both ahead and behind their upstream
      */
-    "gitlens.decorations.branchDivergedForegroundColor"?: string;
+    'gitlens.decorations.branchDivergedForegroundColor'?: string;
     /**
      * Specifies the decoration foreground color of branches that are up to date with their upstream
      */
-    "gitlens.decorations.branchUpToDateForegroundColor"?: string;
+    'gitlens.decorations.branchUpToDateForegroundColor'?: string;
     /**
      * Specifies the decoration foreground color of branches that are not yet published to an upstream
      */
-    "gitlens.decorations.branchUnpublishedForegroundColor"?: string;
+    'gitlens.decorations.branchUnpublishedForegroundColor'?: string;
     /**
      * Specifies the decoration foreground color of branches that have a missing upstream
      */
-    "gitlens.decorations.branchMissingUpstreamForegroundColor"?: string;
+    'gitlens.decorations.branchMissingUpstreamForegroundColor'?: string;
     /**
      * Color for added resources
      */
-    "remoteHub.decorations.addedForegroundColor"?: string;
+    'remoteHub.decorations.addedForegroundColor'?: string;
     /**
      * Color for modified resources
      */
-    "remoteHub.decorations.modifiedForegroundColor"?: string;
+    'remoteHub.decorations.modifiedForegroundColor'?: string;
     /**
      * Color for deleted resources
      */
-    "remoteHub.decorations.deletedForegroundColor"?: string;
+    'remoteHub.decorations.deletedForegroundColor'?: string;
     /**
      * Color for resources with conflicts
      */
-    "remoteHub.decorations.conflictForegroundColor"?: string;
+    'remoteHub.decorations.conflictForegroundColor'?: string;
     /**
      * Color for incoming added resources
      */
-    "remoteHub.decorations.incomingAddedForegroundColor"?: string;
+    'remoteHub.decorations.incomingAddedForegroundColor'?: string;
     /**
      * Color for incoming modified resources
      */
-    "remoteHub.decorations.incomingModifiedForegroundColor"?: string;
+    'remoteHub.decorations.incomingModifiedForegroundColor'?: string;
     /**
      * Color for incoming deleted resources
      */
-    "remoteHub.decorations.incomingDeletedForegroundColor"?: string;
+    'remoteHub.decorations.incomingDeletedForegroundColor'?: string;
     /**
      * Color for incoming renamed resources
      */
-    "remoteHub.decorations.incomingRenamedForegroundColor"?: string;
+    'remoteHub.decorations.incomingRenamedForegroundColor'?: string;
     /**
      * Color for resources with possible conflicts
      */
-    "remoteHub.decorations.possibleConflictForegroundColor"?: string;
+    'remoteHub.decorations.possibleConflictForegroundColor'?: string;
     /**
      * Color for workspace repositories that have uncommitted changes
      */
-    "remoteHub.decorations.workspaceRepositoriesView.hasUncommittedChangesForegroundColor"?: string;
+    'remoteHub.decorations.workspaceRepositoriesView.hasUncommittedChangesForegroundColor'?: string;
     /**
      * Foreground color of inlay hints (is overriden by more specific rust_analyzer.inlayHints.foreground.* configurations)
      */
-    "rust_analyzer.inlayHints.foreground"?: string;
+    'rust_analyzer.inlayHints.foreground'?: string;
     /**
      * Background color of inlay hints (is overriden by more specific rust_analyzer.inlayHints.background.* configurations)
      */
-    "rust_analyzer.inlayHints.background"?: string;
+    'rust_analyzer.inlayHints.background'?: string;
     /**
      * Foreground color of inlay type hints for variables (overrides rust_analyzer.inlayHints.foreground)
      */
-    "rust_analyzer.inlayHints.foreground.typeHints"?: string;
+    'rust_analyzer.inlayHints.foreground.typeHints'?: string;
     /**
      * Foreground color of inlay type hints for method chains (overrides rust_analyzer.inlayHints.foreground)
      */
-    "rust_analyzer.inlayHints.foreground.chainingHints"?: string;
+    'rust_analyzer.inlayHints.foreground.chainingHints'?: string;
     /**
      * Foreground color of function parameter name inlay hints at the call site (overrides rust_analyzer.inlayHints.foreground)
      */
-    "rust_analyzer.inlayHints.foreground.parameterHints"?: string;
+    'rust_analyzer.inlayHints.foreground.parameterHints'?: string;
     /**
      * Background color of inlay type hints for variables (overrides rust_analyzer.inlayHints.background)
      */
-    "rust_analyzer.inlayHints.background.typeHints"?: string;
+    'rust_analyzer.inlayHints.background.typeHints'?: string;
     /**
      * Background color of inlay type hints for method chains (overrides rust_analyzer.inlayHints.background)
      */
-    "rust_analyzer.inlayHints.background.chainingHints"?: string;
+    'rust_analyzer.inlayHints.background.chainingHints'?: string;
     /**
      * Background color of function parameter name inlay hints at the call site (overrides rust_analyzer.inlayHints.background)
      */
-    "rust_analyzer.inlayHints.background.parameterHints"?: string;
+    'rust_analyzer.inlayHints.background.parameterHints'?: string;
     /**
      * Color of the border displayed in the Rust source code for the selected syntax node (see "Show Syntax Tree" command)
      */
-    "rust_analyzer.syntaxTreeBorder"?: string;
+    'rust_analyzer.syntaxTreeBorder'?: string;
     /**
      * Background color of the entire line containing error.
      */
-    "errorLens.errorBackground"?: string;
+    'errorLens.errorBackground'?: string;
     /**
      * Background color of the error message.
      */
-    "errorLens.errorMessageBackground"?: string;
+    'errorLens.errorMessageBackground'?: string;
     /**
      * Background color of the entire line containing error (Only in light themes).
      */
-    "errorLens.errorBackgroundLight"?: string;
+    'errorLens.errorBackgroundLight'?: string;
     /**
      * Text color used to highlight lines containing errors.
      */
-    "errorLens.errorForeground"?: string;
+    'errorLens.errorForeground'?: string;
     /**
      * Text color used to highlight lines containing errors (Only in light themes).
      */
-    "errorLens.errorForegroundLight"?: string;
+    'errorLens.errorForegroundLight'?: string;
     /**
      * Background color used to highlight lines containing warnings.
      */
-    "errorLens.warningBackground"?: string;
+    'errorLens.warningBackground'?: string;
     /**
      * Background color of the warning message.
      */
-    "errorLens.warningMessageBackground"?: string;
+    'errorLens.warningMessageBackground'?: string;
     /**
      * Background color used to highlight lines containing warnings (Only in light themes).
      */
-    "errorLens.warningBackgroundLight"?: string;
+    'errorLens.warningBackgroundLight'?: string;
     /**
      * Text color used to highlight lines containing warnings.
      */
-    "errorLens.warningForeground"?: string;
+    'errorLens.warningForeground'?: string;
     /**
      * Text color used to highlight lines containing warnings (Only in light themes).
      */
-    "errorLens.warningForegroundLight"?: string;
+    'errorLens.warningForegroundLight'?: string;
     /**
      * Background color used to highlight lines containing info.
      */
-    "errorLens.infoBackground"?: string;
+    'errorLens.infoBackground'?: string;
     /**
      * Background color of the info message.
      */
-    "errorLens.infoMessageBackground"?: string;
+    'errorLens.infoMessageBackground'?: string;
     /**
      * Background color used to highlight lines containing info (Only in light themes).
      */
-    "errorLens.infoBackgroundLight"?: string;
+    'errorLens.infoBackgroundLight'?: string;
     /**
      * Text color used to highlight lines containing info.
      */
-    "errorLens.infoForeground"?: string;
+    'errorLens.infoForeground'?: string;
     /**
      * Text color used to highlight lines containing info (Only in light themes).
      */
-    "errorLens.infoForegroundLight"?: string;
+    'errorLens.infoForegroundLight'?: string;
     /**
      * Background color used to highlight lines containing hints.
      */
-    "errorLens.hintBackground"?: string;
+    'errorLens.hintBackground'?: string;
     /**
      * Background color of the hint message.
      */
-    "errorLens.hintMessageBackground"?: string;
+    'errorLens.hintMessageBackground'?: string;
     /**
      * Background color used to highlight lines containing hints (Only in light themes).
      */
-    "errorLens.hintBackgroundLight"?: string;
+    'errorLens.hintBackgroundLight'?: string;
     /**
      * Text color used to highlight lines containing hints.
      */
-    "errorLens.hintForeground"?: string;
+    'errorLens.hintForeground'?: string;
     /**
      * Text color used to highlight lines containing hints (Only in light themes).
      */
-    "errorLens.hintForegroundLight"?: string;
+    'errorLens.hintForegroundLight'?: string;
     /**
      * Status bar icon item error color.
      */
-    "errorLens.statusBarIconErrorForeground"?: string;
+    'errorLens.statusBarIconErrorForeground'?: string;
     /**
      * Status bar icon item error color.
      */
-    "errorLens.statusBarIconWarningForeground"?: string;
+    'errorLens.statusBarIconWarningForeground'?: string;
     /**
      * Status bar item error color.
      */
-    "errorLens.statusBarErrorForeground"?: string;
+    'errorLens.statusBarErrorForeground'?: string;
     /**
      * Status bar item warning color.
      */
-    "errorLens.statusBarWarningForeground"?: string;
+    'errorLens.statusBarWarningForeground'?: string;
     /**
      * Status bar item info color.
      */
-    "errorLens.statusBarInfoForeground"?: string;
+    'errorLens.statusBarInfoForeground'?: string;
     /**
      * Status bar item hint color.
      */
-    "errorLens.statusBarHintForeground"?: string;
+    'errorLens.statusBarHintForeground'?: string;
   };
   tokenColors?:
     | string
@@ -2674,213 +2778,7 @@ export interface ColorTheme {
         /**
          * Scope selector against which this rule matches.
          */
-        scope:
-          | (
-              | "comment"
-              | "comment.block"
-              | "comment.block.documentation"
-              | "comment.line"
-              | "constant"
-              | "constant.character"
-              | "constant.character.escape"
-              | "constant.numeric"
-              | "constant.numeric.integer"
-              | "constant.numeric.float"
-              | "constant.numeric.hex"
-              | "constant.numeric.octal"
-              | "constant.other"
-              | "constant.regexp"
-              | "constant.rgb-value"
-              | "emphasis"
-              | "entity"
-              | "entity.name"
-              | "entity.name.class"
-              | "entity.name.function"
-              | "entity.name.method"
-              | "entity.name.section"
-              | "entity.name.selector"
-              | "entity.name.tag"
-              | "entity.name.type"
-              | "entity.other"
-              | "entity.other.attribute-name"
-              | "entity.other.inherited-class"
-              | "invalid"
-              | "invalid.deprecated"
-              | "invalid.illegal"
-              | "keyword"
-              | "keyword.control"
-              | "keyword.operator"
-              | "keyword.operator.new"
-              | "keyword.operator.assignment"
-              | "keyword.operator.arithmetic"
-              | "keyword.operator.logical"
-              | "keyword.other"
-              | "markup"
-              | "markup.bold"
-              | "markup.changed"
-              | "markup.deleted"
-              | "markup.heading"
-              | "markup.inline.raw"
-              | "markup.inserted"
-              | "markup.italic"
-              | "markup.list"
-              | "markup.list.numbered"
-              | "markup.list.unnumbered"
-              | "markup.other"
-              | "markup.quote"
-              | "markup.raw"
-              | "markup.underline"
-              | "markup.underline.link"
-              | "meta"
-              | "meta.block"
-              | "meta.cast"
-              | "meta.class"
-              | "meta.function"
-              | "meta.function-call"
-              | "meta.preprocessor"
-              | "meta.return-type"
-              | "meta.selector"
-              | "meta.tag"
-              | "meta.type.annotation"
-              | "meta.type"
-              | "punctuation.definition.string.begin"
-              | "punctuation.definition.string.end"
-              | "punctuation.separator"
-              | "punctuation.separator.continuation"
-              | "punctuation.terminator"
-              | "storage"
-              | "storage.modifier"
-              | "storage.type"
-              | "string"
-              | "string.interpolated"
-              | "string.other"
-              | "string.quoted"
-              | "string.quoted.double"
-              | "string.quoted.other"
-              | "string.quoted.single"
-              | "string.quoted.triple"
-              | "string.regexp"
-              | "string.unquoted"
-              | "strong"
-              | "support"
-              | "support.class"
-              | "support.constant"
-              | "support.function"
-              | "support.other"
-              | "support.type"
-              | "support.type.property-name"
-              | "support.variable"
-              | "variable"
-              | "variable.language"
-              | "variable.name"
-              | "variable.other"
-              | "variable.other.readwrite"
-              | "variable.parameter"
-            )
-          | string
-          | (
-              | "comment"
-              | "comment.block"
-              | "comment.block.documentation"
-              | "comment.line"
-              | "constant"
-              | "constant.character"
-              | "constant.character.escape"
-              | "constant.numeric"
-              | "constant.numeric.integer"
-              | "constant.numeric.float"
-              | "constant.numeric.hex"
-              | "constant.numeric.octal"
-              | "constant.other"
-              | "constant.regexp"
-              | "constant.rgb-value"
-              | "emphasis"
-              | "entity"
-              | "entity.name"
-              | "entity.name.class"
-              | "entity.name.function"
-              | "entity.name.method"
-              | "entity.name.section"
-              | "entity.name.selector"
-              | "entity.name.tag"
-              | "entity.name.type"
-              | "entity.other"
-              | "entity.other.attribute-name"
-              | "entity.other.inherited-class"
-              | "invalid"
-              | "invalid.deprecated"
-              | "invalid.illegal"
-              | "keyword"
-              | "keyword.control"
-              | "keyword.operator"
-              | "keyword.operator.new"
-              | "keyword.operator.assignment"
-              | "keyword.operator.arithmetic"
-              | "keyword.operator.logical"
-              | "keyword.other"
-              | "markup"
-              | "markup.bold"
-              | "markup.changed"
-              | "markup.deleted"
-              | "markup.heading"
-              | "markup.inline.raw"
-              | "markup.inserted"
-              | "markup.italic"
-              | "markup.list"
-              | "markup.list.numbered"
-              | "markup.list.unnumbered"
-              | "markup.other"
-              | "markup.quote"
-              | "markup.raw"
-              | "markup.underline"
-              | "markup.underline.link"
-              | "meta"
-              | "meta.block"
-              | "meta.cast"
-              | "meta.class"
-              | "meta.function"
-              | "meta.function-call"
-              | "meta.preprocessor"
-              | "meta.return-type"
-              | "meta.selector"
-              | "meta.tag"
-              | "meta.type.annotation"
-              | "meta.type"
-              | "punctuation.definition.string.begin"
-              | "punctuation.definition.string.end"
-              | "punctuation.separator"
-              | "punctuation.separator.continuation"
-              | "punctuation.terminator"
-              | "storage"
-              | "storage.modifier"
-              | "storage.type"
-              | "string"
-              | "string.interpolated"
-              | "string.other"
-              | "string.quoted"
-              | "string.quoted.double"
-              | "string.quoted.other"
-              | "string.quoted.single"
-              | "string.quoted.triple"
-              | "string.regexp"
-              | "string.unquoted"
-              | "strong"
-              | "support"
-              | "support.class"
-              | "support.constant"
-              | "support.function"
-              | "support.other"
-              | "support.type"
-              | "support.type.property-name"
-              | "support.variable"
-              | "variable"
-              | "variable.language"
-              | "variable.name"
-              | "variable.other"
-              | "variable.other.readwrite"
-              | "variable.parameter"
-            )[]
-          | string[];
+        scope: TokenScope | TokenScopeExtended | (TokenScope | TokenScopeExtended)[];
         /**
          * Colors and styles for the token.
          */
@@ -3699,7 +3597,7 @@ export interface ColorTheme {
     /**
      * Style for all symbol declarations.
      */
-    "*.declaration"?:
+    '*.declaration'?:
       | string
       | {
           /**
@@ -3732,7 +3630,7 @@ export interface ColorTheme {
     /**
      * Style to use for references in documentation.
      */
-    "*.documentation"?:
+    '*.documentation'?:
       | string
       | {
           /**
@@ -3765,7 +3663,7 @@ export interface ColorTheme {
     /**
      * Style to use for symbols that are static.
      */
-    "*.static"?:
+    '*.static'?:
       | string
       | {
           /**
@@ -3798,7 +3696,7 @@ export interface ColorTheme {
     /**
      * Style to use for symbols that are abstract.
      */
-    "*.abstract"?:
+    '*.abstract'?:
       | string
       | {
           /**
@@ -3831,7 +3729,7 @@ export interface ColorTheme {
     /**
      * Style to use for symbols that are deprecated.
      */
-    "*.deprecated"?:
+    '*.deprecated'?:
       | string
       | {
           /**
@@ -3864,7 +3762,7 @@ export interface ColorTheme {
     /**
      * Style to use for write accesses.
      */
-    "*.modification"?:
+    '*.modification'?:
       | string
       | {
           /**
@@ -3897,7 +3795,7 @@ export interface ColorTheme {
     /**
      * Style for async functions and the `async` and `await` keywords
      */
-    "*.async"?:
+    '*.async'?:
       | string
       | {
           /**
@@ -3930,7 +3828,7 @@ export interface ColorTheme {
     /**
      * Style to use for symbols that are readonly.
      */
-    "*.readonly"?:
+    '*.readonly'?:
       | string
       | {
           /**
@@ -4986,7 +4884,7 @@ export interface ColorTheme {
     /**
      * Style for elements within attributes
      */
-    "*.attribute"?:
+    '*.attribute'?:
       | string
       | {
           /**
@@ -5019,7 +4917,7 @@ export interface ColorTheme {
     /**
      * Style for locals whose types implements one of the `Fn*` traits
      */
-    "*.callable"?:
+    '*.callable'?:
       | string
       | {
           /**
@@ -5052,7 +4950,7 @@ export interface ColorTheme {
     /**
      * Style for compile-time constants
      */
-    "*.constant"?:
+    '*.constant'?:
       | string
       | {
           /**
@@ -5085,7 +4983,7 @@ export interface ColorTheme {
     /**
      * Style for locals that are being consumed when use in a function call
      */
-    "*.consuming"?:
+    '*.consuming'?:
       | string
       | {
           /**
@@ -5118,7 +5016,7 @@ export interface ColorTheme {
     /**
      * Style for control-flow related tokens, this includes the `?` operator
      */
-    "*.controlFlow"?:
+    '*.controlFlow'?:
       | string
       | {
           /**
@@ -5151,7 +5049,7 @@ export interface ColorTheme {
     /**
      * Style for names resolving to a crate root
      */
-    "*.crateRoot"?:
+    '*.crateRoot'?:
       | string
       | {
           /**
@@ -5184,7 +5082,7 @@ export interface ColorTheme {
     /**
      * Style for doc-string injected highlighting like rust source blocks in documentation
      */
-    "*.injected"?:
+    '*.injected'?:
       | string
       | {
           /**
@@ -5217,7 +5115,7 @@ export interface ColorTheme {
     /**
      * Style for intra doc links in doc-strings
      */
-    "*.intraDocLink"?:
+    '*.intraDocLink'?:
       | string
       | {
           /**
@@ -5250,7 +5148,7 @@ export interface ColorTheme {
     /**
      * Style for items that are defined outside of the current crate
      */
-    "*.library"?:
+    '*.library'?:
       | string
       | {
           /**
@@ -5283,7 +5181,7 @@ export interface ColorTheme {
     /**
      * Style for mutable locals and statics as well as functions taking `&mut self`
      */
-    "*.mutable"?:
+    '*.mutable'?:
       | string
       | {
           /**
@@ -5316,7 +5214,7 @@ export interface ColorTheme {
     /**
      * Style tems that are from the current crate and are `pub`
      */
-    "*.public"?:
+    '*.public'?:
       | string
       | {
           /**
@@ -5349,7 +5247,7 @@ export interface ColorTheme {
     /**
      * Style for locals behind a reference and functions taking `self` by reference
      */
-    "*.reference"?:
+    '*.reference'?:
       | string
       | {
           /**
@@ -5382,7 +5280,7 @@ export interface ColorTheme {
     /**
      * Style for associated trait items
      */
-    "*.trait"?:
+    '*.trait'?:
       | string
       | {
           /**
@@ -5415,7 +5313,7 @@ export interface ColorTheme {
     /**
      * Style for unsafe operations, like unsafe function calls, as well as the `unsafe` token
      */
-    "*.unsafe"?:
+    '*.unsafe'?:
       | string
       | {
           /**
