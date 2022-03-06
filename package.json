@@ -23,17 +23,13 @@
 		],
 		"themes": [
 			{
-				"label": "One Deep",
+				"label": "Fullmetal",
 				"path": "./themes/fullmetal-color-theme.json",
 				"uiTheme": "vs-dark"
 			}
 		]
 	},
 	"license": "MIT",
-	"prettier": "@supersede/prettier-config",
-	"eslintConfig": {
-		"extends": "@supersede"
-	},
 	"scripts": {
 		"watch": "concurrently \"npm:watch-*\"",
 		"watch-generate": "nodemon --watch build build/theme.js",

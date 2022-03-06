@@ -73,6 +73,7 @@ type TokenScope =
   | 'meta.tag'
   | 'meta.type.annotation'
   | 'meta.type'
+  | 'punctuation'
   | 'punctuation.definition.string.begin'
   | 'punctuation.definition.string.end'
   | 'punctuation.separator'
@@ -117,15 +118,15 @@ export interface ColorTheme {
     /**
      * Overall foreground color. This color is only used if not overridden by a component.
      */
-    foreground?: string;
+    'foreground'?: string;
     /**
      * Overall foreground color for error messages. This color is only used if not overridden by a component.
      */
-    errorForeground?: string;
+    'errorForeground'?: string;
     /**
      * Foreground color for description text providing additional information, for example for a label.
      */
-    descriptionForeground?: string;
+    'descriptionForeground'?: string;
     /**
      * The default color for icons in the workbench.
      */
@@ -133,15 +134,15 @@ export interface ColorTheme {
     /**
      * Overall border color for focused elements. This color is only used if not overridden by a component.
      */
-    focusBorder?: string;
+    'focusBorder'?: string;
     /**
      * An extra border around elements to separate them from others for greater contrast.
      */
-    contrastBorder?: string;
+    'contrastBorder'?: string;
     /**
      * An extra border around active elements to separate them from others for greater contrast.
      */
-    contrastActiveBorder?: string;
+    'contrastActiveBorder'?: string;
     /**
      * The background color of text selections in the workbench (e.g. for input fields or text areas). Note that this does not apply to selections within the editor.
      */
@@ -2805,7 +2806,7 @@ export interface ColorTheme {
     /**
      * Style for comments.
      */
-    comment?:
+    'comment'?:
       | string
       | {
           /**
@@ -2838,7 +2839,7 @@ export interface ColorTheme {
     /**
      * Style for strings.
      */
-    string?:
+    'string'?:
       | string
       | {
           /**
@@ -2871,7 +2872,7 @@ export interface ColorTheme {
     /**
      * Style for keywords.
      */
-    keyword?:
+    'keyword'?:
       | string
       | {
           /**
@@ -2904,7 +2905,7 @@ export interface ColorTheme {
     /**
      * Style for numbers.
      */
-    number?:
+    'number'?:
       | string
       | {
           /**
@@ -2937,7 +2938,7 @@ export interface ColorTheme {
     /**
      * Style for expressions.
      */
-    regexp?:
+    'regexp'?:
       | string
       | {
           /**
@@ -2970,7 +2971,7 @@ export interface ColorTheme {
     /**
      * Style for operators
      */
-    operator?:
+    'operator'?:
       | string
       | {
           /**
@@ -3003,7 +3004,7 @@ export interface ColorTheme {
     /**
      * Style for namespaces.
      */
-    namespace?:
+    'namespace'?:
       | string
       | {
           /**
@@ -3036,7 +3037,7 @@ export interface ColorTheme {
     /**
      * Style for types.
      */
-    type?:
+    'type'?:
       | string
       | {
           /**
@@ -3069,7 +3070,7 @@ export interface ColorTheme {
     /**
      * Style for structs.
      */
-    struct?:
+    'struct'?:
       | string
       | {
           /**
@@ -3102,7 +3103,7 @@ export interface ColorTheme {
     /**
      * Style for classes.
      */
-    class?:
+    'class'?:
       | string
       | {
           /**
@@ -3135,7 +3136,7 @@ export interface ColorTheme {
     /**
      * Style for interfaces.
      */
-    interface?:
+    'interface'?:
       | string
       | {
           /**
@@ -3168,7 +3169,7 @@ export interface ColorTheme {
     /**
      * Style for enums.
      */
-    enum?:
+    'enum'?:
       | string
       | {
           /**
@@ -3201,7 +3202,7 @@ export interface ColorTheme {
     /**
      * Style for type parameters.
      */
-    typeParameter?:
+    'typeParameter'?:
       | string
       | {
           /**
@@ -3234,7 +3235,7 @@ export interface ColorTheme {
     /**
      * Style for functions
      */
-    function?:
+    'function'?:
       | string
       | {
           /**
@@ -3267,7 +3268,7 @@ export interface ColorTheme {
     /**
      * Style for member functions
      */
-    member?:
+    'member'?:
       | string
       | {
           /**
@@ -3300,7 +3301,7 @@ export interface ColorTheme {
     /**
      * Style for method (member functions)
      */
-    method?:
+    'method'?:
       | string
       | {
           /**
@@ -3333,7 +3334,7 @@ export interface ColorTheme {
     /**
      * Style for macros.
      */
-    macro?:
+    'macro'?:
       | string
       | {
           /**
@@ -3366,7 +3367,7 @@ export interface ColorTheme {
     /**
      * Style for variables.
      */
-    variable?:
+    'variable'?:
       | string
       | {
           /**
@@ -3399,7 +3400,7 @@ export interface ColorTheme {
     /**
      * Style for parameters.
      */
-    parameter?:
+    'parameter'?:
       | string
       | {
           /**
@@ -3432,7 +3433,7 @@ export interface ColorTheme {
     /**
      * Style for properties.
      */
-    property?:
+    'property'?:
       | string
       | {
           /**
@@ -3465,7 +3466,7 @@ export interface ColorTheme {
     /**
      * Style for enum members.
      */
-    enumMember?:
+    'enumMember'?:
       | string
       | {
           /**
@@ -3498,7 +3499,7 @@ export interface ColorTheme {
     /**
      * Style for events.
      */
-    event?:
+    'event'?:
       | string
       | {
           /**
@@ -3531,7 +3532,7 @@ export interface ColorTheme {
     /**
      * Style for decorators & annotations.
      */
-    decorator?:
+    'decorator'?:
       | string
       | {
           /**
@@ -3564,7 +3565,7 @@ export interface ColorTheme {
     /**
      * Style for labels
      */
-    label?:
+    'label'?:
       | string
       | {
           /**
@@ -3861,7 +3862,7 @@ export interface ColorTheme {
     /**
      * Style for < or >
      */
-    angle?:
+    'angle'?:
       | string
       | {
           /**
@@ -3894,7 +3895,7 @@ export interface ColorTheme {
     /**
      * Style for arithmetic operators
      */
-    arithmetic?:
+    'arithmetic'?:
       | string
       | {
           /**
@@ -3927,7 +3928,7 @@ export interface ColorTheme {
     /**
      * Style for attributes
      */
-    attribute?:
+    'attribute'?:
       | string
       | {
           /**
@@ -3960,7 +3961,7 @@ export interface ColorTheme {
     /**
      * Style for attribute invocation brackets, that is the `#[` and `]` tokens
      */
-    attributeBracket?:
+    'attributeBracket'?:
       | string
       | {
           /**
@@ -3993,7 +3994,7 @@ export interface ColorTheme {
     /**
      * Style for bitwise operators
      */
-    bitwise?:
+    'bitwise'?:
       | string
       | {
           /**
@@ -4026,7 +4027,7 @@ export interface ColorTheme {
     /**
      * Style for boolean literals
      */
-    boolean?:
+    'boolean'?:
       | string
       | {
           /**
@@ -4059,7 +4060,7 @@ export interface ColorTheme {
     /**
      * Style for { or }
      */
-    brace?:
+    'brace'?:
       | string
       | {
           /**
@@ -4092,7 +4093,7 @@ export interface ColorTheme {
     /**
      * Style for [ or ]
      */
-    bracket?:
+    'bracket'?:
       | string
       | {
           /**
@@ -4125,7 +4126,7 @@ export interface ColorTheme {
     /**
      * Style for builtin attributes
      */
-    builtinAttribute?:
+    'builtinAttribute'?:
       | string
       | {
           /**
@@ -4158,7 +4159,7 @@ export interface ColorTheme {
     /**
      * Style for builtin types
      */
-    builtinType?:
+    'builtinType'?:
       | string
       | {
           /**
@@ -4191,7 +4192,7 @@ export interface ColorTheme {
     /**
      * Style for character literals
      */
-    char?:
+    'char'?:
       | string
       | {
           /**
@@ -4224,7 +4225,7 @@ export interface ColorTheme {
     /**
      * Style for :
      */
-    colon?:
+    'colon'?:
       | string
       | {
           /**
@@ -4257,7 +4258,7 @@ export interface ColorTheme {
     /**
      * Style for ,
      */
-    comma?:
+    'comma'?:
       | string
       | {
           /**
@@ -4290,7 +4291,7 @@ export interface ColorTheme {
     /**
      * Style for comparison operators
      */
-    comparison?:
+    'comparison'?:
       | string
       | {
           /**
@@ -4323,7 +4324,7 @@ export interface ColorTheme {
     /**
      * Style for const generics
      */
-    constParameter?:
+    'constParameter'?:
       | string
       | {
           /**
@@ -4356,7 +4357,7 @@ export interface ColorTheme {
     /**
      * Style for derives
      */
-    derive?:
+    'derive'?:
       | string
       | {
           /**
@@ -4389,7 +4390,7 @@ export interface ColorTheme {
     /**
      * Style for .
      */
-    dot?:
+    'dot'?:
       | string
       | {
           /**
@@ -4422,7 +4423,7 @@ export interface ColorTheme {
     /**
      * Style for char escapes in strings
      */
-    escapeSequence?:
+    'escapeSequence'?:
       | string
       | {
           /**
@@ -4455,7 +4456,7 @@ export interface ColorTheme {
     /**
      * Style for {} placeholders in format strings
      */
-    formatSpecifier?:
+    'formatSpecifier'?:
       | string
       | {
           /**
@@ -4488,7 +4489,7 @@ export interface ColorTheme {
     /**
      * Style for lifetimes
      */
-    lifetime?:
+    'lifetime'?:
       | string
       | {
           /**
@@ -4521,7 +4522,7 @@ export interface ColorTheme {
     /**
      * Style for logic operators
      */
-    logical?:
+    'logical'?:
       | string
       | {
           /**
@@ -4554,7 +4555,7 @@ export interface ColorTheme {
     /**
      * Style for the ! token of macro calls
      */
-    macroBang?:
+    'macroBang'?:
       | string
       | {
           /**
@@ -4587,7 +4588,7 @@ export interface ColorTheme {
     /**
      * Style for ( or )
      */
-    parenthesis?:
+    'parenthesis'?:
       | string
       | {
           /**
@@ -4620,7 +4621,7 @@ export interface ColorTheme {
     /**
      * Style for generic punctuation
      */
-    punctuation?:
+    'punctuation'?:
       | string
       | {
           /**
@@ -4653,7 +4654,7 @@ export interface ColorTheme {
     /**
      * Style for the self keyword
      */
-    selfKeyword?:
+    'selfKeyword'?:
       | string
       | {
           /**
@@ -4686,7 +4687,7 @@ export interface ColorTheme {
     /**
      * Style for ;
      */
-    semicolon?:
+    'semicolon'?:
       | string
       | {
           /**
@@ -4719,7 +4720,7 @@ export interface ColorTheme {
     /**
      * Style for type aliases
      */
-    typeAlias?:
+    'typeAlias'?:
       | string
       | {
           /**
@@ -4752,7 +4753,7 @@ export interface ColorTheme {
     /**
      * Style for C-style untagged unions
      */
-    union?:
+    'union'?:
       | string
       | {
           /**
@@ -4785,7 +4786,7 @@ export interface ColorTheme {
     /**
      * Style for names which can not be resolved due to compilation errors
      */
-    unresolvedReference?:
+    'unresolvedReference'?:
       | string
       | {
           /**
@@ -4818,7 +4819,7 @@ export interface ColorTheme {
     /**
      * Keys of regular arrays.
      */
-    tomlArrayKey?:
+    'tomlArrayKey'?:
       | string
       | {
           /**
@@ -4851,7 +4852,7 @@ export interface ColorTheme {
     /**
      * Keys of inline tables.
      */
-    tomlTableKey?:
+    'tomlTableKey'?:
       | string
       | {
           /**
