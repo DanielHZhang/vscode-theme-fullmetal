@@ -104,7 +104,9 @@
     "editorWidget.border": "#23386e",
     "editorLightBulb.foreground": "#efbd5d",
     "editorBracketHighlight.foreground1": "#c75ae8",
-    "editorBracketHighlight.foreground2": "#add692"
+    "editorBracketHighlight.foreground2": "#3dacb4",
+    "editorBracketHighlight.foreground3": "#f6b868",
+    "editorBracketHighlight.foreground4": "#add692"
   },
   "semanticHighlighting": true,
   "semanticTokenColors": {
@@ -112,10 +114,35 @@
   },
   "tokenColors": [
     {
-      "name": "keyword",
-      "scope": "keyword",
+      "name": "keywords",
+      "scope": [
+        "source keyword.other",
+        "source keyword.control",
+        "variable.language.self"
+      ],
       "settings": {
         "foreground": "#d44dae"
+      }
+    },
+    {
+      "name": "storage keyword (e.g. mod)",
+      "scope": "storage.type",
+      "settings": {
+        "foreground": "#d44dae"
+      }
+    },
+    {
+      "name": "storage modifier (e.g. mut)",
+      "scope": "storage.modifier",
+      "settings": {
+        "foreground": "#ff7e00"
+      }
+    },
+    {
+      "name": "attributes",
+      "scope": "source meta.attribute",
+      "settings": {
+        "foreground": "#61afef"
       }
     },
     {
@@ -143,7 +170,7 @@
       "name": "line comment",
       "scope": "comment.line",
       "settings": {
-        "fontStyle": "bold",
+        "fontStyle": "italic",
         "foreground": "#455573"
       }
     },
@@ -177,7 +204,7 @@
     },
     {
       "name": "type definition",
-      "scope": "entity.name.type",
+      "scope": "entity.name",
       "settings": {
         "foreground": "#efbd5d"
       }
@@ -200,7 +227,7 @@
       "name": "operator",
       "scope": "keyword.operator",
       "settings": {
-        "foreground": "#FDBAA6"
+        "foreground": "#add692"
       }
     }
   ]

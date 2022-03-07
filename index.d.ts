@@ -79,6 +79,7 @@ type TokenScope =
   | 'punctuation.separator'
   | 'punctuation.separator.continuation'
   | 'punctuation.terminator'
+  | 'source'
   | 'storage'
   | 'storage.modifier'
   | 'storage.type'
@@ -108,7 +109,9 @@ type TokenScope =
   | 'variable.other.readwrite'
   | 'variable.parameter';
 
-type TokenScopeExtended = `${TokenScope}.${string}`;
+type Extension = `.${string}`;
+
+type TokenScopeExtended = `${TokenScope}${Extension | ''}`;
 
 export interface ColorTheme {
   /**

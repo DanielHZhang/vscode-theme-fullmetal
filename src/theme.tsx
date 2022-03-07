@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import type {ColorTheme} from '..';
+import {specificity} from './utils';
 
 const colors = {
   // potential green alternative: '#3ecd83'
@@ -31,6 +32,8 @@ const colors = {
   yellow: '#efbd5d',
   invisible: '#0000',
 };
+
+// foreground: '#ea31b5',
 
 const theme: ColorTheme = {
   name: 'Fullmetal',
@@ -172,8 +175,9 @@ const theme: ColorTheme = {
     // "titleBar.border": "#0c0e15",
     // 'editorBracketPairGuide.activeBackground1': '#c75ae8',
     'editorBracketHighlight.foreground1': '#c75ae8',
-    'editorBracketHighlight.foreground2': '#add692',
-    // 'editorBracketPairGuide.activeBackground2': ,
+    'editorBracketHighlight.foreground2': '#3dacb4',
+    'editorBracketHighlight.foreground3': '#f6b868',
+    'editorBracketHighlight.foreground4': '#add692',
   },
   semanticHighlighting: true,
   semanticTokenColors: {
@@ -181,11 +185,37 @@ const theme: ColorTheme = {
   },
   tokenColors: [
     {
-      name: 'keyword',
-      scope: 'keyword',
+      name: 'keywords',
+      scope: [
+        specificity('source', 'keyword.other'),
+        specificity('source', 'keyword.control'),
+        'variable.language.self',
+      ],
       settings: {
         foreground: '#d44dae',
-        // foreground: '#ea31b5',
+      },
+    },
+    {
+      name: 'storage keyword (e.g. mod)',
+      scope: 'storage.type',
+      settings: {
+        foreground: '#d44dae',
+      },
+    },
+    {
+      name: 'storage modifier (e.g. mut)',
+      scope: 'storage.modifier',
+      settings: {
+        foreground: '#ff7e00',
+        // foreground: colors.orange,
+        // foreground: '#f6b868',
+      },
+    },
+    {
+      name: 'attributes',
+      scope: specificity('source', 'meta.attribute'),
+      settings: {
+        foreground: '#61afef',
       },
     },
     {
@@ -209,11 +239,18 @@ const theme: ColorTheme = {
         foreground: '#add692',
       },
     },
+    // {
+    //   name: 'line comment',
+    //   scope: 'comment.line.documentation',
+    //   settings: {
+    //     foreground: '#4c3677c5',
+    //   },
+    // },
     {
       name: 'line comment',
       scope: 'comment.line',
       settings: {
-        fontStyle: 'bold',
+        fontStyle: 'italic',
         foreground: colors.grayFade,
       },
     },
@@ -255,9 +292,8 @@ const theme: ColorTheme = {
     },
     {
       name: 'type definition',
-      scope: 'entity.name.type',
+      scope: 'entity.name',
       settings: {
-        // foreground: colors.orange,
         foreground: colors.yellow,
       },
     },
@@ -280,7 +316,10 @@ const theme: ColorTheme = {
       name: 'operator',
       scope: 'keyword.operator',
       settings: {
-        foreground: '#FDBAA6',
+        foreground: '#add692',
+        // foreground: '#3dacb4',
+        // foreground: '#f6b868',
+        // foreground: '#FDBAA6',
       },
     },
   ],
