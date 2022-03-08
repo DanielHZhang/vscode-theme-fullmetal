@@ -2,6 +2,9 @@
   "name": "Fullmetal",
   "type": "dark",
   "colors": {
+    "activityBar.background": "#141b24",
+    "activityBar.activeBorder": "#23386e",
+    "activityBar.foreground": "#dbdae8",
     "badge.background": "#efbd5d",
     "badge.foreground": "#141b24",
     "breadcrumb.activeSelectionForeground": "#dbdae8",
@@ -227,7 +230,9 @@
       "scope": [
         "variable.other.property",
         "variable.other.object.property",
-        "support.type.property-name"
+        "support.type.property-name",
+        "support.resource.attribute",
+        "entity.other.attribute-name"
       ],
       "settings": {
         "foreground": "#c77ddd"
@@ -237,6 +242,7 @@
       "name": "function",
       "scope": [
         "entity.name.function",
+        "support.function",
         "markup.underline.link"
       ],
       "settings": {
@@ -247,7 +253,8 @@
       "name": "booleans, constants",
       "scope": [
         "constant.language.boolean",
-        "constant.language"
+        "constant.language",
+        "support.constant"
       ],
       "settings": {
         "foreground": "#dd9046"
@@ -274,12 +281,14 @@
       "name": "punctuation",
       "scope": "punctuation",
       "settings": {
-        "foreground": "#90a5c8"
+        "foreground": "#3dacb4"
       }
     },
     {
       "name": "assignment operator (=)",
-      "scope": "keyword.operator.assignment",
+      "scope": [
+        "keyword.operator.assignment"
+      ],
       "settings": {
         "foreground": "#3dacb4"
       }

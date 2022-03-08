@@ -39,6 +39,9 @@ const theme: ColorTheme = {
   name: 'Fullmetal',
   type: 'dark',
   colors: {
+    'activityBar.background': colors.backgroundSidebar,
+    'activityBar.activeBorder': colors.backgroundActive,
+    'activityBar.foreground': colors.white,
     'badge.background': colors.yellow,
     'badge.foreground': colors.backgroundSidebar,
     'breadcrumb.activeSelectionForeground': colors.white,
@@ -298,6 +301,8 @@ const theme: ColorTheme = {
         'variable.other.property',
         'variable.other.object.property',
         'support.type.property-name',
+        'support.resource.attribute',
+        'entity.other.attribute-name',
       ],
       settings: {
         foreground: '#c77ddd',
@@ -311,14 +316,14 @@ const theme: ColorTheme = {
     },
     {
       name: 'function',
-      scope: ['entity.name.function', 'markup.underline.link'],
+      scope: ['entity.name.function', 'support.function', 'markup.underline.link'],
       settings: {
         foreground: '#61afef',
       },
     },
     {
       name: 'booleans, constants',
-      scope: ['constant.language.boolean', 'constant.language'],
+      scope: ['constant.language.boolean', 'constant.language', 'support.constant'],
       settings: {
         foreground: colors.orange,
       },
@@ -341,13 +346,14 @@ const theme: ColorTheme = {
       name: 'punctuation',
       scope: 'punctuation',
       settings: {
-        foreground: colors.gray,
+        foreground: '#3dacb4',
+        // foreground: colors.gray,
         // foreground: '#ab725e',
       },
     },
     {
       name: 'assignment operator (=)',
-      scope: 'keyword.operator.assignment',
+      scope: ['keyword.operator.assignment'],
       settings: {
         // foreground: '#add692',
         foreground: '#3dacb4',
