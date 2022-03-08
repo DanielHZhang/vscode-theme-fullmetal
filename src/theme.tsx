@@ -139,7 +139,7 @@ const theme: ColorTheme = {
     'titleBar.activeBackground': colors.backgroundSidebar,
     'titleBar.activeForeground': colors.foreground,
     'titleBar.inactiveBackground': colors.backgroundEditor,
-    'tree.indentGuidesStroke': colors.gray,
+    'tree.indentGuidesStroke': colors.grayFade,
     'widget.shadow': '#0c0e1554',
     'editorWidget.background': colors.backgroundPopover,
     'editorWidget.border': colors.backgroundActive,
@@ -177,7 +177,10 @@ const theme: ColorTheme = {
     'editorBracketHighlight.foreground1': '#c75ae8',
     'editorBracketHighlight.foreground2': '#3dacb4',
     'editorBracketHighlight.foreground3': '#f6b868',
-    'editorBracketHighlight.foreground4': '#add692',
+    // 'editorBracketHighlight.foreground4': '#add692',
+    'editor.foreground': colors.gray,
+    'editorInlayHint.background': '#253c7a70',
+    'editorInlayHint.foreground': '#add692',
   },
   semanticHighlighting: true,
   semanticTokenColors: {
@@ -189,7 +192,11 @@ const theme: ColorTheme = {
       scope: [
         specificity('source', 'keyword.other'),
         specificity('source', 'keyword.control'),
+        'keyword.operator',
+        'keyword.declaration',
         'variable.language.self',
+        'variable.language.super',
+        'support.type.object.module',
       ],
       settings: {
         foreground: '#d44dae',
@@ -220,25 +227,25 @@ const theme: ColorTheme = {
     },
     {
       name: 'string',
-      scope: 'string',
+      scope: ['string', 'support.constant.property-value', 'punctuation.definition.string'],
       settings: {
         foreground: colors.string,
       },
     },
     {
       name: 'escape character',
-      scope: 'constant.character.escape',
+      scope: ['constant.character.escape', 'punctuation.definition.template-expression.begin'],
       settings: {
         foreground: colors.red,
       },
     },
-    {
-      name: 'character',
-      scope: 'string.quoted.single.char',
-      settings: {
-        foreground: '#add692',
-      },
-    },
+    // {
+    //   name: 'character',
+    //   scope: 'string.quoted.single.char',
+    //   settings: {
+    //     foreground: '#add692',
+    //   },
+    // },
     // {
     //   name: 'line comment',
     //   scope: 'comment.line.documentation',
@@ -247,16 +254,37 @@ const theme: ColorTheme = {
     //   },
     // },
     {
-      name: 'line comment',
-      scope: 'comment.line',
+      name: 'comments',
+      scope: ['comment.line', 'comment.block'],
       settings: {
         fontStyle: 'italic',
         foreground: colors.grayFade,
       },
     },
     {
+      name: 'markdown code blocks',
+      scope: ['markup.fenced_code.block', 'markup.inline.raw'],
+      settings: {
+        foreground: colors.grayFade,
+      },
+    },
+    {
+      name: 'bold',
+      scope: ['punctuation.definition.heading'],
+      settings: {
+        fontStyle: 'bold',
+      },
+    },
+    {
+      name: 'unlabelled source',
+      scope: ['meta.paragraph.markdown', 'source.ignore'],
+      settings: {
+        foreground: colors.foreground,
+      },
+    },
+    {
       name: 'variable declaration and parameters',
-      scope: 'variable.other',
+      scope: ['variable.other', 'variable.parameter'],
       settings: {
         foreground: '#92d6cf',
         // foreground: '#d6b792',
@@ -266,9 +294,14 @@ const theme: ColorTheme = {
     },
     {
       name: 'struct/object properties',
-      scope: 'variable.other.property',
+      scope: [
+        'variable.other.property',
+        'variable.other.object.property',
+        'support.type.property-name',
+      ],
       settings: {
-        foreground: '#ba92d6',
+        foreground: '#c77ddd',
+        // foreground: '#ba92d6',
         // foreground: '#add692',
         // "foreground": "#61afef"
         // "foreground": "#01c0ce"
@@ -278,14 +311,14 @@ const theme: ColorTheme = {
     },
     {
       name: 'function',
-      scope: 'entity.name.function',
+      scope: ['entity.name.function', 'markup.underline.link'],
       settings: {
         foreground: '#61afef',
       },
     },
     {
-      name: 'boolean',
-      scope: 'constant.language.boolean',
+      name: 'booleans, constants',
+      scope: ['constant.language.boolean', 'constant.language'],
       settings: {
         foreground: colors.orange,
       },
@@ -299,7 +332,7 @@ const theme: ColorTheme = {
     },
     {
       name: 'number',
-      scope: 'constant.numeric',
+      scope: ['constant.numeric', 'punctuation.definition.list.begin'],
       settings: {
         foreground: colors.orange,
       },
@@ -313,11 +346,11 @@ const theme: ColorTheme = {
       },
     },
     {
-      name: 'operator',
-      scope: 'keyword.operator',
+      name: 'assignment operator (=)',
+      scope: 'keyword.operator.assignment',
       settings: {
-        foreground: '#add692',
-        // foreground: '#3dacb4',
+        // foreground: '#add692',
+        foreground: '#3dacb4',
         // foreground: '#f6b868',
         // foreground: '#FDBAA6',
       },
