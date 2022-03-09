@@ -4,6 +4,10 @@
 	"version": "0.1.0",
 	"author": "Daniel Zhang",
 	"description": "",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/DanielHZhang/vscode-theme-fullmetal"
+	},
 	"engines": {
 		"vscode": "^1.64.0"
 	},
@@ -34,7 +38,8 @@
 		"watch": "concurrently \"npm:watch-*\"",
 		"watch-generate": "nodemon --watch build build/theme.js",
 		"watch-compile": "tsc-suppress --watch",
-		"schemas": "tsc-suppress && node build/schema.js"
+		"schemas": "tsc-suppress && node build/schema.js",
+		"package": "vsce package"
 	},
 	"devDependencies": {
 		"@supersede/eslint-config": "^1.3.0",
@@ -47,6 +52,7 @@
 		"nodemon": "^2.0.15",
 		"prettier": "^2.5.1",
 		"tsc-suppress": "^1.0.7",
-		"typescript": "^4.5.5"
+		"typescript": "^4.5.5",
+		"vsce": "^2.6.7"
 	}
 }
