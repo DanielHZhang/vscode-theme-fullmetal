@@ -20,10 +20,10 @@
     "editor.symbolHighlightBackground": "",
     "editor.symbolHighlightBorder": "",
     "editor.rangeHighlightBackground": "",
-    "editor.selectionBackground": "#23386ead",
+    "editor.selectionBackground": "#3a5599ac",
     "editor.wordHighlightBackground": "#dbdae82f",
     "editorCursor.background": "#1a212e",
-    "editorCursor.foreground": "#fff",
+    "editorCursor.foreground": "#dbdae8",
     "editorError.foreground": "#c00c0c",
     "editorGroup.border": "#141b24",
     "editorGroup.dropBackground": "#181420ce",
@@ -38,8 +38,10 @@
     "editorLineNumber.foreground": "#455573",
     "editorSuggestWidget.background": "#111520ee",
     "editorSuggestWidget.border": "#0000",
-    "errorLens.errorBackground": "#3a1d28",
+    "errorLens.errorBackground": "#3a1d2879",
     "errorLens.errorForeground": "#c00c0c",
+    "errorLens.warningBackground": "#d2723b6c",
+    "errorLens.warningForeground": "#d2723b",
     "gitDecoration.addedResourceForeground": "#10a273",
     "gitDecoration.conflictingResourceForeground": "#ff6ac1",
     "gitDecoration.deletedResourceForeground": "#ff4762",
@@ -91,6 +93,7 @@
     "tab.activeBackground": "#1a212e",
     "tab.activeBorder": "#0000",
     "tab.activeForeground": "#90a5c8",
+    "tab.inactiveForeground": "#dcbb",
     "tab.activeModifiedBorder": "#efbd5d",
     "tab.border": "#0000",
     "tab.hoverBackground": "#1a2950",
@@ -127,6 +130,7 @@
         "keyword.declaration",
         "variable.language.self",
         "variable.language.super",
+        "variable.language.this",
         "support.type.object.module"
       ],
       "settings": {
@@ -179,7 +183,8 @@
       "name": "comments",
       "scope": [
         "comment.line",
-        "comment.block"
+        "comment.block",
+        "punctuation.definition.comment"
       ],
       "settings": {
         "fontStyle": "italic",
@@ -262,7 +267,10 @@
     },
     {
       "name": "type definition",
-      "scope": "entity.name",
+      "scope": [
+        "entity.name",
+        "support.class.console"
+      ],
       "settings": {
         "foreground": "#efbd5d"
       }
