@@ -3,7 +3,24 @@ import path from 'path';
 import type {ColorTheme} from '..';
 import {specificity} from './utils';
 
+const ansiColors = {
+	white: '#dbdae8',
+  red: '#ff4762',
+  orange: '#dd9046',
+  yellow: '#efbd5d',
+  green: '#8acd5b',
+  blue: '',
+  indigo: '',
+  violet: '',
+  fushia: '#d44dae',
+};
+
+const workbenchColors = {
+	backgroundActive: '',
+};
+
 const colors = {
+	...ansiColors,
   // potential green alternative: '#3ecd83'
   // redLighter: '#fe5c57',
   backgroundActive: '#23386e',
@@ -24,12 +41,8 @@ const colors = {
   gray: '#90a5c8',
   grayFade: '#455573',
   greenSnazzy: '#5bf78e',
-  orange: '#dd9046',
-  red: '#ff4762',
-  string: '#8acd5b',
+  // string: '#8acd5b',
   success: '#10a273',
-  white: '#dbdae8',
-  yellow: '#efbd5d',
   invisible: '#0000',
 };
 
@@ -48,17 +61,19 @@ const theme: ColorTheme = {
     'breadcrumb.focusForeground': colors.gray,
     'breadcrumbPicker.background': colors.backgroundPopover,
     // 'breadcrumbPicker.background': '#21283b',
-    'button.background': '#ec59e7',
+    // 'button.background': '#ec59e7',
+    'button.background': '#d44dae',
     'dropdown.background': colors.backgroundSidebar,
     'editor.background': colors.backgroundEditor,
     'editor.findMatchHighlightBackground': '#e3e3e31f',
     'editor.findMatchHighlightBorder': colors.backgroundMatch,
     'editor.hoverHighlightBackground': '#dbdae82f',
     'editor.lineHighlightBackground': colors.backgroundInactive,
-    'editor.symbolHighlightBackground': '',
-    'editor.symbolHighlightBorder': '',
-    'editor.rangeHighlightBackground': '',
+    'editor.symbolHighlightBackground': '#01c0ce45',
+    'editor.symbolHighlightBorder': colors.orange,
+    'editor.rangeHighlightBackground': '#01c0ce45',
     'editor.selectionBackground': '#3a5599ac',
+    'editor.findMatchBackground': '',
     // 'editor.selectionBackground': '#23386ead',
     'editor.wordHighlightBackground': '#dbdae82f',
     'editorCursor.background': colors.backgroundEditor,
@@ -89,7 +104,7 @@ const theme: ColorTheme = {
     'gitDecoration.renamedResourceForeground': colors.white,
     'gitDecoration.stageDeletedResourceForeground': colors.red,
     'gitDecoration.stageModifiedResourceForeground': colors.yellow,
-    'gitDecoration.untrackedResourceForeground': colors.string,
+    'gitDecoration.untrackedResourceForeground': colors.green,
     'focusBorder': colors.orange,
     'foreground': colors.foreground,
     'icon.foreground': colors.foreground,
@@ -104,7 +119,7 @@ const theme: ColorTheme = {
     'list.focusBackground': colors.backgroundHover,
     'list.focusForeground': colors.white,
     // 'list.focusHighlightForeground': colors.yellow,
-    'list.highlightForeground': colors.string,
+    'list.highlightForeground': colors.green,
     'list.hoverBackground': colors.backgroundHover,
     'list.hoverForeground': colors.white,
     'list.inactiveFocusBackground': '#20283d69',
@@ -130,6 +145,7 @@ const theme: ColorTheme = {
     'sideBar.background': colors.backgroundSidebar,
     'statusBar.background': colors.backgroundSidebar,
     'statusBar.foreground': colors.foreground,
+    'statusBar.noFolderBackground': colors.backgroundSidebar,
     'statusBarItem.remoteBackground': '#3e79cd',
     'tab.activeBackground': colors.backgroundEditor,
     'tab.activeBorder': colors.invisible,
@@ -151,6 +167,7 @@ const theme: ColorTheme = {
     'editorWidget.background': colors.backgroundPopover,
     'editorWidget.border': colors.backgroundActive,
     'editorLightBulb.foreground': colors.yellow,
+    'editorBracketHighlight.unexpectedBracket.foreground': colors.error,
     // 'editorBracketHighlight.foreground1': '#fe5c57',
     // "editor.wordHighlightBorder": "#78e6c3",
     // "editorGutter.addedBackground": "#5bf78e",
@@ -192,6 +209,9 @@ const theme: ColorTheme = {
   semanticHighlighting: true,
   semanticTokenColors: {
     'keyword.unsafe': colors.red,
+    // '*.readonly': {
+    //   fontStyle: 'underline',
+    // },
   },
   tokenColors: [
     {
@@ -199,7 +219,7 @@ const theme: ColorTheme = {
       scope: [
         specificity('source', 'keyword.other'),
         specificity('source', 'keyword.control'),
-        'keyword.operator',
+        // 'keyword.operator',
         'keyword.declaration',
         'variable.language.self',
         'variable.language.super',
@@ -235,14 +255,23 @@ const theme: ColorTheme = {
     },
     {
       name: 'string',
-      scope: ['string', 'support.constant.property-value', 'punctuation.definition.string'],
+      scope: [
+        'string',
+        'support.constant.property-value',
+        'punctuation.definition.string',
+        'punctuation.definition.char',
+      ],
       settings: {
-        foreground: colors.string,
+        foreground: colors.green,
       },
     },
     {
       name: 'escape character',
-      scope: ['constant.character.escape', 'punctuation.definition.template-expression.begin'],
+      scope: [
+        'constant.character.escape',
+        'punctuation.definition.template-expression.begin',
+        'keyword.operator.logical',
+      ],
       settings: {
         foreground: colors.red,
       },
@@ -358,12 +387,20 @@ const theme: ColorTheme = {
     },
     {
       name: 'assignment operator (=)',
-      scope: ['keyword.operator.assignment'],
+      scope: ['keyword.operator.assignment', 'keyword.operator.access.dot'],
       settings: {
         // foreground: '#add692',
         foreground: '#3dacb4',
         // foreground: '#f6b868',
         // foreground: '#FDBAA6',
+      },
+    },
+    {
+      name: 'arrow ->',
+      scope: 'keyword.operator.arrow.skinny',
+      settings: {
+        // foreground: '#5bf78e',
+        foreground: '#3dacb4',
       },
     },
   ],
