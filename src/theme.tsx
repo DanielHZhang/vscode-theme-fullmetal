@@ -24,6 +24,7 @@ const pastelColors = {
 
 const vibrantColors = {
   vibrantOrange: '#ff7e00',
+  vibrantGreen: '#3ecd83',
 };
 
 const workbenchColors = {
@@ -35,7 +36,6 @@ const colors = {
   ...vibrantColors,
   ...pastelColors,
   ...ansiColors,
-  // potential green alternative: '#3ecd83'
   // redLighter: '#fe5c57',
   backgroundActive: '#23386e',
   backgroundDrop: '#181420ce',
@@ -215,6 +215,15 @@ const theme: ColorTheme = {
     'editor.foreground': colors.gray,
     'editorInlayHint.background': '#253c7a70',
     'editorInlayHint.foreground': colors.pastelGreen,
+    'terminal.ansiGreen': colors.green,
+    'terminal.ansiBlack': colors.black,
+    'terminal.ansiBlue': colors.blue,
+    'terminal.ansiRed': colors.red,
+    'terminal.ansiWhite': colors.white,
+    'terminal.ansiYellow': colors.yellow,
+    'terminal.ansiMagenta': colors.fushia,
+    'terminal.ansiBrightGreen': colors.vibrantGreen,
+    'terminalCursor.foreground': colors.white,
   },
   semanticHighlighting: true,
   semanticTokenColors: {

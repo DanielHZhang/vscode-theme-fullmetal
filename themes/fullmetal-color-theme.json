@@ -117,7 +117,16 @@
     "editorBracketHighlight.foreground3": "#f6b868",
     "editor.foreground": "#90a5c8",
     "editorInlayHint.background": "#253c7a70",
-    "editorInlayHint.foreground": "#add692"
+    "editorInlayHint.foreground": "#add692",
+    "terminal.ansiGreen": "#8acd5b",
+    "terminal.ansiBlack": "#0c0e15",
+    "terminal.ansiBlue": "#41a7fc",
+    "terminal.ansiRed": "#ff4762",
+    "terminal.ansiWhite": "#dbdae8",
+    "terminal.ansiYellow": "#efbd5d",
+    "terminal.ansiMagenta": "#d44dae",
+    "terminal.ansiBrightGreen": "#3ecd83",
+    "terminalCursor.foreground": "#dbdae8"
   },
   "semanticHighlighting": true,
   "semanticTokenColors": {
