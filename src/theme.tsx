@@ -4,23 +4,37 @@ import type {ColorTheme} from '..';
 import {specificity} from './utils';
 
 const ansiColors = {
-	white: '#dbdae8',
+  white: '#dbdae8',
+  gray: '#90a5c8',
+  black: '#0c0e15',
   red: '#ff4762',
   orange: '#dd9046',
   yellow: '#efbd5d',
   green: '#8acd5b',
-  blue: '',
+  blue: '#41a7fc', // '#61afef'
+  turquoise: '',
   indigo: '',
-  violet: '',
+  violet: '#c77ddd',
   fushia: '#d44dae',
 };
 
+const pastelColors = {
+  pastelGreen: '#add692',
+};
+
+const vibrantColors = {
+  vibrantOrange: '#ff7e00',
+};
+
 const workbenchColors = {
-	backgroundActive: '',
+  foreground: '#dcbb',
 };
 
 const colors = {
-	...ansiColors,
+  ...workbenchColors,
+  ...vibrantColors,
+  ...pastelColors,
+  ...ansiColors,
   // potential green alternative: '#3ecd83'
   // redLighter: '#fe5c57',
   backgroundActive: '#23386e',
@@ -34,11 +48,7 @@ const colors = {
   backgroundPopover: '#111520ee',
   backgroundSidebar: '#141b24',
   bgLight: '#21283b',
-  black: '#0c0e15',
-  blue: '#41a7fc',
   error: '#c00c0c',
-  foreground: '#dcbb',
-  gray: '#90a5c8',
   grayFade: '#455573',
   greenSnazzy: '#5bf78e',
   // string: '#8acd5b',
@@ -201,10 +211,10 @@ const theme: ColorTheme = {
     'editorBracketHighlight.foreground1': '#c75ae8',
     'editorBracketHighlight.foreground2': '#3dacb4',
     'editorBracketHighlight.foreground3': '#f6b868',
-    // 'editorBracketHighlight.foreground4': '#add692',
+    // 'editorBracketHighlight.foreground4': colors.pastelGreen,
     'editor.foreground': colors.gray,
     'editorInlayHint.background': '#253c7a70',
-    'editorInlayHint.foreground': '#add692',
+    'editorInlayHint.foreground': colors.pastelGreen,
   },
   semanticHighlighting: true,
   semanticTokenColors: {
@@ -219,7 +229,7 @@ const theme: ColorTheme = {
       scope: [
         specificity('source', 'keyword.other'),
         specificity('source', 'keyword.control'),
-        // 'keyword.operator',
+        'keyword.operator.new',
         'keyword.declaration',
         'variable.language.self',
         'variable.language.super',
@@ -241,8 +251,7 @@ const theme: ColorTheme = {
       name: 'storage modifier (e.g. mut)',
       scope: 'storage.modifier',
       settings: {
-        foreground: '#ff7e00',
-        // foreground: colors.orange,
+        foreground: colors.vibrantOrange,
         // foreground: '#f6b868',
       },
     },
@@ -250,7 +259,7 @@ const theme: ColorTheme = {
       name: 'attributes',
       scope: specificity('source', 'meta.attribute'),
       settings: {
-        foreground: '#61afef',
+        foreground: colors.blue,
       },
     },
     {
@@ -280,7 +289,7 @@ const theme: ColorTheme = {
     //   name: 'character',
     //   scope: 'string.quoted.single.char',
     //   settings: {
-    //     foreground: '#add692',
+    //     foreground: colors.pastelGreen,
     //   },
     // },
     // {
@@ -341,8 +350,7 @@ const theme: ColorTheme = {
       settings: {
         foreground: '#c77ddd',
         // foreground: '#ba92d6',
-        // foreground: '#add692',
-        // "foreground": "#61afef"
+        // foreground: colors.pastelGreen,
         // "foreground": "#01c0ce"
         // foreground: '#3dacb4',
         // foreground: '#92d6cf',
@@ -352,7 +360,7 @@ const theme: ColorTheme = {
       name: 'function',
       scope: ['entity.name.function', 'support.function', 'markup.underline.link'],
       settings: {
-        foreground: '#61afef',
+        foreground: colors.blue,
       },
     },
     {
@@ -389,7 +397,7 @@ const theme: ColorTheme = {
       name: 'assignment operator (=)',
       scope: ['keyword.operator.assignment', 'keyword.operator.access.dot'],
       settings: {
-        // foreground: '#add692',
+        // foreground: colors.pastelGreen,
         foreground: '#3dacb4',
         // foreground: '#f6b868',
         // foreground: '#FDBAA6',

@@ -129,6 +129,7 @@
       "scope": [
         "source keyword.other",
         "source keyword.control",
+        "keyword.operator.new",
         "keyword.declaration",
         "variable.language.self",
         "variable.language.super",
@@ -157,7 +158,7 @@
       "name": "attributes",
       "scope": "source meta.attribute",
       "settings": {
-        "foreground": "#61afef"
+        "foreground": "#41a7fc"
       }
     },
     {
@@ -255,7 +256,7 @@
         "markup.underline.link"
       ],
       "settings": {
-        "foreground": "#61afef"
+        "foreground": "#41a7fc"
       }
     },
     {
