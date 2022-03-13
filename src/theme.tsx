@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import type {ColorTheme} from '..';
-import {specificity} from './utils';
+import {opacity, specificity} from './utils';
 
 const ansiColors = {
   white: '#dbdae8',
@@ -11,23 +11,41 @@ const ansiColors = {
   orange: '#dd9046',
   yellow: '#efbd5d',
   green: '#8acd5b',
-  blue: '#41a7fc', // '#61afef'
+  blue: '#41a7fc', // #61afef
   turquoise: '',
   indigo: '',
   violet: '#c77ddd',
-  fushia: '#d44dae',
+  magenta: '#d44dae',
 };
 
 const pastelColors = {
   pastelGreen: '#add692',
+  pastelGray: '#455573',
 };
 
 const vibrantColors = {
   vibrantOrange: '#ff7e00',
   vibrantGreen: '#3ecd83',
+  vibrantBlue: '#3e79cd', // #61afef
+};
+
+const statusColors = {
+  success: '#10a273',
+  error: '#c00c0c',
+  warning: '#d2723b',
 };
 
 const workbenchColors = {
+  backgroundActive: '#23386e',
+  backgroundDrop: '#181420ce',
+  backgroundEditor: '#1a212e',
+  backgroundHeader: '#181420ce',
+  backgroundHover: '#1a2950',
+  backgroundHoverHighlight: '#dbdae82f',
+  backgroundInactive: '#20283d',
+  backgroundMatch: '#78e6c346',
+  backgroundPopover: '#111520ee',
+  backgroundSidebar: '#141b24',
   foreground: '#dcbb',
 };
 
@@ -35,28 +53,17 @@ const colors = {
   ...workbenchColors,
   ...vibrantColors,
   ...pastelColors,
+  ...statusColors,
   ...ansiColors,
   // redLighter: '#fe5c57',
-  backgroundActive: '#23386e',
-  backgroundDrop: '#181420ce',
-  backgroundEditor: '#1a212e',
   // backgroundHeader: '#2a2749bd',
-  backgroundHeader: '#181420ce',
-  backgroundHover: '#1a2950',
-  backgroundInactive: '#20283d',
-  backgroundMatch: '#78e6c346',
-  backgroundPopover: '#111520ee',
-  backgroundSidebar: '#141b24',
-  bgLight: '#21283b',
-  error: '#c00c0c',
-  grayFade: '#455573',
+  // bgLight: '#21283b',
   greenSnazzy: '#5bf78e',
   // string: '#8acd5b',
-  success: '#10a273',
   invisible: '#0000',
 };
 
-// foreground: '#ea31b5',
+// foreground: '#ea31b5', #ff6ac1
 
 const theme: ColorTheme = {
   name: 'Fullmetal',
@@ -70,14 +77,12 @@ const theme: ColorTheme = {
     'breadcrumb.activeSelectionForeground': colors.white,
     'breadcrumb.focusForeground': colors.gray,
     'breadcrumbPicker.background': colors.backgroundPopover,
-    // 'breadcrumbPicker.background': '#21283b',
-    // 'button.background': '#ec59e7',
-    'button.background': '#d44dae',
+    'button.background': colors.magenta,
     'dropdown.background': colors.backgroundSidebar,
     'editor.background': colors.backgroundEditor,
     'editor.findMatchHighlightBackground': '#e3e3e31f',
     'editor.findMatchHighlightBorder': colors.backgroundMatch,
-    'editor.hoverHighlightBackground': '#dbdae82f',
+    'editor.hoverHighlightBackground': colors.backgroundHoverHighlight,
     'editor.lineHighlightBackground': colors.backgroundInactive,
     'editor.symbolHighlightBackground': '#01c0ce45',
     'editor.symbolHighlightBorder': colors.orange,
@@ -85,7 +90,7 @@ const theme: ColorTheme = {
     'editor.selectionBackground': '#3a5599ac',
     'editor.findMatchBackground': '',
     // 'editor.selectionBackground': '#23386ead',
-    'editor.wordHighlightBackground': '#dbdae82f',
+    'editor.wordHighlightBackground': colors.backgroundHoverHighlight,
     'editorCursor.background': colors.backgroundEditor,
     'editorCursor.foreground': colors.white,
     'editorError.foreground': colors.error,
@@ -99,17 +104,24 @@ const theme: ColorTheme = {
     'editorHoverWidget.background': colors.backgroundPopover,
     'editorHoverWidget.border': colors.invisible,
     'editorLineNumber.activeForeground': colors.gray,
-    'editorLineNumber.foreground': colors.grayFade,
+    'editorLineNumber.foreground': colors.pastelGray,
     'editorSuggestWidget.background': colors.backgroundPopover,
     'editorSuggestWidget.border': colors.invisible,
     'errorLens.errorBackground': '#3a1d2879',
     'errorLens.errorForeground': colors.error,
-    'errorLens.warningBackground': '#d2723b6c',
-    'errorLens.warningForeground': '#d2723b',
+    // 'errorLens.warningBackground': '#d2723b6c',
+    'errorLens.warningBackground': opacity(colors.warning, 0.5),
+    'errorLens.warningForeground': colors.warning,
+    'extensionButton.prominentBackground': colors.success,
+    'extensionButton.prominentForeground': colors.black,
+    'extensionButton.prominentHoverBackground': colors.pastelGreen,
+    'extensionIcon.preReleaseForeground': colors.warning,
+    'extensionIcon.verifiedForeground': colors.success,
+    'extensionIcon.starForeground': colors.yellow,
     'gitDecoration.addedResourceForeground': colors.success,
-    'gitDecoration.conflictingResourceForeground': '#ff6ac1',
+    'gitDecoration.conflictingResourceForeground': colors.magenta,
     'gitDecoration.deletedResourceForeground': colors.red,
-    'gitDecoration.ignoredResourceForeground': colors.grayFade,
+    'gitDecoration.ignoredResourceForeground': colors.pastelGray,
     'gitDecoration.modifiedResourceForeground': colors.yellow,
     'gitDecoration.renamedResourceForeground': colors.white,
     'gitDecoration.stageDeletedResourceForeground': colors.red,
@@ -119,10 +131,13 @@ const theme: ColorTheme = {
     'foreground': colors.foreground,
     'icon.foreground': colors.foreground,
     // 'icon.foreground': colors.gray,
-    'input.background': colors.backgroundSidebar,
+    // 'input.background': '#2a314b',
+    'input.background': colors.backgroundPopover,
+    'input.foreground': colors.gray,
+    'input.placeholderForeground': colors.pastelGray,
     'list.activeSelectionBackground': colors.backgroundActive,
     'list.activeSelectionForeground': colors.white,
-    'list.deemphasizedForeground': colors.grayFade,
+    'list.deemphasizedForeground': colors.pastelGray,
     'list.dropBackground': colors.backgroundDrop,
     'list.errorForeground': colors.error,
     'list.filterMatchBackground': colors.backgroundMatch,
@@ -139,16 +154,16 @@ const theme: ColorTheme = {
     'list.warningForeground': colors.orange,
     'listFilterWidget.background': '#283140',
     'listFilterWidget.noMatchesOutline': colors.error,
-    'notificationCenterHeader.background': colors.backgroundHeader,
+    'notificationCenterHeader.background': colors.backgroundPopover,
     'notifications.background': colors.backgroundPopover,
     'panel.border': colors.backgroundSidebar,
     'panelSectionHeader.background': colors.backgroundSidebar,
     'panelTitle.activeForeground': colors.gray,
     'quickInput.background': colors.backgroundPopover,
-    'quickInputTitle.background': colors.backgroundHeader,
+    'quickInputTitle.background': colors.backgroundPopover,
     'sash.hoverBorder': colors.yellow,
     'scrollbar.shadow': colors.invisible,
-    'scrollbarSlider.activeBackground': '#23386ebb',
+    'scrollbarSlider.activeBackground': opacity(colors.backgroundActive, 0.75), // '#23386ebb',
     'scrollbarSlider.background': '#25314dbb',
     'scrollbarSlider.hoverBackground': '#1a2950bb',
     'settings.modifiedItemIndicator': colors.yellow,
@@ -168,11 +183,12 @@ const theme: ColorTheme = {
     'tab.hoverForeground': colors.white,
     'tab.inactiveBackground': colors.backgroundSidebar,
     'tab.unfocusedActiveBorderTop': colors.invisible,
-    'textLink.foreground': '#3e79cd',
+    'textLink.foreground': colors.blue,
+    'textLink.activeForeground': colors.vibrantBlue,
     'titleBar.activeBackground': colors.backgroundSidebar,
     'titleBar.activeForeground': colors.foreground,
     'titleBar.inactiveBackground': colors.backgroundEditor,
-    'tree.indentGuidesStroke': colors.grayFade,
+    'tree.indentGuidesStroke': colors.pastelGray,
     'widget.shadow': '#0c0e1554',
     'editorWidget.background': colors.backgroundPopover,
     'editorWidget.border': colors.backgroundActive,
@@ -182,7 +198,7 @@ const theme: ColorTheme = {
     // "editor.wordHighlightBorder": "#78e6c3",
     // "editorGutter.addedBackground": "#5bf78e",
     // "editorSuggestWidget.border": "#23386e",
-    // "editorSuggestWidget.border": "#61afef",
+    // "editorSuggestWidget.border": "",
     // "editorSuggestWidget.border": "#dd9046",
     // "list.activeSelectionBackground": "#1a2950",
     // 'list.dropBackground': '#6d0b2c8a',
@@ -202,7 +218,7 @@ const theme: ColorTheme = {
     // "scrollbarSlider.background": "#20283d",
     // "scrollbarSlider.background": "#322e40",
     // "sideBar.border": "#0c0e15",
-    // "statusBarItem.remoteBackground": "#41a7fc",
+    // "statusBarItem.remoteBackground": "",
     // "statusBarItem.remoteForeground": "#dcbb",
     // "tab.inactiveBackground": "#21283b",
     // "textLink.activeForeground"
@@ -221,7 +237,7 @@ const theme: ColorTheme = {
     'terminal.ansiRed': colors.red,
     'terminal.ansiWhite': colors.white,
     'terminal.ansiYellow': colors.yellow,
-    'terminal.ansiMagenta': colors.fushia,
+    'terminal.ansiMagenta': colors.magenta,
     'terminal.ansiBrightGreen': colors.vibrantGreen,
     'terminalCursor.foreground': colors.white,
   },
@@ -246,14 +262,14 @@ const theme: ColorTheme = {
         'support.type.object.module',
       ],
       settings: {
-        foreground: '#d44dae',
+        foreground: colors.magenta,
       },
     },
     {
       name: 'storage keyword (e.g. mod)',
       scope: 'storage.type',
       settings: {
-        foreground: '#d44dae',
+        foreground: colors.magenta,
       },
     },
     {
@@ -313,14 +329,14 @@ const theme: ColorTheme = {
       scope: ['comment.line', 'comment.block', 'punctuation.definition.comment'],
       settings: {
         fontStyle: 'italic',
-        foreground: colors.grayFade,
+        foreground: colors.pastelGray,
       },
     },
     {
       name: 'markdown code blocks',
       scope: ['markup.fenced_code.block', 'markup.inline.raw'],
       settings: {
-        foreground: colors.grayFade,
+        foreground: colors.pastelGray,
       },
     },
     {
