@@ -254,6 +254,12 @@ const theme: ColorTheme = {
   semanticHighlighting: true,
   semanticTokenColors: {
     'keyword.unsafe': colors.red,
+    'macro': {
+      fontStyle: 'italic',
+    },
+    'macroBang': {
+      fontStyle: 'italic',
+    },
     // '*.readonly': {
     //   fontStyle: 'underline',
     // },

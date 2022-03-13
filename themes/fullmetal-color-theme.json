@@ -146,7 +146,13 @@
   },
   "semanticHighlighting": true,
   "semanticTokenColors": {
-    "keyword.unsafe": "#ff4762"
+    "keyword.unsafe": "#ff4762",
+    "macro": {
+      "fontStyle": "italic"
+    },
+    "macroBang": {
+      "fontStyle": "italic"
+    }
   },
   "tokenColors": [
     {
