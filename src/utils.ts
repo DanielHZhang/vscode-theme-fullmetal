@@ -5,6 +5,9 @@ export function specificity(...scopes: TokenScopeExtended[]): TokenScopeExtended
 }
 
 export function opacity(color: string, percentage: number): string {
+  if (color.length === '#0000'.length || color.length === '#fffeee00'.length) {
+    throw new Error('Hex color already includes alpha value');
+  }
   if (percentage > 1) {
     percentage /= 100;
   }
