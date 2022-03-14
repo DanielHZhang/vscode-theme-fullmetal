@@ -27,7 +27,8 @@ const pastelColors = {
 const vibrantColors = {
   vibrantOrange: '#ff7e00',
   vibrantGreen: '#3ecd83',
-  vibrantBlue: '#3e79cd', // #61afef
+  // vibrantBlue: '#006aff', // #61afef
+  vibrantBlue: '#61afef',
 };
 
 const statusColors = {
@@ -91,7 +92,6 @@ const theme: ColorTheme = {
     'editor.rangeHighlightBackground': '#01c0ce45',
     'editor.selectionBackground': colors.backgroundSelection,
     'editor.findMatchBackground': '',
-    // 'editor.selectionBackground': '#23386ead',
     'editor.wordHighlightBackground': colors.backgroundHoverHighlight,
     'editorCursor.background': colors.backgroundEditor,
     'editorCursor.foreground': colors.white,
@@ -109,6 +109,7 @@ const theme: ColorTheme = {
     'editorLineNumber.foreground': colors.pastelGray,
     'editorSuggestWidget.background': colors.backgroundPopover,
     'editorSuggestWidget.border': colors.invisible,
+    'editorSuggestWidget.selectedIconForeground': colors.magenta,
     'errorLens.errorBackground': opacity(colors.error, 0.1),
     'errorLens.errorForeground': colors.error,
     'errorLens.warningBackground': opacity(colors.warning, 0.1),
@@ -174,7 +175,12 @@ const theme: ColorTheme = {
     'statusBar.background': colors.backgroundSidebar,
     'statusBar.foreground': colors.foreground,
     'statusBar.noFolderBackground': colors.backgroundSidebar,
-    'statusBarItem.remoteBackground': '#3e79cd',
+    'statusBarItem.errorBackground': colors.error,
+    'statusBarItem.hoverBackground': colors.backgroundHover,
+    'statusBarItem.remoteBackground': colors.vibrantBlue, // '#3e79cd',
+    'statusBarItem.warningBackground': colors.warning,
+    'statusBar.debuggingBackground': colors.vibrantOrange,
+    'statusBar.debuggingForeground': colors.backgroundSidebar,
     'tab.activeBackground': colors.backgroundEditor,
     'tab.activeBorder': colors.invisible,
     // 'tab.activeBorderTop': colors.backgroundActive,
@@ -227,9 +233,7 @@ const theme: ColorTheme = {
     // "statusBarItem.remoteBackground": "",
     // "statusBarItem.remoteForeground": "#dcbb",
     // "tab.inactiveBackground": "#21283b",
-    // "textLink.activeForeground"
-    // "titleBar.border": "#0c0e15",
-    // 'editorBracketPairGuide.activeBackground1': '#c75ae8',
+    'editorLink.activeForeground': colors.blue,
     'editorCodeLens.foreground': colors.pastelGray,
     'editorBracketHighlight.foreground1': '#c75ae8',
     'editorBracketHighlight.foreground2': colors.cyan,
@@ -326,20 +330,6 @@ const theme: ColorTheme = {
         foreground: colors.red,
       },
     },
-    // {
-    //   name: 'character',
-    //   scope: 'string.quoted.single.char',
-    //   settings: {
-    //     foreground: colors.pastelGreen,
-    //   },
-    // },
-    // {
-    //   name: 'line comment',
-    //   scope: 'comment.line.documentation',
-    //   settings: {
-    //     foreground: '#4c3677c5',
-    //   },
-    // },
     {
       name: 'comments',
       scope: ['comment.line', 'comment.block', 'punctuation.definition.comment'],
@@ -371,7 +361,7 @@ const theme: ColorTheme = {
     },
     {
       name: 'variable declaration and parameters',
-      scope: ['variable.other', 'variable.parameter'],
+      scope: ['variable.other', 'variable.parameter', 'variable.key.table'],
       settings: {
         foreground: colors.pastelBlue,
         // foreground: '#d6b792',
@@ -387,6 +377,8 @@ const theme: ColorTheme = {
         'support.type.property-name',
         'support.resource.attribute',
         'entity.other.attribute-name',
+        'punctuation.support.type.property-name',
+        'variable.key',
       ],
       settings: {
         foreground: colors.violet,

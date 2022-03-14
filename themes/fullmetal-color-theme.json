@@ -39,6 +39,7 @@
     "editorLineNumber.foreground": "#455573",
     "editorSuggestWidget.background": "#111520ee",
     "editorSuggestWidget.border": "#0000",
+    "editorSuggestWidget.selectedIconForeground": "#d44dae",
     "errorLens.errorBackground": "#c00c0c1a",
     "errorLens.errorForeground": "#c00c0c",
     "errorLens.warningBackground": "#d2723b1a",
@@ -100,7 +101,12 @@
     "statusBar.background": "#141b24",
     "statusBar.foreground": "#dcbb",
     "statusBar.noFolderBackground": "#141b24",
-    "statusBarItem.remoteBackground": "#3e79cd",
+    "statusBarItem.errorBackground": "#c00c0c",
+    "statusBarItem.hoverBackground": "#1a2950",
+    "statusBarItem.remoteBackground": "#61afef",
+    "statusBarItem.warningBackground": "#d2723b",
+    "statusBar.debuggingBackground": "#ff7e00",
+    "statusBar.debuggingForeground": "#141b24",
     "tab.activeBackground": "#1a212e",
     "tab.activeBorder": "#0000",
     "tab.activeForeground": "#90a5c8",
@@ -112,7 +118,7 @@
     "tab.inactiveBackground": "#141b24",
     "tab.unfocusedActiveBorderTop": "#0000",
     "textLink.foreground": "#41a7fc",
-    "textLink.activeForeground": "#3e79cd",
+    "textLink.activeForeground": "#61afef",
     "titleBar.activeBackground": "#141b24",
     "titleBar.activeForeground": "#dcbb",
     "titleBar.inactiveBackground": "#1a212e",
@@ -124,6 +130,7 @@
     "editorBracketHighlight.unexpectedBracket.foreground": "#c00c0c",
     "sideBarSectionHeader.background": "#141b24",
     "sideBarSectionHeader.foreground": "#90a5c8",
+    "editorLink.activeForeground": "#41a7fc",
     "editorCodeLens.foreground": "#455573",
     "editorBracketHighlight.foreground1": "#c75ae8",
     "editorBracketHighlight.foreground2": "#3dacb4",
@@ -260,7 +267,8 @@
       "name": "variable declaration and parameters",
       "scope": [
         "variable.other",
-        "variable.parameter"
+        "variable.parameter",
+        "variable.key.table"
       ],
       "settings": {
         "foreground": "#92d6cf"
@@ -273,7 +281,9 @@
         "variable.other.object.property",
         "support.type.property-name",
         "support.resource.attribute",
-        "entity.other.attribute-name"
+        "entity.other.attribute-name",
+        "punctuation.support.type.property-name",
+        "variable.key"
       ],
       "settings": {
         "foreground": "#c77ddd"
