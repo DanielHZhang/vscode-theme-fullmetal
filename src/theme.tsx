@@ -51,6 +51,7 @@ const workbenchColors = {
   backgroundSelection: '#3a5599ac',
   backgroundLabel: '#283140',
   foreground: '#dcbb',
+  invisible: '#0000',
 };
 
 const colors = {
@@ -59,14 +60,13 @@ const colors = {
   ...pastelColors,
   ...statusColors,
   ...ansiColors,
-  // redLighter: '#fe5c57',
-  // backgroundHeader: '#2a2749bd',
-  // bgLight: '#21283b',
-  greenSnazzy: '#5bf78e',
-  // string: '#8acd5b',
-  invisible: '#0000',
 };
 
+// redLighter: '#fe5c57',
+// backgroundHeader: '#2a2749bd',
+// bgLight: '#21283b',
+// greenSnazzy: '#5bf78e',
+// string: '#8acd5b',
 // foreground: '#ea31b5', #ff6ac1
 
 const theme: ColorTheme = {
@@ -213,6 +213,7 @@ const theme: ColorTheme = {
     'terminal.ansiBlack': colors.black,
     'terminal.ansiBlue': colors.blue,
     'terminal.ansiBrightGreen': colors.vibrantGreen,
+    'terminal.ansiBrightYellow': colors.yellow,
     'terminal.ansiCyan': colors.cyan,
     'terminal.ansiGreen': colors.green,
     'terminal.ansiMagenta': colors.magenta,
@@ -229,6 +230,7 @@ const theme: ColorTheme = {
     'titleBar.inactiveBackground': colors.backgroundEditor,
     'tree.indentGuidesStroke': colors.pastelGray,
     'widget.shadow': '#0c0e1554',
+		
     // 'editorBracketHighlight.foreground1': '#fe5c57',
     // 'editorBracketHighlight.foreground4': colors.pastelGreen,
     // 'icon.foreground': colors.gray,
@@ -434,14 +436,23 @@ const theme: ColorTheme = {
       },
     },
     {
+      name: 'semicolon',
+      scope: 'punctuation.semi',
+      settings: {
+        foreground: '#e1cfb1',
+      },
+    },
+    {
       name: 'assignment operator (=)',
       scope: [
-        'keyword.operator.assignment',
-        'keyword.operator.access.dot',
         'keyword.operator.borrow',
+        'keyword.operator.key-value',
+        'keyword.operator.dereference',
+        // 'keyword.operator.namespace',
       ],
       settings: {
         foreground: colors.cyan,
+        // foreground: '#e1cfb1',
         // foreground: '#f6b868',
         // foreground: '#FDBAA6',
       },
@@ -452,6 +463,24 @@ const theme: ColorTheme = {
       settings: {
         // foreground: '#5bf78e',
         foreground: colors.cyan,
+      },
+    },
+    {
+      name: 'math oeprators',
+      scope: 'keyword.operator.math',
+      settings: {
+        foreground: colors.blue,
+      },
+    },
+    {
+      name: 'namespace operator',
+      scope: [
+        'keyword.operator.assignment',
+        'keyword.operator.access.dot',
+        'keyword.operator.namespace',
+      ],
+      settings: {
+        foreground: '#e1cfb1',
       },
     },
   ],

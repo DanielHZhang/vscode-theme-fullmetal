@@ -142,6 +142,7 @@
     "terminal.ansiBlack": "#0c0e15",
     "terminal.ansiBlue": "#41a7fc",
     "terminal.ansiBrightGreen": "#3ecd83",
+    "terminal.ansiBrightYellow": "#efbd5d",
     "terminal.ansiCyan": "#3dacb4",
     "terminal.ansiGreen": "#8acd5b",
     "terminal.ansiMagenta": "#d44dae",
@@ -347,11 +348,18 @@
       }
     },
     {
+      "name": "semicolon",
+      "scope": "punctuation.semi",
+      "settings": {
+        "foreground": "#e1cfb1"
+      }
+    },
+    {
       "name": "assignment operator (=)",
       "scope": [
-        "keyword.operator.assignment",
-        "keyword.operator.access.dot",
-        "keyword.operator.borrow"
+        "keyword.operator.borrow",
+        "keyword.operator.key-value",
+        "keyword.operator.dereference"
       ],
       "settings": {
         "foreground": "#3dacb4"
@@ -362,6 +370,24 @@
       "scope": "keyword.operator.arrow.skinny",
       "settings": {
         "foreground": "#3dacb4"
+      }
+    },
+    {
+      "name": "math oeprators",
+      "scope": "keyword.operator.math",
+      "settings": {
+        "foreground": "#41a7fc"
+      }
+    },
+    {
+      "name": "namespace operator",
+      "scope": [
+        "keyword.operator.assignment",
+        "keyword.operator.access.dot",
+        "keyword.operator.namespace"
+      ],
+      "settings": {
+        "foreground": "#e1cfb1"
       }
     }
   ]
