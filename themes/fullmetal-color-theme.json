@@ -17,7 +17,7 @@
     "dropdown.background": "#111520ee",
     "dropdown.foreground": "#90a5c8",
     "editor.background": "#1a212e",
-    "editor.findMatchBackground": "",
+    "editor.findMatchBackground": "#78e6c346",
     "editor.findMatchHighlightBackground": "#e3e3e31f",
     "editor.findMatchHighlightBorder": "#78e6c346",
     "editor.foreground": "#90a5c8",
@@ -102,6 +102,10 @@
     "list.warningForeground": "#dd9046",
     "listFilterWidget.background": "#283140",
     "listFilterWidget.noMatchesOutline": "#c00c0c",
+    "minimap.errorHighlight": "#c00c0c",
+    "minimap.findMatchHighlight": "#3ecd83",
+    "minimap.selectionHighlight": "#3a5599ac",
+    "minimap.warningHighlight": "#d2723b",
     "notificationCenterHeader.background": "#111520ee",
     "notifications.background": "#111520ee",
     "panel.border": "#141b24",
@@ -176,8 +180,9 @@
       "scope": [
         "source keyword.other",
         "source keyword.control",
-        "keyword.operator.new",
         "keyword.declaration",
+        "keyword.operator.expression",
+        "keyword.operator.new",
         "support.type.object.module",
         "variable.language.self",
         "variable.language.super",
@@ -225,7 +230,8 @@
       "scope": [
         "constant.character.escape",
         "punctuation.definition.template-expression.begin",
-        "keyword.operator.logical"
+        "keyword.operator.logical",
+        "keyword.operator.comparison"
       ],
       "settings": {
         "foreground": "#ff4762"
@@ -324,6 +330,7 @@
       "name": "type definition",
       "scope": [
         "entity.name",
+        "entity.other",
         "support.class.console"
       ],
       "settings": {

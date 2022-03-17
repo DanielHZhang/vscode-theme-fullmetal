@@ -88,7 +88,7 @@ const theme: ColorTheme = {
     'dropdown.background': colors.backgroundPopover,
     'dropdown.foreground': colors.gray,
     'editor.background': colors.backgroundEditor,
-    'editor.findMatchBackground': '',
+    'editor.findMatchBackground': colors.backgroundMatch, // TODO: change to diff match color
     'editor.findMatchHighlightBackground': '#e3e3e31f',
     'editor.findMatchHighlightBorder': colors.backgroundMatch,
     'editor.foreground': colors.gray,
@@ -234,7 +234,7 @@ const theme: ColorTheme = {
     'titleBar.inactiveBackground': colors.backgroundEditor,
     'tree.indentGuidesStroke': colors.pastelGray,
     'widget.shadow': '#0c0e1554',
-		
+    // 'debugToolBar.background':
     // 'editorBracketHighlight.foreground1': '#fe5c57',
     // 'editorBracketHighlight.foreground4': colors.pastelGreen,
     // 'icon.foreground': colors.gray,
@@ -289,8 +289,9 @@ const theme: ColorTheme = {
       scope: [
         specificity('source', 'keyword.other'),
         specificity('source', 'keyword.control'),
-        'keyword.operator.new',
         'keyword.declaration',
+        'keyword.operator.expression',
+        'keyword.operator.new',
         'support.type.object.module',
         'variable.language.self',
         'variable.language.super',
@@ -340,6 +341,7 @@ const theme: ColorTheme = {
         'constant.character.escape',
         'punctuation.definition.template-expression.begin',
         'keyword.operator.logical',
+        'keyword.operator.comparison',
       ],
       settings: {
         foreground: colors.red,
@@ -418,7 +420,7 @@ const theme: ColorTheme = {
     },
     {
       name: 'type definition',
-      scope: ['entity.name', 'support.class.console'],
+      scope: ['entity.name', 'entity.other', 'support.class.console'],
       settings: {
         foreground: colors.yellow,
       },
