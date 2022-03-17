@@ -342,6 +342,8 @@ const theme: ColorTheme = {
         'punctuation.definition.template-expression.begin',
         'keyword.operator.logical',
         'keyword.operator.comparison',
+        'keyword.operator.type',
+        specificity('source', 'keyword.other.unit'),
       ],
       settings: {
         foreground: colors.red,
@@ -370,8 +372,8 @@ const theme: ColorTheme = {
       },
     },
     {
-      name: 'unlabelled source',
-      scope: ['meta.paragraph.markdown', 'source.ignore'],
+      name: 'markdown paragraph',
+      scope: ['meta.paragraph.markdown'],
       settings: {
         foreground: colors.foreground,
       },
@@ -391,11 +393,11 @@ const theme: ColorTheme = {
       scope: [
         'variable.other.property',
         'variable.other.object.property',
-        'support.type.property-name',
         'support.resource.attribute',
         'entity.other.attribute-name',
         'punctuation.support.type.property-name',
         'variable.key',
+        'variable.object.property',
       ],
       settings: {
         foreground: colors.violet,
@@ -420,7 +422,13 @@ const theme: ColorTheme = {
     },
     {
       name: 'type definition',
-      scope: ['entity.name', 'entity.other', 'support.class.console'],
+      scope: [
+        'entity.name',
+        'entity.other',
+        'support.class.console',
+        'support.type.primitive',
+        'support.type.property-name',
+      ],
       settings: {
         foreground: colors.yellow,
       },
@@ -451,9 +459,11 @@ const theme: ColorTheme = {
     {
       name: 'assignment operator (=)',
       scope: [
+        'keyword.operator.assignment',
         'keyword.operator.borrow',
         'keyword.operator.key-value',
         'keyword.operator.dereference',
+        'keyword.operator.type.annotation',
         // 'keyword.operator.namespace',
       ],
       settings: {
@@ -480,11 +490,7 @@ const theme: ColorTheme = {
     },
     {
       name: 'namespace operator',
-      scope: [
-        'keyword.operator.assignment',
-        'keyword.operator.access.dot',
-        'keyword.operator.namespace',
-      ],
+      scope: ['keyword.operator.access.dot', 'keyword.operator.namespace'],
       settings: {
         foreground: '#e1cfb1',
       },

@@ -231,7 +231,9 @@
         "constant.character.escape",
         "punctuation.definition.template-expression.begin",
         "keyword.operator.logical",
-        "keyword.operator.comparison"
+        "keyword.operator.comparison",
+        "keyword.operator.type",
+        "source keyword.other.unit"
       ],
       "settings": {
         "foreground": "#ff4762"
@@ -269,10 +271,9 @@
       }
     },
     {
-      "name": "unlabelled source",
+      "name": "markdown paragraph",
       "scope": [
-        "meta.paragraph.markdown",
-        "source.ignore"
+        "meta.paragraph.markdown"
       ],
       "settings": {
         "foreground": "#dcbb"
@@ -294,11 +295,11 @@
       "scope": [
         "variable.other.property",
         "variable.other.object.property",
-        "support.type.property-name",
         "support.resource.attribute",
         "entity.other.attribute-name",
         "punctuation.support.type.property-name",
-        "variable.key"
+        "variable.key",
+        "variable.object.property"
       ],
       "settings": {
         "foreground": "#c77ddd"
@@ -331,7 +332,9 @@
       "scope": [
         "entity.name",
         "entity.other",
-        "support.class.console"
+        "support.class.console",
+        "support.type.primitive",
+        "support.type.property-name"
       ],
       "settings": {
         "foreground": "#efbd5d"
@@ -364,9 +367,11 @@
     {
       "name": "assignment operator (=)",
       "scope": [
+        "keyword.operator.assignment",
         "keyword.operator.borrow",
         "keyword.operator.key-value",
-        "keyword.operator.dereference"
+        "keyword.operator.dereference",
+        "keyword.operator.type.annotation"
       ],
       "settings": {
         "foreground": "#3dacb4"
@@ -389,7 +394,6 @@
     {
       "name": "namespace operator",
       "scope": [
-        "keyword.operator.assignment",
         "keyword.operator.access.dot",
         "keyword.operator.namespace"
       ],
