@@ -112,6 +112,18 @@
     "panelSectionHeader.background": "#141b24",
     "panelSectionHeader.foreground": "#90a5c8",
     "panelTitle.activeForeground": "#90a5c8",
+    "peekView.border": "#efbd5d",
+    "peekViewEditor.background": "#20283d",
+    "peekViewEditor.matchHighlightBackground": "#dbdae82f",
+    "peekViewResult.background": "#141b24",
+    "peekViewResult.fileForeground": "#90a5c8",
+    "peekViewResult.lineForeground": "#dcbb",
+    "peekViewResult.matchHighlightBackground": "#78e6c346",
+    "peekViewResult.selectionBackground": "#23386e",
+    "peekViewResult.selectionForeground": "#dbdae8",
+    "peekViewTitle.background": "#111520ee",
+    "peekViewTitleDescription.foreground": "#dcbb",
+    "peekViewTitleLabel.foreground": "#dbdae8",
     "quickInput.background": "#111520ee",
     "quickInputTitle.background": "#111520ee",
     "sash.hoverBorder": "#efbd5d",
@@ -310,7 +322,8 @@
       "scope": [
         "entity.name.function",
         "support.function",
-        "markup.underline.link"
+        "markup.underline.link",
+        "keyword.operator.arithmetic"
       ],
       "settings": {
         "foreground": "#41a7fc"
@@ -321,7 +334,10 @@
       "scope": [
         "constant.language.boolean",
         "constant.language",
-        "support.constant"
+        "support.constant",
+        "constant.numeric",
+        "punctuation.definition.list.begin",
+        "support.type.builtin"
       ],
       "settings": {
         "foreground": "#dd9046"
@@ -341,25 +357,12 @@
       }
     },
     {
-      "name": "number",
-      "scope": [
-        "constant.numeric",
-        "punctuation.definition.list.begin"
-      ],
-      "settings": {
-        "foreground": "#dd9046"
-      }
-    },
-    {
-      "name": "punctuation",
-      "scope": "punctuation",
-      "settings": {
-        "foreground": "#3dacb4"
-      }
-    },
-    {
       "name": "semicolon",
-      "scope": "punctuation.semi",
+      "scope": [
+        "keyword.operator.access.dot",
+        "keyword.operator.namespace",
+        "punctuation.semi"
+      ],
       "settings": {
         "foreground": "#e1cfb1"
       }
@@ -371,15 +374,10 @@
         "keyword.operator.borrow",
         "keyword.operator.key-value",
         "keyword.operator.dereference",
-        "keyword.operator.type.annotation"
+        "keyword.operator.type.annotation",
+        "keyword.operator.arrow.skinny",
+        "punctuation"
       ],
-      "settings": {
-        "foreground": "#3dacb4"
-      }
-    },
-    {
-      "name": "arrow ->",
-      "scope": "keyword.operator.arrow.skinny",
       "settings": {
         "foreground": "#3dacb4"
       }
@@ -389,16 +387,6 @@
       "scope": "keyword.operator.math",
       "settings": {
         "foreground": "#41a7fc"
-      }
-    },
-    {
-      "name": "namespace operator",
-      "scope": [
-        "keyword.operator.access.dot",
-        "keyword.operator.namespace"
-      ],
-      "settings": {
-        "foreground": "#e1cfb1"
       }
     }
   ]

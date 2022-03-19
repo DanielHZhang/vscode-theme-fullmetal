@@ -183,6 +183,18 @@ const theme: ColorTheme = {
     'panelSectionHeader.background': colors.backgroundSidebar,
     'panelSectionHeader.foreground': colors.gray,
     'panelTitle.activeForeground': colors.gray,
+    'peekView.border': colors.yellow,
+    'peekViewEditor.background': colors.backgroundInactive,
+    'peekViewEditor.matchHighlightBackground': colors.backgroundHoverHighlight, // TODO: change
+    'peekViewResult.background': colors.backgroundSidebar,
+    'peekViewResult.fileForeground': colors.gray,
+    'peekViewResult.lineForeground': colors.foreground,
+    'peekViewResult.matchHighlightBackground': colors.backgroundMatch,
+    'peekViewResult.selectionBackground': colors.backgroundActive,
+    'peekViewResult.selectionForeground': colors.white,
+    'peekViewTitle.background': colors.backgroundPopover,
+    'peekViewTitleDescription.foreground': colors.foreground,
+    'peekViewTitleLabel.foreground': colors.white,
     'quickInput.background': colors.backgroundPopover,
     'quickInputTitle.background': colors.backgroundPopover,
     'sash.hoverBorder': colors.yellow,
@@ -408,14 +420,26 @@ const theme: ColorTheme = {
     },
     {
       name: 'function',
-      scope: ['entity.name.function', 'support.function', 'markup.underline.link'],
+      scope: [
+        'entity.name.function',
+        'support.function',
+        'markup.underline.link',
+        'keyword.operator.arithmetic',
+      ],
       settings: {
         foreground: colors.blue,
       },
     },
     {
       name: 'booleans, constants',
-      scope: ['constant.language.boolean', 'constant.language', 'support.constant'],
+      scope: [
+        'constant.language.boolean',
+        'constant.language',
+        'support.constant',
+        'constant.numeric',
+        'punctuation.definition.list.begin',
+        'support.type.builtin',
+      ],
       settings: {
         foreground: colors.orange,
       },
@@ -434,24 +458,8 @@ const theme: ColorTheme = {
       },
     },
     {
-      name: 'number',
-      scope: ['constant.numeric', 'punctuation.definition.list.begin'],
-      settings: {
-        foreground: colors.orange,
-      },
-    },
-    {
-      name: 'punctuation',
-      scope: 'punctuation',
-      settings: {
-        foreground: colors.cyan,
-        // foreground: colors.gray,
-        // foreground: '#ab725e',
-      },
-    },
-    {
       name: 'semicolon',
-      scope: 'punctuation.semi',
+      scope: ['keyword.operator.access.dot', 'keyword.operator.namespace', 'punctuation.semi'],
       settings: {
         foreground: '#e1cfb1',
       },
@@ -464,6 +472,8 @@ const theme: ColorTheme = {
         'keyword.operator.key-value',
         'keyword.operator.dereference',
         'keyword.operator.type.annotation',
+        'keyword.operator.arrow.skinny',
+        'punctuation',
         // 'keyword.operator.namespace',
       ],
       settings: {
@@ -474,25 +484,10 @@ const theme: ColorTheme = {
       },
     },
     {
-      name: 'arrow ->',
-      scope: 'keyword.operator.arrow.skinny',
-      settings: {
-        // foreground: '#5bf78e',
-        foreground: colors.cyan,
-      },
-    },
-    {
       name: 'math oeprators',
       scope: 'keyword.operator.math',
       settings: {
         foreground: colors.blue,
-      },
-    },
-    {
-      name: 'namespace operator',
-      scope: ['keyword.operator.access.dot', 'keyword.operator.namespace'],
-      settings: {
-        foreground: '#e1cfb1',
       },
     },
   ],
