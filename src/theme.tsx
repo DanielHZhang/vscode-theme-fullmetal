@@ -39,6 +39,7 @@ const statusColors = {
 
 const workbenchColors = {
   backgroundActive: '#23386e',
+  backgroundActiveHighlight: '#ebb3d32d',
   backgroundDrop: '#181420ce',
   backgroundEditor: '#1a212e',
   backgroundHeader: '#181420ce',
@@ -54,11 +55,19 @@ const workbenchColors = {
   invisible: '#0000',
 };
 
+const tokenColors = {
+  boolean: ansiColors.orange,
+  string: ansiColors.green,
+  number: ansiColors.orange,
+  variable: pastelColors.pastelBlue,
+};
+
 const colors = {
   ...workbenchColors,
   ...vibrantColors,
   ...pastelColors,
   ...statusColors,
+  ...tokenColors,
   ...ansiColors,
 };
 
@@ -84,7 +93,15 @@ const theme: ColorTheme = {
     'breadcrumb.focusForeground': colors.gray,
     'breadcrumbPicker.background': colors.backgroundPopover,
     'button.background': colors.magenta,
+    'debugConsole.errorForeground': colors.error,
+    'debugConsole.infoForeground': colors.blue,
+    'debugConsole.sourceForeground': colors.gray,
+    'debugConsole.warningForeground': colors.warning,
+    'debugConsoleInputIcon.foreground': colors.vibrantGreen,
+    'debugIcon.breakpointCurrentStackframeForeground': colors.red,
+    'debugIcon.breakpointDisabledForeground': colors.pastelGray,
     'debugIcon.breakpointForeground': colors.red,
+    'debugIcon.breakpointUnverifiedForeground': colors.gray,
     'debugIcon.continueForeground': colors.vibrantGreen,
     'debugIcon.disconnectForeground': colors.red,
     'debugIcon.pauseForeground': colors.orange,
@@ -94,7 +111,17 @@ const theme: ColorTheme = {
     'debugIcon.stepOutForeground': colors.blue,
     'debugIcon.stepOverForeground': colors.blue,
     'debugIcon.stopForeground': colors.red,
+    'debugTokenExpression.string': colors.string,
+    'debugTokenExpression.boolean': colors.boolean,
+    'debugTokenExpression.error': colors.red,
+    'debugTokenExpression.name': colors.violet,
+    'debugTokenExpression.number': colors.number,
+    'debugTokenExpression.value': colors.variable,
     'debugToolBar.background': colors.backgroundPopover,
+    'debugView.exceptionLabelBackground': opacity(colors.error, 0.1),
+    'debugView.exceptionLabelForeground': colors.error,
+    'debugView.stateLabelBackground': colors.yellow,
+    'debugView.stateLabelForeground': colors.backgroundSidebar,
     'dropdown.background': colors.backgroundPopover,
     'dropdown.foreground': colors.gray,
     'editor.background': colors.backgroundEditor,
@@ -106,6 +133,7 @@ const theme: ColorTheme = {
     'editor.lineHighlightBackground': colors.backgroundInactive,
     'editor.rangeHighlightBackground': '#01c0ce45',
     'editor.selectionBackground': colors.backgroundSelection,
+    'editor.stackFrameHighlightBackground': colors.backgroundActiveHighlight,
     'editor.symbolHighlightBackground': '#01c0ce45',
     'editor.symbolHighlightBorder': colors.orange,
     'editor.wordHighlightBackground': colors.backgroundHoverHighlight,
@@ -195,7 +223,7 @@ const theme: ColorTheme = {
     'panelTitle.activeForeground': colors.gray,
     'peekView.border': colors.yellow,
     'peekViewEditor.background': colors.backgroundInactive,
-    'peekViewEditor.matchHighlightBackground': colors.backgroundHoverHighlight, // TODO: change
+    'peekViewEditor.matchHighlightBackground': colors.backgroundActiveHighlight,
     'peekViewResult.background': colors.backgroundSidebar,
     'peekViewResult.fileForeground': colors.gray,
     'peekViewResult.lineForeground': colors.foreground,
@@ -404,7 +432,7 @@ const theme: ColorTheme = {
       name: 'variable declaration and parameters',
       scope: ['variable.other', 'variable.parameter', 'variable.key.table'],
       settings: {
-        foreground: colors.pastelBlue,
+        foreground: colors.variable,
         // foreground: '#d6b792',
         // foreground: '#f6b868',
         // foreground: '#c75ae8',
