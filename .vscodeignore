@@ -1,4 +1,14 @@
+# Folders
 .vscode/**
 .vscode-test/**
+build/**
+schemas/**
+src/**
+
+# Files
+.eslintrc.json
 .gitignore
-vsc-extension-quickstart.md
+.prettierrc.js
+index.d.ts
+tsconfig.json
+yarn.lock
