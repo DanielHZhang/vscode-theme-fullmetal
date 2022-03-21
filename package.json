@@ -2,9 +2,9 @@
 	"name": "vscode-theme-fullmetal",
 	"displayName": "Fullmetal Theme",
 	"description": "A dark theme with vibrant colors crafted with alchemy.",
-	"version": "0.1.0",
+	"version": "1.0.3",
 	"author": "Daniel Zhang",
-	"publisher": "Daniel Zhang",
+	"publisher": "DanielZhang",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
