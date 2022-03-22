@@ -3,6 +3,36 @@ import path from 'path';
 import type {ColorTheme} from '..';
 import {opacity, specificity} from './utils';
 
+// Unused colors:
+// '#fe5c57',
+// '#2a2749bd',
+// '#21283b',
+// '#5bf78e',
+// '#8acd5b',
+// '#ea31b5',
+// '#ff6ac1',
+// '#2a314b',
+// '#6d0b2c8a',
+// '#78e6c3',
+// '#23386e',
+// '#dd9046',
+// '#1a2950',
+// '#e98d8f94',
+// '#78e6c3',
+// '#23386e',
+// '#283140',
+// '#0b1115',
+// '#141b24e0',
+// '#20283d',
+// '#322e40',
+// '#21283b',
+// '#d6b792',
+// '#c75ae8',
+// '#ba92d6',
+// '#01c0ce'
+// '#e1cfb1',
+// '#FDBAA6',
+
 const ansiColors = {
   white: '#dbdae8',
   gray: '#90a5c8',
@@ -11,9 +41,9 @@ const ansiColors = {
   orange: '#dd9046',
   yellow: '#efbd5d',
   green: '#8acd5b',
-  blue: '#41a7fc', // #61afef
+  blue: '#41a7fc',
   cyan: '#3dacb4',
-  indigo: '',
+  // indigo: '',
   violet: '#c77ddd',
   magenta: '#d44dae',
 };
@@ -22,12 +52,14 @@ const pastelColors = {
   pastelBlue: '#92d6cf',
   pastelGreen: '#add692',
   pastelGray: '#455573',
+  pastelYellow: '#e1cfb1',
 };
 
 const vibrantColors = {
+  vibrantYellow: '#f6b868',
   vibrantOrange: '#ff7e00',
   vibrantGreen: '#3ecd83',
-  // vibrantBlue: '#006aff', // #61afef
+  // vibrantBlue: '#006aff',
   vibrantBlue: '#61afef',
 };
 
@@ -40,12 +72,11 @@ const statusColors = {
 const workbenchColors = {
   backgroundActive: '#23386e',
   backgroundActiveHighlight: '#ebb3d32d',
-  backgroundDrop: '#181420ce',
+  backgroundDrop: opacity(ansiColors.cyan, 0.2),
   backgroundEditor: '#1a212e',
   backgroundHeader: '#181420ce',
   backgroundHover: '#1a2950',
-  backgroundHoverHighlight: '#dbdae82f',
-  backgroundInactive: '#20283d',
+  backgroundInactive: '#212a3f',
   backgroundMatch: '#78e6c346',
   backgroundPopover: '#111520ee',
   backgroundSidebar: '#141b24',
@@ -70,13 +101,6 @@ const colors = {
   ...tokenColors,
   ...ansiColors,
 };
-
-// redLighter: '#fe5c57',
-// backgroundHeader: '#2a2749bd',
-// bgLight: '#21283b',
-// greenSnazzy: '#5bf78e',
-// string: '#8acd5b',
-// foreground: '#ea31b5', #ff6ac1
 
 const theme: ColorTheme = {
   name: 'Fullmetal',
@@ -128,21 +152,23 @@ const theme: ColorTheme = {
     'dropdown.background': colors.backgroundPopover,
     'dropdown.foreground': colors.gray,
     'editor.background': colors.backgroundEditor,
-    'editor.findMatchBackground': colors.backgroundMatch, // TODO: change to diff match color
-    'editor.findMatchHighlightBackground': '#e3e3e31f',
+    'editor.findMatchBackground': opacity(colors.vibrantGreen, 0.1),
+    'editor.findMatchHighlightBackground': opacity(colors.pastelGreen, 0.1),
     'editor.findMatchHighlightBorder': colors.backgroundMatch,
     'editor.foreground': colors.gray,
-    'editor.hoverHighlightBackground': colors.backgroundHoverHighlight,
+    'editor.hoverHighlightBackground': opacity(colors.white, 0.15),
     'editor.lineHighlightBackground': colors.backgroundInactive,
-    'editor.rangeHighlightBackground': '#01c0ce45',
+    'editor.rangeHighlightBackground': opacity(colors.vibrantGreen, 0.1),
     'editor.selectionBackground': colors.backgroundSelection,
     'editor.stackFrameHighlightBackground': colors.backgroundActiveHighlight,
-    'editor.symbolHighlightBackground': '#01c0ce45',
+    'editor.symbolHighlightBackground': opacity(colors.vibrantGreen, 0.1),
     'editor.symbolHighlightBorder': colors.orange,
-    'editor.wordHighlightBackground': colors.backgroundHoverHighlight,
-    'editorBracketHighlight.foreground1': '#c75ae8',
+    'editor.wordHighlightBackground': opacity(colors.vibrantYellow, 0.15),
+    'editor.wordHighlightBorder': opacity(colors.vibrantYellow, 0.5),
+    'editor.wordHighlightStrongBackground': opacity(colors.blue, 0.3),
+    'editorBracketHighlight.foreground1': colors.violet, // '#c75ae8',
     'editorBracketHighlight.foreground2': colors.cyan,
-    'editorBracketHighlight.foreground3': '#f6b868',
+    'editorBracketHighlight.foreground3': colors.vibrantYellow,
     'editorBracketHighlight.unexpectedBracket.foreground': colors.error,
     'editorCodeLens.foreground': colors.pastelGray,
     'editorCursor.background': colors.backgroundEditor,
@@ -160,10 +186,11 @@ const theme: ColorTheme = {
     'editorHoverWidget.border': colors.invisible,
     'editorInlayHint.background': '#253c7a70',
     'editorInlayHint.foreground': colors.pastelGreen,
-    'editorLightBulb.foreground': colors.yellow,
+    'editorLightBulb.foreground': colors.vibrantYellow,
     'editorLineNumber.activeForeground': colors.gray,
     'editorLineNumber.foreground': colors.pastelGray,
     'editorLink.activeForeground': colors.blue,
+    'editorRuler.foreground': opacity(colors.pastelGray, 0.5),
     'editorSuggestWidget.background': colors.backgroundPopover,
     'editorSuggestWidget.border': colors.invisible,
     'editorSuggestWidget.selectedIconForeground': colors.magenta,
@@ -179,7 +206,7 @@ const theme: ColorTheme = {
     'extensionButton.prominentForeground': colors.black,
     'extensionButton.prominentHoverBackground': colors.pastelGreen,
     'extensionIcon.preReleaseForeground': colors.warning,
-    'extensionIcon.starForeground': colors.yellow,
+    'extensionIcon.starForeground': colors.vibrantYellow,
     'extensionIcon.verifiedForeground': colors.pastelBlue,
     'focusBorder': colors.orange,
     'foreground': colors.foreground,
@@ -271,12 +298,12 @@ const theme: ColorTheme = {
     'tab.hoverBackground': colors.backgroundHover,
     'tab.hoverForeground': colors.white,
     'tab.inactiveBackground': colors.backgroundSidebar,
-    'tab.inactiveForeground': opacity(colors.gray, 0.6), // colors.foreground,
+    'tab.inactiveForeground': opacity(colors.gray, 0.6),
     'tab.unfocusedActiveBorderTop': colors.invisible,
     'terminal.ansiBlack': colors.black,
     'terminal.ansiBlue': colors.blue,
     'terminal.ansiBrightGreen': colors.vibrantGreen,
-    'terminal.ansiBrightYellow': colors.yellow,
+    'terminal.ansiBrightYellow': colors.vibrantYellow,
     'terminal.ansiCyan': colors.cyan,
     'terminal.ansiGreen': colors.green,
     'terminal.ansiMagenta': colors.magenta,
@@ -292,24 +319,7 @@ const theme: ColorTheme = {
     'titleBar.activeForeground': colors.foreground,
     'titleBar.inactiveBackground': colors.backgroundEditor,
     'tree.indentGuidesStroke': colors.pastelGray,
-    'widget.shadow': '#0c0e1554',
-    // 'icon.foreground': colors.gray,
-    // 'input.background': '#2a314b',
-    // 'list.dropBackground': '#6d0b2c8a',
-    // "editor.wordHighlightBorder": "#78e6c3",
-    // "editorGutter.addedBackground": "#5bf78e",
-    // "editorSuggestWidget.border": "#23386e",
-    // "editorSuggestWidget.border": "#dd9046",
-    // "list.activeSelectionBackground": "#1a2950",
-    // "list.filterMatchBackground": "#e98d8f94",
-    // "list.filterMatchBorder": "#78e6c3",
-    // "list.hoverBackground": "#23386e",
-    // "notifications.background": "#283140",
-    // "quickInput.background": "#0b1115",
-    // "quickInput.background": "#141b24e0",
-    // "scrollbarSlider.background": "#20283d",
-    // "scrollbarSlider.background": "#322e40",
-    // "tab.inactiveBackground": "#21283b",
+    'widget.shadow': opacity(colors.black, 0.4),
   },
   semanticHighlighting: true,
   semanticTokenColors: {
@@ -354,7 +364,6 @@ const theme: ColorTheme = {
       scope: 'storage.modifier',
       settings: {
         foreground: colors.vibrantOrange,
-        // foreground: '#f6b868',
       },
     },
     {
@@ -424,27 +433,23 @@ const theme: ColorTheme = {
       scope: ['variable.other', 'variable.parameter', 'variable.key.table'],
       settings: {
         foreground: colors.variable,
-        // foreground: '#d6b792',
-        // foreground: '#f6b868',
-        // foreground: '#c75ae8',
       },
     },
     {
       name: 'struct/object properties',
       scope: [
+        'variable.key',
         'variable.other.property',
         'variable.other.object.property',
-        'support.resource.attribute',
-        'entity.other.attribute-name',
-        'punctuation.support.type.property-name',
-        'variable.key',
         'variable.object.property',
+        'support.resource.attribute',
+        'support.variable.property',
+        'entity.other.attribute-name',
+
+        'meta.object-literal.key',
       ],
       settings: {
         foreground: colors.violet,
-        // foreground: '#ba92d6',
-        // foreground: colors.pastelGreen,
-        // "foreground": "#01c0ce"
       },
     },
     {
@@ -474,13 +479,14 @@ const theme: ColorTheme = {
       },
     },
     {
-      name: 'type definition',
+      name: 'entities (class/type definitions)',
       scope: [
         'entity.name',
         'entity.other',
         'support.class.console',
         'support.type.primitive',
         'support.type.property-name',
+        'punctuation.support.type.property-name',
       ],
       settings: {
         foreground: colors.yellow,
@@ -490,7 +496,7 @@ const theme: ColorTheme = {
       name: 'semicolon',
       scope: ['keyword.operator.access.dot', 'keyword.operator.namespace', 'punctuation.semi'],
       settings: {
-        foreground: '#e1cfb1',
+        foreground: colors.pastelYellow,
       },
     },
     {
@@ -503,13 +509,9 @@ const theme: ColorTheme = {
         'keyword.operator.type.annotation',
         'keyword.operator.arrow.skinny',
         'punctuation',
-        // 'keyword.operator.namespace',
       ],
       settings: {
         foreground: colors.cyan,
-        // foreground: '#e1cfb1',
-        // foreground: '#f6b868',
-        // foreground: '#FDBAA6',
       },
     },
     {
