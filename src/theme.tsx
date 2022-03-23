@@ -392,6 +392,7 @@ const theme: ColorTheme = {
         'punctuation.definition.template-expression.begin',
         'keyword.operator.logical',
         'keyword.operator.comparison',
+        'keyword.operator.relational',
         'keyword.operator.ternary',
         'keyword.operator.type',
         specificity('source', 'keyword.other.unit'),
