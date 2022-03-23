@@ -285,6 +285,8 @@
         "punctuation.definition.template-expression.begin",
         "keyword.operator.logical",
         "keyword.operator.comparison",
+        "keyword.operator.relational",
+        "keyword.operator.ternary",
         "keyword.operator.type",
         "source keyword.other.unit"
       ],
@@ -363,9 +365,13 @@
       "name": "function",
       "scope": [
         "entity.name.function",
+        "keyword.operator.arithmetic",
+        "keyword.operator.assignment.compound",
+        "keyword.operator.decrement",
+        "keyword.operator.increment",
+        "keyword.operator.math",
         "support.function",
-        "markup.underline.link",
-        "keyword.operator.arithmetic"
+        "markup.underline.link"
       ],
       "settings": {
         "foreground": "#41a7fc"
@@ -423,13 +429,6 @@
       ],
       "settings": {
         "foreground": "#3dacb4"
-      }
-    },
-    {
-      "name": "math oeprators",
-      "scope": "keyword.operator.math",
-      "settings": {
-        "foreground": "#41a7fc"
       }
     }
   ]
