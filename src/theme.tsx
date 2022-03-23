@@ -458,9 +458,13 @@ const theme: ColorTheme = {
       name: 'function',
       scope: [
         'entity.name.function',
+        'keyword.operator.arithmetic',
+        'keyword.operator.assignment.compound',
+        'keyword.operator.decrement',
+        'keyword.operator.increment',
+        'keyword.operator.math',
         'support.function',
         'markup.underline.link',
-        'keyword.operator.arithmetic',
       ],
       settings: {
         foreground: colors.blue,
@@ -514,13 +518,6 @@ const theme: ColorTheme = {
       ],
       settings: {
         foreground: colors.cyan,
-      },
-    },
-    {
-      name: 'math oeprators',
-      scope: 'keyword.operator.math',
-      settings: {
-        foreground: colors.blue,
       },
     },
   ],
