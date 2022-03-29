@@ -209,6 +209,7 @@
     "terminal.selectionBackground": "#3a5599ac",
     "terminalCursor.background": "#1a212e",
     "terminalCursor.foreground": "#dbdae8",
+    "textCodeBlock.background": "#90a5c826",
     "textLink.activeForeground": "#61afef",
     "textLink.foreground": "#41a7fc",
     "titleBar.activeBackground": "#141b24",
@@ -221,10 +222,19 @@
   "semanticTokenColors": {
     "keyword.unsafe": "#ff4762",
     "macro": {
-      "fontStyle": "italic"
+      "italic": true
     },
     "macroBang": {
-      "fontStyle": "italic"
+      "italic": true
+    },
+    "variable.mutable": {
+      "underline": true
+    },
+    "selfKeyword.mutable": {
+      "underline": true
+    },
+    "parameter.mutable": {
+      "underline": true
     }
   },
   "tokenColors": [
@@ -349,6 +359,7 @@
       "name": "struct/object properties",
       "scope": [
         "variable.key",
+        "variable.other.enummember",
         "variable.other.property",
         "variable.other.object.property",
         "variable.object.property",
@@ -396,7 +407,7 @@
       "scope": [
         "entity.name",
         "entity.other",
-        "support.class.console",
+        "support.class",
         "support.type.primitive",
         "support.type.property-name",
         "punctuation.support.type.property-name"
@@ -425,6 +436,8 @@
         "keyword.operator.dereference",
         "keyword.operator.type.annotation",
         "keyword.operator.arrow.skinny",
+        "meta.brace.round",
+        "meta.brace.square",
         "punctuation"
       ],
       "settings": {

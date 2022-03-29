@@ -313,6 +313,7 @@ const theme: ColorTheme = {
     'terminal.selectionBackground': colors.backgroundSelection,
     'terminalCursor.background': colors.backgroundEditor,
     'terminalCursor.foreground': colors.white,
+    'textCodeBlock.background': opacity(colors.gray, 0.15),
     'textLink.activeForeground': colors.vibrantBlue,
     'textLink.foreground': colors.blue,
     'titleBar.activeBackground': colors.backgroundSidebar,
@@ -325,14 +326,20 @@ const theme: ColorTheme = {
   semanticTokenColors: {
     'keyword.unsafe': colors.red,
     'macro': {
-      fontStyle: 'italic',
+      italic: true,
     },
     'macroBang': {
-      fontStyle: 'italic',
+      italic: true,
     },
-    // '*.readonly': {
-    //   fontStyle: 'underline',
-    // },
+    'variable.mutable': {
+      underline: true,
+    },
+    'selfKeyword.mutable': {
+      underline: true,
+    },
+    'parameter.mutable': {
+      underline: true,
+    },
   },
   tokenColors: [
     {
@@ -441,13 +448,13 @@ const theme: ColorTheme = {
       name: 'struct/object properties',
       scope: [
         'variable.key',
+        'variable.other.enummember',
         'variable.other.property',
         'variable.other.object.property',
         'variable.object.property',
         'support.resource.attribute',
         'support.variable.property',
         'entity.other.attribute-name',
-
         'meta.object-literal.key',
       ],
       settings: {
@@ -489,7 +496,7 @@ const theme: ColorTheme = {
       scope: [
         'entity.name',
         'entity.other',
-        'support.class.console',
+        'support.class',
         'support.type.primitive',
         'support.type.property-name',
         'punctuation.support.type.property-name',
@@ -514,6 +521,8 @@ const theme: ColorTheme = {
         'keyword.operator.dereference',
         'keyword.operator.type.annotation',
         'keyword.operator.arrow.skinny',
+        'meta.brace.round',
+        'meta.brace.square',
         'punctuation',
       ],
       settings: {
