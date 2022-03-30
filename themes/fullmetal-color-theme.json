@@ -428,14 +428,15 @@
       }
     },
     {
-      "name": "assignment operator (=)",
+      "name": "punctuation and operators",
       "scope": [
+        "keyword.operator.arrow.skinny",
         "keyword.operator.assignment",
         "keyword.operator.borrow",
-        "keyword.operator.key-value",
         "keyword.operator.dereference",
+        "keyword.operator.key-value",
+        "keyword.operator.spread",
         "keyword.operator.type.annotation",
-        "keyword.operator.arrow.skinny",
         "meta.brace.round",
         "meta.brace.square",
         "punctuation"
