@@ -456,6 +456,7 @@ const theme: ColorTheme = {
         'support.variable.property',
         'entity.other.attribute-name',
         'meta.object-literal.key',
+        'meta.braces.hcl', // terraform-specific
       ],
       settings: {
         foreground: colors.violet,
