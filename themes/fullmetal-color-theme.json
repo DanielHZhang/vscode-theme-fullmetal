@@ -244,6 +244,7 @@
         "source keyword.other",
         "source keyword.control",
         "keyword.declaration",
+        "keyword.operator.arrow.fat",
         "keyword.operator.expression",
         "keyword.operator.new",
         "support.type.object.module",
@@ -366,7 +367,8 @@
         "support.resource.attribute",
         "support.variable.property",
         "entity.other.attribute-name",
-        "meta.object-literal.key"
+        "meta.object-literal.key",
+        "meta.braces.hcl"
       ],
       "settings": {
         "foreground": "#c77ddd"
