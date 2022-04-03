@@ -348,6 +348,7 @@ const theme: ColorTheme = {
         specificity('source', 'keyword.other'),
         specificity('source', 'keyword.control'),
         'keyword.declaration',
+        'keyword.operator.arrow.fat',
         'keyword.operator.expression',
         'keyword.operator.new',
         'support.type.object.module',
