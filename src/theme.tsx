@@ -291,7 +291,7 @@ const theme: ColorTheme = {
     'statusBarItem.warningBackground': colors.warning,
     'tab.activeBackground': colors.backgroundEditor,
     'tab.activeBorder': colors.invisible,
-    'tab.activeBorderTop': colors.backgroundActive,
+    'tab.activeBorderTop': colors.vibrantBlue,
     'tab.activeForeground': colors.gray,
     'tab.activeModifiedBorder': colors.yellow,
     'tab.border': colors.invisible,
@@ -351,18 +351,12 @@ const theme: ColorTheme = {
         'keyword.operator.arrow.fat',
         'keyword.operator.expression',
         'keyword.operator.new',
+        'storage.type', // Storage keyword (e.g. mod in rust)
         'support.type.object.module',
         'variable.language.self',
         'variable.language.super',
         'variable.language.this',
       ],
-      settings: {
-        foreground: colors.magenta,
-      },
-    },
-    {
-      name: 'storage keyword (e.g. mod)',
-      scope: 'storage.type',
       settings: {
         foreground: colors.magenta,
       },
@@ -394,16 +388,19 @@ const theme: ColorTheme = {
       },
     },
     {
-      name: 'escape character',
+      name: 'red (potentially dangerous operations)',
       scope: [
         'constant.character.escape',
         'punctuation.definition.template-expression.begin',
         'keyword.operator.logical',
         'keyword.operator.comparison',
+        'keyword.operator.question', // Rust result unwrap propagation
         'keyword.operator.relational',
         'keyword.operator.ternary',
         'keyword.operator.type',
         specificity('source', 'keyword.other.unit'),
+        'keyword.operator.hcl', // Terraform keyword
+        'keyword.operator.word.hcl', // Terraform keyword
       ],
       settings: {
         foreground: colors.red,
@@ -457,7 +454,7 @@ const theme: ColorTheme = {
         'support.variable.property',
         'entity.other.attribute-name',
         'meta.object-literal.key',
-        'meta.braces.hcl', // terraform-specific
+        'meta.braces.hcl', // Terraform property
       ],
       settings: {
         foreground: colors.violet,
@@ -498,6 +495,7 @@ const theme: ColorTheme = {
       scope: [
         'entity.name',
         'entity.other',
+        'meta.use.rust', // Rust mod names in hovers
         'support.class',
         'support.type.primitive',
         'support.type.property-name',
