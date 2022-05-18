@@ -526,6 +526,14 @@ const theme: ColorTheme = {
         foreground: colors.cyan,
       },
     },
+    {
+      name: 'shell script shebang',
+      scope: 'punctuation.definition.comment.shebang.shell',
+      settings: {
+        fontStyle: 'bold',
+        foreground: colors.pastelGreen,
+      },
+    },
   ],
 };
 
