@@ -81,7 +81,7 @@
     "editorHoverWidget.background": "#111520ee",
     "editorHoverWidget.border": "#0000",
     "editorInlayHint.background": "#253c7a70",
-    "editorInlayHint.foreground": "#add692",
+    "editorInlayHint.foreground": "#5fa89a",
     "editorLightBulb.foreground": "#f6b868",
     "editorLineNumber.activeForeground": "#90a5c8",
     "editorLineNumber.foreground": "#455573",
@@ -247,6 +247,8 @@
         "keyword.operator.arrow.fat",
         "keyword.operator.expression",
         "keyword.operator.new",
+        "keyword.operator.word.hcl",
+        "keyword.type",
         "storage.type",
         "support.type.object.module",
         "variable.language.self",
@@ -265,13 +267,6 @@
       }
     },
     {
-      "name": "attributes",
-      "scope": "source meta.attribute",
-      "settings": {
-        "foreground": "#41a7fc"
-      }
-    },
-    {
       "name": "string",
       "scope": [
         "string",
@@ -286,17 +281,16 @@
     {
       "name": "red (potentially dangerous operations)",
       "scope": [
+        "source keyword.other.unit",
         "constant.character.escape",
         "punctuation.definition.template-expression.begin",
-        "keyword.operator.logical",
         "keyword.operator.comparison",
+        "keyword.operator.hcl",
+        "keyword.operator.logical",
         "keyword.operator.question",
         "keyword.operator.relational",
         "keyword.operator.ternary",
-        "keyword.operator.type",
-        "source keyword.other.unit",
-        "keyword.operator.hcl",
-        "keyword.operator.word.hcl"
+        "keyword.operator.type"
       ],
       "settings": {
         "foreground": "#ff4762"
@@ -374,14 +368,16 @@
     {
       "name": "function",
       "scope": [
+        "source meta.attribute",
         "entity.name.function",
+        "keyword.generator.asterisk",
         "keyword.operator.arithmetic",
         "keyword.operator.assignment.compound",
         "keyword.operator.decrement",
         "keyword.operator.increment",
         "keyword.operator.math",
-        "support.function",
-        "markup.underline.link"
+        "markup.underline.link",
+        "support.function"
       ],
       "settings": {
         "foreground": "#41a7fc"
@@ -443,6 +439,14 @@
       ],
       "settings": {
         "foreground": "#3dacb4"
+      }
+    },
+    {
+      "name": "shell script shebang",
+      "scope": "punctuation.definition.comment.shebang.shell",
+      "settings": {
+        "fontStyle": "bold",
+        "foreground": "#add692"
       }
     }
   ]
