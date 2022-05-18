@@ -351,7 +351,8 @@ const theme: ColorTheme = {
         'keyword.operator.arrow.fat',
         'keyword.operator.expression',
         'keyword.operator.new',
-        'storage.type', // Storage keyword (e.g. mod in rust)
+        'keyword.type', // `void` in C#
+        'storage.type', // `mod` in rust
         'support.type.object.module',
         'variable.language.self',
         'variable.language.super',
