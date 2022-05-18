@@ -185,7 +185,7 @@ const theme: ColorTheme = {
     'editorHoverWidget.background': colors.backgroundPopover,
     'editorHoverWidget.border': colors.invisible,
     'editorInlayHint.background': '#253c7a70',
-    'editorInlayHint.foreground': colors.pastelGreen,
+    'editorInlayHint.foreground': '#5fa89a',
     'editorLightBulb.foreground': colors.vibrantYellow,
     'editorLineNumber.activeForeground': colors.gray,
     'editorLineNumber.foreground': colors.pastelGray,
