@@ -351,6 +351,7 @@ const theme: ColorTheme = {
         'keyword.operator.arrow.fat',
         'keyword.operator.expression',
         'keyword.operator.new',
+        'keyword.operator.word.hcl', // Terraform keyword
         'keyword.type', // `void` in C#
         'storage.type', // `mod` in rust
         'support.type.object.module',
@@ -370,13 +371,6 @@ const theme: ColorTheme = {
       },
     },
     {
-      name: 'attributes',
-      scope: specificity('source', 'meta.attribute'),
-      settings: {
-        foreground: colors.blue,
-      },
-    },
-    {
       name: 'string',
       scope: [
         'string',
@@ -391,17 +385,16 @@ const theme: ColorTheme = {
     {
       name: 'red (potentially dangerous operations)',
       scope: [
+        specificity('source', 'keyword.other.unit'),
         'constant.character.escape',
         'punctuation.definition.template-expression.begin',
-        'keyword.operator.logical',
         'keyword.operator.comparison',
+        'keyword.operator.hcl', // Terraform keyword
+        'keyword.operator.logical',
         'keyword.operator.question', // Rust result unwrap propagation
         'keyword.operator.relational',
         'keyword.operator.ternary',
         'keyword.operator.type',
-        specificity('source', 'keyword.other.unit'),
-        'keyword.operator.hcl', // Terraform keyword
-        'keyword.operator.word.hcl', // Terraform keyword
       ],
       settings: {
         foreground: colors.red,
@@ -464,14 +457,16 @@ const theme: ColorTheme = {
     {
       name: 'function',
       scope: [
+        specificity('source', 'meta.attribute'),
         'entity.name.function',
+        'keyword.generator.asterisk',
         'keyword.operator.arithmetic',
         'keyword.operator.assignment.compound',
         'keyword.operator.decrement',
         'keyword.operator.increment',
         'keyword.operator.math',
-        'support.function',
         'markup.underline.link',
+        'support.function',
       ],
       settings: {
         foreground: colors.blue,
