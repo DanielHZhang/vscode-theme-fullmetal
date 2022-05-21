@@ -364,8 +364,12 @@ const theme: ColorTheme = {
       },
     },
     {
-      name: 'storage modifier (e.g. mut)',
-      scope: 'storage.modifier',
+      name: 'storage modifier',
+      scope: [
+        'storage.modifier',
+        'punctuation.definition.quote.begin',
+        'punctuation.definition.heading',
+      ],
       settings: {
         foreground: colors.vibrantOrange,
       },
@@ -391,7 +395,7 @@ const theme: ColorTheme = {
         'keyword.operator.comparison',
         'keyword.operator.hcl', // Terraform keyword
         'keyword.operator.logical',
-        'keyword.operator.question', // Rust result unwrap propagation
+        'keyword.operator.question', // option.unwrap()? (rust)
         'keyword.operator.relational',
         'keyword.operator.ternary',
         'keyword.operator.type',
@@ -431,7 +435,12 @@ const theme: ColorTheme = {
     },
     {
       name: 'variable declaration and parameters',
-      scope: ['variable.other', 'variable.parameter', 'variable.key.table'],
+      scope: [
+        'variable.other',
+        'variable.parameter',
+        'variable.key.table',
+        'entity.name.variable.local', // Local variable (C#)
+      ],
       settings: {
         foreground: colors.variable,
       },
@@ -449,6 +458,7 @@ const theme: ColorTheme = {
         'entity.other.attribute-name',
         'meta.object-literal.key',
         'meta.braces.hcl', // Terraform property
+        'entity.name.variable.field', // class field (C#)
       ],
       settings: {
         foreground: colors.violet,
@@ -467,6 +477,9 @@ const theme: ColorTheme = {
         'keyword.operator.math',
         'markup.underline.link',
         'support.function',
+        'keyword.operator.borrow', // &
+        'keyword.operator.dereference', // *
+        'keyword.operator.spread', // ...props
       ],
       settings: {
         foreground: colors.blue,
@@ -491,7 +504,7 @@ const theme: ColorTheme = {
       scope: [
         'entity.name',
         'entity.other',
-        'meta.use.rust', // Rust mod names in hovers
+        'meta.use.rust', // mod names in hovers
         'support.class',
         'support.type.primitive',
         'support.type.property-name',
@@ -502,25 +515,36 @@ const theme: ColorTheme = {
       },
     },
     {
-      name: 'semicolon',
-      scope: ['keyword.operator.access.dot', 'keyword.operator.namespace', 'punctuation.semi'],
+      name: 'accessor punctuation',
+      scope: [
+        'keyword.operator.access.dot', // class.prop
+        'keyword.operator.namespace', // mod::fn
+        'keyword.operator.assignment', // =
+        'punctuation.accessor', // class.prop
+        'keyword.operator.arrow.skinny', // ->
+      ],
       settings: {
-        foreground: colors.pastelYellow,
+        foreground: colors.pastelGreen,
+        // foreground: colors.pastelYellow,
       },
     },
     {
-      name: 'punctuation and operators',
+      name: 'background punctuation',
       scope: [
-        'keyword.operator.arrow.skinny',
-        'keyword.operator.assignment',
-        'keyword.operator.borrow',
-        'keyword.operator.dereference',
         'keyword.operator.key-value',
-        'keyword.operator.spread',
         'keyword.operator.type.annotation',
         'meta.brace.round',
         'meta.brace.square',
-        'punctuation',
+        'punctuation.terminator',
+        'punctuation.semi',
+        'punctuation.parenthesis.open',
+        'punctuation.parenthesis.close',
+        'punctuation.separator',
+        'punctuation.definition.link.title.begin', // [link](url) (markdown)
+        'punctuation.definition.link.title.end', // [link](url) (markdown)
+        'punctuation.definition.metadata', // [link](url) (markdown)
+        'punctuation.definition.tag.begin', // <div (jsx)
+        'punctuation.definition.tag.end', // div> (jsx)
       ],
       settings: {
         foreground: colors.cyan,

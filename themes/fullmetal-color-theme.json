@@ -260,8 +260,12 @@
       }
     },
     {
-      "name": "storage modifier (e.g. mut)",
-      "scope": "storage.modifier",
+      "name": "storage modifier",
+      "scope": [
+        "storage.modifier",
+        "punctuation.definition.quote.begin",
+        "punctuation.definition.heading"
+      ],
       "settings": {
         "foreground": "#ff7e00"
       }
@@ -341,7 +345,8 @@
       "scope": [
         "variable.other",
         "variable.parameter",
-        "variable.key.table"
+        "variable.key.table",
+        "entity.name.variable.local"
       ],
       "settings": {
         "foreground": "#92d6cf"
@@ -359,7 +364,8 @@
         "support.variable.property",
         "entity.other.attribute-name",
         "meta.object-literal.key",
-        "meta.braces.hcl"
+        "meta.braces.hcl",
+        "entity.name.variable.field"
       ],
       "settings": {
         "foreground": "#c77ddd"
@@ -377,7 +383,10 @@
         "keyword.operator.increment",
         "keyword.operator.math",
         "markup.underline.link",
-        "support.function"
+        "support.function",
+        "keyword.operator.borrow",
+        "keyword.operator.dereference",
+        "keyword.operator.spread"
       ],
       "settings": {
         "foreground": "#41a7fc"
@@ -413,29 +422,35 @@
       }
     },
     {
-      "name": "semicolon",
+      "name": "accessor punctuation",
       "scope": [
         "keyword.operator.access.dot",
         "keyword.operator.namespace",
-        "punctuation.semi"
+        "keyword.operator.assignment",
+        "punctuation.accessor",
+        "keyword.operator.arrow.skinny"
       ],
       "settings": {
-        "foreground": "#e1cfb1"
+        "foreground": "#add692"
       }
     },
     {
-      "name": "punctuation and operators",
+      "name": "background punctuation",
       "scope": [
-        "keyword.operator.arrow.skinny",
-        "keyword.operator.assignment",
-        "keyword.operator.borrow",
-        "keyword.operator.dereference",
         "keyword.operator.key-value",
-        "keyword.operator.spread",
         "keyword.operator.type.annotation",
         "meta.brace.round",
         "meta.brace.square",
-        "punctuation"
+        "punctuation.terminator",
+        "punctuation.semi",
+        "punctuation.parenthesis.open",
+        "punctuation.parenthesis.close",
+        "punctuation.separator",
+        "punctuation.definition.link.title.begin",
+        "punctuation.definition.link.title.end",
+        "punctuation.definition.metadata",
+        "punctuation.definition.tag.begin",
+        "punctuation.definition.tag.end"
       ],
       "settings": {
         "foreground": "#3dacb4"
