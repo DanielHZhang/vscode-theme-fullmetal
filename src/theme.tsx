@@ -521,6 +521,7 @@ const theme: ColorTheme = {
         'keyword.operator.namespace', // mod::fn
         'keyword.operator.assignment', // =
         'punctuation.accessor', // class.prop
+        'punctuation.eq', // = (toml)
         'keyword.operator.arrow.skinny', // ->
       ],
       settings: {
@@ -540,6 +541,7 @@ const theme: ColorTheme = {
         'punctuation.parenthesis.open',
         'punctuation.parenthesis.close',
         'punctuation.separator',
+        'punctuation.brackets.angle', // fn<Generic>() (rust/ts)
         'punctuation.definition.link.title.begin', // [link](url) (markdown)
         'punctuation.definition.link.title.end', // [link](url) (markdown)
         'punctuation.definition.metadata', // [link](url) (markdown)
