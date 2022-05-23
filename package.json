@@ -2,7 +2,7 @@
 	"name": "vscode-theme-fullmetal",
 	"displayName": "Fullmetal Theme",
 	"description": "A dark theme with vibrant colors crafted with alchemy.",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"author": "Daniel Zhang",
 	"publisher": "DanielZhang",
 	"license": "MIT",
@@ -45,13 +45,14 @@
 		]
 	},
 	"scripts": {
-		"package": "vsce package",
-		"publish": "vsce publish",
+		"build": "tsc-suppress && node build/theme.js",
 		"schemas": "tsc-suppress && node build/schema.js",
-		"vscode:prepublish": "tsc-suppress && node build/theme.js",
 		"watch": "concurrently \"npm:watch-*\"",
 		"watch-generate": "nodemon --watch build build/theme.js",
-		"watch-compile": "tsc-suppress --watch"
+		"watch-compile": "tsc-suppress --watch",
+		"vsce-package": "vsce package",
+		"vsce-publish": "vsce publish",
+		"vscode:prepublish": "yarn build"
 	},
 	"devDependencies": {
 		"@supersede/eslint-config": "^1.3.0",
