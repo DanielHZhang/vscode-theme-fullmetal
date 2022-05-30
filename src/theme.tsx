@@ -351,6 +351,7 @@ const theme: ColorTheme = {
         'keyword.operator.arrow',
         'keyword.operator.expression',
         'keyword.operator.new',
+        'keyword.preprocessor',
         'keyword.operator.word.hcl', // Terraform keyword
         'keyword.type', // `void` in C#
         'storage.type', // `mod` in rust
@@ -393,6 +394,7 @@ const theme: ColorTheme = {
         'constant.character.escape',
         'punctuation.definition.template-expression.begin',
         'keyword.operator.comparison',
+        'keyword.operator.conditional',
         'keyword.operator.hcl', // Terraform keyword
         'keyword.operator.logical',
         'keyword.operator.question', // option.unwrap()? (rust)
@@ -451,6 +453,7 @@ const theme: ColorTheme = {
         'variable.key',
         'variable.other.enummember',
         'variable.other.property',
+        'variable.other.constant.property',
         'variable.other.object.property',
         'variable.object.property',
         'support.resource.attribute',
@@ -477,6 +480,7 @@ const theme: ColorTheme = {
         'keyword.operator.math',
         'markup.underline.link',
         'support.function',
+        'keyword.operator.bitwise', // <<
         'keyword.operator.borrow', // &
         'keyword.operator.dereference', // *
         'keyword.operator.spread', // ...props
@@ -547,6 +551,7 @@ const theme: ColorTheme = {
         'punctuation.definition.metadata', // [link](url) (markdown)
         'punctuation.definition.tag.begin', // <div (jsx)
         'punctuation.definition.tag.end', // div> (jsx)
+        'punctuation.definition.typeparameters', // Record<string, any> (ts)
       ],
       settings: {
         foreground: colors.cyan,

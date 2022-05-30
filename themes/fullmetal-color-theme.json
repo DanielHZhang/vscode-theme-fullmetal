@@ -247,6 +247,7 @@
         "keyword.operator.arrow",
         "keyword.operator.expression",
         "keyword.operator.new",
+        "keyword.preprocessor",
         "keyword.operator.word.hcl",
         "keyword.type",
         "storage.type",
@@ -289,6 +290,7 @@
         "constant.character.escape",
         "punctuation.definition.template-expression.begin",
         "keyword.operator.comparison",
+        "keyword.operator.conditional",
         "keyword.operator.hcl",
         "keyword.operator.logical",
         "keyword.operator.question",
@@ -358,6 +360,7 @@
         "variable.key",
         "variable.other.enummember",
         "variable.other.property",
+        "variable.other.constant.property",
         "variable.other.object.property",
         "variable.object.property",
         "support.resource.attribute",
@@ -384,6 +387,7 @@
         "keyword.operator.math",
         "markup.underline.link",
         "support.function",
+        "keyword.operator.bitwise",
         "keyword.operator.borrow",
         "keyword.operator.dereference",
         "keyword.operator.spread"
@@ -452,7 +456,8 @@
         "punctuation.definition.link.title.end",
         "punctuation.definition.metadata",
         "punctuation.definition.tag.begin",
-        "punctuation.definition.tag.end"
+        "punctuation.definition.tag.end",
+        "punctuation.definition.typeparameters"
       ],
       "settings": {
         "foreground": "#3dacb4"
