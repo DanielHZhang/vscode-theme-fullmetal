@@ -291,6 +291,7 @@
         "punctuation.definition.template-expression.begin",
         "keyword.operator.comparison",
         "keyword.operator.conditional",
+        "keyword.operator.definiteassignment",
         "keyword.operator.hcl",
         "keyword.operator.logical",
         "keyword.operator.question",
@@ -390,6 +391,7 @@
         "keyword.operator.bitwise",
         "keyword.operator.borrow",
         "keyword.operator.dereference",
+        "keyword.operator.rest",
         "keyword.operator.spread"
       ],
       "settings": {
@@ -404,7 +406,8 @@
         "support.constant",
         "constant.numeric",
         "punctuation.definition.list.begin",
-        "support.type.builtin"
+        "support.type.builtin",
+        "constant.other.caps"
       ],
       "settings": {
         "foreground": "#dd9046"
@@ -457,7 +460,8 @@
         "punctuation.definition.metadata",
         "punctuation.definition.tag.begin",
         "punctuation.definition.tag.end",
-        "punctuation.definition.typeparameters"
+        "punctuation.definition.typeparameters",
+        "punctuation.definition.table.inline"
       ],
       "settings": {
         "foreground": "#3dacb4"
@@ -469,6 +473,14 @@
       "settings": {
         "fontStyle": "bold",
         "foreground": "#add692"
+      }
+    },
+    {
+      "name": "toml table headers",
+      "scope": "meta.table support.type.property-name.table",
+      "settings": {
+        "foreground": "#c77ddd",
+        "fontStyle": "bold"
       }
     }
   ]
