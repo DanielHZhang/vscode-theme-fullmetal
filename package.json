@@ -13,7 +13,7 @@
 	"bugs": "https://github.com/DanielHZhang/vscode-theme-fullmetal/issues",
 	"homepage": "https://github.com/DanielHZhang/vscode-theme-fullmetal",
 	"engines": {
-		"vscode": "^1.65.0"
+		"vscode": "^1.67.0"
 	},
 	"categories": [
 		"Themes"
