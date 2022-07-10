@@ -395,6 +395,7 @@ const theme: ColorTheme = {
         'punctuation.definition.template-expression.begin',
         'keyword.operator.comparison',
         'keyword.operator.conditional',
+        'keyword.operator.definiteassignment', // Typescript null assertion (public someProp!: string)
         'keyword.operator.hcl', // Terraform keyword
         'keyword.operator.logical',
         'keyword.operator.question', // option.unwrap()? (rust)
@@ -483,7 +484,8 @@ const theme: ColorTheme = {
         'keyword.operator.bitwise', // <<
         'keyword.operator.borrow', // &
         'keyword.operator.dereference', // *
-        'keyword.operator.spread', // ...props
+        'keyword.operator.rest', // (...args) => {} (ts)
+        'keyword.operator.spread', // ...props (ts)
       ],
       settings: {
         foreground: colors.blue,
@@ -498,6 +500,7 @@ const theme: ColorTheme = {
         'constant.numeric',
         'punctuation.definition.list.begin',
         'support.type.builtin',
+        'constant.other.caps',
       ],
       settings: {
         foreground: colors.orange,
@@ -552,6 +555,7 @@ const theme: ColorTheme = {
         'punctuation.definition.tag.begin', // <div (jsx)
         'punctuation.definition.tag.end', // div> (jsx)
         'punctuation.definition.typeparameters', // Record<string, any> (ts)
+        'punctuation.definition.table.inline', // {} (toml)
       ],
       settings: {
         foreground: colors.cyan,
@@ -563,6 +567,14 @@ const theme: ColorTheme = {
       settings: {
         fontStyle: 'bold',
         foreground: colors.pastelGreen,
+      },
+    },
+    {
+      name: 'toml table headers',
+      scope: 'meta.table support.type.property-name.table',
+      settings: {
+        foreground: '#c77ddd',
+        fontStyle: 'bold',
       },
     },
   ],
