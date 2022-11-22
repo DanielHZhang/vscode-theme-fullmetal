@@ -12,3 +12,4 @@ tests/**
 index.d.ts
 tsconfig.json
 yarn.lock
+pnpm-lock.yaml
