@@ -48,7 +48,7 @@ jobs:
         id: version
         uses: actions/github-script@v6
         with:
-          script: "require('./.github/scripts/get-version')({ github, core })"
+          script: "require('./.github/scripts/get-version')({ core, tag: '${{ github.event.release.tag_name }}' })"
 
       - name: Publish to VSCode marketplace
         env:
