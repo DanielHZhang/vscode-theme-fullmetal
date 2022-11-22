@@ -1,9 +1,6 @@
 {
-	"[yaml]": {
-		"editor.renderWhitespace": "boundary",
-	},
-	"files.trimTrailingWhitespace": true,
-	"yaml.schemas": {
-		"schemas/vscode-color-theme.json": "src/theme.yml"
-	}
+  "files.trimTrailingWhitespace": true,
+  "yaml.schemas": {
+    "schemas/vscode-color-theme.json": "src/theme.yml"
+  }
 }
