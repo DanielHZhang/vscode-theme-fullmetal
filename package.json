@@ -46,6 +46,7 @@
   },
   "scripts": {
     "build": "tsc-suppress && node build/theme.js",
+    "release": "release-it",
     "schemas": "tsc-suppress && node build/schema.js",
     "watch": "concurrently \"npm:watch-*\"",
     "watch-generate": "nodemon --watch build build/theme.js",
