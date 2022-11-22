@@ -1,9 +1,15 @@
 {
   "git": {
-    "commit": false
+    "commit": false,
+    "tag": true,
+    "push": true
   },
   "github": {
-    "release": true
+    "release": true,
+    "autoGenerate": true,
+    "preRelease": false,
+    "draft": false,
+    "web": false
   },
   "npm": {
     "publish": false
