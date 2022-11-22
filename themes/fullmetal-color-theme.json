@@ -244,6 +244,7 @@
         "source keyword.other",
         "source keyword.control",
         "keyword.declaration",
+        "keyword.local.lua",
         "keyword.operator.arrow",
         "keyword.operator.expression",
         "keyword.operator.new",
@@ -346,10 +347,11 @@
     {
       "name": "variable declaration and parameters",
       "scope": [
+        "meta.table.inline.toml support.type.property-name.toml",
+        "entity.name.variable.local",
         "variable.other",
         "variable.parameter",
-        "variable.key.table",
-        "entity.name.variable.local"
+        "variable.key.table"
       ],
       "settings": {
         "foreground": "#92d6cf"
@@ -391,6 +393,7 @@
         "keyword.operator.bitwise",
         "keyword.operator.borrow",
         "keyword.operator.dereference",
+        "keyword.operator.range",
         "keyword.operator.rest",
         "keyword.operator.spread"
       ],
@@ -403,11 +406,12 @@
       "scope": [
         "constant.language.boolean",
         "constant.language",
-        "support.constant",
         "constant.numeric",
+        "constant.other.caps",
         "punctuation.definition.list.begin",
+        "support.constant",
         "support.type.builtin",
-        "constant.other.caps"
+        "variable.other.constant.rust"
       ],
       "settings": {
         "foreground": "#dd9046"
@@ -419,10 +423,10 @@
         "entity.name",
         "entity.other",
         "meta.use.rust",
+        "punctuation.support.type.property-name",
         "support.class",
         "support.type.primitive",
-        "support.type.property-name",
-        "punctuation.support.type.property-name"
+        "support.type.property-name"
       ],
       "settings": {
         "foreground": "#efbd5d"
@@ -432,11 +436,11 @@
       "name": "accessor punctuation",
       "scope": [
         "keyword.operator.access.dot",
-        "keyword.operator.namespace",
+        "keyword.operator.arrow.skinny",
         "keyword.operator.assignment",
+        "keyword.operator.namespace",
         "punctuation.accessor",
-        "punctuation.eq",
-        "keyword.operator.arrow.skinny"
+        "punctuation.eq"
       ],
       "settings": {
         "foreground": "#add692"
