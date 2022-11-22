@@ -348,6 +348,7 @@ const theme: ColorTheme = {
         specificity('source', 'keyword.other'),
         specificity('source', 'keyword.control'),
         'keyword.declaration',
+        'keyword.local.lua', // Lua keyword
         'keyword.operator.arrow',
         'keyword.operator.expression',
         'keyword.operator.new',
