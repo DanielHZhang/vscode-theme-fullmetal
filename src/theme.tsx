@@ -440,10 +440,11 @@ const theme: ColorTheme = {
     {
       name: 'variable declaration and parameters',
       scope: [
+        specificity('meta.table.inline.toml', 'support.type.property-name.toml'), // TOML inline table keys
+        'entity.name.variable.local', // Local variable (C#)
         'variable.other',
         'variable.parameter',
         'variable.key.table',
-        'entity.name.variable.local', // Local variable (C#)
       ],
       settings: {
         foreground: colors.variable,
