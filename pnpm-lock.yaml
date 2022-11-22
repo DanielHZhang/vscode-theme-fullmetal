@@ -10,6 +10,7 @@ specifiers:
   json-schema-to-typescript: ^11.0.2
   nodemon: ^2.0.20
   prettier: ^2.7.1
+  semver: ^7.3.8
   tsc-suppress: ^1.0.7
   typescript: ^4.9.3
   vsce: ^2.14.0
@@ -24,6 +25,7 @@ devDependencies:
   json-schema-to-typescript: 11.0.2
   nodemon: 2.0.20
   prettier: 2.7.1
+  semver: 7.3.8
   tsc-suppress: 1.0.7_typescript@4.9.3
   typescript: 4.9.3
   vsce: 2.14.0
