@@ -486,6 +486,7 @@ const theme: ColorTheme = {
         'keyword.operator.bitwise', // <<
         'keyword.operator.borrow', // &
         'keyword.operator.dereference', // *
+        'keyword.operator.range', // ..Default::default (rust)
         'keyword.operator.rest', // (...args) => {} (ts)
         'keyword.operator.spread', // ...props (ts)
       ],
@@ -498,11 +499,12 @@ const theme: ColorTheme = {
       scope: [
         'constant.language.boolean',
         'constant.language',
-        'support.constant',
         'constant.numeric',
-        'punctuation.definition.list.begin',
-        'support.type.builtin',
         'constant.other.caps',
+        'punctuation.definition.list.begin',
+        'support.constant',
+        'support.type.builtin',
+        'variable.other.constant.rust',
       ],
       settings: {
         foreground: colors.orange,
@@ -514,10 +516,10 @@ const theme: ColorTheme = {
         'entity.name',
         'entity.other',
         'meta.use.rust', // mod names in hovers
+        'punctuation.support.type.property-name',
         'support.class',
         'support.type.primitive',
         'support.type.property-name',
-        'punctuation.support.type.property-name',
       ],
       settings: {
         foreground: colors.yellow,
@@ -527,11 +529,11 @@ const theme: ColorTheme = {
       name: 'accessor punctuation',
       scope: [
         'keyword.operator.access.dot', // class.prop
-        'keyword.operator.namespace', // mod::fn
+        'keyword.operator.arrow.skinny', // ->
         'keyword.operator.assignment', // =
+        'keyword.operator.namespace', // mod::fn
         'punctuation.accessor', // class.prop
         'punctuation.eq', // = (toml)
-        'keyword.operator.arrow.skinny', // ->
       ],
       settings: {
         foreground: colors.pastelGreen,
