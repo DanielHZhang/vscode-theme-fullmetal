@@ -255,7 +255,9 @@
         "support.type.object.module",
         "variable.language.self",
         "variable.language.super",
-        "variable.language.this"
+        "variable.language.this",
+        "punctuation.definition.block.sequence.item",
+        "punctuation.definition.list.begin"
       ],
       "settings": {
         "foreground": "#d44dae"
@@ -265,8 +267,7 @@
       "name": "storage modifier",
       "scope": [
         "storage.modifier",
-        "punctuation.definition.quote.begin",
-        "punctuation.definition.heading"
+        "punctuation.definition.quote.begin"
       ],
       "settings": {
         "foreground": "#ff7e00"
@@ -385,17 +386,18 @@
         "keyword.generator.asterisk",
         "keyword.operator.arithmetic",
         "keyword.operator.assignment.compound",
-        "keyword.operator.decrement",
-        "keyword.operator.increment",
-        "keyword.operator.math",
-        "markup.underline.link",
-        "support.function",
         "keyword.operator.bitwise",
         "keyword.operator.borrow",
+        "keyword.operator.decrement",
         "keyword.operator.dereference",
+        "keyword.operator.increment",
+        "keyword.operator.math",
         "keyword.operator.range",
         "keyword.operator.rest",
-        "keyword.operator.spread"
+        "keyword.operator.spread",
+        "markup.underline.link",
+        "punctuation.definition.heading",
+        "support.function"
       ],
       "settings": {
         "foreground": "#41a7fc"
@@ -408,7 +410,6 @@
         "constant.language",
         "constant.numeric",
         "constant.other.caps",
-        "punctuation.definition.list.begin",
         "support.constant",
         "support.type.builtin",
         "variable.other.constant.rust"

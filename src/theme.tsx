@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import type {ColorTheme} from '..';
-import {opacity, specificity} from './utils';
+import type { ColorTheme } from '..';
+import { opacity, specificity } from './utils';
 
 // Unused colors:
 // '#fe5c57',
@@ -360,6 +360,8 @@ const theme: ColorTheme = {
         'variable.language.self',
         'variable.language.super',
         'variable.language.this',
+				'punctuation.definition.block.sequence.item', // - (yaml)
+        'punctuation.definition.list.begin', // - (md)
       ],
       settings: {
         foreground: colors.magenta,
@@ -370,7 +372,6 @@ const theme: ColorTheme = {
       scope: [
         'storage.modifier',
         'punctuation.definition.quote.begin',
-        'punctuation.definition.heading',
       ],
       settings: {
         foreground: colors.vibrantOrange,
@@ -478,17 +479,18 @@ const theme: ColorTheme = {
         'keyword.generator.asterisk',
         'keyword.operator.arithmetic',
         'keyword.operator.assignment.compound',
-        'keyword.operator.decrement',
-        'keyword.operator.increment',
-        'keyword.operator.math',
-        'markup.underline.link',
-        'support.function',
         'keyword.operator.bitwise', // <<
         'keyword.operator.borrow', // &
+        'keyword.operator.decrement',
         'keyword.operator.dereference', // *
+        'keyword.operator.increment',
+        'keyword.operator.math',
         'keyword.operator.range', // ..Default::default (rust)
         'keyword.operator.rest', // (...args) => {} (ts)
         'keyword.operator.spread', // ...props (ts)
+        'markup.underline.link',
+				'punctuation.definition.heading', // # (md)
+        'support.function',
       ],
       settings: {
         foreground: colors.blue,
@@ -501,7 +503,6 @@ const theme: ColorTheme = {
         'constant.language',
         'constant.numeric',
         'constant.other.caps',
-        'punctuation.definition.list.begin',
         'support.constant',
         'support.type.builtin',
         'variable.other.constant.rust',

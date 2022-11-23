@@ -12,7 +12,7 @@
 			"runtimeExecutable": "${execPath}",
 			"preLaunchTask": "${defaultBuildTask}",
 			"request": "launch",
-			"type": "pwa-extensionHost"
+			"type": "extensionHost"
 		}
 	]
 }
