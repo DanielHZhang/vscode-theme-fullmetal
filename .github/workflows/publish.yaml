@@ -26,23 +26,14 @@ jobs:
           version: 7
           run_install: false
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+      - name: Set config for npm compat
+        run: |
+          pnpm config set enable-pre-post-scripts true
+          pnpm config set node-linker hoisted
+          pnpm config set shamefully-hoist true
 
       - name: Install dependencies
         run: pnpm install
-
-      - name: Run build
-        run: pnpm build
 
       - name: Get version from tag
         id: version
@@ -53,12 +44,12 @@ jobs:
       - name: Publish to VSCode marketplace
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: pnpm vsce publish --no-git-tag-version --skip-duplicate ${{ steps.version.outputs.value }}
+        run: pnpm vsce publish --no-dependencies --no-git-tag-version --skip-duplicate ${{ steps.version.outputs.value }}
 
       - name: Push version changes
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add .
+          git add package.json
           git commit -m "release: v${{ steps.version.outputs.value }} [skip ci]"
           git push origin main
