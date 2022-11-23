@@ -20,20 +20,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7
-          run_install: false
-
-      - name: Set config for npm compat
-        run: |
-          pnpm config set enable-pre-post-scripts true
-          pnpm config set node-linker hoisted
-          pnpm config set shamefully-hoist true
-
       - name: Install dependencies
-        run: pnpm install
+        run: yarn install --frozen-lockfile --ignore-engines
 
       - name: Get version from tag
         id: version
@@ -44,7 +32,7 @@ jobs:
       - name: Publish to VSCode marketplace
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: pnpm vsce publish --no-dependencies --no-git-tag-version --skip-duplicate ${{ steps.version.outputs.value }}
+        run: yarn vsce publish --no-dependencies --no-git-tag-version --skip-duplicate ${{ steps.version.outputs.value }}
 
       - name: Push version changes
         run: |
