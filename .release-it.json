@@ -11,7 +11,5 @@
     "draft": false,
     "web": false
   },
-  "npm": {
-    "publish": false
-  }
+  "npm": false
 }
