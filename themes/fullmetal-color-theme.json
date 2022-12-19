@@ -460,6 +460,7 @@
         "punctuation.parenthesis.close",
         "punctuation.separator",
         "punctuation.brackets.angle",
+        "punctuation.comma",
         "punctuation.definition.link.title.begin",
         "punctuation.definition.link.title.end",
         "punctuation.definition.metadata",

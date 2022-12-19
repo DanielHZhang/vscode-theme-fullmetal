@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import type { ColorTheme } from '..';
-import { opacity, specificity } from './utils';
+import type {ColorTheme} from '..';
+import {opacity, specificity} from './utils';
 
 // Unused colors:
 // '#fe5c57',
@@ -360,7 +360,7 @@ const theme: ColorTheme = {
         'variable.language.self',
         'variable.language.super',
         'variable.language.this',
-				'punctuation.definition.block.sequence.item', // - (yaml)
+        'punctuation.definition.block.sequence.item', // - (yaml)
         'punctuation.definition.list.begin', // - (md)
       ],
       settings: {
@@ -369,10 +369,7 @@ const theme: ColorTheme = {
     },
     {
       name: 'storage modifier',
-      scope: [
-        'storage.modifier',
-        'punctuation.definition.quote.begin',
-      ],
+      scope: ['storage.modifier', 'punctuation.definition.quote.begin'],
       settings: {
         foreground: colors.vibrantOrange,
       },
@@ -489,7 +486,7 @@ const theme: ColorTheme = {
         'keyword.operator.rest', // (...args) => {} (ts)
         'keyword.operator.spread', // ...props (ts)
         'markup.underline.link',
-				'punctuation.definition.heading', // # (md)
+        'punctuation.definition.heading', // # (md)
         'support.function',
       ],
       settings: {
@@ -554,6 +551,7 @@ const theme: ColorTheme = {
         'punctuation.parenthesis.close',
         'punctuation.separator',
         'punctuation.brackets.angle', // fn<Generic>() (rust/ts)
+        'punctuation.comma', // commas
         'punctuation.definition.link.title.begin', // [link](url) (markdown)
         'punctuation.definition.link.title.end', // [link](url) (markdown)
         'punctuation.definition.metadata', // [link](url) (markdown)
