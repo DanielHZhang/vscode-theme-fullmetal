@@ -26,6 +26,9 @@
   ],
   "main": "build/extension.js",
   "icon": "assets/logo.png",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "contributes": {
     "commands": [
       {
