@@ -13,7 +13,7 @@
   "bugs": "https://github.com/DanielHZhang/vscode-theme-fullmetal/issues",
   "homepage": "https://github.com/DanielHZhang/vscode-theme-fullmetal",
   "engines": {
-    "vscode": "^1.69.0"
+    "vscode": "^1.75.0"
   },
   "categories": [
     "Themes"
@@ -23,9 +23,6 @@
     "dark",
     "fullmetal",
     "theme"
-  ],
-  "activationEvents": [
-    "onCommand:saveBuiltInSchemas"
   ],
   "main": "build/extension.js",
   "icon": "assets/logo.png",

@@ -463,6 +463,7 @@ const theme: ColorTheme = {
         'meta.object-literal.key',
         'meta.braces.hcl', // Terraform property
         'entity.name.variable.field', // class field (C#)
+        'variable.parameter.function-call.python', // Kwargs (python)
       ],
       settings: {
         foreground: colors.violet,
@@ -486,6 +487,7 @@ const theme: ColorTheme = {
         'keyword.operator.rest', // (...args) => {} (ts)
         'keyword.operator.spread', // ...props (ts)
         'markup.underline.link',
+        'meta.function-call.generic.python',
         'punctuation.definition.heading', // # (md)
         'support.function',
       ],
