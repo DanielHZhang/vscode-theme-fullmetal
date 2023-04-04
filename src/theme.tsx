@@ -345,8 +345,9 @@ const theme: ColorTheme = {
     {
       name: 'keywords',
       scope: [
-        specificity('source', 'keyword.other'),
         specificity('source', 'keyword.control'),
+        specificity('source', 'keyword.other'),
+        specificity('source', 'keyword.other.unit'),
         'keyword.declaration',
         'keyword.local.lua', // Lua keyword
         'keyword.operator.arrow',
@@ -369,7 +370,13 @@ const theme: ColorTheme = {
     },
     {
       name: 'storage modifier',
-      scope: ['storage.modifier', 'punctuation.definition.quote.begin'],
+      scope: [
+        'entity.other.attribute-name.pseudo-class.css',
+        'entity.other.attribute-name.pseudo-element.css',
+        'meta.at-rule.media.header.css',
+        'punctuation.definition.quote.begin',
+        'storage.modifier',
+      ],
       settings: {
         foreground: colors.vibrantOrange,
       },
@@ -377,10 +384,10 @@ const theme: ColorTheme = {
     {
       name: 'string',
       scope: [
+        'punctuation.definition.char',
+        'punctuation.definition.string',
         'string',
         'support.constant.property-value',
-        'punctuation.definition.string',
-        'punctuation.definition.char',
       ],
       settings: {
         foreground: colors.green,
@@ -389,9 +396,9 @@ const theme: ColorTheme = {
     {
       name: 'red (potentially dangerous operations)',
       scope: [
-        specificity('source', 'keyword.other.unit'),
         'constant.character.escape',
-        'punctuation.definition.template-expression.begin',
+        'punctuation.definition.template-expression.begin', // Typescript { in ${} template string
+        'punctuation.definition.template-expression.end', // Typescript } in ${} template string
         'keyword.operator.comparison',
         'keyword.operator.conditional',
         'keyword.operator.definiteassignment', // Typescript null assertion (public someProp!: string)
@@ -408,16 +415,15 @@ const theme: ColorTheme = {
     },
     {
       name: 'comments',
-      scope: ['comment.line', 'comment.block', 'punctuation.definition.comment'],
+      scope: [
+        'comment.line',
+        'comment.block',
+        'markup.fenced_code.block',
+        'markup.inline.raw',
+        'punctuation.definition.comment',
+      ],
       settings: {
         fontStyle: 'italic',
-        foreground: colors.pastelGray,
-      },
-    },
-    {
-      name: 'markdown code blocks',
-      scope: ['markup.fenced_code.block', 'markup.inline.raw'],
-      settings: {
         foreground: colors.pastelGray,
       },
     },
@@ -440,12 +446,13 @@ const theme: ColorTheme = {
       scope: [
         specificity('meta.table.inline.toml', 'support.type.property-name.toml'), // TOML inline table keys
         'entity.name.variable.local', // Local variable (C#)
+        'meta.property-value.css',
         'variable.other',
         'variable.parameter',
         'variable.key.table',
       ],
       settings: {
-        foreground: colors.variable,
+        foreground: colors.variable, // Pastel blue
       },
     },
     {
@@ -502,6 +509,7 @@ const theme: ColorTheme = {
         'constant.language',
         'constant.numeric',
         'constant.other.caps',
+        'constant.other.color.rgb-value.hex',
         'support.constant',
         'support.type.builtin',
         'variable.other.constant.rust',
@@ -520,6 +528,7 @@ const theme: ColorTheme = {
         'support.class',
         'support.type.primitive',
         'support.type.property-name',
+        'support.type.vendored.property-name', // -webkit-font-smoothing (css)
       ],
       settings: {
         foreground: colors.yellow,
@@ -533,6 +542,7 @@ const theme: ColorTheme = {
         'keyword.operator.assignment', // =
         'keyword.operator.namespace', // mod::fn
         'punctuation.accessor', // class.prop
+        'punctuation.definition.entity.css', // ::hover (css)
         'punctuation.eq', // = (toml)
       ],
       settings: {
