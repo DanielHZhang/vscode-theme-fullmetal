@@ -343,8 +343,7 @@
       }
     },
     "required": [
-      "settings",
-      "scope"
+      "settings"
     ],
     "additionalProperties": false
   }

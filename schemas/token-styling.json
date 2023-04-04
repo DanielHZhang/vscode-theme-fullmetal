@@ -546,6 +546,210 @@
         }
       ]
     },
+    "hcl-attrName": {
+      "description": "Attribute name",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "hcl-blockType": {
+      "description": "Block type",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "hcl-blockLabel": {
+      "description": "Block label",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "hcl-bool": {
+      "description": "Boolean",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "hcl-string": {
+      "description": "String",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "hcl-number": {
+      "description": "Number",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "hcl-objectKey": {
+      "description": "Object key",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "hcl-mapKey": {
+      "description": "Map key",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "hcl-keyword": {
+      "description": "Keyword",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "hcl-traversalStep": {
+      "description": "Traversal step",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "hcl-typeCapsule": {
+      "description": "Type (complex)",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "hcl-typePrimitive": {
+      "description": "Type (primitive)",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
     "angle": {
       "description": "Style for < or >",
       "defaultSnippets": [
@@ -716,7 +920,7 @@
         }
       ]
     },
-    "char": {
+    "character": {
       "description": "Style for character literals",
       "defaultSnippets": [
         {
@@ -803,6 +1007,23 @@
     },
     "derive": {
       "description": "Style for derives",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "deriveHelper": {
+      "description": "Style for derive helpers",
       "defaultSnippets": [
         {
           "body": "${1:#ff0000}"
@@ -971,6 +1192,23 @@
         }
       ]
     },
+    "selfTypeKeyword": {
+      "description": "Style for the self type keyword",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
     "semicolon": {
       "description": "Style for ;",
       "defaultSnippets": [
@@ -1058,6 +1296,261 @@
     },
     "tomlTableKey": {
       "description": "Keys of inline tables.",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.hcl-dependent": {
+      "description": "Dependent",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-data": {
+      "description": "Data source",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-locals": {
+      "description": "Locals",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-module": {
+      "description": "Module",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-output": {
+      "description": "Output",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-provider": {
+      "description": "Provider",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-resource": {
+      "description": "Resource",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-provisioner": {
+      "description": "Provisioner",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-connection": {
+      "description": "Connection",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-variable": {
+      "description": "Variable",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-terraform": {
+      "description": "Terraform",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-backend": {
+      "description": "Backend",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-name": {
+      "description": "Name",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-type": {
+      "description": "Type",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.terraform-requiredProviders": {
+      "description": "Required providers",
       "defaultSnippets": [
         {
           "body": "${1:#ff0000}"
@@ -1244,7 +1737,7 @@
       ]
     },
     "*.public": {
-      "description": "Style tems that are from the current crate and are `pub`",
+      "description": "Style for items that are from the current crate and are `pub`",
       "defaultSnippets": [
         {
           "body": "${1:#ff0000}"
