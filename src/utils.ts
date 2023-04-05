@@ -1,7 +1,7 @@
-import {TokenScopeExtended} from '..';
+import {TokenScope} from './types/scope';
 
-export function specificity(...scopes: TokenScopeExtended[]): TokenScopeExtended {
-  return scopes.join(' ') as TokenScopeExtended;
+export function specificity(...scopes: TokenScope[]): TokenScope {
+  return scopes.join(' ') as TokenScope;
 }
 
 export function opacity(color: string, percentage: number): string {

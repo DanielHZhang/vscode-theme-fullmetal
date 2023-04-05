@@ -19,7 +19,7 @@ const main = async () => {
     });
 
     const generatedTypes = await compileFromFile(path.join(buildDirPath, 'color-theme.json'));
-    fs.writeFileSync(path.join(process.cwd(), 'index.d.ts'), generatedTypes);
+    fs.writeFileSync(path.join(process.cwd(), 'src', 'types', 'index.d.ts'), generatedTypes);
   } catch (error) {
     console.error('Error generating Typescript types from schema:', error);
   }

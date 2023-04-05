@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import type {ColorTheme} from '..';
+import type {ColorTheme} from './types';
 import {opacity, specificity} from './utils';
 
 // Unused colors:
@@ -444,7 +444,7 @@ const theme: ColorTheme = {
     {
       name: 'variable declaration and parameters',
       scope: [
-        specificity('meta.table.inline.toml', 'support.type.property-name.toml'), // TOML inline table keys
+        specificity('source.toml', 'support.type.property-name.toml'), // TOML inline table keys
         'entity.name.variable.local', // Local variable (C#)
         'meta.property-value.css',
         'variable.other',

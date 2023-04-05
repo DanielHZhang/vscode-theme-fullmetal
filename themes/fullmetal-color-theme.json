@@ -241,8 +241,9 @@
     {
       "name": "keywords",
       "scope": [
-        "source keyword.other",
         "source keyword.control",
+        "source keyword.other",
+        "source keyword.other.unit",
         "keyword.declaration",
         "keyword.local.lua",
         "keyword.operator.arrow",
@@ -266,8 +267,11 @@
     {
       "name": "storage modifier",
       "scope": [
-        "storage.modifier",
-        "punctuation.definition.quote.begin"
+        "entity.other.attribute-name.pseudo-class.css",
+        "entity.other.attribute-name.pseudo-element.css",
+        "meta.at-rule.media.header.css",
+        "punctuation.definition.quote.begin",
+        "storage.modifier"
       ],
       "settings": {
         "foreground": "#ff7e00"
@@ -276,10 +280,10 @@
     {
       "name": "string",
       "scope": [
-        "string",
-        "support.constant.property-value",
+        "punctuation.definition.char",
         "punctuation.definition.string",
-        "punctuation.definition.char"
+        "string",
+        "support.constant.property-value"
       ],
       "settings": {
         "foreground": "#8acd5b"
@@ -288,9 +292,9 @@
     {
       "name": "red (potentially dangerous operations)",
       "scope": [
-        "source keyword.other.unit",
         "constant.character.escape",
         "punctuation.definition.template-expression.begin",
+        "punctuation.definition.template-expression.end",
         "keyword.operator.comparison",
         "keyword.operator.conditional",
         "keyword.operator.definiteassignment",
@@ -310,20 +314,12 @@
       "scope": [
         "comment.line",
         "comment.block",
+        "markup.fenced_code.block",
+        "markup.inline.raw",
         "punctuation.definition.comment"
       ],
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#455573"
-      }
-    },
-    {
-      "name": "markdown code blocks",
-      "scope": [
-        "markup.fenced_code.block",
-        "markup.inline.raw"
-      ],
-      "settings": {
         "foreground": "#455573"
       }
     },
@@ -348,8 +344,9 @@
     {
       "name": "variable declaration and parameters",
       "scope": [
-        "meta.table.inline.toml support.type.property-name.toml",
+        "source.toml support.type.property-name.toml",
         "entity.name.variable.local",
+        "meta.property-value.css",
         "variable.other",
         "variable.parameter",
         "variable.key.table"
@@ -412,6 +409,7 @@
         "constant.language",
         "constant.numeric",
         "constant.other.caps",
+        "constant.other.color.rgb-value.hex",
         "support.constant",
         "support.type.builtin",
         "variable.other.constant.rust"
@@ -429,7 +427,8 @@
         "punctuation.support.type.property-name",
         "support.class",
         "support.type.primitive",
-        "support.type.property-name"
+        "support.type.property-name",
+        "support.type.vendored.property-name"
       ],
       "settings": {
         "foreground": "#efbd5d"
@@ -443,6 +442,7 @@
         "keyword.operator.assignment",
         "keyword.operator.namespace",
         "punctuation.accessor",
+        "punctuation.definition.entity.css",
         "punctuation.eq"
       ],
       "settings": {
