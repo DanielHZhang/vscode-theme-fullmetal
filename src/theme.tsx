@@ -397,8 +397,6 @@ const theme: ColorTheme = {
       name: 'red (potentially dangerous operations)',
       scope: [
         'constant.character.escape',
-        'punctuation.definition.template-expression.begin', // Typescript { in ${} template string
-        'punctuation.definition.template-expression.end', // Typescript } in ${} template string
         'keyword.operator.comparison',
         'keyword.operator.conditional',
         'keyword.operator.definiteassignment', // Typescript null assertion (public someProp!: string)
@@ -408,6 +406,9 @@ const theme: ColorTheme = {
         'keyword.operator.relational',
         'keyword.operator.ternary',
         'keyword.operator.type',
+        'punctuation.definition.template-expression.begin', // Typescript { in ${} template string
+        'punctuation.definition.template-expression.end', // Typescript } in ${} template string
+        'punctuation.definition.variable.shell', // ${} (shell)
       ],
       settings: {
         foreground: colors.red,
@@ -444,9 +445,10 @@ const theme: ColorTheme = {
     {
       name: 'variable declaration and parameters',
       scope: [
-        specificity('source.toml', 'support.type.property-name.toml'), // TOML inline table keys
+        specificity('source.toml', 'meta.table', 'support.type.property-name.toml'), // TOML inline table keys
         'entity.name.variable.local', // Local variable (C#)
         'meta.property-value.css',
+        'variable.language.special', // $? (shell)
         'variable.other',
         'variable.parameter',
         'variable.key.table',
@@ -458,19 +460,22 @@ const theme: ColorTheme = {
     {
       name: 'struct/object properties',
       scope: [
+        specificity('meta.table', 'support.type.property-name.table'),
+        specificity('source.python', 'variable.parameter.function-call.python'), // TODO: broken Kwargs (python)
+        'constant.other.option', // --opt (shell)
+        'entity.name.variable.field', // class field (C#)
+        'entity.other.attribute-name',
+        'meta.braces.hcl', // Terraform property
+        'meta.object-literal.key',
+        'meta.scope.case-pattern.shell', // --help) (shell)
+        'support.resource.attribute',
+        'support.variable.property',
         'variable.key',
+        'variable.object.property',
         'variable.other.enummember',
         'variable.other.property',
         'variable.other.constant.property',
         'variable.other.object.property',
-        'variable.object.property',
-        'support.resource.attribute',
-        'support.variable.property',
-        'entity.other.attribute-name',
-        'meta.object-literal.key',
-        'meta.braces.hcl', // Terraform property
-        'entity.name.variable.field', // class field (C#)
-        'variable.parameter.function-call.python', // Kwargs (python)
       ],
       settings: {
         foreground: colors.violet,
@@ -487,10 +492,13 @@ const theme: ColorTheme = {
         'keyword.operator.bitwise', // <<
         'keyword.operator.borrow', // &
         'keyword.operator.decrement',
-        'keyword.operator.dereference', // *
+        'keyword.operator.dereference', // * (rust)
+        'keyword.operator.expansion', // * (shell)
+        'keyword.operator.heredoc', // << (shell)
         'keyword.operator.increment',
         'keyword.operator.math',
         'keyword.operator.range', // ..Default::default (rust)
+        'keyword.operator.redirect', // 1>&2 (Shell)
         'keyword.operator.rest', // (...args) => {} (ts)
         'keyword.operator.spread', // ...props (ts)
         'markup.underline.link',
@@ -505,6 +513,7 @@ const theme: ColorTheme = {
     {
       name: 'booleans, constants',
       scope: [
+        specificity('string.quoted.double.shell', 'meta.parameter-expansion'), // "${VAR[0]}" (shell)
         'constant.language.boolean',
         'constant.language',
         'constant.numeric',
@@ -564,6 +573,7 @@ const theme: ColorTheme = {
         'punctuation.separator',
         'punctuation.brackets.angle', // fn<Generic>() (rust/ts)
         'punctuation.comma', // commas
+        'punctuation.definition.case-pattern', // ) (shell)
         'punctuation.definition.link.title.begin', // [link](url) (markdown)
         'punctuation.definition.link.title.end', // [link](url) (markdown)
         'punctuation.definition.metadata', // [link](url) (markdown)
@@ -571,6 +581,7 @@ const theme: ColorTheme = {
         'punctuation.definition.tag.end', // div> (jsx)
         'punctuation.definition.typeparameters', // Record<string, any> (ts)
         'punctuation.definition.table.inline', // {} (toml)
+        'punctuation.section.array.shell', // [] (shell)
       ],
       settings: {
         foreground: colors.cyan,
@@ -582,14 +593,6 @@ const theme: ColorTheme = {
       settings: {
         fontStyle: 'bold',
         foreground: colors.pastelGreen,
-      },
-    },
-    {
-      name: 'toml table headers',
-      scope: 'meta.table support.type.property-name.table',
-      settings: {
-        foreground: '#c77ddd',
-        fontStyle: 'bold',
       },
     },
   ],

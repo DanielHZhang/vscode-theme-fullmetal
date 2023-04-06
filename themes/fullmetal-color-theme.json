@@ -293,8 +293,6 @@
       "name": "red (potentially dangerous operations)",
       "scope": [
         "constant.character.escape",
-        "punctuation.definition.template-expression.begin",
-        "punctuation.definition.template-expression.end",
         "keyword.operator.comparison",
         "keyword.operator.conditional",
         "keyword.operator.definiteassignment",
@@ -303,7 +301,10 @@
         "keyword.operator.question",
         "keyword.operator.relational",
         "keyword.operator.ternary",
-        "keyword.operator.type"
+        "keyword.operator.type",
+        "punctuation.definition.template-expression.begin",
+        "punctuation.definition.template-expression.end",
+        "punctuation.definition.variable.shell"
       ],
       "settings": {
         "foreground": "#ff4762"
@@ -344,9 +345,10 @@
     {
       "name": "variable declaration and parameters",
       "scope": [
-        "source.toml support.type.property-name.toml",
+        "source.toml meta.table support.type.property-name.toml",
         "entity.name.variable.local",
         "meta.property-value.css",
+        "variable.language.special",
         "variable.other",
         "variable.parameter",
         "variable.key.table"
@@ -358,19 +360,22 @@
     {
       "name": "struct/object properties",
       "scope": [
+        "meta.table support.type.property-name.table",
+        "source.python variable.parameter.function-call.python",
+        "constant.other.option",
+        "entity.name.variable.field",
+        "entity.other.attribute-name",
+        "meta.braces.hcl",
+        "meta.object-literal.key",
+        "meta.scope.case-pattern.shell",
+        "support.resource.attribute",
+        "support.variable.property",
         "variable.key",
+        "variable.object.property",
         "variable.other.enummember",
         "variable.other.property",
         "variable.other.constant.property",
-        "variable.other.object.property",
-        "variable.object.property",
-        "support.resource.attribute",
-        "support.variable.property",
-        "entity.other.attribute-name",
-        "meta.object-literal.key",
-        "meta.braces.hcl",
-        "entity.name.variable.field",
-        "variable.parameter.function-call.python"
+        "variable.other.object.property"
       ],
       "settings": {
         "foreground": "#c77ddd"
@@ -388,9 +393,12 @@
         "keyword.operator.borrow",
         "keyword.operator.decrement",
         "keyword.operator.dereference",
+        "keyword.operator.expansion",
+        "keyword.operator.heredoc",
         "keyword.operator.increment",
         "keyword.operator.math",
         "keyword.operator.range",
+        "keyword.operator.redirect",
         "keyword.operator.rest",
         "keyword.operator.spread",
         "markup.underline.link",
@@ -405,6 +413,7 @@
     {
       "name": "booleans, constants",
       "scope": [
+        "string.quoted.double.shell meta.parameter-expansion",
         "constant.language.boolean",
         "constant.language",
         "constant.numeric",
@@ -463,13 +472,15 @@
         "punctuation.separator",
         "punctuation.brackets.angle",
         "punctuation.comma",
+        "punctuation.definition.case-pattern",
         "punctuation.definition.link.title.begin",
         "punctuation.definition.link.title.end",
         "punctuation.definition.metadata",
         "punctuation.definition.tag.begin",
         "punctuation.definition.tag.end",
         "punctuation.definition.typeparameters",
-        "punctuation.definition.table.inline"
+        "punctuation.definition.table.inline",
+        "punctuation.section.array.shell"
       ],
       "settings": {
         "foreground": "#3dacb4"
@@ -481,14 +492,6 @@
       "settings": {
         "fontStyle": "bold",
         "foreground": "#add692"
-      }
-    },
-    {
-      "name": "toml table headers",
-      "scope": "meta.table support.type.property-name.table",
-      "settings": {
-        "foreground": "#c77ddd",
-        "fontStyle": "bold"
       }
     }
   ]
