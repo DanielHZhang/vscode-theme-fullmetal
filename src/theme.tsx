@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import type {ColorTheme} from './types';
-import {opacity, specificity} from './utils';
+import type { ColorTheme } from './types';
+import { opacity, specificity } from './utils';
 
 // Unused colors:
 // '#fe5c57',
@@ -402,6 +402,7 @@ const theme: ColorTheme = {
         'keyword.operator.definiteassignment', // Typescript null assertion (public someProp!: string)
         'keyword.operator.hcl', // Terraform keyword
         'keyword.operator.logical',
+        'keyword.operator.optional.ts', // Typescript ? in key?: or func?()
         'keyword.operator.question', // option.unwrap()? (rust)
         'keyword.operator.relational',
         'keyword.operator.ternary',
