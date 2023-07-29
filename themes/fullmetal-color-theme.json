@@ -298,6 +298,7 @@
         "keyword.operator.definiteassignment",
         "keyword.operator.hcl",
         "keyword.operator.logical",
+        "keyword.operator.optional.ts",
         "keyword.operator.question",
         "keyword.operator.relational",
         "keyword.operator.ternary",
@@ -478,6 +479,7 @@
         "punctuation.definition.metadata",
         "punctuation.definition.tag.begin",
         "punctuation.definition.tag.end",
+        "punctuation.definition.tag.xml",
         "punctuation.definition.typeparameters",
         "punctuation.definition.table.inline",
         "punctuation.section.array.shell"

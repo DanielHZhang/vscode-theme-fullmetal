@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import type { ColorTheme } from './types';
-import { opacity, specificity } from './utils';
+import type {ColorTheme} from './types';
+import {opacity, specificity} from './utils';
 
 // Unused colors:
 // '#fe5c57',
@@ -580,6 +580,7 @@ const theme: ColorTheme = {
         'punctuation.definition.metadata', // [link](url) (markdown)
         'punctuation.definition.tag.begin', // <div (jsx)
         'punctuation.definition.tag.end', // div> (jsx)
+        'punctuation.definition.tag.xml', // <el> (xml)
         'punctuation.definition.typeparameters', // Record<string, any> (ts)
         'punctuation.definition.table.inline', // {} (toml)
         'punctuation.section.array.shell', // [] (shell)
