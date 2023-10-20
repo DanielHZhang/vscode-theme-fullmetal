@@ -352,6 +352,7 @@ const theme: ColorTheme = {
         'keyword.local.lua', // Lua keyword
         'keyword.operator.arrow',
         'keyword.operator.expression',
+        'keyword.operator.lua',
         'keyword.operator.new',
         'keyword.preprocessor',
         'keyword.operator.word.hcl', // Terraform keyword
@@ -466,6 +467,7 @@ const theme: ColorTheme = {
         'constant.other.option', // --opt (shell)
         'entity.name.variable.field', // class field (C#)
         'entity.other.attribute-name',
+        'entity.other.attribute.lua',
         'meta.braces.hcl', // Terraform property
         'meta.object-literal.key',
         'meta.scope.case-pattern.shell', // --help) (shell)
