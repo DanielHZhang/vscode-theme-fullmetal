@@ -363,6 +363,7 @@ const theme: ColorTheme = {
         'variable.language.super',
         'variable.language.this',
         'punctuation.definition.block.sequence.item', // - (yaml)
+        'punctuation.definition.keyword.svelte', // # and / in svelte each loops
         'punctuation.definition.list.begin', // - (md)
       ],
       settings: {
@@ -450,6 +451,7 @@ const theme: ColorTheme = {
         specificity('source.toml', 'meta.table', 'support.type.property-name.toml'), // TOML inline table keys
         'entity.name.variable.local', // Local variable (C#)
         'meta.property-value.css',
+        'variable.css',
         'variable.language.special', // $? (shell)
         'variable.other',
         'variable.parameter',

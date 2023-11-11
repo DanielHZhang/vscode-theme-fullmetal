@@ -259,6 +259,7 @@
         "variable.language.super",
         "variable.language.this",
         "punctuation.definition.block.sequence.item",
+        "punctuation.definition.keyword.svelte",
         "punctuation.definition.list.begin"
       ],
       "settings": {
@@ -350,6 +351,7 @@
         "source.toml meta.table support.type.property-name.toml",
         "entity.name.variable.local",
         "meta.property-value.css",
+        "variable.css",
         "variable.language.special",
         "variable.other",
         "variable.parameter",
