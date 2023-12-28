@@ -380,7 +380,8 @@
         "variable.other.enummember",
         "variable.other.property",
         "variable.other.constant.property",
-        "variable.other.object.property"
+        "variable.other.object.property",
+        "variable.parameter.key.prisma"
       ],
       "settings": {
         "foreground": "#c77ddd"
@@ -442,7 +443,8 @@
         "support.class",
         "support.type.primitive",
         "support.type.property-name",
-        "support.type.vendored.property-name"
+        "support.type.vendored.property-name",
+        "variable.language.relations.prisma"
       ],
       "settings": {
         "foreground": "#efbd5d"

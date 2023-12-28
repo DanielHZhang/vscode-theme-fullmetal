@@ -481,6 +481,7 @@ const theme: ColorTheme = {
         'variable.other.property',
         'variable.other.constant.property',
         'variable.other.object.property',
+        'variable.parameter.key.prisma',
       ],
       settings: {
         foreground: colors.violet,
@@ -543,6 +544,7 @@ const theme: ColorTheme = {
         'support.type.primitive',
         'support.type.property-name',
         'support.type.vendored.property-name', // -webkit-font-smoothing (css)
+        'variable.language.relations.prisma',
       ],
       settings: {
         foreground: colors.yellow,
