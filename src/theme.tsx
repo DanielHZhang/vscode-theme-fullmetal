@@ -332,13 +332,13 @@ const theme: ColorTheme = {
       italic: true,
     },
     'variable.mutable': {
-      underline: true,
+      italic: true,
     },
     'selfKeyword.mutable': {
-      underline: true,
+      italic: true,
     },
     'parameter.mutable': {
-      underline: true,
+      italic: true,
     },
   },
   tokenColors: [
@@ -348,15 +348,22 @@ const theme: ColorTheme = {
         specificity('source', 'keyword.control'),
         specificity('source', 'keyword.other'),
         specificity('source', 'keyword.other.unit'),
+        'keyword.const', // Go keyword
         'keyword.declaration',
+        'keyword.function', // Go keyword
+        'keyword.interface', // Go keyword
         'keyword.local.lua', // Lua keyword
+        'keyword.operator.address', // Go pointer
         'keyword.operator.arrow',
         'keyword.operator.expression',
         'keyword.operator.lua',
         'keyword.operator.new',
+        'keyword.package', // Go keyword
         'keyword.preprocessor',
         'keyword.operator.word.hcl', // Terraform keyword
+        'keyword.struct', // Go keyword
         'keyword.type', // `void` in C#
+        'keyword.var', // Go keyword
         'storage.type', // `mod` in rust
         'support.type.object.module',
         'variable.language.self',
@@ -466,6 +473,7 @@ const theme: ColorTheme = {
       scope: [
         specificity('meta.table', 'support.type.property-name.table'),
         specificity('source.python', 'variable.parameter.function-call.python'), // TODO: broken Kwargs (python)
+        specificity('source.go', 'variable.other.property.go'),
         'constant.other.option', // --opt (shell)
         'entity.name.variable.field', // class field (C#)
         'entity.other.attribute-name',
@@ -478,9 +486,9 @@ const theme: ColorTheme = {
         'variable.key',
         'variable.object.property',
         'variable.other.enummember',
-        'variable.other.property',
         'variable.other.constant.property',
         'variable.other.object.property',
+        'variable.other.property',
         'variable.parameter.key.prisma',
       ],
       settings: {

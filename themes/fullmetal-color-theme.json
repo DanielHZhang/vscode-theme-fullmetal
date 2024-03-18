@@ -228,13 +228,13 @@
       "italic": true
     },
     "variable.mutable": {
-      "underline": true
+      "italic": true
     },
     "selfKeyword.mutable": {
-      "underline": true
+      "italic": true
     },
     "parameter.mutable": {
-      "underline": true
+      "italic": true
     }
   },
   "tokenColors": [
@@ -244,15 +244,22 @@
         "source keyword.control",
         "source keyword.other",
         "source keyword.other.unit",
+        "keyword.const",
         "keyword.declaration",
+        "keyword.function",
+        "keyword.interface",
         "keyword.local.lua",
+        "keyword.operator.address",
         "keyword.operator.arrow",
         "keyword.operator.expression",
         "keyword.operator.lua",
         "keyword.operator.new",
+        "keyword.package",
         "keyword.preprocessor",
         "keyword.operator.word.hcl",
+        "keyword.struct",
         "keyword.type",
+        "keyword.var",
         "storage.type",
         "support.type.object.module",
         "variable.language.self",
@@ -366,6 +373,7 @@
       "scope": [
         "meta.table support.type.property-name.table",
         "source.python variable.parameter.function-call.python",
+        "source.go variable.other.property.go",
         "constant.other.option",
         "entity.name.variable.field",
         "entity.other.attribute-name",
@@ -378,9 +386,9 @@
         "variable.key",
         "variable.object.property",
         "variable.other.enummember",
-        "variable.other.property",
         "variable.other.constant.property",
         "variable.other.object.property",
+        "variable.other.property",
         "variable.parameter.key.prisma"
       ],
       "settings": {
