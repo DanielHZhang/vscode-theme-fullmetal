@@ -18,6 +18,10 @@
   "categories": [
     "Themes"
   ],
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
   "keywords": [
     "color-theme",
     "dark",
@@ -25,6 +29,7 @@
     "theme"
   ],
   "main": "build/extension.js",
+  "browser": "build/extension.js",
   "icon": "assets/logo.png",
   "activationEvents": [
     "onStartupFinished"
@@ -33,7 +38,8 @@
     "commands": [
       {
         "command": "saveBuiltInSchemas",
-        "title": "Save Built-in VSCode Schemas"
+        "title": "Save Built-in VSCode Theme Schemas",
+        "category": "Fullmetal"
       }
     ],
     "themes": [
@@ -43,6 +49,12 @@
         "uiTheme": "vs-dark"
       }
     ]
+  },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
   },
   "scripts": {
     "build": "tsc-suppress && node build/theme.js",

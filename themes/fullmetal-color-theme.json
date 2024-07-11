@@ -1,4 +1,5 @@
 {
+  "$schema": "vscode://schemas/color-theme",
   "name": "Fullmetal",
   "type": "dark",
   "colors": {
@@ -101,9 +102,9 @@
     "extensionButton.prominentBackground": "#10a273",
     "extensionButton.prominentForeground": "#0c0e15",
     "extensionButton.prominentHoverBackground": "#add692",
-    "extensionIcon.preReleaseForeground": "#d2723b",
-    "extensionIcon.starForeground": "#f6b868",
-    "extensionIcon.verifiedForeground": "#92d6cf",
+    "extensionIcon.preReleaseForeground": "#d2723b80",
+    "extensionIcon.starForeground": "#f6b86880",
+    "extensionIcon.verifiedForeground": "#92d6cf80",
     "focusBorder": "#dd9046",
     "foreground": "#dcbb",
     "gitDecoration.addedResourceForeground": "#10a273",
@@ -141,7 +142,7 @@
     "listFilterWidget.background": "#283140",
     "listFilterWidget.noMatchesOutline": "#c00c0c",
     "minimap.errorHighlight": "#c00c0c",
-    "minimap.findMatchHighlight": "#3ecd83",
+    "minimap.findMatchHighlight": "#3ecd8380",
     "minimap.selectionHighlight": "#3a5599ac",
     "minimap.warningHighlight": "#d2723b",
     "notificationCenterHeader.background": "#111520ee",
@@ -235,7 +236,8 @@
     },
     "parameter.mutable": {
       "italic": true
-    }
+    },
+    "as_unknown_error": "#ff4762"
   },
   "tokenColors": [
     {
@@ -244,6 +246,8 @@
         "source keyword.control",
         "source keyword.other",
         "source keyword.other.unit",
+        "keyword.access.angelscript",
+        "keyword.code.angelscript.this.reference",
         "keyword.const",
         "keyword.declaration",
         "keyword.function",
@@ -257,9 +261,11 @@
         "keyword.package",
         "keyword.preprocessor",
         "keyword.operator.word.hcl",
+        "keyword.statement",
         "keyword.struct",
         "keyword.type",
         "keyword.var",
+        "meta.preprocessor.angelsript",
         "storage.type",
         "support.type.object.module",
         "variable.language.self",
@@ -278,6 +284,7 @@
       "scope": [
         "entity.other.attribute-name.pseudo-class.css",
         "entity.other.attribute-name.pseudo-element.css",
+        "keyword.specifier.angelscript",
         "meta.at-rule.media.header.css",
         "punctuation.definition.quote.begin",
         "storage.modifier"
@@ -358,6 +365,7 @@
         "source.toml meta.table support.type.property-name.toml",
         "entity.name.variable.local",
         "meta.property-value.css",
+        "meta.unrealmacro.property.angelsript",
         "variable.css",
         "variable.language.special",
         "variable.other",
@@ -401,6 +409,7 @@
         "source meta.attribute",
         "entity.name.function",
         "keyword.generator.asterisk",
+        "keyword.operator.angelscript",
         "keyword.operator.arithmetic",
         "keyword.operator.assignment.compound",
         "keyword.operator.bitwise",
@@ -433,6 +442,7 @@
         "constant.numeric",
         "constant.other.caps",
         "constant.other.color.rgb-value.hex",
+        "keyword.code.angelscript",
         "support.constant",
         "support.type.builtin",
         "variable.other.constant.rust"
@@ -449,6 +459,7 @@
         "meta.use.rust",
         "punctuation.support.type.property-name",
         "support.class",
+        "support.type",
         "support.type.primitive",
         "support.type.property-name",
         "support.type.vendored.property-name",

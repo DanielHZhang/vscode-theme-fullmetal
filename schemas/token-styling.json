@@ -530,211 +530,7 @@
       ]
     },
     "*.readonly": {
-      "description": "Style to use for symbols that are readonly.",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "hcl-attrName": {
-      "description": "Attribute name",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "hcl-blockType": {
-      "description": "Block type",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "hcl-blockLabel": {
-      "description": "Block label",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "hcl-bool": {
-      "description": "Boolean",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "hcl-string": {
-      "description": "String",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "hcl-number": {
-      "description": "Number",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "hcl-objectKey": {
-      "description": "Object key",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "hcl-mapKey": {
-      "description": "Map key",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "hcl-keyword": {
-      "description": "Keyword",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "hcl-traversalStep": {
-      "description": "Traversal step",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "hcl-typeCapsule": {
-      "description": "Type (complex)",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "hcl-typePrimitive": {
-      "description": "Type (primitive)",
+      "description": "Style to use for symbols that are read-only.",
       "defaultSnippets": [
         {
           "body": "${1:#ff0000}"
@@ -1005,6 +801,23 @@
         }
       ]
     },
+    "const": {
+      "description": "Style for consts",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
     "derive": {
       "description": "Style for derives",
       "defaultSnippets": [
@@ -1057,7 +870,7 @@
       ]
     },
     "escapeSequence": {
-      "description": "Style for char escapes in strings",
+      "description": "Style for char or byte escapes in strings",
       "defaultSnippets": [
         {
           "body": "${1:#ff0000}"
@@ -1075,6 +888,23 @@
     },
     "formatSpecifier": {
       "description": "Style for {} placeholders in format strings",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "invalidEscapeSequence": {
+      "description": "Style for invalid char or byte escapes in strings",
       "defaultSnippets": [
         {
           "body": "${1:#ff0000}"
@@ -1158,6 +988,23 @@
         }
       ]
     },
+    "procMacro": {
+      "description": "Style for proc macro code",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
     "punctuation": {
       "description": "Style for generic punctuation",
       "defaultSnippets": [
@@ -1211,6 +1058,40 @@
     },
     "semicolon": {
       "description": "Style for ;",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "static": {
+      "description": "Style for statics",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "toolModule": {
+      "description": "Style for tool module attributes",
       "defaultSnippets": [
         {
           "body": "${1:#ff0000}"
@@ -1296,261 +1177,6 @@
     },
     "tomlTableKey": {
       "description": "Keys of inline tables.",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.hcl-dependent": {
-      "description": "Dependent",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-data": {
-      "description": "Data source",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-locals": {
-      "description": "Locals",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-module": {
-      "description": "Module",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-output": {
-      "description": "Output",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-provider": {
-      "description": "Provider",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-resource": {
-      "description": "Resource",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-provisioner": {
-      "description": "Provisioner",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-connection": {
-      "description": "Connection",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-variable": {
-      "description": "Variable",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-terraform": {
-      "description": "Terraform",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-backend": {
-      "description": "Backend",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-name": {
-      "description": "Name",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-type": {
-      "description": "Type",
-      "defaultSnippets": [
-        {
-          "body": "${1:#ff0000}"
-        }
-      ],
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "color-hex"
-        },
-        {
-          "$ref": "#/definitions/style"
-        }
-      ]
-    },
-    "*.terraform-requiredProviders": {
-      "description": "Required providers",
       "defaultSnippets": [
         {
           "body": "${1:#ff0000}"
@@ -1719,8 +1345,42 @@
         }
       ]
     },
+    "*.macro": {
+      "description": "Style for tokens inside of macro calls",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
     "*.mutable": {
       "description": "Style for mutable locals and statics as well as functions taking `&mut self`",
+      "defaultSnippets": [
+        {
+          "body": "${1:#ff0000}"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "$ref": "#/definitions/style"
+        }
+      ]
+    },
+    "*.procMacro": {
+      "description": "Style for tokens inside of proc-macro calls",
       "defaultSnippets": [
         {
           "body": "${1:#ff0000}"

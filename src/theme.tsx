@@ -103,6 +103,7 @@ const colors = {
 };
 
 const theme: ColorTheme = {
+  $schema: 'vscode://schemas/color-theme',
   name: 'Fullmetal',
   type: 'dark',
   colors: {
@@ -205,9 +206,9 @@ const theme: ColorTheme = {
     'extensionButton.prominentBackground': colors.success,
     'extensionButton.prominentForeground': colors.black,
     'extensionButton.prominentHoverBackground': colors.pastelGreen,
-    'extensionIcon.preReleaseForeground': colors.warning,
-    'extensionIcon.starForeground': colors.vibrantYellow,
-    'extensionIcon.verifiedForeground': colors.pastelBlue,
+    'extensionIcon.preReleaseForeground': opacity(colors.warning, 0.5),
+    'extensionIcon.starForeground': opacity(colors.vibrantYellow, 0.5),
+    'extensionIcon.verifiedForeground': opacity(colors.pastelBlue, 0.5),
     'focusBorder': colors.orange,
     'foreground': colors.foreground,
     'gitDecoration.addedResourceForeground': colors.success,
@@ -245,7 +246,7 @@ const theme: ColorTheme = {
     'listFilterWidget.background': colors.backgroundLabel,
     'listFilterWidget.noMatchesOutline': colors.error,
     'minimap.errorHighlight': colors.error,
-    'minimap.findMatchHighlight': colors.vibrantGreen,
+    'minimap.findMatchHighlight': opacity(colors.vibrantGreen, 0.5),
     'minimap.selectionHighlight': colors.backgroundSelection,
     'minimap.warningHighlight': colors.warning,
     'notificationCenterHeader.background': colors.backgroundPopover,
@@ -340,6 +341,7 @@ const theme: ColorTheme = {
     'parameter.mutable': {
       italic: true,
     },
+    'as_unknown_error': colors.red,
   },
   tokenColors: [
     {
@@ -348,6 +350,8 @@ const theme: ColorTheme = {
         specificity('source', 'keyword.control'),
         specificity('source', 'keyword.other'),
         specificity('source', 'keyword.other.unit'),
+        'keyword.access.angelscript',
+        'keyword.code.angelscript.this.reference',
         'keyword.const', // Go keyword
         'keyword.declaration',
         'keyword.function', // Go keyword
@@ -361,9 +365,11 @@ const theme: ColorTheme = {
         'keyword.package', // Go keyword
         'keyword.preprocessor',
         'keyword.operator.word.hcl', // Terraform keyword
+        'keyword.statement', // Angelscript keyword
         'keyword.struct', // Go keyword
         'keyword.type', // `void` in C#
         'keyword.var', // Go keyword
+        'meta.preprocessor.angelsript', // #if, #endif
         'storage.type', // `mod` in rust
         'support.type.object.module',
         'variable.language.self',
@@ -382,6 +388,7 @@ const theme: ColorTheme = {
       scope: [
         'entity.other.attribute-name.pseudo-class.css',
         'entity.other.attribute-name.pseudo-element.css',
+        'keyword.specifier.angelscript',
         'meta.at-rule.media.header.css',
         'punctuation.definition.quote.begin',
         'storage.modifier',
@@ -458,6 +465,7 @@ const theme: ColorTheme = {
         specificity('source.toml', 'meta.table', 'support.type.property-name.toml'), // TOML inline table keys
         'entity.name.variable.local', // Local variable (C#)
         'meta.property-value.css',
+        'meta.unrealmacro.property.angelsript',
         'variable.css',
         'variable.language.special', // $? (shell)
         'variable.other',
@@ -501,6 +509,7 @@ const theme: ColorTheme = {
         specificity('source', 'meta.attribute'),
         'entity.name.function',
         'keyword.generator.asterisk',
+        'keyword.operator.angelscript', // + (anglescript)
         'keyword.operator.arithmetic',
         'keyword.operator.assignment.compound',
         'keyword.operator.bitwise', // <<
@@ -533,6 +542,7 @@ const theme: ColorTheme = {
         'constant.numeric',
         'constant.other.caps',
         'constant.other.color.rgb-value.hex',
+        'keyword.code.angelscript',
         'support.constant',
         'support.type.builtin',
         'variable.other.constant.rust',
@@ -549,6 +559,7 @@ const theme: ColorTheme = {
         'meta.use.rust', // mod names in hovers
         'punctuation.support.type.property-name',
         'support.class',
+        'support.type',
         'support.type.primitive',
         'support.type.property-name',
         'support.type.vendored.property-name', // -webkit-font-smoothing (css)
