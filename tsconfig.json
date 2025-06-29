@@ -9,6 +9,7 @@
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "lib": ["ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020", "ES2021", "esnext"],
+    "jsx": "preserve",
     "module": "CommonJS",
     "moduleResolution": "node",
     "noEmit": false,
