@@ -71,7 +71,6 @@
     "json-schema-to-typescript": "^15.0.4",
     "prettier": "^3.6.2",
     "semver": "^7.6.2",
-    "tsc-suppress": "^1.0.7",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }
