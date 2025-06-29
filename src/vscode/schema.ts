@@ -5,10 +5,11 @@ import path from 'path';
 const main = async () => {
   try {
     const buildDirPath = path.join(process.cwd(), 'build');
-    const schemaDirPath = path.join(process.cwd(), 'schemas');
+    const srcRootPath = path.join(process.cwd(), 'src', 'vscode');
+    const schemaDirPath = path.join(srcRootPath, 'schemas');
+
     const replaceRegex = /"vscode:\/\/schemas\/(.+)"/g;
     const schemaFileNames = fs.readdirSync(path.join(schemaDirPath));
-
     schemaFileNames.forEach((fileName) => {
       const schemaContent = fs.readFileSync(path.join(schemaDirPath, fileName), {encoding: 'utf8'});
       const formattedSchema = schemaContent.replace(
@@ -19,7 +20,7 @@ const main = async () => {
     });
 
     const generatedTypes = await compileFromFile(path.join(buildDirPath, 'color-theme.json'));
-    fs.writeFileSync(path.join(process.cwd(), 'src', 'types', 'index.d.ts'), generatedTypes);
+    fs.writeFileSync(path.join(srcRootPath, 'types', 'index.d.ts'), generatedTypes);
   } catch (error) {
     console.error('Error generating Typescript types from schema:', error);
   }
