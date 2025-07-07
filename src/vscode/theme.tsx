@@ -1,5 +1,5 @@
 import type {ColorTheme} from './types';
-import {specificity} from './utils';
+import {specificity} from '../utils';
 import {colors, opacity} from '../colors';
 
 export const theme: ColorTheme = {

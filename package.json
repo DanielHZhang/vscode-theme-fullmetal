@@ -45,7 +45,7 @@
     "themes": [
       {
         "label": "Fullmetal",
-        "path": "./themes/fullmetal-color-theme.json",
+        "path": "./themes/fullmetal-theme-vscode.json",
         "uiTheme": "vs-dark"
       }
     ]
@@ -57,8 +57,8 @@
     "virtualWorkspaces": true
   },
   "scripts": {
-    "vscode:gen-types": "tsx ./src/vscode/scripts/generate-types.ts",
-    "vscode:gen-theme": "tsx ./src/vscode/scripts/generate-theme.ts",
+    "generate-types": "bun run src/scripts/generate-types.ts",
+    "generate-theme": "bun run src/scripts/generate-theme.ts",
     "vscode:prepublish": "yarn vscode:gen-theme"
   },
   "devDependencies": {

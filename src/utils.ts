@@ -1,5 +1,5 @@
 import type {Options} from 'prettier';
-import {TokenScope} from './types/scope';
+import {TokenScope} from './vscode/types/scope';
 
 export function specificity(...scopes: TokenScope[]): TokenScope {
   return scopes.join(' ') as TokenScope;

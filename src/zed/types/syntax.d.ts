@@ -1,0 +1,47 @@
+import type {HighlightStyleContent} from '.';
+
+export interface SyntaxStyles {
+  'attribute': HighlightStyleContent;
+  'boolean': HighlightStyleContent;
+  'comment': HighlightStyleContent;
+  'comment.doc': HighlightStyleContent;
+  'constant': HighlightStyleContent;
+  'constructor': HighlightStyleContent;
+  'embedded': HighlightStyleContent;
+  'emphasis': HighlightStyleContent;
+  'emphasis.strong': HighlightStyleContent;
+  'enum': HighlightStyleContent;
+  'function': HighlightStyleContent;
+  'hint': HighlightStyleContent;
+  'keyword': HighlightStyleContent;
+  'label': HighlightStyleContent;
+  'link_text': HighlightStyleContent;
+  'link_uri': HighlightStyleContent;
+  'number': HighlightStyleContent;
+  'operator': HighlightStyleContent;
+  'predictive': HighlightStyleContent;
+  'preproc': HighlightStyleContent;
+  'primary': HighlightStyleContent;
+  'property': HighlightStyleContent;
+  'punctuation': HighlightStyleContent;
+  'punctuation.bracket': HighlightStyleContent;
+  'punctuation.delimiter': HighlightStyleContent;
+  'punctuation.list_marker': HighlightStyleContent;
+  'punctuation.special': HighlightStyleContent;
+  'string': HighlightStyleContent;
+  'string.escape': HighlightStyleContent;
+  'string.regex': HighlightStyleContent;
+  'string.special': HighlightStyleContent;
+  'string.special.symbol': HighlightStyleContent;
+  'tag': HighlightStyleContent;
+  'text.literal': HighlightStyleContent;
+  'title': HighlightStyleContent;
+  'type': HighlightStyleContent;
+  'type.interface': HighlightStyleContent;
+  'type.super': HighlightStyleContent;
+  'variable': HighlightStyleContent;
+  'variable.member': HighlightStyleContent;
+  'variable.parameter': HighlightStyleContent;
+  'variable.special': HighlightStyleContent;
+  'variant': HighlightStyleContent;
+}

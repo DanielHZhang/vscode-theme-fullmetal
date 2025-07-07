@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import {format} from 'prettier';
-import {prettierOptions} from './utils';
+import {prettierOptions} from '../utils';
 
 const schemaNames = ['color-theme', 'textmate-colors', 'token-styling', 'workbench-colors'];
 

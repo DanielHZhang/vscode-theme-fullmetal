@@ -1,32 +1,14 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "npm",
-			"script": "watch",
-			"label": "npm: watch build",
-			"isBackground": true,
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"problemMatcher": [
-				{
-					"pattern": [
-						{
-							"regexp": ".",
-							"file": 1,
-							"location": 2,
-							"message": 3
-						}
-					],
-					"background": {
-						"activeOnStart": true,
-						"beginsPattern": ".",
-						"endsPattern": ".",
-					}
-				}
-			],
-		}
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Watch: generate theme",
+      "type": "shell",
+      "command": "bun run --watch src/scripts/generate-theme.ts --editor=zed",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
 }
