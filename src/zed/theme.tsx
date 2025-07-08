@@ -120,7 +120,7 @@ export const theme: ThemeFamilyContent = {
 
         // Side panel
         'panel.background': colors.backgroundSidebar,
-        'panel.focused_border': PLACEHOLDER,
+        'panel.focused_border': colors.backgroundActive,
         'panel.indent_guide': muted,
         'panel.indent_guide_active': muted,
         'panel.indent_guide_hover': colors.pastelGray,
