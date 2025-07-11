@@ -317,7 +317,7 @@ export interface ThemeStyleContent {
   'success.background'?: string | null;
   'success.border'?: string | null;
   /**
-   * Background Color. Used for grounded surfaces like a panel or tab.
+   * Background Color. Used for grounded surfaces like a panelor tab.
    */
   'surface.background'?: string | null;
   /**

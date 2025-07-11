@@ -6,6 +6,8 @@ const PLACEHOLDER = '#FF00FF';
 const muted = opacity(colors.pastelGray, 0.4);
 const nearInvisible = opacity(colors.pastelGray, 0.2);
 const hintForeground = opacity('#5fa89a', 0.6);
+const ghostHover = '#2F4378';
+const ghostActive = '#465888';
 // const hintForeground = '#5fa89a';
 
 function c(color: string): HighlightStyleContent {
@@ -31,8 +33,8 @@ export const theme: ThemeFamilyContent = {
         'border.disabled': colors.invisible,
         'border.focused': colors.blue,
         'border.selected': PLACEHOLDER,
-        'border.transparent': PLACEHOLDER,
-        'border.variant': PLACEHOLDER,
+        'border.transparent': muted,
+        'border.variant': muted,
 
         'conflict': colors.magenta,
         'conflict.background': PLACEHOLDER,
@@ -62,15 +64,15 @@ export const theme: ThemeFamilyContent = {
         'editor.highlighted_line.background': PLACEHOLDER,
         'editor.indent_guide': PLACEHOLDER,
         'editor.indent_guide_active': PLACEHOLDER,
-        'editor.invisible': PLACEHOLDER,
+        'editor.invisible': colors.red,
         'editor.line_number': colors.pastelGray,
-        'editor.subheader.background': PLACEHOLDER,
+        'editor.subheader.background': colors.backgroundInactive,
         'editor.wrap_guide': muted,
 
         // Element
-        'element.active': PLACEHOLDER,
-        'element.background': PLACEHOLDER,
-        'element.disabled': PLACEHOLDER,
+        'element.active': colors.backgroundActive,
+        'element.background': colors.backgroundInactive,
+        'element.disabled': muted,
         'element.hover': colors.backgroundHover, // This also controls hovering on text
         'element.selected': colors.backgroundSelection,
 
@@ -81,10 +83,10 @@ export const theme: ThemeFamilyContent = {
         'error.border': PLACEHOLDER,
 
         // Ghost elements (e.g. status bar buttons)
-        'ghost_element.active': colors.backgroundActive,
+        'ghost_element.active': ghostActive,
         'ghost_element.background': colors.invisible,
         'ghost_element.disabled': colors.backgroundInactive,
-        'ghost_element.hover': colors.backgroundHover,
+        'ghost_element.hover': ghostHover,
         'ghost_element.selected': colors.backgroundActive,
 
         'hidden': PLACEHOLDER,
@@ -106,7 +108,7 @@ export const theme: ThemeFamilyContent = {
         'ignored.border': PLACEHOLDER,
 
         'info': PLACEHOLDER,
-        'info.background': PLACEHOLDER,
+        'info.background': opacity(colors.backgroundActive, 1),
         'info.border': PLACEHOLDER,
 
         'link_text.hover': colors.blue,
