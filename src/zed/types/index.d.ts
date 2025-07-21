@@ -323,7 +323,7 @@ export interface ThemeStyleContent {
   /**
    * The styles for syntax nodes.
    */
-  'syntax'?: SyntaxStyles;
+  'syntax'?: Partial<SyntaxStyles>;
   'tab.active_background'?: string | null;
   'tab.inactive_background'?: string | null;
   'tab_bar.background'?: string | null;

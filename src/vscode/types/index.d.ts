@@ -236,18 +236,19 @@ export interface ColorTheme {
   semanticTokenColors?: TokenStyling;
   [k: string]: unknown;
 }
+
 /**
  * Colors in the workbench
  */
 export interface WorkbenchColors {
-  foreground?: string | 'default';
-  disabledForeground?: string | 'default';
-  errorForeground?: string | 'default';
-  descriptionForeground?: string | 'default';
+  'foreground'?: string | 'default';
+  'disabledForeground'?: string | 'default';
+  'errorForeground'?: string | 'default';
+  'descriptionForeground'?: string | 'default';
   'icon.foreground'?: string | 'default';
-  focusBorder?: string | 'default';
-  contrastBorder?: string | 'default';
-  contrastActiveBorder?: string | 'default';
+  'focusBorder'?: string | 'default';
+  'contrastBorder'?: string | 'default';
+  'contrastActiveBorder'?: string | 'default';
   'selection.background'?: string | 'default';
   'textLink.foreground'?: string | 'default';
   'textLink.activeForeground'?: string | 'default';
@@ -1044,7 +1045,9 @@ export interface WorkbenchColors {
   'remoteHub.decorations.incomingRenamedForegroundColor'?: string | 'default';
   'remoteHub.decorations.possibleConflictForegroundColor'?: string | 'default';
   'remoteHub.decorations.ignoredResourceForeground'?: string | 'default';
-  'remoteHub.decorations.workspaceRepositoriesView.hasUncommittedChangesForegroundColor'?: string | 'default';
+  'remoteHub.decorations.workspaceRepositoriesView.hasUncommittedChangesForegroundColor'?:
+    | string
+    | 'default';
   'rust_analyzer.syntaxTreeBorder'?: string | 'default';
   'errorLens.errorBackground'?: string | 'default';
   'errorLens.errorMessageBackground'?: string | 'default';
@@ -1099,99 +1102,99 @@ export interface TokenStyling {
   /**
    * Style for comments.
    */
-  comment?: string | Style;
+  'comment'?: string | Style;
   /**
    * Style for strings.
    */
-  string?: string | Style;
+  'string'?: string | Style;
   /**
    * Style for keywords.
    */
-  keyword?: string | Style;
+  'keyword'?: string | Style;
   /**
    * Style for numbers.
    */
-  number?: string | Style;
+  'number'?: string | Style;
   /**
    * Style for expressions.
    */
-  regexp?: string | Style;
+  'regexp'?: string | Style;
   /**
    * Style for operators
    */
-  operator?: string | Style;
+  'operator'?: string | Style;
   /**
    * Style for namespaces.
    */
-  namespace?: string | Style;
+  'namespace'?: string | Style;
   /**
    * Style for types.
    */
-  type?: string | Style;
+  'type'?: string | Style;
   /**
    * Style for structs.
    */
-  struct?: string | Style;
+  'struct'?: string | Style;
   /**
    * Style for classes.
    */
-  class?: string | Style;
+  'class'?: string | Style;
   /**
    * Style for interfaces.
    */
-  interface?: string | Style;
+  'interface'?: string | Style;
   /**
    * Style for enums.
    */
-  enum?: string | Style;
+  'enum'?: string | Style;
   /**
    * Style for type parameters.
    */
-  typeParameter?: string | Style;
+  'typeParameter'?: string | Style;
   /**
    * Style for functions
    */
-  function?: string | Style;
+  'function'?: string | Style;
   /**
    * Style for member functions
    */
-  member?: string | Style;
+  'member'?: string | Style;
   /**
    * Style for method (member functions)
    */
-  method?: string | Style;
+  'method'?: string | Style;
   /**
    * Style for macros.
    */
-  macro?: string | Style;
+  'macro'?: string | Style;
   /**
    * Style for variables.
    */
-  variable?: string | Style;
+  'variable'?: string | Style;
   /**
    * Style for parameters.
    */
-  parameter?: string | Style;
+  'parameter'?: string | Style;
   /**
    * Style for properties.
    */
-  property?: string | Style;
+  'property'?: string | Style;
   /**
    * Style for enum members.
    */
-  enumMember?: string | Style;
+  'enumMember'?: string | Style;
   /**
    * Style for events.
    */
-  event?: string | Style;
+  'event'?: string | Style;
   /**
    * Style for decorators & annotations.
    */
-  decorator?: string | Style;
+  'decorator'?: string | Style;
   /**
    * Style for labels
    */
-  label?: string | Style;
+  'label'?: string | Style;
   /**
    * Style for all symbol declarations.
    */
@@ -1227,155 +1230,155 @@ export interface TokenStyling {
   /**
    * Style for < or >
    */
-  angle?: string | Style;
+  'angle'?: string | Style;
   /**
    * Style for arithmetic operators
    */
-  arithmetic?: string | Style;
+  'arithmetic'?: string | Style;
   /**
    * Style for attributes
    */
-  attribute?: string | Style;
+  'attribute'?: string | Style;
   /**
    * Style for attribute invocation brackets, that is the `#[` and `]` tokens
    */
-  attributeBracket?: string | Style;
+  'attributeBracket'?: string | Style;
   /**
    * Style for bitwise operators
    */
-  bitwise?: string | Style;
+  'bitwise'?: string | Style;
   /**
    * Style for boolean literals
    */
-  boolean?: string | Style;
+  'boolean'?: string | Style;
   /**
    * Style for { or }
    */
-  brace?: string | Style;
+  'brace'?: string | Style;
   /**
    * Style for [ or ]
    */
-  bracket?: string | Style;
+  'bracket'?: string | Style;
   /**
    * Style for builtin attributes
    */
-  builtinAttribute?: string | Style;
+  'builtinAttribute'?: string | Style;
   /**
    * Style for builtin types
    */
-  builtinType?: string | Style;
+  'builtinType'?: string | Style;
   /**
    * Style for character literals
    */
-  character?: string | Style;
+  'character'?: string | Style;
   /**
    * Style for :
    */
-  colon?: string | Style;
+  'colon'?: string | Style;
   /**
    * Style for ,
    */
-  comma?: string | Style;
+  'comma'?: string | Style;
   /**
    * Style for comparison operators
    */
-  comparison?: string | Style;
+  'comparison'?: string | Style;
   /**
    * Style for const generics
    */
-  constParameter?: string | Style;
+  'constParameter'?: string | Style;
   /**
    * Style for consts
    */
-  const?: string | Style;
+  'const'?: string | Style;
   /**
    * Style for derives
    */
-  derive?: string | Style;
+  'derive'?: string | Style;
   /**
    * Style for derive helpers
    */
-  deriveHelper?: string | Style;
+  'deriveHelper'?: string | Style;
   /**
    * Style for .
    */
-  dot?: string | Style;
+  'dot'?: string | Style;
   /**
    * Style for char or byte escapes in strings
    */
-  escapeSequence?: string | Style;
+  'escapeSequence'?: string | Style;
   /**
    * Style for {} placeholders in format strings
    */
-  formatSpecifier?: string | Style;
+  'formatSpecifier'?: string | Style;
   /**
    * Style for invalid char or byte escapes in strings
    */
-  invalidEscapeSequence?: string | Style;
+  'invalidEscapeSequence'?: string | Style;
   /**
    * Style for lifetimes
    */
-  lifetime?: string | Style;
+  'lifetime'?: string | Style;
   /**
    * Style for logic operators
    */
-  logical?: string | Style;
+  'logical'?: string | Style;
   /**
    * Style for the ! token of macro calls
    */
-  macroBang?: string | Style;
+  'macroBang'?: string | Style;
   /**
    * Style for ( or )
    */
-  parenthesis?: string | Style;
+  'parenthesis'?: string | Style;
   /**
    * Style for proc macro code
    */
-  procMacro?: string | Style;
+  'procMacro'?: string | Style;
   /**
    * Style for generic punctuation
    */
-  punctuation?: string | Style;
+  'punctuation'?: string | Style;
   /**
    * Style for the self keyword
    */
-  selfKeyword?: string | Style;
+  'selfKeyword'?: string | Style;
   /**
    * Style for the self type keyword
    */
-  selfTypeKeyword?: string | Style;
+  'selfTypeKeyword'?: string | Style;
   /**
    * Style for ;
    */
-  semicolon?: string | Style;
+  'semicolon'?: string | Style;
   /**
    * Style for statics
    */
-  static?: string | Style;
+  'static'?: string | Style;
   /**
    * Style for tool module attributes
    */
-  toolModule?: string | Style;
+  'toolModule'?: string | Style;
   /**
    * Style for type aliases
    */
-  typeAlias?: string | Style;
+  'typeAlias'?: string | Style;
   /**
    * Style for C-style untagged unions
    */
-  union?: string | Style;
+  'union'?: string | Style;
   /**
    * Style for names which can not be resolved due to compilation errors
    */
-  unresolvedReference?: string | Style;
+  'unresolvedReference'?: string | Style;
   /**
    * Keys of regular arrays.
    */
-  tomlArrayKey?: string | Style;
+  'tomlArrayKey'?: string | Style;
   /**
    * Keys of inline tables.
    */
-  tomlTableKey?: string | Style;
+  'tomlTableKey'?: string | Style;
   /**
    * Style for elements within attributes
    */
