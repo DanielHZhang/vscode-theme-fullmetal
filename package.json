@@ -59,7 +59,8 @@
   "scripts": {
     "generate-types": "bun run src/scripts/generate-types.ts",
     "generate-theme": "bun run src/scripts/generate-theme.ts",
-    "vscode:prepublish": "yarn vscode:gen-theme"
+    "vscode:publish": "bunx vsce package --no-dependencies",
+    "vscode:prepublish": "bun run vscode:gen-theme"
   },
   "devDependencies": {
     "@supersede/eslint-config": "^1.3.0",
