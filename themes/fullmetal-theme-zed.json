@@ -165,6 +165,12 @@
           "punctuation.special": {
             "color": "#ff4762"
           },
+          "selector": {
+            "color": "#efbd5d"
+          },
+          "selector.pseudo": {
+            "color": "#ff7e00"
+          },
           "string": {
             "color": "#8acd5b"
           },
@@ -173,6 +179,9 @@
           },
           "string.regex": {
             "color": "#8acd5b"
+          },
+          "tag": {
+            "color": "#efbd5d"
           },
           "type": {
             "color": "#efbd5d"

@@ -28,6 +28,8 @@ export interface SyntaxStyles {
   'punctuation.delimiter': HighlightStyleContent;
   'punctuation.list_marker': HighlightStyleContent;
   'punctuation.special': HighlightStyleContent;
+  'selector': HighlightStyleContent;
+  'selector.pseudo': HighlightStyleContent;
   'string': HighlightStyleContent;
   'string.escape': HighlightStyleContent;
   'string.regex': HighlightStyleContent;
