@@ -1,19 +1,29 @@
 name: Publish
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to publish without leading `v` (e.g. 2.0.0)
+        required: true
+        type: string
+
+permissions:
+  contents: write
 
 concurrency:
   group: publish
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ inputs.version }}
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout main
+        uses: actions/checkout@v4
         with:
           ref: main
 
@@ -31,21 +41,16 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Get version from tag
-        id: version
-        uses: actions/github-script@v6
-        with:
-          script: "require('./.github/scripts/get-version')({ core, tag: '${{ github.event.release.tag_name }}' })"
+      - name: Validate release
+        run: bash .github/scripts/validate-release.sh
 
-      - name: Publish to VSCode marketplace
+      - name: Prepare and commit version
+        run: bash .github/scripts/prepare-release.sh
+
+      - name: Publish to VS Code Marketplace
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: pnpm exec vsce publish --no-dependencies --no-git-tag-version --skip-duplicate ${{ steps.version.outputs.value }}
+        run: pnpm exec vsce publish --no-dependencies --skip-duplicate
 
-      - name: Push version changes
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "release: v${{ steps.version.outputs.value }} [skip ci]"
-          git push origin main
+      - name: Create GitHub release
+        run: gh release create "v${VERSION}" --target "$(git rev-parse HEAD)" --generate-notes

@@ -17,7 +17,7 @@
     "generate-types": "node --experimental-strip-types src/scripts/generate-types.ts",
     "update-vscode-schemas": "pnpm exec tsc --incremental false && node --experimental-strip-types src/scripts/update-vscode-schemas.ts",
     "generate-theme": "node --experimental-strip-types src/scripts/generate-theme.ts",
-    "release": "gh release create --target main --generate-notes",
+    "release": "bash .github/scripts/dispatch-release.sh",
     "vscode:publish": "pnpm exec vsce package --no-dependencies",
     "vscode:prepublish": "pnpm exec tsc --incremental false && pnpm run generate-theme",
     "format": "oxfmt",
