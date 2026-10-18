@@ -4162,6 +4162,50 @@ export interface WorkbenchColors {
    * The color of the Profiles editor splitview sash border.
    */
   'profiles.sashBorder'?: string | 'default';
+  /**
+   * Color for added resources.
+   */
+  'gitDecoration.addedResourceForeground'?: string | 'default';
+  /**
+   * Color for modified resources.
+   */
+  'gitDecoration.modifiedResourceForeground'?: string | 'default';
+  /**
+   * Color for deleted resources.
+   */
+  'gitDecoration.deletedResourceForeground'?: string | 'default';
+  /**
+   * Color for renamed or copied resources.
+   */
+  'gitDecoration.renamedResourceForeground'?: string | 'default';
+  /**
+   * Color for untracked resources.
+   */
+  'gitDecoration.untrackedResourceForeground'?: string | 'default';
+  /**
+   * Color for ignored resources.
+   */
+  'gitDecoration.ignoredResourceForeground'?: string | 'default';
+  /**
+   * Color for modified resources which have been staged.
+   */
+  'gitDecoration.stageModifiedResourceForeground'?: string | 'default';
+  /**
+   * Color for deleted resources which have been staged.
+   */
+  'gitDecoration.stageDeletedResourceForeground'?: string | 'default';
+  /**
+   * Color for resources with conflicts.
+   */
+  'gitDecoration.conflictingResourceForeground'?: string | 'default';
+  /**
+   * Color for submodule resources.
+   */
+  'gitDecoration.submoduleResourceForeground'?: string | 'default';
+  /**
+   * Color for the blame editor decoration.
+   */
+  'git.blame.editorDecorationForeground'?: string | 'default';
 }
 /**
  * Colors and styles for the token.

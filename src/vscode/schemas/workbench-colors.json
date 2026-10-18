@@ -12045,6 +12045,149 @@
           "$ref": "#/$defs/_1"
         }
       ]
+    },
+    "gitDecoration.addedResourceForeground": {
+      "description": "Color for added resources.",
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "type": "string",
+          "const": "default"
+        }
+      ]
+    },
+    "gitDecoration.modifiedResourceForeground": {
+      "description": "Color for modified resources.",
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "type": "string",
+          "const": "default"
+        }
+      ]
+    },
+    "gitDecoration.deletedResourceForeground": {
+      "description": "Color for deleted resources.",
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "type": "string",
+          "const": "default"
+        }
+      ]
+    },
+    "gitDecoration.renamedResourceForeground": {
+      "description": "Color for renamed or copied resources.",
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "type": "string",
+          "const": "default"
+        }
+      ]
+    },
+    "gitDecoration.untrackedResourceForeground": {
+      "description": "Color for untracked resources.",
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "type": "string",
+          "const": "default"
+        }
+      ]
+    },
+    "gitDecoration.ignoredResourceForeground": {
+      "description": "Color for ignored resources.",
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "type": "string",
+          "const": "default"
+        }
+      ]
+    },
+    "gitDecoration.stageModifiedResourceForeground": {
+      "description": "Color for modified resources which have been staged.",
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "type": "string",
+          "const": "default"
+        }
+      ]
+    },
+    "gitDecoration.stageDeletedResourceForeground": {
+      "description": "Color for deleted resources which have been staged.",
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "type": "string",
+          "const": "default"
+        }
+      ]
+    },
+    "gitDecoration.conflictingResourceForeground": {
+      "description": "Color for resources with conflicts.",
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "type": "string",
+          "const": "default"
+        }
+      ]
+    },
+    "gitDecoration.submoduleResourceForeground": {
+      "description": "Color for submodule resources.",
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "type": "string",
+          "const": "default"
+        }
+      ]
+    },
+    "git.blame.editorDecorationForeground": {
+      "description": "Color for the blame editor decoration.",
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "color-hex"
+        },
+        {
+          "type": "string",
+          "const": "default"
+        }
+      ]
     }
   },
   "$defs": {

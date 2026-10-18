@@ -152,7 +152,9 @@
         "$ref": "#/$defs/_0"
       }
     },
-    "required": ["settings"],
+    "required": [
+      "settings"
+    ],
     "additionalProperties": false
   },
   "$defs": {

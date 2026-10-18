@@ -2,10 +2,8 @@ import {colors, opacity} from '../colors.ts';
 import {specificity} from '../utils.ts';
 import type {ColorTheme, WorkbenchColors} from './types';
 
-type Colors = WorkbenchColors & Partial<Record<`errorLens.${string}` | `gitDecoration.${string}`, string>>;
-
 interface Theme extends ColorTheme {
-  colors: Colors;
+  colors: WorkbenchColors & Partial<Record<`errorLens.${string}`, string>>;
 }
 
 export const theme: Theme = {
