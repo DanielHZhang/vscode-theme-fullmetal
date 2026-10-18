@@ -330,6 +330,7 @@ export const theme: Theme = {
         'keyword.operator.optional.ts', // Typescript ? in key?: or func?()
         'keyword.operator.question', // option.unwrap()? (rust)
         'keyword.operator.relational',
+        'keyword.operator.slang', // Slang groups comparisons and other operators under this scope
         'keyword.operator.ternary',
         'keyword.operator.type',
         'punctuation.definition.template-expression.begin', // Typescript { in ${} template string
@@ -490,6 +491,7 @@ export const theme: Theme = {
       name: 'accessor punctuation',
       scope: [
         'keyword.operator.access.dot', // class.prop
+        'keyword.operator.access.slang', // ->, =>, ::, and .
         'keyword.operator.arrow.skinny', // ->
         'keyword.operator.assignment', // =
         'keyword.operator.namespace', // mod::fn

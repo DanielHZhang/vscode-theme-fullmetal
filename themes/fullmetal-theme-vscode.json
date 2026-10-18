@@ -322,6 +322,7 @@
         "keyword.operator.optional.ts",
         "keyword.operator.question",
         "keyword.operator.relational",
+        "keyword.operator.slang",
         "keyword.operator.ternary",
         "keyword.operator.type",
         "punctuation.definition.template-expression.begin",
@@ -486,6 +487,7 @@
       "name": "accessor punctuation",
       "scope": [
         "keyword.operator.access.dot",
+        "keyword.operator.access.slang",
         "keyword.operator.arrow.skinny",
         "keyword.operator.assignment",
         "keyword.operator.namespace",
