@@ -269,6 +269,7 @@
         "storage.type",
         "support.type.object.module",
         "variable.language.self",
+        "variable.language.swift",
         "variable.language.super",
         "variable.language.this",
         "punctuation.definition.block.sequence.item",
@@ -310,6 +311,7 @@
       "scope": [
         "constant.character.escape",
         "keyword.operator.comparison",
+        "keyword.operator.coalescing.swift",
         "keyword.operator.conditional",
         "keyword.operator.definiteassignment",
         "keyword.operator.hcl",
@@ -343,14 +345,18 @@
     },
     {
       "name": "bold",
-      "scope": ["punctuation.definition.heading"],
+      "scope": [
+        "punctuation.definition.heading"
+      ],
       "settings": {
         "fontStyle": "bold"
       }
     },
     {
       "name": "markdown paragraph",
-      "scope": ["meta.paragraph.markdown"],
+      "scope": [
+        "meta.paragraph.markdown"
+      ],
       "settings": {
         "foreground": "#dcbb"
       }
@@ -358,8 +364,10 @@
     {
       "name": "variable declaration and parameters",
       "scope": [
+        "meta.definition.function.swift meta.definition.function.body.swift",
         "source.toml meta.table support.type.property-name.toml",
         "entity.name.variable.local",
+        "meta.definition.function.body.swift meta.function-call.swift",
         "meta.property-value.css",
         "meta.unrealmacro.property.angelsript",
         "variable.css",
@@ -375,6 +383,9 @@
     {
       "name": "struct/object properties",
       "scope": [
+        "meta.definition.type.struct.swift meta.definition.type.body.swift",
+        "meta.definition.type.class.swift meta.definition.type.body.swift",
+        "meta.definition.type.enum.swift meta.definition.type.body.swift",
         "meta.table support.type.property-name.table",
         "source.python variable.parameter.function-call.python",
         "source.go variable.other.property.go",
@@ -410,6 +421,7 @@
         "keyword.operator.assignment.compound",
         "keyword.operator.bitwise",
         "keyword.operator.borrow",
+        "keyword.operator.custom.infix.swift",
         "keyword.operator.decrement",
         "keyword.operator.dereference",
         "keyword.operator.expansion",
@@ -452,6 +464,7 @@
       "scope": [
         "entity.name",
         "entity.other",
+        "meta.type-name.swift",
         "meta.use.rust",
         "punctuation.support.type.property-name",
         "support.class",
@@ -495,6 +508,8 @@
         "punctuation.brackets.angle",
         "punctuation.comma",
         "punctuation.definition.case-pattern",
+        "punctuation.definition.arguments.begin.swift",
+        "punctuation.definition.arguments.end.swift",
         "punctuation.definition.link.title.begin",
         "punctuation.definition.link.title.end",
         "punctuation.definition.metadata",
@@ -502,8 +517,12 @@
         "punctuation.definition.tag.end",
         "punctuation.definition.tag.xml",
         "punctuation.definition.typeparameters",
+        "punctuation.definition.type.begin.swift",
+        "punctuation.definition.type.end.swift",
         "punctuation.definition.table.inline",
-        "punctuation.section.array.shell"
+        "punctuation.section.array.shell",
+        "punctuation.section.function.begin.swift",
+        "punctuation.section.function.end.swift"
       ],
       "settings": {
         "foreground": "#3dacb4"

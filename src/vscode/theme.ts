@@ -277,6 +277,7 @@ export const theme: Theme = {
         'storage.type', // `mod` in rust
         'support.type.object.module',
         'variable.language.self',
+        'variable.language.swift', // self, super, Self
         'variable.language.super',
         'variable.language.this',
         'punctuation.definition.block.sequence.item', // - (yaml)
@@ -318,6 +319,7 @@ export const theme: Theme = {
       scope: [
         'constant.character.escape',
         'keyword.operator.comparison',
+        'keyword.operator.coalescing.swift', // ??
         'keyword.operator.conditional',
         'keyword.operator.definiteassignment', // Typescript null assertion (public someProp!: string)
         'keyword.operator.hcl', // Terraform keyword
@@ -366,8 +368,10 @@ export const theme: Theme = {
     {
       name: 'variable declaration and parameters',
       scope: [
+        specificity('meta.definition.function.swift', 'meta.definition.function.body.swift'), // Unscoped Swift local references
         specificity('source.toml', 'meta.table', 'support.type.property-name.toml'), // TOML inline table keys
         'entity.name.variable.local', // Local variable (C#)
+        specificity('meta.definition.function.body.swift', 'meta.function-call.swift'), // Unscoped Swift call arguments
         'meta.property-value.css',
         'meta.unrealmacro.property.angelsript',
         'variable.css',
@@ -383,6 +387,9 @@ export const theme: Theme = {
     {
       name: 'struct/object properties',
       scope: [
+        specificity('meta.definition.type.struct.swift', 'meta.definition.type.body.swift'), // Unscoped Swift stored properties
+        specificity('meta.definition.type.class.swift', 'meta.definition.type.body.swift'), // Unscoped Swift class properties
+        specificity('meta.definition.type.enum.swift', 'meta.definition.type.body.swift'), // Unscoped Swift enum members
         specificity('meta.table', 'support.type.property-name.table'),
         specificity('source.python', 'variable.parameter.function-call.python'), // TODO: broken Kwargs (python)
         specificity('source.go', 'variable.other.property.go'),
@@ -418,6 +425,7 @@ export const theme: Theme = {
         'keyword.operator.assignment.compound',
         'keyword.operator.bitwise', // <<
         'keyword.operator.borrow', // &
+        'keyword.operator.custom.infix.swift', // Swift operators not classified by the grammar
         'keyword.operator.decrement',
         'keyword.operator.dereference', // * (rust)
         'keyword.operator.expansion', // * (shell)
@@ -460,6 +468,7 @@ export const theme: Theme = {
       scope: [
         'entity.name',
         'entity.other',
+        'meta.type-name.swift',
         'meta.use.rust', // mod names in hovers
         'punctuation.support.type.property-name',
         'support.class',
@@ -504,6 +513,8 @@ export const theme: Theme = {
         'punctuation.brackets.angle', // fn<Generic>() (rust/ts)
         'punctuation.comma', // commas
         'punctuation.definition.case-pattern', // ) (shell)
+        'punctuation.definition.arguments.begin.swift',
+        'punctuation.definition.arguments.end.swift',
         'punctuation.definition.link.title.begin', // [link](url) (markdown)
         'punctuation.definition.link.title.end', // [link](url) (markdown)
         'punctuation.definition.metadata', // [link](url) (markdown)
@@ -511,8 +522,12 @@ export const theme: Theme = {
         'punctuation.definition.tag.end', // div> (jsx)
         'punctuation.definition.tag.xml', // <el> (xml)
         'punctuation.definition.typeparameters', // Record<string, any> (ts)
+        'punctuation.definition.type.begin.swift',
+        'punctuation.definition.type.end.swift',
         'punctuation.definition.table.inline', // {} (toml)
         'punctuation.section.array.shell', // [] (shell)
+        'punctuation.section.function.begin.swift',
+        'punctuation.section.function.end.swift',
       ],
       settings: {
         foreground: colors.cyan,
