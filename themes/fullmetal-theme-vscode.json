@@ -231,6 +231,7 @@
     "variable.mutable": {
       "italic": true
     },
+    "variable.readonly:odin": "#dd9046",
     "selfKeyword.mutable": {
       "italic": true
     },
@@ -249,6 +250,7 @@
         "keyword.access.angelscript",
         "keyword.code.angelscript.this.reference",
         "keyword.const",
+        "keyword.context.odin",
         "keyword.declaration",
         "keyword.function",
         "keyword.interface",
@@ -316,6 +318,7 @@
         "keyword.operator.definiteassignment",
         "keyword.operator.hcl",
         "keyword.operator.logical",
+        "keyword.operator.odin",
         "keyword.operator.optional.ts",
         "keyword.operator.question",
         "keyword.operator.relational",
@@ -369,8 +372,8 @@
         "entity.name.variable.local",
         "meta.definition.function.body.swift meta.function-call.swift",
         "meta.property-value.css",
-        "meta.unrealmacro.property.angelsript",
         "variable.css",
+        "variable.name.odin",
         "variable.language.special",
         "variable.other",
         "variable.parameter",
@@ -453,6 +456,7 @@
         "keyword.code.angelscript",
         "support.constant",
         "support.type.builtin",
+        "variable.other.constant.odin",
         "variable.other.constant.rust"
       ],
       "settings": {
@@ -498,12 +502,14 @@
       "scope": [
         "keyword.operator.key-value",
         "keyword.operator.type.annotation",
+        "keyword.operator.slice.odin",
         "meta.brace.round",
         "meta.brace.square",
         "punctuation.terminator",
         "punctuation.semi",
         "punctuation.parenthesis.open",
         "punctuation.parenthesis.close",
+        "punctuation.odin",
         "punctuation.separator",
         "punctuation.brackets.angle",
         "punctuation.comma",

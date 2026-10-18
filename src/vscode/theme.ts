@@ -239,6 +239,7 @@ export const theme: Theme = {
     'variable.mutable': {
       italic: true,
     },
+    'variable.readonly:odin': colors.orange,
     'selfKeyword.mutable': {
       italic: true,
     },
@@ -257,6 +258,7 @@ export const theme: Theme = {
         'keyword.access.angelscript',
         'keyword.code.angelscript.this.reference',
         'keyword.const', // Go keyword
+        'keyword.context.odin',
         'keyword.declaration',
         'keyword.function', // Go keyword
         'keyword.interface', // Go keyword
@@ -324,6 +326,7 @@ export const theme: Theme = {
         'keyword.operator.definiteassignment', // Typescript null assertion (public someProp!: string)
         'keyword.operator.hcl', // Terraform keyword
         'keyword.operator.logical',
+        'keyword.operator.odin', // Odin groups |, !, %, and other operators under this scope
         'keyword.operator.optional.ts', // Typescript ? in key?: or func?()
         'keyword.operator.question', // option.unwrap()? (rust)
         'keyword.operator.relational',
@@ -373,8 +376,8 @@ export const theme: Theme = {
         'entity.name.variable.local', // Local variable (C#)
         specificity('meta.definition.function.body.swift', 'meta.function-call.swift'), // Unscoped Swift call arguments
         'meta.property-value.css',
-        'meta.unrealmacro.property.angelsript',
         'variable.css',
+        'variable.name.odin',
         'variable.language.special', // $? (shell)
         'variable.other',
         'variable.parameter',
@@ -457,6 +460,7 @@ export const theme: Theme = {
         'keyword.code.angelscript',
         'support.constant',
         'support.type.builtin',
+        'variable.other.constant.odin',
         'variable.other.constant.rust',
       ],
       settings: {
@@ -503,12 +507,14 @@ export const theme: Theme = {
       scope: [
         'keyword.operator.key-value',
         'keyword.operator.type.annotation',
+        'keyword.operator.slice.odin', // : in slices
         'meta.brace.round',
         'meta.brace.square',
         'punctuation.terminator',
         'punctuation.semi',
         'punctuation.parenthesis.open',
         'punctuation.parenthesis.close',
+        'punctuation.odin', // Odin uses this scope for dots and delimiters
         'punctuation.separator',
         'punctuation.brackets.angle', // fn<Generic>() (rust/ts)
         'punctuation.comma', // commas
