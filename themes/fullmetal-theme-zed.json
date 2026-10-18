@@ -7,11 +7,7 @@
       "name": "Fullmetal Dark",
       "appearance": "dark",
       "style": {
-        "accents": [
-          "#3dacb4",
-          "#d44dae",
-          "#efbd5d"
-        ],
+        "accents": ["#3dacb4", "#d44dae", "#efbd5d"],
         "background": "#1a212e",
         "background.appearance": "opaque",
         "border": "#45557333",

@@ -17,13 +17,19 @@ jobs:
         with:
           ref: main
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          node-version: 20
+          version: 11
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --ignore-engines
+        run: pnpm install --frozen-lockfile
 
       - name: Get version from tag
         id: version
@@ -34,7 +40,7 @@ jobs:
       - name: Publish to VSCode marketplace
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: yarn vsce publish --no-dependencies --no-git-tag-version --skip-duplicate ${{ steps.version.outputs.value }}
+        run: pnpm exec vsce publish --no-dependencies --no-git-tag-version --skip-duplicate ${{ steps.version.outputs.value }}
 
       - name: Push version changes
         run: |

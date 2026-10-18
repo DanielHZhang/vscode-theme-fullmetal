@@ -1,6 +1,6 @@
+import {colors, opacity} from '../colors.ts';
+import {specificity} from '../utils.ts';
 import type {ColorTheme} from './types';
-import {specificity} from '../utils';
-import {colors, opacity} from '../colors';
 
 export const theme: ColorTheme = {
   $schema: 'vscode://schemas/color-theme',

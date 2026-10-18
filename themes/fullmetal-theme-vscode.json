@@ -343,18 +343,14 @@
     },
     {
       "name": "bold",
-      "scope": [
-        "punctuation.definition.heading"
-      ],
+      "scope": ["punctuation.definition.heading"],
       "settings": {
         "fontStyle": "bold"
       }
     },
     {
       "name": "markdown paragraph",
-      "scope": [
-        "meta.paragraph.markdown"
-      ],
+      "scope": ["meta.paragraph.markdown"],
       "settings": {
         "foreground": "#dcbb"
       }

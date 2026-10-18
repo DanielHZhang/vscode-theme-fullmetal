@@ -4,7 +4,7 @@
     {
       "label": "Watch: generate theme",
       "type": "shell",
-      "command": "bun run --watch src/scripts/generate-theme.ts --editor=zed",
+      "command": "node --experimental-strip-types --watch src/scripts/generate-theme.ts --editor=zed",
       "group": {
         "kind": "build",
         "isDefault": true

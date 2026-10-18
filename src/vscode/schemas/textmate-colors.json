@@ -342,9 +342,7 @@
         "$ref": "#/definitions/settings"
       }
     },
-    "required": [
-      "settings"
-    ],
+    "required": ["settings"],
     "additionalProperties": false
   }
 }

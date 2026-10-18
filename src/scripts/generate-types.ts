@@ -1,8 +1,11 @@
 import fs from 'node:fs/promises';
-import {compileFromFile} from 'json-schema-to-typescript';
-import path from 'path';
-import {prettierOptions} from '../utils';
-import {parseArgs} from 'util';
+import path from 'node:path';
+import {parseArgs} from 'node:util';
+
+import {compile} from 'json-schema-to-typescript-lite';
+import {format} from 'oxfmt';
+
+import {formatOptions} from '../utils.ts';
 
 const {values} = parseArgs({
   options: {
@@ -13,6 +16,9 @@ const {values} = parseArgs({
   },
   allowPositionals: true,
 });
+
+let schemaPath: string;
+let generatedTypePath: string;
 
 if (values.editor === 'vscode') {
   const outputPath = path.join(process.cwd(), 'build');
@@ -32,14 +38,20 @@ if (values.editor === 'vscode') {
     })
   );
 
-  const colorThemeFile = path.join(outputPath, 'color-theme.json');
-  const generatedTypes = await compileFromFile(colorThemeFile, {style: prettierOptions});
-  await fs.writeFile(path.join(srcPath, 'types', 'index.d.ts'), generatedTypes);
+  schemaPath = path.join(outputPath, 'color-theme.json');
+  generatedTypePath = path.join(srcPath, 'types', 'index.d.ts');
 } else if (values.editor === 'zed') {
   const basePath = path.join(process.cwd(), 'src', 'zed');
-  const schemaPath = path.join(basePath, 'schemas', 'theme-0.2.0.json');
-  const generatedTypes = await compileFromFile(schemaPath, {style: prettierOptions});
-  await fs.writeFile(path.join(basePath, 'types', 'index.d.ts'), generatedTypes);
+  schemaPath = path.join(basePath, 'schemas', 'theme-0.2.0.json');
+  generatedTypePath = path.join(basePath, 'types', 'index.d.ts');
 } else {
   throw new Error(`Invalid editor: ${values.editor}`);
 }
+
+const schema = JSON.parse(await fs.readFile(schemaPath, 'utf8'));
+const generatedTypes = await compile(schema, path.parse(schemaPath).name, {cwd: path.dirname(schemaPath)});
+const {code, errors} = await format(generatedTypePath, generatedTypes, formatOptions);
+if (errors.length > 0) {
+  throw new Error(errors.map((error) => error.message).join('\n'));
+}
+await fs.writeFile(generatedTypePath, code);

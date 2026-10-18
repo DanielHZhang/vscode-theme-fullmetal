@@ -236,7 +236,6 @@ export interface ColorTheme {
   semanticTokenColors?: TokenStyling;
   [k: string]: unknown;
 }
-
 /**
  * Colors in the workbench
  */
@@ -1045,9 +1044,7 @@ export interface WorkbenchColors {
   'remoteHub.decorations.incomingRenamedForegroundColor'?: string | 'default';
   'remoteHub.decorations.possibleConflictForegroundColor'?: string | 'default';
   'remoteHub.decorations.ignoredResourceForeground'?: string | 'default';
-  'remoteHub.decorations.workspaceRepositoriesView.hasUncommittedChangesForegroundColor'?:
-    | string
-    | 'default';
+  'remoteHub.decorations.workspaceRepositoriesView.hasUncommittedChangesForegroundColor'?: string | 'default';
   'rust_analyzer.syntaxTreeBorder'?: string | 'default';
   'errorLens.errorBackground'?: string | 'default';
   'errorLens.errorMessageBackground'?: string | 'default';
@@ -1447,7 +1444,7 @@ export interface TokenStyling {
    * This interface was referenced by `TokenStyling`'s JSON-Schema definition
    * via the `patternProperty` "^(\w+[-_\w+]*|\*)(\.\w+[-_\w+]*)*(:\w+[-_\w+]*)?$".
    */
-  [k: string]: string | Style;
+  [k: string]: string | Style | undefined;
 }
 /**
  * Colors and styles for the token.

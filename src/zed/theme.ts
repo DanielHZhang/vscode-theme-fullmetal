@@ -1,8 +1,6 @@
-import {colors, opacity} from '../colors';
+import {colors, opacity} from '../colors.ts';
 import type {HighlightStyleContent, ThemeFamilyContent} from './types';
 
-const black = '#000';
-const PLACEHOLDER = '#FF00FF';
 const muted = opacity(colors.pastelGray, 0.4);
 const nearInvisible = opacity(colors.pastelGray, 0.2);
 const hintForeground = opacity('#5fa89a', 0.6);

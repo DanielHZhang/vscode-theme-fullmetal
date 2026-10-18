@@ -20,9 +20,12 @@
     "noUnusedLocals": true,
     "outDir": "build",
     "resolveJsonModule": true,
+    "rewriteRelativeImportExtensions": true,
+    "rootDir": "src",
     "sourceMap": false,
     "strict": true,
     "target": "esnext",
+    "types": ["node", "vscode"],
     "skipLibCheck": true
   },
   "exclude": [".vscode", "node_modules/**/*"],

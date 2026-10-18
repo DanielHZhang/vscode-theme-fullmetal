@@ -1,18 +1,14 @@
 {
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "Launch Extension",
-			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}"
-			],
-			"outFiles": [
-				"${workspaceFolder}/build/**/*.js",
-			],
-			"runtimeExecutable": "${execPath}",
-			"preLaunchTask": "${defaultBuildTask}",
-			"request": "launch",
-			"type": "extensionHost"
-		}
-	]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Extension",
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+      "outFiles": ["${workspaceFolder}/build/**/*.js"],
+      "runtimeExecutable": "${execPath}",
+      "preLaunchTask": "${defaultBuildTask}",
+      "request": "launch",
+      "type": "extensionHost"
+    }
+  ]
 }
