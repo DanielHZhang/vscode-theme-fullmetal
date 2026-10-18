@@ -34,7 +34,15 @@ if (values.editor === 'vscode') {
         /"vscode:\/\/schemas\/(.+)"/g,
         (_, capture) => `"${path.join(outputPath, `${capture}.json`)}"`
       );
-      await fs.writeFile(path.join(outputPath, fileName), formattedSchema);
+      const schema = JSON.parse(formattedSchema);
+      if (schema.definitions) {
+        schema.$defs = {...schema.definitions, ...schema.$defs};
+        delete schema.definitions;
+      }
+      await fs.writeFile(
+        path.join(outputPath, fileName),
+        JSON.stringify(schema).replace(/"\$ref":"#\/definitions\//g, '"$ref":"#/$defs/')
+      );
     })
   );
 

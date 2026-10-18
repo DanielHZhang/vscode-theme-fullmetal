@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-const schemaNames = ['color-theme', 'textmate-colors', 'token-styling', 'workbench-colors'];
+import {schemaNames} from './schema-names.ts';
 
 export const activate = (context: vscode.ExtensionContext): void => {
   const encoder = new TextEncoder();

@@ -22,10 +22,11 @@
   },
   "publisher": "DanielZhang",
   "type": "module",
-  "main": "build/extension.js",
-  "browser": "build/extension.js",
+  "main": "build/vscode/extension.js",
+  "browser": "build/vscode/extension.js",
   "scripts": {
     "generate-types": "node --experimental-strip-types src/scripts/generate-types.ts",
+    "update-vscode-schemas": "pnpm exec tsc --incremental false && node --experimental-strip-types src/scripts/update-vscode-schemas.ts",
     "generate-theme": "node --experimental-strip-types src/scripts/generate-theme.ts",
     "vscode:publish": "pnpm exec vsce package --no-dependencies",
     "vscode:prepublish": "pnpm run generate-theme",

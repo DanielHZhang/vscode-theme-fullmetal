@@ -13,5 +13,7 @@ export default defineConfig({
   env: {
     builtin: true,
   },
-  rules: {},
+  rules: {
+    'typescript/no-redundant-type-constituents': 'off',
+  },
 });

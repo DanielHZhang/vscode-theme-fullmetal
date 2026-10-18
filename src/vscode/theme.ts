@@ -1,8 +1,14 @@
 import {colors, opacity} from '../colors.ts';
 import {specificity} from '../utils.ts';
-import type {ColorTheme} from './types';
+import type {ColorTheme, WorkbenchColors} from './types';
 
-export const theme: ColorTheme = {
+type Colors = WorkbenchColors & Partial<Record<`errorLens.${string}` | `gitDecoration.${string}`, string>>;
+
+interface Theme extends ColorTheme {
+  colors: Colors;
+}
+
+export const theme: Theme = {
   $schema: 'vscode://schemas/color-theme',
   name: 'Fullmetal',
   type: 'dark',
