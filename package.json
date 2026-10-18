@@ -24,12 +24,20 @@
   "type": "module",
   "main": "build/vscode/extension.js",
   "browser": "build/vscode/extension.js",
+  "files": [
+    "build/vscode/extension.js",
+    "build/vscode/schema-names.js",
+    "themes/fullmetal-theme-vscode.json",
+    "assets/logo.png",
+    "license.md"
+  ],
   "scripts": {
     "generate-types": "node --experimental-strip-types src/scripts/generate-types.ts",
     "update-vscode-schemas": "pnpm exec tsc --incremental false && node --experimental-strip-types src/scripts/update-vscode-schemas.ts",
     "generate-theme": "node --experimental-strip-types src/scripts/generate-theme.ts",
+    "release": "gh release create --target main --generate-notes",
     "vscode:publish": "pnpm exec vsce package --no-dependencies",
-    "vscode:prepublish": "pnpm run generate-theme",
+    "vscode:prepublish": "pnpm exec tsc --incremental false && pnpm run generate-theme",
     "format": "oxfmt",
     "lint": "oxlint --fix"
   },
