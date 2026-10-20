@@ -1,11 +1,14 @@
 export function opacity(color: string, percentage: number): string {
-  if (color.length === '#0000'.length || color.length === '#fffeee00'.length) {
-    throw new Error('Hex color already includes alpha value');
+  if (!/^#[0-9a-f]{6}$/i.test(color)) {
+    throw new Error(`Expected a 6-digit hex color without alpha, received ${color}`);
   }
-  if (percentage > 1) {
-    percentage /= 100;
+  const alpha = percentage > 1 ? percentage / 100 : percentage;
+  if (!(alpha >= 0 && alpha <= 1)) {
+    throw new Error(`Opacity must be between 0 and 1 (or 0 and 100 as a percentage), received ${percentage}`);
   }
-  return `${color}${Math.round(255 * percentage).toString(16)}`;
+  return `${color}${Math.round(255 * alpha)
+    .toString(16)
+    .padStart(2, '0')}`;
 }
 
 // Unused colors:
@@ -64,8 +67,12 @@ const vibrantColors = {
   vibrantYellow: '#f6b868',
   vibrantOrange: '#ff7e00',
   vibrantGreen: '#3ecd83',
-  // vibrantBlue: '#006aff',
   vibrantBlue: '#61afef',
+};
+
+const darkColors = {
+  darkBlue: '#006aff',
+  darkGreen: '#1bd56823',
 };
 
 const statusColors = {
@@ -80,7 +87,7 @@ const workbenchColors = {
   backgroundDrop: opacity(ansiColors.cyan, 0.2),
   backgroundEditor: '#1a212e',
   backgroundHeader: '#181420ce',
-  backgroundHover: '#1a2950',
+  backgroundHover: '#1a2f65', // backgroundHover: '#1a2950',
   backgroundInactive: '#212a3f',
   backgroundInlayHint: '#253c7a70',
   backgroundMatch: '#78e6c346',
@@ -88,8 +95,10 @@ const workbenchColors = {
   backgroundSidebar: '#141b24',
   backgroundSelection: '#3a5599ac',
   backgroundLabel: '#283140',
+  backgroundDebug: '#73421b',
   foreground: '#dcbb',
   invisible: '#0000',
+  border: opacity(pastelColors.pastelGray, 0.2),
 };
 
 const tokenColors = {
@@ -102,6 +111,7 @@ const tokenColors = {
 export const colors = {
   ...workbenchColors,
   ...vibrantColors,
+  ...darkColors,
   ...pastelColors,
   ...statusColors,
   ...tokenColors,

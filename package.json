@@ -3,16 +3,34 @@
   "displayName": "Fullmetal Theme",
   "version": "2.1.0",
   "description": "A dark theme with vibrant colors crafted with alchemy.",
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "color-theme",
+    "dark",
+    "fullmetal",
+    "theme"
+  ],
+  "homepage": "https://github.com/DanielHZhang/vscode-theme-fullmetal",
+  "bugs": "https://github.com/DanielHZhang/vscode-theme-fullmetal/issues",
   "license": "MIT",
-  "type": "module",
-  "publisher": "DanielZhang",
   "author": "Daniel Zhang",
   "repository": {
     "type": "git",
     "url": "https://github.com/DanielHZhang/vscode-theme-fullmetal"
   },
-  "homepage": "https://github.com/DanielHZhang/vscode-theme-fullmetal",
-  "bugs": "https://github.com/DanielHZhang/vscode-theme-fullmetal/issues",
+  "publisher": "DanielZhang",
+  "files": [
+    "build/vscode/extension.js",
+    "build/vscode/schema-names.js",
+    "themes/fullmetal-theme-vscode.json",
+    "assets/logo.png",
+    "license.md"
+  ],
+  "type": "module",
+  "main": "build/vscode/extension.js",
+  "browser": "build/vscode/extension.js",
   "scripts": {
     "generate-types": "node --experimental-strip-types src/scripts/generate-types.ts",
     "update-vscode-schemas": "pnpm exec tsc --incremental false && node --experimental-strip-types src/scripts/update-vscode-schemas.ts",
@@ -34,19 +52,6 @@
     "semver": "7.8.5",
     "typescript": "7.0.2"
   },
-  "engines": {
-    "vscode": "^1.140.0"
-  },
-  "main": "build/vscode/extension.js",
-  "browser": "build/vscode/extension.js",
-  "icon": "assets/logo.png",
-  "files": [
-    "build/vscode/extension.js",
-    "build/vscode/schema-names.js",
-    "themes/fullmetal-theme-vscode.json",
-    "assets/logo.png",
-    "license.md"
-  ],
   "contributes": {
     "commands": [
       {
@@ -63,12 +68,6 @@
       }
     ]
   },
-  "capabilities": {
-    "untrustedWorkspaces": {
-      "supported": true
-    },
-    "virtualWorkspaces": true
-  },
   "activationEvents": [
     "onStartupFinished"
   ],
@@ -76,13 +75,14 @@
     "ui",
     "workspace"
   ],
-  "categories": [
-    "Themes"
-  ],
-  "keywords": [
-    "color-theme",
-    "dark",
-    "fullmetal",
-    "theme"
-  ]
+  "icon": "assets/logo.png",
+  "engines": {
+    "vscode": "^1.140.0"
+  },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  }
 }
