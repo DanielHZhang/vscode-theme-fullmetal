@@ -89,7 +89,7 @@ export const theme: Theme = {
     'editorGutter.modifiedBackground': colors.yellow,
     'editorHoverWidget.background': colors.backgroundPopover,
     'editorHoverWidget.border': colors.invisible,
-    'editorInlayHint.background': '#253c7a70',
+    'editorInlayHint.background': colors.backgroundInlayHint,
     'editorInlayHint.foreground': '#5fa89a',
     'editorLightBulb.foreground': colors.vibrantYellow,
     'editorLineNumber.activeForeground': colors.gray,
@@ -221,6 +221,8 @@ export const theme: Theme = {
     'textCodeBlock.background': opacity(colors.gray, 0.15),
     'textLink.activeForeground': colors.vibrantBlue,
     'textLink.foreground': colors.blue,
+    'textPreformat.background': colors.backgroundInlayHint,
+    'textPreformat.foreground': colors.cyan,
     'titleBar.activeBackground': colors.backgroundSidebar,
     'titleBar.activeForeground': colors.foreground,
     'titleBar.inactiveBackground': colors.backgroundEditor,
@@ -347,12 +349,19 @@ export const theme: Theme = {
         'comment.line',
         'comment.block',
         'markup.fenced_code.block',
-        'markup.inline.raw',
         'punctuation.definition.comment',
       ],
       settings: {
         fontStyle: 'italic',
         foreground: colors.pastelGray,
+      },
+    },
+    {
+      name: 'inline code',
+      scope: ['markup.inline.raw'],
+      settings: {
+        fontStyle: 'italic',
+        foreground: colors.cyan,
       },
     },
     {

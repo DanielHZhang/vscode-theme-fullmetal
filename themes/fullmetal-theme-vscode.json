@@ -213,6 +213,8 @@
     "textCodeBlock.background": "#90a5c826",
     "textLink.activeForeground": "#61afef",
     "textLink.foreground": "#41a7fc",
+    "textPreformat.background": "#253c7a70",
+    "textPreformat.foreground": "#3dacb4",
     "titleBar.activeBackground": "#141b24",
     "titleBar.activeForeground": "#dcbb",
     "titleBar.inactiveBackground": "#1a212e",
@@ -339,12 +341,21 @@
         "comment.line",
         "comment.block",
         "markup.fenced_code.block",
-        "markup.inline.raw",
         "punctuation.definition.comment"
       ],
       "settings": {
         "fontStyle": "italic",
         "foreground": "#455573"
+      }
+    },
+    {
+      "name": "inline code",
+      "scope": [
+        "markup.inline.raw"
+      ],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "#3dacb4"
       }
     },
     {

@@ -82,6 +82,7 @@ const workbenchColors = {
   backgroundHeader: '#181420ce',
   backgroundHover: '#1a2950',
   backgroundInactive: '#212a3f',
+  backgroundInlayHint: '#253c7a70',
   backgroundMatch: '#78e6c346',
   backgroundPopover: '#111520ee',
   backgroundSidebar: '#141b24',

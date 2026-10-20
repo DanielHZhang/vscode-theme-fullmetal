@@ -6,3 +6,4 @@ tests
 # Files
 .DS_Store
 yarn-error.log
+tsconfig.tsbuildinfo
