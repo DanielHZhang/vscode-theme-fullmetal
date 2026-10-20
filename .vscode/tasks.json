@@ -2,13 +2,31 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Watch: generate theme",
+      "label": "Watch: VSCode theme",
       "type": "shell",
-      "command": "node --experimental-strip-types --watch src/scripts/generate-theme.ts --editor=zed",
+      "command": "node --experimental-strip-types --watch src/scripts/generate-theme.ts --editor=vscode",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "fullmetal-theme",
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Restarting",
+          "endsPattern": "Generated theme"
+        }
+      },
       "group": {
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "Watch: Zed theme",
+      "type": "shell",
+      "command": "node --experimental-strip-types --watch src/scripts/generate-theme.ts --editor=zed",
+      "group": "build"
     }
   ]
 }

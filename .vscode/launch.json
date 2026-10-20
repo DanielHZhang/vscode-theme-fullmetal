@@ -6,7 +6,7 @@
       "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
       "outFiles": ["${workspaceFolder}/build/**/*.js"],
       "runtimeExecutable": "${execPath}",
-      "preLaunchTask": "${defaultBuildTask}",
+      "preLaunchTask": "Watch: VSCode theme",
       "request": "launch",
       "type": "extensionHost"
     }
