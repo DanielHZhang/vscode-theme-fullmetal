@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@types/node": "26.6.5",
-    "@types/vscode": "1.140.0",
+    "@types/vscode": "1.144.0",
     "@vscode/vsce": "4.0.0",
     "json-schema-to-typescript-lite": "15.0.0",
     "oxfmt": "0.73.0",
