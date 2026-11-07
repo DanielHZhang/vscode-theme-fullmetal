@@ -346,6 +346,7 @@
         "keyword.operator.logical",
         "keyword.operator.odin",
         "keyword.operator.optional.ts",
+        "keyword.operator.optional.tsx",
         "keyword.operator.question",
         "keyword.operator.relational",
         "keyword.operator.slang",

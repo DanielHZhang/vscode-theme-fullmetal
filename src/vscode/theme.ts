@@ -354,6 +354,7 @@ export const theme: Theme = {
         'keyword.operator.logical',
         'keyword.operator.odin', // Odin groups |, !, %, and other operators under this scope
         'keyword.operator.optional.ts', // Typescript ? in key?: or func?()
+        'keyword.operator.optional.tsx', // TSX ? in optional fields
         'keyword.operator.question', // option.unwrap()? (rust)
         'keyword.operator.relational',
         'keyword.operator.slang', // Slang groups comparisons and other operators under this scope
