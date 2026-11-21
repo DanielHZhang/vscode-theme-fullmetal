@@ -2,5 +2,7 @@ allowBuilds:
   '@vscode/vsce-sign': true
   esbuild: true
   keytar: true
+  es5-ext: false
+  ttf2woff2: false
 
 saveExact: true

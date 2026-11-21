@@ -1,6 +1,7 @@
 # Folders
 build
 node_modules
+.vscode-test
 tests
 
 # Files

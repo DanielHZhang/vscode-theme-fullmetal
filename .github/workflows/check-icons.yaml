@@ -1,0 +1,31 @@
+name: Check product icons
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  icons:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec tsc --noEmit --incremental false
+      - run: pnpm exec oxlint src/scripts src/vscode --deny-warnings
+      - run: pnpm check-icons
+      - run: pnpm test-icons
+      - run: xvfb-run -a pnpm smoke-icons
+        timeout-minutes: 5
+      - run: pnpm exec vsce package --no-dependencies
