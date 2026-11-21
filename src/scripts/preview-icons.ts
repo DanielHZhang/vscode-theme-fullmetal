@@ -1,8 +1,7 @@
 import fs from 'node:fs/promises';
 
-const coverage = JSON.parse(await fs.readFile('src/icons/coverage.json', 'utf8'));
-const codepoints = JSON.parse(await fs.readFile('src/icons/codepoints.json', 'utf8'));
-const font = await fs.readFile('themes/fullmetal-fluent.woff');
+const coverage = JSON.parse(await fs.readFile('build/product-icons/coverage.json', 'utf8'));
+const font = await fs.readFile('build/product-icons/fullmetal-fluent.woff');
 const escape = (text: string) => text.replace(/[&<>"']/g, (character) => `&#${character.charCodeAt(0)};`);
 const cards = Object.keys(coverage.assets)
   .sort()
@@ -13,7 +12,7 @@ const cards = Object.keys(coverage.assets)
     return `<article><h2>${escape(asset)}</h2><div class="sizes">${[12, 16, 20, 24, 32]
       .map(
         (size) =>
-          `<div><span class="icon" style="font-size:${size}px">&#${codepoints[asset]};</span><small>${size}px</small></div>`
+          `<div><span class="icon" style="font-size:${size}px">&#${coverage.assets[asset].codepoint};</span><small>${size}px</small></div>`
       )
       .join('')}</div><p>${ids.map(escape).join(', ')}</p></article>`;
   });

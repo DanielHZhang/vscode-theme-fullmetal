@@ -4,9 +4,8 @@ import {test} from 'node:test';
 import {inflateSync} from 'node:zlib';
 
 await test('the WOFF character map contains exactly the referenced subset, with square advances', async () => {
-  const font = await fs.readFile('themes/fullmetal-fluent.woff');
-  const coverage = JSON.parse(await fs.readFile('src/icons/coverage.json', 'utf8'));
-  const codepoints = JSON.parse(await fs.readFile('src/icons/codepoints.json', 'utf8'));
+  const font = await fs.readFile('build/product-icons/fullmetal-fluent.woff');
+  const coverage = JSON.parse(await fs.readFile('build/product-icons/coverage.json', 'utf8'));
   assert.equal(font.toString('ascii', 0, 4), 'wOFF');
   assert.equal(font.readUInt32BE(8), font.length);
   const tables = new Map<string, Buffer>();
@@ -50,7 +49,7 @@ await test('the WOFF character map contains exactly the referenced subset, with 
   assert.deepEqual(
     [...characters].sort((a, b) => a - b),
     Object.keys(coverage.assets)
-      .map((asset) => codepoints[asset])
+      .map((asset) => coverage.assets[asset].codepoint)
       .sort((a: number, b: number) => a - b)
   );
   const units = tables.get('head')!.readUInt16BE(18);

@@ -17,14 +17,12 @@ type Icon = {
   id: string;
   default: string | null;
   codepoint?: number;
-  description?: string;
-  sources: string[];
   alternateDefaults?: string[];
 };
 const icons = new Map<string, Icon>();
 const codicons = new Map<string, string>();
 const symbols = new Map<string, string>();
-const pending: {file: string; node: ts.CallExpression; id: string; source: string}[] = [];
+const pending: {file: string; node: ts.CallExpression; id: string}[] = [];
 const imports = new Map<string, Map<string, string>>();
 const string = (n: ts.Node | undefined): string | undefined =>
   n && (ts.isStringLiteral(n) || ts.isNoSubstitutionTemplateLiteral(n)) ? n.text : undefined;
@@ -39,8 +37,6 @@ const add = (icon: Icon) => {
       if (icon.default && !previous.alternateDefaults.includes(icon.default))
         previous.alternateDefaults.push(icon.default);
     }
-    previous.sources.push(...icon.sources);
-    previous.description ??= icon.description;
   } else icons.set(icon.id, icon);
 };
 
@@ -78,10 +74,9 @@ for (const file of files
     ) {
       const id = string(node.arguments[0]);
       if (!id) throw new Error(`Nonliteral icon ID in ${file}: ${node.getText(ast)}`);
-      const location = `${file}:${ast.getLineAndCharacterOfPosition(node.getStart(ast)).line + 1}`;
       if (ts.isPropertyAssignment(node.parent)) codicons.set(node.parent.name.getText(ast), id);
       if (ts.isVariableDeclaration(node.parent)) symbols.set(`${file}:${node.parent.name.getText(ast)}`, id);
-      pending.push({file, node, id, source: location});
+      pending.push({file, node, id});
     }
     ts.forEachChild(node, visit);
   };
@@ -106,9 +101,6 @@ for (const item of pending) {
     }
   }
   if (!fallback && codepoint === undefined) throw new Error(`Unresolved default for ${item.id}: ${value?.getText()}`);
-  const descriptionCall = item.node.arguments[2];
-  const description =
-    descriptionCall && ts.isCallExpression(descriptionCall) ? string(descriptionCall.arguments[1]) : undefined;
   // codiconsUtil resolves its string references to a character immediately; these are not registry aliases.
   if (item.node.expression.getText() === 'register' && fallback) {
     codepoint = icons.get(fallback)?.codepoint;
@@ -118,15 +110,12 @@ for (const item of pending) {
   if (item.node.expression.getText() === 'register' && icons.has(item.id)) {
     const previous = icons.get(item.id)!;
     previous.codepoint = codepoint;
-    previous.sources.push(item.source);
     continue;
   }
   add({
     id: item.id,
     default: fallback ?? null,
     ...(codepoint === undefined ? {} : {codepoint}),
-    ...(description ? {description} : {}),
-    sources: [item.source],
   });
 }
 
@@ -135,7 +124,7 @@ for (const file of files.filter((file) => /^extensions\/[^/]+\/package\.json$/.t
   const manifest = JSON.parse(await fs.readFile(path.join(source, file), 'utf8'));
   for (const [id, value] of Object.entries(manifest.contributes?.icons ?? {}) as [
     string,
-    {description?: string; default: string | {fontCharacter: string}},
+    {default: string | {fontCharacter: string}},
   ][]) {
     const defaults = value.default;
     add({
@@ -148,8 +137,6 @@ for (const file of files.filter((file) => /^extensions\/[^/]+\/package\.json$/.t
               ? parseInt(defaults.fontCharacter.slice(1), 16)
               : defaults.fontCharacter.codePointAt(0),
           }),
-      description: value.description,
-      sources: [file],
     });
   }
 }
@@ -173,7 +160,14 @@ const inventory = {
     scope:
       'Production src registrations and built-in extension icon contributions; excludes tests and third-party extensions',
   },
-  icons: [...icons.values()].sort((a, b) => a.id.localeCompare(b.id, 'en')),
+  icons: Object.fromEntries(
+    [...icons.values()]
+      .sort((a, b) => a.id.localeCompare(b.id, 'en'))
+      .map((icon) => [
+        icon.id,
+        icon.default && icon.alternateDefaults?.length ? [icon.default, ...icon.alternateDefaults] : icon.default,
+      ])
+  ),
 };
 await fs.mkdir('src/icons', {recursive: true});
 await fs.writeFile('src/icons/vscode-inventory.json', `${JSON.stringify(inventory, null, 2)}\n`);

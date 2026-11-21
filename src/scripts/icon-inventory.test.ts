@@ -48,18 +48,17 @@ await test('source inventory distinguishes Codicon character aliases from workbe
       });
     run();
     const result = JSON.parse(await fs.readFile(path.join(output, 'src/icons/vscode-inventory.json'), 'utf8'));
-    const get = (id: string) => result.icons.find((icon: {id: string}) => icon.id === id);
-    assert.equal(result.icons.length, 9);
-    assert.equal(get('add').codepoint, 0xe003, 'Derived Codicon registration replaces the base character');
-    assert.equal(get('dialog-close').default, null);
-    assert.equal(get('dialog-close').codepoint, get('close').codepoint);
-    assert.equal(get('widget-close').default, 'close');
-    assert.equal(get('deeper').default, 'widget-close');
-    assert.equal(get('imported-close').default, 'widget-close');
-    assert.deepEqual(get('ambiguous').alternateDefaults, ['add']);
-    assert.equal(get('extension-alias').default, 'add');
-    assert.equal(get('extension-font').codepoint, 0xe004);
-    assert(!get('test-only'));
+    assert.deepEqual(result.icons, {
+      'add': null,
+      'ambiguous': ['close', 'add'],
+      'close': null,
+      'deeper': 'widget-close',
+      'dialog-close': null,
+      'extension-alias': 'add',
+      'extension-font': null,
+      'imported-close': 'widget-close',
+      'widget-close': 'close',
+    });
     const before = await fs.readFile(path.join(output, 'src/icons/vscode-inventory.json'));
     run();
     assert.deepEqual(await fs.readFile(path.join(output, 'src/icons/vscode-inventory.json')), before);

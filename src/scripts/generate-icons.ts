@@ -18,10 +18,9 @@ import {
 const read = async (file: string) => JSON.parse(await fs.readFile(file, 'utf8'));
 const inventory: Inventory = await read('src/icons/vscode-inventory.json');
 const mapping: IconMapping = await read('src/icons/mapping.json');
-const previous: Record<string, number> = await read('src/icons/codepoints.json');
 const coverage = resolveCoverage(inventory, mapping);
 const assets = [...new Set(coverage.flatMap((row) => (row.asset ? [row.asset] : [])))].sort();
-const codepoints = allocateCodepoints(assets, previous);
+const codepoints = allocateCodepoints(assets);
 const require = createRequire(import.meta.url);
 const packageDir = path.dirname(require.resolve('@fluentui/svg-icons/package.json'));
 const fluent = await read(path.join(packageDir, 'package.json'));
@@ -37,7 +36,7 @@ const outputDir = path.join(temporary, 'font');
 await fs.mkdir(inputDir);
 await fs.mkdir(outputDir);
 try {
-  const hashes: Record<string, string> = {};
+  const assetDetails: Record<string, {sha256: string; codepoint: number}> = {};
   for (const asset of assets) {
     validateAssetName(asset);
     const svg = await fs.readFile(path.join(packageDir, 'icons', asset), 'utf8');
@@ -51,7 +50,7 @@ try {
       !/<(?:image|text|linearGradient|radialGradient|mask|clipPath)\b/i.test(svg),
       `Unsupported SVG content: ${asset}`
     );
-    hashes[asset] = createHash('sha256').update(svg).digest('hex');
+    assetDetails[asset] = {sha256: createHash('sha256').update(svg).digest('hex'), codepoint: codepoints[asset]};
     await fs.writeFile(path.join(inputDir, asset), svg);
   }
   const fontCodepoints = Object.fromEntries(assets.map((asset) => [asset.slice(0, -4), codepoints[asset]]));
@@ -118,13 +117,15 @@ try {
     fontSha256: createHash('sha256').update(font).digest('hex'),
   };
   const outputs: Record<string, string | Buffer> = {
-    'themes/fullmetal-fluent.woff': font,
-    'themes/fullmetal-product-icon-theme.json': `${JSON.stringify(theme, null, 2)}\n`,
-    'src/icons/codepoints.json': `${JSON.stringify(codepoints, null, 2)}\n`,
-    'src/icons/coverage.json': `${JSON.stringify({summary, assets: hashes, icons: coverage}, null, 2)}\n`,
+    'fullmetal-fluent.woff': font,
+    'fullmetal-product-icon-theme.json': `${JSON.stringify(theme, null, 2)}\n`,
+    'coverage.json': `${JSON.stringify({summary, assets: assetDetails, icons: coverage}, null, 2)}\n`,
   };
   const check = process.argv.includes('--check');
-  for (const [file, value] of Object.entries(outputs)) {
+  const buildDir = 'build/product-icons';
+  if (!check) await fs.mkdir(buildDir, {recursive: true});
+  for (const [name, value] of Object.entries(outputs)) {
+    const file = path.join(buildDir, name);
     if (check)
       assert.deepEqual(
         await fs.readFile(file),

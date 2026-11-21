@@ -24,8 +24,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec tsc --noEmit --incremental false
       - run: pnpm exec oxlint src/scripts src/vscode --deny-warnings
-      - run: pnpm check-icons
       - run: pnpm test-icons
+      - run: pnpm check-icons
       - run: xvfb-run -a pnpm smoke-icons
         timeout-minutes: 5
       - run: pnpm exec vsce package --no-dependencies

@@ -21,16 +21,17 @@ are preserved; every selected icon must have a square canvas and a square advanc
 
 ## Inventory and coverage
 
-- `src/icons/vscode-inventory.json`: versioned inventory with source locations,
-  default-icon references, descriptions, and native character codes.
+- `src/icons/vscode-inventory.json`: snapshot of recognized IDs and default-icon
+  relationships. It records the upstream revision and lets builds validate the
+  mapping without fetching a VS Code source checkout.
 - `src/icons/mapping.json`: explicit VS Code ID → exact Fluent filename mappings,
   plus explicit decisions and reasons for retaining native glyphs.
-- `src/icons/codepoints.json`: stable private-use character assignments. Existing
-  assignments are retained when adding/removing assets; retired assignments are
-  reserved but their glyphs are excluded from the font.
-- `src/icons/coverage.json`: every inventoried ID classified as directly mapped,
-  inherited from a mapped ID, or using its native default. Includes input SVG
-  hashes, source versions, font size, and font hash.
+
+The build writes the font, theme definition, and coverage report to
+`build/product-icons/`. The report records how each VS Code ID is resolved,
+along with the source versions, SVG hashes, and glyph codepoints. The generator
+assigns private-use codepoints in sorted asset order and builds the font and
+theme definition together.
 
 The initial inventory is pinned to **VS Code 1.140.0**, matching the extension's
 minimum supported version. It includes all production `src` icon registrations
@@ -68,9 +69,10 @@ pnpm exec vsce package --no-dependencies
 
 Open `build/icon-preview.html` to inspect every generated glyph at 12, 16, 20, 24,
 and 32 pixels, with a searchable list of all affected VS Code IDs. This preview is
-local build output and is not shipped. `check-icons` regenerates in memory and
-compares committed outputs byte for byte. Font timestamps are fixed for
-reproducibility. `vscode:prepublish` regenerates the font and theme automatically.
+local build output. `check-icons` compares a fresh generation against the files
+in `build/product-icons/` byte for byte. Font timestamps are fixed for
+reproducibility. Packaging builds the font and theme automatically and includes
+both files in the VSIX.
 
 `pnpm smoke-icons` downloads the pinned VS Code version and opens an isolated
 development host, selects the theme, then checks the actual renderer CSS, WOFF
@@ -93,8 +95,7 @@ used by the smoke host.
    upstream artwork changes, then regenerate. Missing or unsupported assets fail
    the build rather than being silently substituted.
 4. Run the checks above and inspect the preview and a development host. Commit
-   the inventory, mapping, assignments, coverage report, WOFF, theme JSON, and
-   lockfile together.
+   changes to the inventory, mapping, and dependency lockfile as applicable.
 
 The existing **Fullmetal: Save Built-in VSCode Theme Schemas** command also exports
 `icons.json` from the running editor. This is useful for comparing a particular

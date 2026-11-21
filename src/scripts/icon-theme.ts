@@ -1,15 +1,7 @@
-export interface InventoryIcon {
-  id: string;
-  default: string | null;
-  codepoint?: number;
-  description?: string;
-  sources: string[];
-  alternateDefaults?: string[];
-}
-
 export interface Inventory {
   source: {repository: string; version: string; commit: string; scope: string};
-  icons: InventoryIcon[];
+  // null is a native glyph, a string is an alias, and an array records competing defaults.
+  icons: Record<string, string | null | string[]>;
 }
 
 export interface IconMapping {
@@ -27,8 +19,7 @@ export interface Coverage {
 }
 
 export function resolveCoverage(inventory: Inventory, mapping: IconMapping): Coverage[] {
-  const icons = new Map(inventory.icons.map((icon) => [icon.id, icon]));
-  if (icons.size !== inventory.icons.length) throw new Error('Duplicate inventory ID');
+  const icons = new Map(Object.entries(inventory.icons));
   for (const id of [...Object.keys(mapping.mappings), ...Object.keys(mapping.keep)]) {
     if (!icons.has(id)) throw new Error(`Unknown mapped VS Code ID: ${id}`);
     if (id in mapping.mappings && id in mapping.keep) throw new Error(`Conflicting decision: ${id}`);
@@ -36,29 +27,30 @@ export function resolveCoverage(inventory: Inventory, mapping: IconMapping): Cov
   const resolve = (id: string, seen = new Set<string>()): Coverage => {
     if (seen.has(id)) throw new Error(`Cyclic icon defaults: ${id}`);
     seen.add(id);
-    const icon = icons.get(id);
-    if (!icon) throw new Error(`Unknown icon default: ${id}`);
+    const fallback = icons.get(id);
+    if (fallback === undefined) throw new Error(`Unknown icon default: ${id}`);
     if (mapping.mappings[id]) return {id, status: 'mapped', via: id, asset: mapping.mappings[id]};
     if (mapping.keep[id]) return {id, status: 'default', via: id, reason: mapping.keep[id]};
-    if (icon.alternateDefaults?.length) throw new Error(`Ambiguous defaults require an explicit decision: ${id}`);
-    if (icon.default) {
-      const parent = resolve(icon.default, seen);
+    if (Array.isArray(fallback)) throw new Error(`Ambiguous defaults require an explicit decision: ${id}`);
+    if (fallback) {
+      const parent = resolve(fallback, seen);
       return {...parent, id, status: parent.asset ? 'inherited' : 'default'};
     }
     throw new Error(`Unreviewed icon: ${id}`);
   };
-  const coverage = inventory.icons.map((icon) => resolve(icon.id));
+  const coverage = [...icons.keys()].map((id) => resolve(id));
   // A default glyph is never isolated from replacements further down its chain.
   for (const row of coverage.filter((row) => row.status === 'default')) {
-    let icon = icons.get(row.id)!;
+    const pending = [row.id];
     const seen = new Set<string>();
-    while (icon.default) {
-      if (seen.has(icon.id)) throw new Error(`Cyclic icon defaults: ${icon.id}`);
-      seen.add(icon.id);
-      if (mapping.mappings[icon.default]) throw new Error(`Cannot keep ${row.id}: ${icon.default} is overridden`);
-      const next = icons.get(icon.default);
-      if (!next) throw new Error(`Unknown icon default: ${icon.default}`);
-      icon = next;
+    while (pending.length) {
+      const id = pending.pop()!;
+      if (seen.has(id)) continue;
+      seen.add(id);
+      if (mapping.mappings[id]) throw new Error(`Cannot keep ${row.id}: ${id} is overridden`);
+      const fallback = icons.get(id);
+      if (fallback === undefined) throw new Error(`Unknown icon default: ${id}`);
+      if (fallback) pending.push(...(Array.isArray(fallback) ? fallback : [fallback]));
     }
   }
   return coverage;
@@ -70,24 +62,8 @@ export function validateAssetName(asset: string): void {
   }
 }
 
-export function allocateCodepoints(assets: string[], previous: Record<string, number>): Record<string, number> {
-  const used = new Set<number>();
-  for (const [asset, codepoint] of Object.entries(previous)) {
-    validateAssetName(asset);
-    if (!Number.isInteger(codepoint) || codepoint < 0xe000 || codepoint > 0xf8ff || used.has(codepoint)) {
-      throw new Error(`Invalid or duplicate private-use codepoint for ${asset}`);
-    }
-    used.add(codepoint);
-  }
-  const result = {...previous};
-  let next = 0xe000;
-  for (const asset of [...new Set(assets)].sort()) {
-    validateAssetName(asset);
-    if (result[asset] !== undefined) continue;
-    while (used.has(next)) next++;
-    if (next > 0xf8ff) throw new Error('Private-use codepoint space exhausted');
-    result[asset] = next;
-    used.add(next);
-  }
-  return Object.fromEntries(Object.entries(result).sort(([a], [b]) => a.localeCompare(b, 'en')));
+export function allocateCodepoints(assets: string[]): Record<string, number> {
+  const sorted = [...new Set(assets)].sort();
+  if (sorted.length > 0x1900) throw new Error('Private-use codepoint space exhausted');
+  return Object.fromEntries(sorted.map((asset, index) => [asset, 0xe000 + index]));
 }

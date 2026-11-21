@@ -27,8 +27,8 @@
     "themes/fullmetal-theme-vscode.json",
     "assets/logo.png",
     "license.md",
-    "themes/fullmetal-product-icon-theme.json",
-    "themes/fullmetal-fluent.woff",
+    "build/product-icons/fullmetal-product-icon-theme.json",
+    "build/product-icons/fullmetal-fluent.woff",
     "THIRD_PARTY_NOTICES.md"
   ],
   "type": "module",
@@ -45,10 +45,10 @@
     "lint": "oxlint --fix",
     "generate-icons": "node src/scripts/generate-icons.ts",
     "check-icons": "node src/scripts/generate-icons.ts --check",
-    "test-icons": "node --test src/scripts/icon-theme.test.ts src/scripts/generated-icons.test.ts src/scripts/icon-inventory.test.ts",
+    "test-icons": "pnpm generate-icons && node --test src/scripts/icon-theme.test.ts src/scripts/generated-icons.test.ts src/scripts/icon-inventory.test.ts",
     "update-icon-inventory": "node src/scripts/update-icon-inventory.ts",
-    "smoke-icons": "pnpm exec tsc --incremental false && node src/scripts/smoke-icons.ts",
-    "preview-icons": "node src/scripts/preview-icons.ts"
+    "smoke-icons": "pnpm generate-icons && pnpm exec tsc --incremental false && node src/scripts/smoke-icons.ts",
+    "preview-icons": "pnpm generate-icons && node src/scripts/preview-icons.ts"
   },
   "devDependencies": {
     "@fluentui/svg-icons": "1.1.345",
@@ -84,7 +84,7 @@
       {
         "id": "fullmetal-fluent",
         "label": "Fullmetal Fluent",
-        "path": "./themes/fullmetal-product-icon-theme.json"
+        "path": "./build/product-icons/fullmetal-product-icon-theme.json"
       }
     ]
   },

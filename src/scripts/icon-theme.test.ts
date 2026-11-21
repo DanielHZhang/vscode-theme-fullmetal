@@ -5,12 +5,7 @@ import {allocateCodepoints, resolveCoverage, validateAssetName, type Inventory} 
 
 const inventory: Inventory = {
   source: {repository: 'fixture', version: '1', commit: 'fixture', scope: 'unit test'},
-  icons: [
-    {id: 'close', default: null, codepoint: 0xea76, sources: []},
-    {id: 'widget-close', default: 'close', sources: []},
-    {id: 'panel-close', default: 'widget-close', sources: []},
-    {id: 'brand', default: null, codepoint: 0xea84, sources: []},
-  ],
+  icons: {'close': null, 'widget-close': 'close', 'panel-close': 'widget-close', 'brand': null},
 };
 await test('workbench aliases resolve transitively and share one Fluent asset', () => {
   const rows = resolveCoverage(inventory, {
@@ -49,28 +44,14 @@ await test('new roots, stale IDs, conflicting decisions and impossible keep deci
 });
 await test('cycles, missing defaults and ambiguous upstream registrations fail', () => {
   const base = {mappings: {}, keep: {}};
-  assert.throws(() => resolveCoverage({...inventory, icons: [{id: 'a', default: 'a', sources: []}]}, base), /Cyclic/);
-  assert.throws(
-    () =>
-      resolveCoverage({...inventory, icons: [{id: 'a', default: 'missing', sources: []}]}, {mappings: {}, keep: {}}),
-    /Unknown icon default/
-  );
-  assert.throws(
-    () =>
-      resolveCoverage(
-        {...inventory, icons: [{id: 'a', default: 'close', alternateDefaults: ['brand'], sources: []}]},
-        {mappings: {}, keep: {}}
-      ),
-    /Ambiguous/
-  );
+  assert.throws(() => resolveCoverage({...inventory, icons: {a: 'a'}}, base), /Cyclic/);
+  assert.throws(() => resolveCoverage({...inventory, icons: {a: 'missing'}}, base), /Unknown icon default/);
+  assert.throws(() => resolveCoverage({...inventory, icons: {a: ['close', 'brand']}}, base), /Ambiguous/);
 });
-await test('codepoints stay stable across additions, reordering and retired assets', () => {
-  const previous = {'search_16_regular.svg': 0xe001, 'retired_16_regular.svg': 0xe000};
-  const assigned = allocateCodepoints(['search_16_regular.svg', 'add_16_regular.svg'], previous);
-  assert.equal(assigned['search_16_regular.svg'], 0xe001);
-  assert.equal(assigned['add_16_regular.svg'], 0xe002);
-  assert.equal(assigned['retired_16_regular.svg'], 0xe000);
-  assert.throws(() => allocateCodepoints([], {'a_16_regular.svg': 0xe000, 'b_16_regular.svg': 0xe000}), /duplicate/);
+await test('codepoints are deterministic and shared by repeated assets', () => {
+  const expected = {'add_16_regular.svg': 0xe000, 'search_16_regular.svg': 0xe001};
+  assert.deepEqual(allocateCodepoints(['search_16_regular.svg', 'add_16_regular.svg']), expected);
+  assert.deepEqual(allocateCodepoints(['add_16_regular.svg', 'search_16_regular.svg', 'add_16_regular.svg']), expected);
 });
 await test('only monochrome, flat package filenames are accepted', () => {
   for (const asset of ['../search_16_regular.svg', 'search_16_color.svg', 'search.svg']) {

@@ -30,8 +30,8 @@ SOFTWARE.
 
 ## Visual Studio Code icon inventory
 
-`src/icons/vscode-inventory.json` records IDs, defaults, descriptions, and source
-locations extracted from Microsoft Visual Studio Code. Its exact revision is
+`src/icons/vscode-inventory.json` records IDs and default-icon relationships
+extracted from Microsoft Visual Studio Code. Its exact revision is
 recorded in that file. Visual Studio Code is licensed under the MIT License:
 
 Copyright (c) Microsoft Corporation. All rights reserved.
