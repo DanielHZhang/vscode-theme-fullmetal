@@ -25,6 +25,7 @@
     "build/vscode/extension.js",
     "build/vscode/schema-names.js",
     "themes/fullmetal-theme-vscode.json",
+    "syntaxes/dotenv.injection.tmLanguage.json",
     "assets/logo.png",
     "license.md"
   ],
@@ -53,6 +54,51 @@
     "typescript": "7.0.2"
   },
   "contributes": {
+    "languages": [
+      {
+        "id": "dotenv",
+        "extensions": [
+          ".flaskenv",
+          ".env-sample",
+          ".env.example",
+          ".env.local",
+          ".env.dev",
+          ".env.dev.local",
+          ".env.build",
+          ".env.build.local",
+          ".env.development",
+          ".env.development.local",
+          ".env.test",
+          ".env.test.local",
+          ".env.testing",
+          ".env.qa",
+          ".env.qa.local",
+          ".env.uat",
+          ".env.uat.local",
+          ".env.stag",
+          ".env.stag.local",
+          ".env.stage",
+          ".env.stage.local",
+          ".env.staging",
+          ".env.staging.local",
+          ".env.live",
+          ".env.live.local",
+          ".env.production",
+          ".env.production.local",
+          ".env.prod",
+          ".env.prod.local"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "scopeName": "fullmetal.dotenv.injection",
+        "injectTo": [
+          "source.dotenv"
+        ],
+        "path": "./syntaxes/dotenv.injection.tmLanguage.json"
+      }
+    ],
     "commands": [
       {
         "command": "saveBuiltInSchemas",

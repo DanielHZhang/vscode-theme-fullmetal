@@ -280,6 +280,7 @@
         "keyword.declaration",
         "keyword.function",
         "keyword.interface",
+        "keyword.key.export.dotenv",
         "keyword.local.lua",
         "keyword.operator.address",
         "keyword.operator.arrow",
@@ -327,6 +328,7 @@
       "scope": [
         "punctuation.definition.char",
         "punctuation.definition.string",
+        "property.value.dotenv",
         "string",
         "support.constant.property-value"
       ],
@@ -341,6 +343,8 @@
         "keyword.operator.comparison",
         "keyword.operator.coalescing.swift",
         "keyword.operator.conditional",
+        "keyword.interpolation.begin.dotenv",
+        "keyword.interpolation.end.dotenv",
         "keyword.operator.definiteassignment",
         "keyword.operator.hcl",
         "keyword.operator.logical",
@@ -410,10 +414,12 @@
         "meta.definition.function.body.swift meta.function-call.swift",
         "meta.property-value.css",
         "variable.css",
+        "variable.interpolation.dotenv",
         "variable.name.odin",
         "variable.language.special",
         "variable.other",
         "variable.parameter",
+        "variable.key.dotenv",
         "variable.key.table"
       ],
       "settings": {

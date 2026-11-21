@@ -288,6 +288,7 @@ export const theme: Theme = {
         'keyword.declaration',
         'keyword.function', // Go keyword
         'keyword.interface', // Go keyword
+        'keyword.key.export.dotenv',
         'keyword.local.lua', // Lua keyword
         'keyword.operator.address', // Go pointer
         'keyword.operator.arrow',
@@ -335,6 +336,7 @@ export const theme: Theme = {
       scope: [
         'punctuation.definition.char',
         'punctuation.definition.string',
+        'property.value.dotenv',
         'string',
         'support.constant.property-value',
       ],
@@ -349,6 +351,8 @@ export const theme: Theme = {
         'keyword.operator.comparison',
         'keyword.operator.coalescing.swift', // ??
         'keyword.operator.conditional',
+        'keyword.interpolation.begin.dotenv',
+        'keyword.interpolation.end.dotenv',
         'keyword.operator.definiteassignment', // Typescript null assertion (public someProp!: string)
         'keyword.operator.hcl', // Terraform keyword
         'keyword.operator.logical',
@@ -407,10 +411,12 @@ export const theme: Theme = {
         specificity('meta.definition.function.body.swift', 'meta.function-call.swift'), // Unscoped Swift call arguments
         'meta.property-value.css',
         'variable.css',
+        'variable.interpolation.dotenv',
         'variable.name.odin',
         'variable.language.special', // $? (shell)
         'variable.other',
         'variable.parameter',
+        'variable.key.dotenv',
         'variable.key.table',
       ],
       settings: {

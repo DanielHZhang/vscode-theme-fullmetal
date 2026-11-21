@@ -1,0 +1,96 @@
+{
+  "scopeName": "fullmetal.dotenv.injection",
+  "injectionSelector": "L:source.dotenv - meta.assignment.dotenv",
+  "patterns": [
+    {
+      "match": "^[ \\t]*(#).*$",
+      "name": "comment.line.dotenv",
+      "captures": {
+        "1": {"name": "punctuation.definition.comment.dotenv"}
+      }
+    },
+    {
+      "begin": "^[ \\t]*(?:(export)[ \\t]+)?([\\w.-]+)[ \\t]*(=)[ \\t]*",
+      "end": "$",
+      "name": "meta.assignment.dotenv",
+      "contentName": "property.value.dotenv",
+      "beginCaptures": {
+        "1": {"name": "keyword.key.export.dotenv"},
+        "2": {"name": "variable.key.dotenv"},
+        "3": {"name": "keyword.operator.assignment.dotenv"}
+      },
+      "patterns": [
+        {"include": "#double-quoted-value"},
+        {"include": "#single-quoted-value"},
+        {
+          "match": "\\G(?i:true|false|null)(?=[ \\t]*(?:#|$))",
+          "name": "constant.language.dotenv"
+        },
+        {
+          "match": "\\G[+-]?(?:0[xX][0-9A-Fa-f]+|(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?)(?=[ \\t]*(?:#|$))",
+          "name": "constant.numeric.dotenv"
+        },
+        {
+          "match": "(#).*$",
+          "name": "comment.line.dotenv",
+          "captures": {
+            "1": {"name": "punctuation.definition.comment.dotenv"}
+          }
+        },
+        {
+          "match": "\\\\[\\\\$]",
+          "name": "constant.character.escape.dotenv"
+        },
+        {"include": "#interpolation"}
+      ]
+    }
+  ],
+  "repository": {
+    "double-quoted-value": {
+      "begin": "\\G\"",
+      "end": "\"",
+      "name": "string.quoted.double.dotenv",
+      "beginCaptures": {"0": {"name": "punctuation.definition.string.begin.dotenv"}},
+      "endCaptures": {"0": {"name": "punctuation.definition.string.end.dotenv"}},
+      "patterns": [
+        {
+          "match": "\\\\(?:[nrtfb\"'\\\\$]|u[0-9A-Fa-f]{4})",
+          "name": "constant.character.escape.dotenv"
+        },
+        {"include": "#interpolation"}
+      ]
+    },
+    "single-quoted-value": {
+      "begin": "\\G'",
+      "end": "'",
+      "name": "string.quoted.single.dotenv",
+      "beginCaptures": {"0": {"name": "punctuation.definition.string.begin.dotenv"}},
+      "endCaptures": {"0": {"name": "punctuation.definition.string.end.dotenv"}},
+      "patterns": [
+        {
+          "match": "\\\\['\\\\]",
+          "name": "constant.character.escape.dotenv"
+        }
+      ]
+    },
+    "interpolation": {
+      "patterns": [
+        {
+          "match": "(\\$\\{)([A-Za-z_][A-Za-z0-9_]*)(?::?[-+?][^{}#\"']*)?(\\})",
+          "captures": {
+            "1": {"name": "keyword.interpolation.begin.dotenv"},
+            "2": {"name": "variable.interpolation.dotenv"},
+            "3": {"name": "keyword.interpolation.end.dotenv"}
+          }
+        },
+        {
+          "match": "(\\$)([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": {"name": "keyword.interpolation.begin.dotenv"},
+            "2": {"name": "variable.interpolation.dotenv"}
+          }
+        }
+      ]
+    }
+  }
+}
