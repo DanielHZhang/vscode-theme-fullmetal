@@ -26,7 +26,10 @@
     "build/vscode/schema-names.js",
     "themes/fullmetal-theme-vscode.json",
     "assets/logo.png",
-    "license.md"
+    "license.md",
+    "build/product-icons/fullmetal-product-icon-theme.json",
+    "build/product-icons/fullmetal-fluent.woff",
+    "THIRD_PARTY_NOTICES.md"
   ],
   "type": "module",
   "main": "build/vscode/extension.js",
@@ -37,20 +40,30 @@
     "generate-theme": "node --experimental-strip-types src/scripts/generate-theme.ts",
     "release": "bash .github/scripts/dispatch-release.sh",
     "vscode:publish": "pnpm exec vsce package --no-dependencies",
-    "vscode:prepublish": "pnpm exec tsc --incremental false && pnpm run generate-theme",
+    "vscode:prepublish": "pnpm exec tsc --incremental false && pnpm run generate-theme && pnpm run generate-icons",
     "format": "oxfmt",
-    "lint": "oxlint --fix"
+    "lint": "oxlint --fix",
+    "generate-icons": "node src/scripts/generate-icons.ts",
+    "check-icons": "node src/scripts/generate-icons.ts --check",
+    "test-icons": "pnpm generate-icons && node --test src/scripts/icon-theme.test.ts src/scripts/generated-icons.test.ts src/scripts/icon-inventory.test.ts",
+    "update-icon-inventory": "node src/scripts/update-icon-inventory.ts",
+    "smoke-icons": "pnpm generate-icons && pnpm exec tsc --incremental false && node src/scripts/smoke-icons.ts",
+    "preview-icons": "pnpm generate-icons && node src/scripts/preview-icons.ts"
   },
   "devDependencies": {
+    "@fluentui/svg-icons": "1.1.345",
     "@types/node": "26.6.5",
     "@types/vscode": "1.140.0",
+    "@vscode/test-electron": "2.5.2",
     "@vscode/vsce": "4.1.0",
+    "fantasticon": "4.1.0",
     "json-schema-to-typescript-lite": "15.0.0",
     "oxfmt": "0.75.0",
     "oxlint": "1.88.0",
     "oxlint-tsgolint": "7.0.2005",
     "semver": "7.8.5",
-    "typescript": "7.0.2"
+    "typescript": "7.0.2",
+    "typescript-compiler": "npm:typescript@5.9.3"
   },
   "contributes": {
     "commands": [
@@ -65,6 +78,13 @@
         "label": "Fullmetal",
         "path": "./themes/fullmetal-theme-vscode.json",
         "uiTheme": "vs-dark"
+      }
+    ],
+    "productIconThemes": [
+      {
+        "id": "fullmetal-fluent",
+        "label": "Fullmetal Fluent",
+        "path": "./build/product-icons/fullmetal-product-icon-theme.json"
       }
     ]
   },

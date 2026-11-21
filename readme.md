@@ -2,6 +2,13 @@
 
 > A dark theme with vibrant and intuitive colors, crafted with alchemy.
 
+## Product Icons
+
+Fullmetal also includes **Fullmetal Fluent**, a product icon theme built from
+Microsoft's official Fluent System Icons. Choose it with **Preferences: Product
+Icon Theme**; no separate icon extension is required. Only the selected icon subset
+is packaged. See [the build, coverage, and update guide](docs/product-icons.md).
+
 ## Color Palette
 
 ## Screenshots
